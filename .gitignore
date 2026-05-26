@@ -1,0 +1,29 @@
+RGB/data/sunrgbd
+RGB/data/nyud2_trainvaltest
+RGB/savepath
+# Python缓存
+__pycache__/
+*.pyc
+
+# IDE配置
+.vscode/
+.idea/
+
+CPSC_RGB/
+*.pkl
+*.npy
+*.npz
+*.csv
+*.jpg
+*.png
+*.mp4
+*.avi
+*.zip
+*.rar
+
+# 模型权重
+*.pt
+*.pth
+*.onnx
+*.h5
+*.task
