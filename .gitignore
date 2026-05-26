@@ -1,6 +1,6 @@
-RGB/data/sunrgbd
-RGB/data/nyud2_trainvaltest
-RGB/savepath
+RGB_v1/data/sunrgbd
+RGB_v1/data/nyud2_trainvaltest
+RGB_v1/savepath
 # Python缓存
 __pycache__/
 *.pyc
