@@ -1,0 +1,67 @@
+INFO - 05/26/26 19:20:01 - 0:00:00 - audio_dim: 74
+                                     batch_sz: 32
+                                     bert_lr: 2e-05
+                                     bert_max_len: 50
+                                     bert_model_name: bert-base-uncased
+                                     conv_kernel_size: 3
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\CMU_v1\data\mosi.pkl
+                                     dataset: mosi
+                                     dropout: 0.3
+                                     freeze_bert: False
+                                     grad_clip: 1.0
+                                     hidden_sz: 64
+                                     lr: 0.001
+                                     lr_factor: 0.3
+                                     lr_patience: 5
+                                     max_epochs: 30
+                                     max_seq_len: 20
+                                     n_classes: 1
+                                     n_workers: 4
+                                     name: dml_mosi_seed0_lr0.001_blr2e-05
+                                     note: 
+                                     num_heads: 4
+                                     num_layers: 2
+                                     pool_strategy: default
+                                     savedir: e:\Paper_Experiment\DML\DML_v1\CMU_v1\savepath\mosi\dml_mosi_seed0_lr0.001_blr2e-05
+                                     seed: 0
+                                     text_hidden_sz: 768
+                                     vision_dim: 47
+INFO - 05/26/26 19:20:08 - 0:00:07 - Epoch 0 training started...
+INFO - 05/26/26 19:20:29 - 0:00:28 - Epoch 0: Total Loss: 8.4143
+INFO - 05/26/26 19:20:45 - 0:00:43 - Epoch 0: MAE: 1.2083 | Corr: 0.7032 | Acc7: 0.2029 | Acc2: 0.7206 | F1: 0.7187
+INFO - 05/26/26 19:20:46 - 0:00:44 -  *** NEW BEST CLEAN ACC2 *** Epoch 0 | Acc2: 0.7206
+INFO - 05/26/26 19:20:46 - 0:00:44 - Epoch 1 training started...
+INFO - 05/26/26 19:21:07 - 0:01:05 - Epoch 1: Total Loss: 6.1979
+INFO - 05/26/26 19:21:21 - 0:01:20 - Epoch 1: MAE: 1.0447 | Corr: 0.7113 | Acc7: 0.2599 | Acc2: 0.8122 | F1: 0.8036
+INFO - 05/26/26 19:21:22 - 0:01:21 -  *** NEW BEST CLEAN ACC2 *** Epoch 1 | Acc2: 0.8122
+INFO - 05/26/26 19:21:22 - 0:01:21 - Epoch 2 training started...
+INFO - 05/26/26 19:21:42 - 0:01:41 - Epoch 2: Total Loss: 5.1127
+INFO - 05/26/26 19:21:56 - 0:01:55 - Epoch 2: MAE: 1.3397 | Corr: 0.6627 | Acc7: 0.2219 | Acc2: 0.5527 | F1: 0.4945
+INFO - 05/26/26 19:21:56 - 0:01:55 - Epoch 3 training started...
+INFO - 05/26/26 19:22:16 - 0:02:14 - Epoch 3: Total Loss: 3.3782
+INFO - 05/26/26 19:22:30 - 0:02:28 - Epoch 3: MAE: 1.1444 | Corr: 0.6393 | Acc7: 0.2350 | Acc2: 0.7252 | F1: 0.7239
+INFO - 05/26/26 19:22:30 - 0:02:28 - Epoch 4 training started...
+INFO - 05/26/26 19:22:50 - 0:02:48 - Epoch 4: Total Loss: 2.3073
+INFO - 05/26/26 19:23:04 - 0:03:02 - Epoch 4: MAE: 1.1879 | Corr: 0.5685 | Acc7: 0.2394 | Acc2: 0.6855 | F1: 0.6832
+INFO - 05/26/26 19:23:04 - 0:03:02 - Epoch 5 training started...
+INFO - 05/26/26 19:23:23 - 0:03:22 - Epoch 5: Total Loss: 1.7698
+INFO - 05/26/26 19:23:37 - 0:03:36 - Epoch 5: MAE: 1.3038 | Corr: 0.5650 | Acc7: 0.2380 | Acc2: 0.5878 | F1: 0.5574
+INFO - 05/26/26 19:23:37 - 0:03:36 - Epoch 6 training started...
+INFO - 05/26/26 19:23:56 - 0:03:55 - Epoch 6: Total Loss: 1.3603
+INFO - 05/26/26 19:24:11 - 0:04:09 - Epoch 6: MAE: 1.1524 | Corr: 0.5775 | Acc7: 0.2453 | Acc2: 0.7130 | F1: 0.7126
+INFO - 05/26/26 19:24:11 - 0:04:09 - Epoch 7 training started...
+INFO - 05/26/26 19:24:30 - 0:04:29 - Epoch 7: Total Loss: 1.2076
+INFO - 05/26/26 19:24:44 - 0:04:43 - Epoch 7: MAE: 1.2287 | Corr: 0.5576 | Acc7: 0.2555 | Acc2: 0.6489 | F1: 0.6395
+INFO - 05/26/26 19:24:44 - 0:04:43 - Epoch 8 training started...
+INFO - 05/26/26 19:25:04 - 0:05:02 - Epoch 8: Total Loss: 0.8278
+INFO - 05/26/26 19:25:18 - 0:05:16 - Epoch 8: MAE: 1.1721 | Corr: 0.5424 | Acc7: 0.2423 | Acc2: 0.7053 | F1: 0.7062
+INFO - 05/26/26 19:25:18 - 0:05:16 - Epoch 9 training started...
+INFO - 05/26/26 19:25:37 - 0:05:36 - Epoch 9: Total Loss: 0.6303
+INFO - 05/26/26 19:25:51 - 0:05:50 - Epoch 9: MAE: 1.1851 | Corr: 0.5217 | Acc7: 0.2423 | Acc2: 0.6901 | F1: 0.6905
+INFO - 05/26/26 19:25:51 - 0:05:50 - Epoch 10 training started...
+INFO - 05/26/26 19:26:11 - 0:06:10 - Epoch 10: Total Loss: 0.5128
+INFO - 05/26/26 19:26:25 - 0:06:24 - Epoch 10: MAE: 1.1768 | Corr: 0.5278 | Acc7: 0.2409 | Acc2: 0.6977 | F1: 0.6990
+INFO - 05/26/26 19:26:25 - 0:06:24 - Epoch 11 training started...
+INFO - 05/26/26 19:26:45 - 0:06:44 - Epoch 11: Total Loss: 0.4732
+INFO - 05/26/26 19:27:00 - 0:06:58 - Epoch 11: MAE: 1.1948 | Corr: 0.5297 | Acc7: 0.2438 | Acc2: 0.6824 | F1: 0.6824
+INFO - 05/26/26 19:27:00 - 0:06:58 - Epoch 12 training started...

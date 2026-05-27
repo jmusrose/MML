@@ -158,6 +158,7 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
       ``f'Epoch {epoch}: Total Loss: {loss:.4f}'``（Requirement 6.4）。
     """
     model.train()
+    #sadasd
     tl = Averager()
     criterion = nn.CrossEntropyLoss().cuda()
 
