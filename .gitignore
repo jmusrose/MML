@@ -20,7 +20,7 @@ CPSC_RGB/
 *.avi
 *.zip
 *.rar
-
+*.txt
 # 模型权重
 *.pt
 *.pth

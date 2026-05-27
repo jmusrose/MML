@@ -1,0 +1,37 @@
+2026-05-27 13:01:25 | INFO | Starting MOSI training
+2026-05-27 13:04:36 | INFO | Starting MOSI training
+2026-05-27 13:25:49 | INFO | Starting MOSI training
+2026-05-27 13:26:26 | INFO | Epoch 0: loss=4.9233 | dev_acc2=0.8241 | dev_mae=1.1489 | dev_corr=0.7019
+2026-05-27 13:33:22 | INFO | Starting MOSI training
+2026-05-27 13:33:55 | INFO | Epoch 0: loss=4.9233 | dev_acc2=0.8241 | dev_acc7=0.2620 | dev_mae=1.1489 | dev_corr=0.7019
+2026-05-27 13:34:23 | INFO | Epoch 1: loss=4.3874 | dev_acc2=0.8426 | dev_acc7=0.2664 | dev_mae=1.0878 | dev_corr=0.7442
+2026-05-27 13:34:50 | INFO | Epoch 2: loss=4.1077 | dev_acc2=0.8194 | dev_acc7=0.2795 | dev_mae=1.0732 | dev_corr=0.7692
+2026-05-27 13:35:17 | INFO | Epoch 3: loss=4.0421 | dev_acc2=0.8380 | dev_acc7=0.2882 | dev_mae=1.0706 | dev_corr=0.7763
+2026-05-27 13:35:43 | INFO | Epoch 4: loss=3.9177 | dev_acc2=0.8333 | dev_acc7=0.2969 | dev_mae=1.0414 | dev_corr=0.7770
+2026-05-27 13:36:10 | INFO | Epoch 5: loss=3.8173 | dev_acc2=0.8472 | dev_acc7=0.2926 | dev_mae=1.0280 | dev_corr=0.7923
+2026-05-27 13:36:37 | INFO | Epoch 6: loss=3.6985 | dev_acc2=0.8380 | dev_acc7=0.3013 | dev_mae=1.0544 | dev_corr=0.7742
+2026-05-27 13:37:03 | INFO | Epoch 7: loss=3.6557 | dev_acc2=0.8287 | dev_acc7=0.2882 | dev_mae=1.0491 | dev_corr=0.7742
+2026-05-27 13:37:30 | INFO | Epoch 8: loss=3.5655 | dev_acc2=0.8519 | dev_acc7=0.3057 | dev_mae=1.0432 | dev_corr=0.7645
+2026-05-27 13:37:57 | INFO | Epoch 9: loss=3.4046 | dev_acc2=0.8426 | dev_acc7=0.2882 | dev_mae=1.0836 | dev_corr=0.7502
+2026-05-27 13:38:24 | INFO | Epoch 10: loss=3.3552 | dev_acc2=0.8056 | dev_acc7=0.2838 | dev_mae=1.0685 | dev_corr=0.7452
+2026-05-27 13:38:50 | INFO | Epoch 11: loss=3.2917 | dev_acc2=0.8287 | dev_acc7=0.2838 | dev_mae=1.0529 | dev_corr=0.7298
+2026-05-27 13:39:16 | INFO | Epoch 12: loss=3.1213 | dev_acc2=0.8241 | dev_acc7=0.2751 | dev_mae=1.0758 | dev_corr=0.7168
+2026-05-27 13:39:43 | INFO | Epoch 13: loss=3.0924 | dev_acc2=0.8194 | dev_acc7=0.2795 | dev_mae=1.0724 | dev_corr=0.7013
+2026-05-27 13:40:09 | INFO | Epoch 14: loss=2.9789 | dev_acc2=0.8194 | dev_acc7=0.2795 | dev_mae=1.0762 | dev_corr=0.6847
+2026-05-27 13:40:36 | INFO | Epoch 15: loss=2.8525 | dev_acc2=0.8148 | dev_acc7=0.2795 | dev_mae=1.0839 | dev_corr=0.6764
+2026-05-27 13:41:02 | INFO | Epoch 16: loss=2.7683 | dev_acc2=0.8148 | dev_acc7=0.2882 | dev_mae=1.0897 | dev_corr=0.6667
+2026-05-27 13:41:28 | INFO | Epoch 17: loss=2.7410 | dev_acc2=0.8056 | dev_acc7=0.2926 | dev_mae=1.0950 | dev_corr=0.6596
+2026-05-27 13:41:55 | INFO | Epoch 18: loss=2.7113 | dev_acc2=0.7963 | dev_acc7=0.2795 | dev_mae=1.0956 | dev_corr=0.6572
+2026-05-27 13:42:21 | INFO | Epoch 19: loss=2.7220 | dev_acc2=0.7963 | dev_acc7=0.2751 | dev_mae=1.1018 | dev_corr=0.6471
+2026-05-27 13:42:47 | INFO | Epoch 20: loss=2.6690 | dev_acc2=0.7963 | dev_acc7=0.2795 | dev_mae=1.0944 | dev_corr=0.6449
+2026-05-27 13:43:13 | INFO | Epoch 21: loss=2.6209 | dev_acc2=0.7963 | dev_acc7=0.2795 | dev_mae=1.0959 | dev_corr=0.6427
+2026-05-27 13:43:40 | INFO | Epoch 22: loss=2.6431 | dev_acc2=0.7963 | dev_acc7=0.2751 | dev_mae=1.1001 | dev_corr=0.6401
+2026-05-27 13:44:06 | INFO | Epoch 23: loss=2.5900 | dev_acc2=0.7963 | dev_acc7=0.2707 | dev_mae=1.0990 | dev_corr=0.6399
+2026-05-27 13:44:32 | INFO | Epoch 24: loss=2.5715 | dev_acc2=0.7870 | dev_acc7=0.2751 | dev_mae=1.1016 | dev_corr=0.6362
+2026-05-27 13:44:59 | INFO | Epoch 25: loss=2.5635 | dev_acc2=0.7917 | dev_acc7=0.2707 | dev_mae=1.1003 | dev_corr=0.6374
+2026-05-27 13:45:25 | INFO | Epoch 26: loss=2.6182 | dev_acc2=0.7917 | dev_acc7=0.2751 | dev_mae=1.1015 | dev_corr=0.6367
+2026-05-27 13:45:51 | INFO | Epoch 27: loss=2.6561 | dev_acc2=0.8009 | dev_acc7=0.2751 | dev_mae=1.1040 | dev_corr=0.6346
+2026-05-27 13:46:18 | INFO | Epoch 28: loss=2.5552 | dev_acc2=0.7917 | dev_acc7=0.2707 | dev_mae=1.1041 | dev_corr=0.6344
+2026-05-27 13:46:44 | INFO | Epoch 29: loss=2.6723 | dev_acc2=0.7963 | dev_acc7=0.2664 | dev_mae=1.1015 | dev_corr=0.6356
+2026-05-27 13:46:55 | INFO | Final test metrics: {'mae': 1.0967558916134719, 'corr': 0.7356315192135895, 'acc7': 0.2291970802919708, 'acc2': 0.8137404580152672, 'f1': 0.7925170068027212}
+2026-05-27 13:46:55 | INFO | Saved final results to e:\Paper_Experiment\DML\DML_v1\CMU_simple_v1\savepath\mosi\cmu_simple_mosi_seed0_lr0.0001_blr2e-05\final_results.json
