@@ -43,7 +43,10 @@ def get_args(parser):
         help="Pre-trained BERT model name or path",
     )
     parser.add_argument(
-        "--data_path", type=str, default="./datasets", help="Dataset root directory"
+        "--data_path",
+        type=str,
+        default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "datasets"),
+        help="Dataset root directory",
     )
     parser.add_argument(
         "--drop_img_percent",
@@ -114,7 +117,10 @@ def get_args(parser):
         "--patience", type=int, default=15, help="Early stopping patience"
     )
     parser.add_argument(
-        "--savedir", type=str, default="./checkpoint", help="Save directory"
+        "--savedir",
+        type=str,
+        default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "savepath"),
+        help="Save directory",
     )
     parser.add_argument("--seed", type=int, default=1, help="Random seed")
     parser.add_argument(
