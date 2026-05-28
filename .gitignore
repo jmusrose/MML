@@ -21,6 +21,7 @@ CPSC_RGB/
 *.zip
 *.rar
 *.txt
+*.wav
 # 模型权重
 *.pt
 *.pth
