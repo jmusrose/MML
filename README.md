@@ -36,3 +36,27 @@ Each training run writes its own artifacts under the dataset project's save dire
 - `all_experiments.json`: append-only summary of runs for the dataset.
 
 Configuration is kept per project instead of using a shared framework. RGB, CMU, Food, and MVSA use Python CLI arguments; CREMAD uses its JSON/config dictionary path consistently.
+
+## Run Projects Sequentially
+
+Use `run_all_projects.bat` from the repository root to run the implemented project entrypoints in this order: `CREMAD_v1`, `Food_v1`, `MVSA`, `RGB_v1` NYU, and `RGB_v1` SUN.
+
+Preview commands without starting training:
+
+```bat
+run_all_projects.bat --dry-run
+```
+
+Start the full sequence with the default PyTorch 2.5 environment:
+
+```bat
+run_all_projects.bat
+```
+
+Use another Python executable when needed:
+
+```bat
+run_all_projects.bat --python E:\anaconda3\envs\pytorch2.5\python.exe
+```
+
+The PowerShell version, `run_all_projects.ps1`, is also kept for users who prefer PowerShell and need per-project argument arrays.
