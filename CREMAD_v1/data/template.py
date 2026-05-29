@@ -25,6 +25,9 @@ config = dict(
         epoch_dict=100,
         batch_size=64,
         num_workers=8,
+        val_size=16,
+        val_batch_size=16,
+        val_num_workers=8,
         shuffle=True,
         optimizer=dict(
             type='SGD',
@@ -45,6 +48,11 @@ config = dict(
         type='CREMA Classification',
         num_class=6,
     ),
+    experiment=dict(
+        name='',
+        note='',
+    ),
+    save_dir='',
     output_dir='.',
     seed=0,
     fps=3,

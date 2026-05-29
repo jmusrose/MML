@@ -11,6 +11,7 @@ Training loss: CE(fused, target) + CE(text, target) + CE(image, target)
 import argparse
 import json
 import os
+from datetime import datetime
 
 import numpy as np
 from sklearn.metrics import accuracy_score
@@ -25,6 +26,7 @@ from models.dml_classifier import Classifier
 from utils.logger import create_logger
 from utils.utils import (
     Averager,
+    append_experiment_record,
     load_checkpoint,
     log_metrics,
     save_checkpoint,
@@ -95,6 +97,12 @@ def get_args(parser):
     )
     parser.add_argument("--n_workers", type=int, default=4, help="DataLoader workers")
     parser.add_argument("--name", type=str, default="dml_mvsa", help="Experiment name")
+    parser.add_argument(
+        "--note",
+        type=str,
+        default="",
+        help="Experiment note appended to all_experiments.json",
+    )
     parser.add_argument(
         "--noise_level",
         type=float,
@@ -275,7 +283,7 @@ def main():
     optimizer = get_optimizer(model, args)
     scheduler = get_scheduler(optimizer, args)
 
-    logger = create_logger(os.path.join(args.savedir, "logfile.log"), args)
+    logger = create_logger(os.path.join(args.savedir, "training.log"), args)
     torch.save(args, os.path.join(args.savedir, "args.pt"))
 
     # Training loop
@@ -311,6 +319,7 @@ def main():
                 },
                 is_improvement,
                 args.savedir,
+                filename="model_best_clean.pt",
             )
         else:
             n_no_improve += 1
@@ -323,7 +332,7 @@ def main():
 
     # Load best model for robustness evaluation
     logger.info("Loading best model for final robust evaluation...")
-    model_path = os.path.join(args.savedir, "model_best.pt")
+    model_path = os.path.join(args.savedir, "model_best_clean.pt")
     if os.path.exists(model_path):
         load_checkpoint(model, model_path)
     model.eval()
@@ -369,16 +378,36 @@ def main():
 
     # Save results JSON
     result_file = os.path.join(args.savedir, "final_results.json")
-    with open(result_file, "w") as f:
+    with open(result_file, "w", encoding="utf-8") as f:
         json.dump(
             {
-                "best_clean_model": {"clean_acc": final_results["Clean Test"]},
+                "best_clean_model": {
+                    "clean_acc": float(final_results["Clean Test"])
+                },
                 "robustness": final_results,
             },
             f,
             indent=4,
+            ensure_ascii=False,
         )
     logger.info(f"Saved final results to {result_file}")
+
+    summary_path = os.path.join(os.path.dirname(args.savedir), "all_experiments.json")
+    record = {
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "dataset": "mvsa",
+        "name": args.name,
+        "note": args.note,
+        "seed": args.seed,
+        "lr": args.lr,
+        "batch_sz": args.batch_sz,
+        "max_epochs": args.max_epochs,
+        "best_clean_acc": float(final_results["Clean Test"]),
+        "robustness": final_results,
+        "savedir": args.savedir,
+    }
+    append_experiment_record(summary_path, record)
+    logger.info(f"Appended experiment record to {summary_path}")
 
 
 if __name__ == "__main__":

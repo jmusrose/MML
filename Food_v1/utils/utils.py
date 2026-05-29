@@ -9,11 +9,16 @@ import random
 import shutil
 
 import numpy as np
-import torch
+try:
+    import torch
+except ModuleNotFoundError:
+    torch = None
 
 
 def set_seed(seed):
     """Set random seed for reproducibility across all libraries."""
+    if torch is None:
+        raise RuntimeError("torch is required for set_seed")
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -25,6 +30,8 @@ def set_seed(seed):
 
 def save_checkpoint(state, is_best, checkpoint_path, filename="checkpoint.pt"):
     """Save model checkpoint and optionally copy as best model."""
+    if torch is None:
+        raise RuntimeError("torch is required for save_checkpoint")
     filename = os.path.join(checkpoint_path, filename)
     torch.save(state, filename)
     if is_best:
@@ -33,6 +40,8 @@ def save_checkpoint(state, is_best, checkpoint_path, filename="checkpoint.pt"):
 
 def load_checkpoint(model, path):
     """Load model state dict from checkpoint file."""
+    if torch is None:
+        raise RuntimeError("torch is required for load_checkpoint")
     best_checkpoint = torch.load(path, map_location="cpu")
     model.load_state_dict(best_checkpoint["state_dict"])
 
@@ -73,3 +82,33 @@ def log_metrics(set_name, metrics, args, logger):
             set_name, metrics["loss"], metrics["acc"]
         )
     )
+
+
+def append_experiment_record(summary_path: str, record: dict) -> None:
+    """Append one experiment record to a JSON-array summary file."""
+    import time
+
+    os.makedirs(os.path.dirname(summary_path), exist_ok=True)
+
+    records = []
+    if os.path.isfile(summary_path):
+        try:
+            with open(summary_path, "r", encoding="utf-8") as f:
+                loaded = json.load(f)
+            if isinstance(loaded, list):
+                records = loaded
+            else:
+                raise ValueError(f"Existing summary is not a list: {type(loaded).__name__}")
+        except Exception as exc:
+            ts = time.strftime("%Y%m%d-%H%M%S")
+            backup = f"{summary_path}.corrupt-{ts}.bak"
+            shutil.copyfile(summary_path, backup)
+            print(
+                f"[append_experiment_record] {summary_path} unreadable ({exc}); "
+                f"backed up to {backup}, reinitializing."
+            )
+
+    records.append(record)
+
+    with open(summary_path, "w", encoding="utf-8") as f:
+        json.dump(records, f, indent=4, ensure_ascii=False)

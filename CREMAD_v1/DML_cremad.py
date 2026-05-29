@@ -32,6 +32,7 @@ import json
 import numpy as np
 import argparse
 import random
+from datetime import datetime
 from sklearn.metrics import f1_score, average_precision_score
 
 from data.template import config
@@ -41,6 +42,7 @@ from model.DMLClassifier import DMLClassifier
 from utils.utils import (
     create_logger,
     Averager,
+    append_experiment_record,
     deep_update_dict,
 )
 from utils.tools import weight_init, compute_mAP, setup_seed
@@ -192,11 +194,26 @@ if __name__ == '__main__':
     if cfg.get('output_dir', '.') in ('.', './', ''):
         cfg['output_dir'] = SCRIPT_DIR
 
+    exp_cfg = cfg.setdefault('experiment', {})
+    lr = cfg['train']['optimizer']['lr']
+    exp_name = exp_cfg.get('name') or f"dml_cremad_seed{cfg['seed']}_lr{lr}"
+    exp_cfg['name'] = exp_name
+    save_root = cfg.get('save_dir') or os.path.join(
+        cfg.get('output_dir', SCRIPT_DIR),
+        'savepath',
+        cfg['dataset']['dataset_name'],
+    )
+    cfg['save_dir'] = save_root
+    savedir = os.path.join(save_root, exp_name)
+    cfg['run_dir'] = savedir
+    cfg['log_name'] = "training.log"
+    os.makedirs(savedir, exist_ok=True)
+
     # ----- SET SEED -----
     setup_seed(cfg['seed'])
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
-    os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(cfg.get("gpu_id", 0))
 
     # ----- SET LOGGER -----
     local_rank = cfg['train'].get('local_rank', 0)
@@ -208,7 +225,7 @@ if __name__ == '__main__':
 
     num_samples = len(train_dataset)
 
-    val_indices = torch.randperm(num_samples)[:16]
+    val_indices = torch.randperm(num_samples)[:cfg['train']['val_size']]
     val_dataset = Subset(train_dataset, val_indices)
 
     train_indices = torch.tensor([i for i in range(num_samples) if i not in val_indices.tolist()])
@@ -226,9 +243,9 @@ if __name__ == '__main__':
 
     val_loader = DataLoader(
         dataset=val_dataset,
-        batch_size=16,
+        batch_size=cfg['train']['val_batch_size'],
         shuffle=False,
-        num_workers=8,
+        num_workers=cfg['train']['val_num_workers'],
         pin_memory=True
     )
 
@@ -260,9 +277,6 @@ if __name__ == '__main__':
     )
 
     # ----- TRAINING LOOP -----
-    savedir = os.path.join(cfg.get('output_dir', '.'), cfg['dataset']['dataset_name'], 'checkpoints')
-    os.makedirs(savedir, exist_ok=True)
-
     for epoch in range(cfg['train']['epoch_dict']):
         logger.info(f'Epoch {epoch} is pending...')
         model = train_audio_video(epoch, train_loader, model, optimizer, logger)
@@ -270,7 +284,7 @@ if __name__ == '__main__':
 
         # Save best model
         if acc >= best_acc and acc > 0:
-            save_path = os.path.join(savedir, 'model_best.pt')
+            save_path = os.path.join(savedir, 'model_best_clean.pt')
             torch.save(model.state_dict(), save_path)
             logger.info(f'Model saved to {save_path}')
 
@@ -284,7 +298,7 @@ if __name__ == '__main__':
 
     # ----- ROBUSTNESS EVALUATION -----
     logger.info("Loading best model for robustness evaluation...")
-    best_ckpt_path = os.path.join(savedir, 'model_best.pt')
+    best_ckpt_path = os.path.join(savedir, 'model_best_clean.pt')
 
     eval_model = DMLClassifier(config=cfg).cuda()
     if os.path.isfile(best_ckpt_path):
@@ -364,5 +378,24 @@ if __name__ == '__main__':
             },
             f,
             indent=4,
+            ensure_ascii=False,
         )
     logger.info(f"Saved final results to {result_file}")
+
+    summary_path = os.path.join(os.path.dirname(savedir), "all_experiments.json")
+    record = {
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "dataset": cfg['dataset']['dataset_name'],
+        "name": exp_cfg['name'],
+        "note": exp_cfg.get('note', ''),
+        "seed": cfg['seed'],
+        "lr": cfg['train']['optimizer']['lr'],
+        "batch_sz": cfg['train']['batch_size'],
+        "max_epochs": cfg['train']['epoch_dict'],
+        "best_clean_epoch": int(best_epoch),
+        "best_clean_acc": float(final_results.get("Clean Test", 0.0)),
+        "robustness": final_results,
+        "savedir": savedir,
+    }
+    append_experiment_record(summary_path, record)
+    logger.info(f"Appended experiment record to {summary_path}")

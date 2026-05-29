@@ -10,8 +10,12 @@ from argparse import Namespace
 
 import numpy as np
 import pytest
-import torch
 from PIL import Image
+
+try:
+    import torch
+except ModuleNotFoundError:
+    torch = None
 
 # Add project root to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -98,4 +102,6 @@ def mock_args_with_dummy_data(mock_args, dummy_dataset_dir):
 @pytest.fixture
 def device():
     """Return available device."""
+    if torch is None:
+        pytest.skip("torch is not installed in this environment")
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")

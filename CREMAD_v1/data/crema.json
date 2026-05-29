@@ -16,6 +16,9 @@
         "epoch_dict": 100,
         "batch_size": 32,
         "num_workers": 8,
+        "val_size": 16,
+        "val_batch_size": 16,
+        "val_num_workers": 8,
         "optimizer": {
             "type": "SGD",
             "momentum": 0.9,
@@ -30,6 +33,11 @@
         "batch_size": 32,
         "num_workers": 8
     },
+    "experiment": {
+        "name": "",
+        "note": ""
+    },
+    "save_dir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D",
     "setting": {
         "type": "CREMA Classification",
         "num_class": 6

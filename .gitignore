@@ -13,7 +13,7 @@ CPSC_RGB/
 *.pkl
 *.npy
 *.npz
-*.csv
+# *.csv
 *.jpg
 *.png
 *.mp4

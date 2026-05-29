@@ -10,7 +10,10 @@ import tempfile
 from argparse import Namespace
 
 import pytest
-import torch
+try:
+    import torch
+except ModuleNotFoundError:
+    torch = None
 
 # Add project root to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -69,4 +72,6 @@ def sample_jsonl_file(tmp_path):
 @pytest.fixture
 def device():
     """Return available device."""
+    if torch is None:
+        pytest.skip("torch is not installed in this environment")
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")

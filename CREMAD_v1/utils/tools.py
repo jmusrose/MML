@@ -1,5 +1,9 @@
-import torch
-import torch.nn as nn
+try:
+    import torch
+    import torch.nn as nn
+except ModuleNotFoundError:
+    torch = None
+    nn = None
 import numpy as np
 import random
 
@@ -16,6 +20,8 @@ def compute_mAP(outputs, labels):
 
 
 def setup_seed(seed):
+    if torch is None:
+        raise RuntimeError("torch is required for setup_seed")
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
     np.random.seed(seed)
@@ -24,6 +30,8 @@ def setup_seed(seed):
 
 
 def weight_init(m):
+    if nn is None:
+        raise RuntimeError("torch is required for weight_init")
     if isinstance(m, nn.Linear):
         nn.init.xavier_normal_(m.weight)
         nn.init.constant_(m.bias, 0)
