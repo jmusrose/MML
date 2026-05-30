@@ -16,13 +16,13 @@ This repository contains DML multimodal learning experiments adapted to multiple
 
 | Dataset | Decision Fusion | Logit Fusion + Information Bottleneck | Logit Fusion + Conformal Prediction | Logit Fusion + Information Bottleneck + Conformal Prediction |
 | --- | --- | --- | --- | --- |
-| NYU Depth V2 | ✓ |  |  |  |
-| SUN RGB-D | ✓ |  |  |  |
+| NYU Depth V2 | ✓ | ✓ |  |  |
+| SUN RGB-D | ✓ | ✓ |  |  |
 | CMU-MOSI | ✓ |  |  |  |
 | CMU-MOSEI | ✓ |  |  |  |
 | CREMA-D | ✓ |  |  |  |
 | Food-101 | ✓ |  |  |  |
-| MVSA-Single | ✓ |  |  |  |
+| MVSA-Single | ✓ | ✓ |  |  |
 
 `✓` means the dataset currently has that training/evaluation variant implemented. Empty cells are planned or not yet implemented.
 
