@@ -1,0 +1,49 @@
+{
+    "dataset": {
+        "dataset_name": "CREMA-D",
+        "data_root": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v1"
+    },
+    "visual": {
+        "name": "resnet18"
+    },
+    "text": {
+        "name": "resnet18"
+    },
+    "loss": {
+        "type": "CrossEntropy"
+    },
+    "train": {
+        "epoch_dict": 100,
+        "batch_size": 32,
+        "num_workers": 0,
+        "val_size": 16,
+        "val_batch_size": 16,
+        "val_num_workers": 0,
+        "optimizer": {
+            "type": "SGD",
+            "momentum": 0.9,
+            "lr": 0.01,
+            "wc": 1e-4
+        },
+        "lr_scheduler": {
+            "patience": 70
+        }
+    },
+    "test": {
+        "batch_size": 32,
+        "num_workers": 0
+    },
+    "experiment": {
+        "name": "",
+        "note": ""
+    },
+    "save_dir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D",
+    "setting": {
+        "type": "CREMA Classification",
+        "num_class": 6
+    },
+    "seed": 0,
+    "fps": 3,
+    "ib_beta": 1e-3,
+    "ib_eps_scale": 1.0
+}
