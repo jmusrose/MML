@@ -15,10 +15,10 @@
     "train": {
         "epoch_dict": 100,
         "batch_size": 32,
-        "num_workers": 8,
+        "num_workers": 0,
         "val_size": 16,
         "val_batch_size": 16,
-        "val_num_workers": 8,
+        "val_num_workers": 0,
         "optimizer": {
             "type": "SGD",
             "momentum": 0.9,
@@ -31,7 +31,7 @@
     },
     "test": {
         "batch_size": 32,
-        "num_workers": 8
+        "num_workers": 0
     },
     "experiment": {
         "name": "",

@@ -10,7 +10,7 @@ This repository contains DML multimodal learning experiments adapted to multiple
 | `CMU_v1` | CMU-MOSI, CMU-MOSEI |
 | `CREMAD_v1` | CREMA-D |
 | `Food_v1` | UPMC Food-101 |
-| `MVSA` | MVSA-Single |
+| `MVSA_v1` | MVSA-Single |
 
 ## Feature Matrix
 
@@ -35,11 +35,11 @@ Each training run writes its own artifacts under the dataset project's save dire
 - `final_results.json`: final clean and noisy/robustness results for the run.
 - `all_experiments.json`: append-only summary of runs for the dataset.
 
-Configuration is kept per project instead of using a shared framework. RGB, CMU, Food, and MVSA use Python CLI arguments; CREMAD uses its JSON/config dictionary path consistently.
+Configuration is kept per project instead of using a shared framework. RGB, CMU, Food, and MVSA_v1 use Python CLI arguments; CREMAD uses its JSON/config dictionary path consistently.
 
 ## Run Projects Sequentially
 
-Use `run_all_projects.bat` from the repository root to run the implemented project entrypoints in this order: `CREMAD_v1`, `Food_v1`, `MVSA`, `RGB_v1` NYU, and `RGB_v1` SUN.
+Use `run_all_projects.bat` from the repository root to run the implemented project entrypoints in this order: `RGB_v1` NYU, `RGB_v1` SUN, `MVSA_v1`, `Food_v1`, and `CREMAD_v1`.
 
 Preview commands without starting training:
 

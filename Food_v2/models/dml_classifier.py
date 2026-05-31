@@ -3,6 +3,7 @@
 DML Multimodal Classifier for Food-101 classification.
 
 Decision-level fusion: 0.5 * text_logits + 0.5 * image_logits.
+Text and image heads include information bottlenecks.
 """
 
 import torch.nn as nn
@@ -39,12 +40,14 @@ class Classifier(nn.Module):
             fused_logits: 0.5 * txt_logits + 0.5 * img_logits [B, n_classes]
             txt_logits: text branch output [B, n_classes]
             img_logits: image branch output [B, n_classes]
-            txt_features: BERT CLS features [B, 768]
-            img_features: flattened image features [B, img_hidden_sz * num_embeds]
+            txt_latent: sampled text logits [B, n_classes]
+            img_latent: sampled image logits [B, n_classes]
+            ib_loss: KL(text) + KL(image)
         """
-        txt_logits, txt_features = self.txtclf(txt, mask, segment)
-        img_logits, img_features = self.imgclf(img)
+        txt_logits, _, txt_ib_loss = self.txtclf(txt, mask, segment)
+        img_logits, _, img_ib_loss = self.imgclf(img)
 
         fused_logits = 0.5 * txt_logits + 0.5 * img_logits
+        ib_loss = txt_ib_loss + img_ib_loss
 
-        return fused_logits, txt_logits, img_logits, txt_features, img_features
+        return fused_logits, txt_logits, img_logits, txt_logits, img_logits, ib_loss

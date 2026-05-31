@@ -12,3 +12,21 @@ def test_food_entrypoint_uses_rgb_style_result_outputs():
     assert "model_best_clean.pt" in source
     assert "training.log" in source
     assert "--note" in source
+
+
+def test_food_entrypoint_uses_readable_training_efficiency_defaults():
+    source = Path("DML_Food.py").read_text(encoding="utf-8")
+
+    assert 'parser.add_argument("--batch_sz", type=int, default=32' in source
+    assert "get_test_loader" in source
+    assert "current_test_loader = get_test_loader(args)" in source
+
+
+def test_food_entrypoint_uses_information_bottleneck_training():
+    source = Path("DML_Food.py").read_text(encoding="utf-8")
+
+    assert "--ib_beta" in source
+    assert "--ib_eps_scale" in source
+    assert "information_bottleneck_classification_loss" in source
+    assert '"ib_beta": args.ib_beta' in source
+    assert '"ib_eps_scale": args.ib_eps_scale' in source

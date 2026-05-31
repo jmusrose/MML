@@ -35,6 +35,8 @@ def mock_args():
         img_embed_pool_type="avg",
         img_hidden_sz=2048,
         lr=3e-5,
+        ib_beta=1e-3,
+        ib_eps_scale=1.0,
         lr_factor=0.5,
         lr_patience=2,
         max_epochs=50,

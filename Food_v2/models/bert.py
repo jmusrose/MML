@@ -3,6 +3,7 @@
 BERT text encoder using HuggingFace transformers library.
 """
 
+import torch
 import torch.nn as nn
 from transformers import BertModel
 
@@ -29,18 +30,33 @@ class BertEncoder(nn.Module):
 
 
 class BertClf(nn.Module):
-    """BERT classifier: BertEncoder + Linear head.
-
-    Maps CLS pooled output (768-dim) to n_classes logits.
-    """
+    """BERT classifier with an information bottleneck head."""
 
     def __init__(self, args):
         super(BertClf, self).__init__()
         self.args = args
         self.enc = BertEncoder(args)
-        self.clf = nn.Linear(args.hidden_sz, args.n_classes)
+        self.ib_eps_scale = getattr(args, "ib_eps_scale", 1.0)
+        self.mu = nn.Linear(args.hidden_sz, args.n_classes)
+        self.logvar = nn.Linear(args.hidden_sz, args.n_classes)
+
+    def _sample_logits(self, mu, logvar):
+        if not self.training or self.ib_eps_scale == 0:
+            return mu
+        std = torch.exp(0.5 * logvar)
+        eps = torch.randn_like(std)
+        return mu + self.ib_eps_scale * eps * std
+
+    @staticmethod
+    def _kl_to_standard_normal(mu, logvar):
+        kl = -0.5 * (1 + logvar - mu.pow(2) - logvar.exp())
+        return kl.sum(dim=1).mean()
 
     def forward(self, txt, mask, segment):
-        """Returns (logits [B, n_classes], features [B, 768])"""
+        """Returns (sampled_logits, features, kl_loss)."""
         x = self.enc(txt, mask, segment)
-        return self.clf(x), x
+        mu = self.mu(x)
+        logvar = self.logvar(x)
+        logits = self._sample_logits(mu, logvar)
+        ib_loss = self._kl_to_standard_normal(mu, logvar)
+        return logits, x, ib_loss

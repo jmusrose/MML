@@ -190,3 +190,36 @@ def get_data_loaders(args):
     test_loaders = {"test": test_loader}
 
     return train_loader, val_loader, test_loaders
+
+
+def get_test_loader(args):
+    """Build only the Food-101 test loader for the current noise settings."""
+    tokenizer = BertTokenizer.from_pretrained(
+        args.bert_model, do_lower_case=True
+    ).tokenize
+
+    vocab = get_vocab(args)
+    args.vocab = vocab
+    args.vocab_sz = vocab.vocab_sz
+
+    classes = get_food101_classes(args.data_path)
+    args.labels = classes
+    args.n_classes = len(classes)
+
+    test_transforms = get_transforms()
+    if args.noise_level > 0.0 and args.noise_type == "Gaussian":
+        test_transforms = get_gaussian_noise_transforms(args.noise_level)
+    elif args.noise_level > 0.0 and args.noise_type == "Salt":
+        test_transforms = get_salt_noise_transforms(args.noise_level)
+
+    test_dataset = Food101Dataset(
+        args.data_path, "test", tokenizer, test_transforms, "test", vocab, args
+    )
+
+    return DataLoader(
+        test_dataset,
+        batch_size=args.batch_sz,
+        shuffle=False,
+        num_workers=args.n_workers,
+        collate_fn=functools.partial(collate_fn, args=args),
+    )

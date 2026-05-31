@@ -50,22 +50,38 @@ class ImageEncoder(nn.Module):
 
 
 class ImageClf(nn.Module):
-    """Image classifier: ImageEncoder + Linear head.
-
-    Flattens the encoder output and maps to n_classes logits.
-    """
+    """Image classifier with an information bottleneck head."""
 
     def __init__(self, args):
         super(ImageClf, self).__init__()
         self.args = args
         self.img_encoder = ImageEncoder(args)
-        self.clf = nn.Linear(
+        self.ib_eps_scale = getattr(args, "ib_eps_scale", 1.0)
+        self.mu = nn.Linear(
+            args.img_hidden_sz * args.num_image_embeds, args.n_classes
+        )
+        self.logvar = nn.Linear(
             args.img_hidden_sz * args.num_image_embeds, args.n_classes
         )
 
+    def _sample_logits(self, mu, logvar):
+        if not self.training or self.ib_eps_scale == 0:
+            return mu
+        std = torch.exp(0.5 * logvar)
+        eps = torch.randn_like(std)
+        return mu + self.ib_eps_scale * eps * std
+
+    @staticmethod
+    def _kl_to_standard_normal(mu, logvar):
+        kl = -0.5 * (1 + logvar - mu.pow(2) - logvar.exp())
+        return kl.sum(dim=1).mean()
+
     def forward(self, x):
-        """Returns (logits [B, n_classes], features [B, 2048*num_embeds])"""
+        """Returns (sampled_logits, flattened_features, kl_loss)."""
         x = self.img_encoder(x)
         x = torch.flatten(x, start_dim=1)
-        out = self.clf(x)
-        return out, x
+        mu = self.mu(x)
+        logvar = self.logvar(x)
+        out = self._sample_logits(mu, logvar)
+        ib_loss = self._kl_to_standard_normal(mu, logvar)
+        return out, x, ib_loss

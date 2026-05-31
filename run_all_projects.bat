@@ -45,19 +45,19 @@ if not exist "%PYTHON_EXE%" (
     set "PYTHON_EXE=python"
 )
 
-call :run_step "CREMAD_v1" "%ROOT%CREMAD_v1" "DML_cremad.py"
+call :run_step "RGB_v1 NYU" "%ROOT%RGB_v1" "DML_nyu.py"
+if errorlevel 1 exit /b %errorlevel%
+
+call :run_step "RGB_v1 SUN" "%ROOT%RGB_v1" "DML_sun.py"
+if errorlevel 1 exit /b %errorlevel%
+
+call :run_step "MVSA_v1" "%ROOT%MVSA_v1" "DML_MVSA.py"
 if errorlevel 1 exit /b %errorlevel%
 
 call :run_step "Food_v1" "%ROOT%Food_v1" "DML_Food.py"
 if errorlevel 1 exit /b %errorlevel%
 
-call :run_step "MVSA" "%ROOT%MVSA" "DML_MVSA.py"
-if errorlevel 1 exit /b %errorlevel%
-
-call :run_step "RGB_v1 NYU" "%ROOT%RGB_v1" "DML_nyu.py"
-if errorlevel 1 exit /b %errorlevel%
-
-call :run_step "RGB_v1 SUN" "%ROOT%RGB_v1" "DML_sun.py"
+call :run_step "CREMAD_v1" "%ROOT%CREMAD_v1" "DML_cremad.py"
 if errorlevel 1 exit /b %errorlevel%
 
 echo.

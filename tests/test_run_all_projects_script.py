@@ -31,17 +31,23 @@ def test_run_all_projects_bat_exists_and_runs_expected_order():
     script = Path("run_all_projects.bat")
     assert script.exists()
 
-    text = script.read_text(encoding="utf-8")
+    lines = [
+        line.strip()
+        for line in script.read_text(encoding="utf-8").splitlines()
+        if line.strip().startswith("call :run_step")
+    ]
+    text = "\n".join(lines)
     expected = [
-        "CREMAD_v1",
-        "DML_cremad.py",
+        "RGB_v1 NYU",
+        "DML_nyu.py",
+        "RGB_v1 SUN",
+        "DML_sun.py",
+        "MVSA_v1",
+        "DML_MVSA.py",
         "Food_v1",
         "DML_Food.py",
-        "MVSA",
-        "DML_MVSA.py",
-        "RGB_v1",
-        "DML_nyu.py",
-        "DML_sun.py",
+        "CREMAD_v1",
+        "DML_cremad.py",
     ]
 
     positions = [text.index(item) for item in expected]

@@ -1,0 +1,18 @@
+INFO - 05/31/26 04:14:44 - 0:00:00 - Starting DML Food-101 training...
+INFO - 05/31/26 04:31:32 - 0:16:48 - Epoch 0: Total Loss: 12.2155
+INFO - 05/31/26 04:37:15 - 0:22:31 - Validation: Loss: 3.53188 | Acc: 0.40249
+INFO - 05/31/26 04:37:15 - 0:22:31 - *** NEW BEST MODEL *** Epoch 0 | Acc: 0.4025
+INFO - 05/31/26 04:54:07 - 0:39:23 - Epoch 1: Total Loss: 10.4492
+INFO - 05/31/26 04:59:47 - 0:45:03 - Validation: Loss: 3.05488 | Acc: 0.46069
+INFO - 05/31/26 04:59:47 - 0:45:03 - *** NEW BEST MODEL *** Epoch 1 | Acc: 0.4607
+INFO - 05/31/26 05:16:41 - 1:01:57 - Epoch 2: Total Loss: 9.7794
+INFO - 05/31/26 05:22:24 - 1:07:40 - Validation: Loss: 2.81011 | Acc: 0.47799
+INFO - 05/31/26 05:22:24 - 1:07:40 - *** NEW BEST MODEL *** Epoch 2 | Acc: 0.4780
+INFO - 05/31/26 09:34:24 - 5:19:40 - Epoch 3: Total Loss: 8.2880
+INFO - 05/31/26 10:05:46 - 5:51:02 - Validation: Loss: 1.70619 | Acc: 0.64201
+INFO - 05/31/26 10:05:46 - 5:51:02 - *** NEW BEST MODEL *** Epoch 3 | Acc: 0.6420
+INFO - 05/31/26 14:18:33 - 10:03:49 - Epoch 4: Total Loss: 6.8021
+INFO - 05/31/26 14:49:57 - 10:35:13 - Validation: Loss: 1.49242 | Acc: 0.67213
+INFO - 05/31/26 14:49:57 - 10:35:13 - *** NEW BEST MODEL *** Epoch 4 | Acc: 0.6721
+INFO - 05/31/26 17:59:43 - 0:00:00 - Starting DML Food-101 training...
+INFO - 05/31/26 20:14:53 - 0:00:00 - Starting DML Food-101 training...

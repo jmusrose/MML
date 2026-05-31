@@ -21,9 +21,10 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-from data.helpers import get_data_loaders
+from data.helpers import get_data_loaders, get_test_loader
 from models.dml_classifier import Classifier
 from utils.logger import create_logger
+from utils.loss import information_bottleneck_classification_loss
 from utils.utils import (
     Averager,
     append_experiment_record,
@@ -37,7 +38,7 @@ from utils.utils import (
 
 def get_args(parser):
     """Register all CLI arguments."""
-    parser.add_argument("--batch_sz", type=int, default=64, help="Batch size")
+    parser.add_argument("--batch_sz", type=int, default=32, help="Batch size")
     parser.add_argument(
         "--bert_model",
         type=str,
@@ -74,6 +75,18 @@ def get_args(parser):
         help="ResNet feature dimension",
     )
     parser.add_argument("--lr", type=float, default=3e-5, help="Learning rate")
+    parser.add_argument(
+        "--ib_beta",
+        type=float,
+        default=1e-3,
+        help="Weight for information bottleneck KL loss",
+    )
+    parser.add_argument(
+        "--ib_eps_scale",
+        type=float,
+        default=1.0,
+        help="Scale for reparameterization noise during training",
+    )
     parser.add_argument(
         "--lr_factor", type=float, default=0.5, help="LR reduction factor"
     )
@@ -153,32 +166,27 @@ def get_scheduler(optimizer, args):
     )
 
 
-def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
-    """Single epoch training with 3-branch CE loss.
+def set_module_trainable(module, trainable):
+    """Enable or disable gradients for all parameters in a module."""
+    for param in module.parameters():
+        param.requires_grad = trainable
 
-    Loss = CE(fused, target) + CE(text, target) + CE(image, target)
+
+def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
+    """Single epoch training with 3-branch CE loss and IB KL loss.
+
+    Loss = CE(fused, target) + CE(text, target) + CE(image, target) + beta * KL
     """
     model.train()
     tl = Averager()
+    device = next(model.parameters()).device
 
     # Freeze/unfreeze encoders based on epoch
-    if epoch < args.freeze_img:
-        for param in model.imgclf.img_encoder.parameters():
-            param.requires_grad = False
-    else:
-        for param in model.imgclf.img_encoder.parameters():
-            param.requires_grad = True
-
-    if epoch < args.freeze_txt:
-        for param in model.txtclf.enc.parameters():
-            param.requires_grad = False
-    else:
-        for param in model.txtclf.enc.parameters():
-            param.requires_grad = True
+    set_module_trainable(model.imgclf.img_encoder, epoch >= args.freeze_img)
+    set_module_trainable(model.txtclf.enc, epoch >= args.freeze_txt)
 
     for step, batch in enumerate(tqdm(train_loader, desc=f"Training epoch {epoch}")):
         text, segment, mask, image, target, indices = batch
-        device = next(model.parameters()).device
         text = text.to(device)
         mask = mask.to(device)
         segment = segment.to(device)
@@ -187,21 +195,27 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
 
         optimizer.zero_grad()
 
-        fused_logits, txt_logits, img_logits, _, _ = model(
+        fused_logits, txt_logits, img_logits, _, _, ib_loss = model(
             text, mask, segment, image
         )
 
-        loss_fused = criterion(fused_logits, target)
-        loss_txt = criterion(txt_logits, target)
-        loss_img = criterion(img_logits, target)
-        loss = loss_fused + loss_txt + loss_img
+        loss, loss_parts = information_bottleneck_classification_loss(
+            criterion,
+            fused_logits,
+            txt_logits,
+            img_logits,
+            target,
+            ib_loss,
+            args.ib_beta,
+        )
 
         if torch.isnan(loss).any():
             logger.warning(
                 f"NaN detected at step {step}: "
-                f"loss_fused={loss_fused.item()}, "
-                f"loss_txt={loss_txt.item()}, "
-                f"loss_img={loss_img.item()}"
+                f"loss_fused={loss_parts['fused'].item()}, "
+                f"loss_txt={loss_parts['txt'].item()}, "
+                f"loss_img={loss_parts['img'].item()}, "
+                f"loss_ib={loss_parts['ib'].item()}"
             )
 
         loss.backward()
@@ -220,18 +234,18 @@ def eval_epoch(epoch, loader, model, criterion, logger, args):
     losses = []
     preds = []
     targets = []
+    device = next(model.parameters()).device
 
     with torch.no_grad():
         for batch in tqdm(loader, desc=f"Evaluating epoch {epoch}"):
             text, segment, mask, image, target, indices = batch
-            device = next(model.parameters()).device
             text = text.to(device)
             mask = mask.to(device)
             segment = segment.to(device)
             image = image.to(device)
             target = target.to(device)
 
-            fused_logits, _, _, _, _ = model(text, mask, segment, image)
+            fused_logits, _, _, _, _, _ = model(text, mask, segment, image)
 
             loss = criterion(fused_logits, target)
             losses.append(loss.item())
@@ -347,8 +361,7 @@ def main():
         args.noise_type = scenario["noise_type"]
 
         logger.info(f"--- Evaluating: {scenario['name']} ---")
-        _, _, current_test_loaders = get_data_loaders(args)
-        current_test_loader = current_test_loaders["test"]
+        current_test_loader = get_test_loader(args)
 
         scenario_metrics = eval_epoch(
             -1, current_test_loader, model, criterion, logger, args
@@ -394,6 +407,8 @@ def main():
         "note": args.note,
         "seed": args.seed,
         "lr": args.lr,
+        "ib_beta": args.ib_beta,
+        "ib_eps_scale": args.ib_eps_scale,
         "batch_sz": args.batch_sz,
         "max_epochs": args.max_epochs,
         "best_clean_acc": float(final_results.get("Clean Test", 0.0)),

@@ -21,7 +21,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-from data.helpers import get_data_loaders
+from data.helpers import get_data_loaders, get_test_loader
 from models.dml_classifier import Classifier
 from utils.logger import create_logger
 from utils.utils import (
@@ -37,7 +37,7 @@ from utils.utils import (
 
 def get_args(parser):
     """Register all CLI arguments."""
-    parser.add_argument("--batch_sz", type=int, default=64, help="Batch size")
+    parser.add_argument("--batch_sz", type=int, default=32, help="Batch size")
     parser.add_argument(
         "--bert_model",
         type=str,
@@ -153,6 +153,12 @@ def get_scheduler(optimizer, args):
     )
 
 
+def set_module_trainable(module, trainable):
+    """Enable or disable gradients for all parameters in a module."""
+    for param in module.parameters():
+        param.requires_grad = trainable
+
+
 def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
     """Single epoch training with 3-branch CE loss.
 
@@ -160,25 +166,14 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
     """
     model.train()
     tl = Averager()
+    device = next(model.parameters()).device
 
     # Freeze/unfreeze encoders based on epoch
-    if epoch < args.freeze_img:
-        for param in model.imgclf.img_encoder.parameters():
-            param.requires_grad = False
-    else:
-        for param in model.imgclf.img_encoder.parameters():
-            param.requires_grad = True
-
-    if epoch < args.freeze_txt:
-        for param in model.txtclf.enc.parameters():
-            param.requires_grad = False
-    else:
-        for param in model.txtclf.enc.parameters():
-            param.requires_grad = True
+    set_module_trainable(model.imgclf.img_encoder, epoch >= args.freeze_img)
+    set_module_trainable(model.txtclf.enc, epoch >= args.freeze_txt)
 
     for step, batch in enumerate(tqdm(train_loader, desc=f"Training epoch {epoch}")):
         text, segment, mask, image, target, indices = batch
-        device = next(model.parameters()).device
         text = text.to(device)
         mask = mask.to(device)
         segment = segment.to(device)
@@ -220,11 +215,11 @@ def eval_epoch(epoch, loader, model, criterion, logger, args):
     losses = []
     preds = []
     targets = []
+    device = next(model.parameters()).device
 
     with torch.no_grad():
         for batch in tqdm(loader, desc=f"Evaluating epoch {epoch}"):
             text, segment, mask, image, target, indices = batch
-            device = next(model.parameters()).device
             text = text.to(device)
             mask = mask.to(device)
             segment = segment.to(device)
@@ -347,8 +342,7 @@ def main():
         args.noise_type = scenario["noise_type"]
 
         logger.info(f"--- Evaluating: {scenario['name']} ---")
-        _, _, current_test_loaders = get_data_loaders(args)
-        current_test_loader = current_test_loaders["test"]
+        current_test_loader = get_test_loader(args)
 
         scenario_metrics = eval_epoch(
             -1, current_test_loader, model, criterion, logger, args

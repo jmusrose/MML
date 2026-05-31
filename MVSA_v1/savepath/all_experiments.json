@@ -1,0 +1,21 @@
+[
+    {
+        "timestamp": "2026-05-31T04:14:34",
+        "dataset": "mvsa",
+        "name": "dml_mvsa",
+        "note": "",
+        "seed": 1,
+        "lr": 3e-05,
+        "batch_sz": 32,
+        "max_epochs": 50,
+        "best_clean_acc": 0.8034682080924855,
+        "robustness": {
+            "Clean Test": 0.8034682080924855,
+            "Gaussian (Lvl 5.0)": 0.7283236994219653,
+            "Gaussian (Lvl 10.0)": 0.6435452793834296,
+            "Salt & Pepper (Lvl 5.0)": 0.7552986512524085,
+            "Salt & Pepper (Lvl 10.0)": 0.6339113680154143
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\MVSA_v1\\savepath\\dml_mvsa"
+    }
+]
