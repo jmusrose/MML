@@ -232,3 +232,25 @@ INFO - 05/30/26 21:21:18 - 0:03:10 - Epoch 1: Clean - Acc: 0.5739
 INFO - 05/30/26 21:21:18 - 0:03:11 -  *** NEW BEST CLEAN ACC *** Epoch 1 | Clean Acc: 0.5739
 INFO - 05/30/26 21:21:18 - 0:03:11 - Epoch 2 training started...
 INFO - 05/30/26 21:22:08 - 0:04:01 - Epoch 2: Total Loss: 1.6387
+INFO - 06/01/26 16:33:11 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v2\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\datasets_shared\sunrgbd
+                                     dropout: 0.3
+                                     ib_beta: 0.001
+                                     ib_eps_scale: 1.0
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00024
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 19
+                                     n_workers: 8
+                                     name: dml_sun_seed0_lr0.00024
+                                     note: 
+                                     num_image_embeds: 1
+                                     savedir: e:\Paper_Experiment\DML\DML_v1\RGB_v2\savepath\sun_rgbd\dml_sun_seed0_lr0.00024
+                                     seed: 0
+INFO - 06/01/26 16:33:12 - 0:00:00 - Epoch 0 training started...

@@ -1,0 +1,5 @@
+INFO - 06/01/26 17:22:15 - 0:00:00 - Starting DML MVSA training...
+INFO - 06/01/26 17:22:41 - 0:00:26 - Epoch 0: Total Loss: 3.6101
+INFO - 06/01/26 17:23:01 - 0:00:47 - Validation: Loss: 0.98708 | Acc: 0.50674
+INFO - 06/01/26 17:23:01 - 0:00:47 - *** NEW BEST MODEL *** Epoch 0 | Acc: 0.5067
+INFO - 06/01/26 17:23:27 - 0:01:12 - Epoch 1: Total Loss: 3.1970

@@ -1,7 +1,7 @@
 {
     "dataset": {
         "dataset_name": "CREMA-D",
-        "data_root": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v1"
+        "data_root": "E:/Paper_Experiment/DML/DML_v1/datasets_shared/CREMA-D"
     },
     "visual": {
         "name": "resnet18"

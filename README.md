@@ -24,10 +24,23 @@ This repository contains DML multimodal learning experiments adapted to multiple
 | CMU-MOSI | Yes |  |  |  |
 | CMU-MOSEI | Yes |  |  |  |
 | CREMA-D | Yes | Yes |  |  |
-| Food-101 | Yes |  |  |  |
+| Food-101 | Yes |  Yes |  |  |
 | MVSA-Single | Yes | Yes |  |  |
 
 `Yes` means the dataset currently has that training/evaluation variant implemented. Empty cells are planned or not yet implemented.
+
+## Shared Dataset Convention
+
+Dataset files shared by multiple project versions should live under the repository-level `datasets_shared` directory. The versioned training entrypoints now default to these locations:
+
+- `datasets_shared/nyud2_trainvaltest` for NYU Depth V2.
+- `datasets_shared/sunrgbd` for SUN RGB-D.
+- `datasets_shared/Food101` for UPMC Food-101.
+- `datasets_shared/MVSA_Single` for MVSA-Single.
+- `datasets_shared/CREMA-D` for CREMA-D.
+- `datasets_shared/mosi.pkl` and `datasets_shared/mosei.pkl` for CMU-MOSI/MOSEI.
+
+The existing `--data_path` command-line arguments still override these defaults. CREMAD keeps using `data/crema.json`, whose `dataset.data_root` now points at `datasets_shared/CREMA-D`.
 
 ## Output Convention
 

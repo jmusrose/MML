@@ -35,9 +35,13 @@ from utils.utils import (
 )
 
 
+_THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(_THIS_DIR)
+
+
 def get_args(parser):
     """Register all CLI arguments."""
-    parser.add_argument("--batch_sz", type=int, default=32, help="Batch size")
+    parser.add_argument("--batch_sz", type=int, default=8, help="Batch size")
     parser.add_argument(
         "--bert_model",
         type=str,
@@ -47,15 +51,15 @@ def get_args(parser):
     parser.add_argument(
         "--data_path",
         type=str,
-        default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "data"),
+        default=os.path.join(_REPO_ROOT, "datasets_shared", "Food101"),
         help="Dataset root directory",
     )
     parser.add_argument("--dropout", type=float, default=0.1, help="Dropout rate")
     parser.add_argument(
-        "--freeze_img", type=int, default=3, help="Epochs to freeze image encoder"
+        "--freeze_img", type=int, default=0, help="Epochs to freeze image encoder"
     )
     parser.add_argument(
-        "--freeze_txt", type=int, default=5, help="Epochs to freeze text encoder"
+        "--freeze_txt", type=int, default=0, help="Epochs to freeze text encoder"
     )
     parser.add_argument(
         "--hidden_sz", type=int, default=768, help="BERT hidden size"
@@ -84,7 +88,7 @@ def get_args(parser):
         "--max_epochs", type=int, default=50, help="Maximum training epochs"
     )
     parser.add_argument(
-        "--max_seq_len", type=int, default=512, help="Maximum text sequence length"
+        "--max_seq_len", type=int, default=256, help="Maximum text sequence length"
     )
     parser.add_argument(
         "--n_classes", type=int, default=101, help="Number of food classes"

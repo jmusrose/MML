@@ -7,7 +7,7 @@ SUN RGB-D 主入口脚本。
 
 本文件与 ``DML_nyu.py`` 结构完全镜像，仅差异在于：
 
-- ``--data_path`` 默认 ``/sun_rgbd``
+- ``--data_path`` 默认 ``../datasets_shared/sunrgbd``
 - ``--savedir`` 默认 ``./savepath/sun_rgbd``
 - 从 ``models.dml_classifier_sun`` 导入 ``Classifier``
 - ``args.name`` 前缀为 ``dml_sun_``
@@ -43,6 +43,7 @@ from utils.utils import Averager, append_experiment_record, set_seed
 
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(_THIS_DIR)
 
 
 def get_args(parser: argparse.ArgumentParser) -> None:
@@ -53,7 +54,7 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     与 NYU 版本相比，仅 ``--data_path`` 与 ``--savedir`` 的默认值不同。
     """
     parser.add_argument("--batch_sz", type=int, default=64)
-    parser.add_argument("--data_path", type=str, default=os.path.join(_THIS_DIR, "data", "sunrgbd"))
+    parser.add_argument("--data_path", type=str, default=os.path.join(_REPO_ROOT, "datasets_shared", "sunrgbd"))
     parser.add_argument("--LOAD_SIZE", type=int, default=256)
     parser.add_argument("--FINE_SIZE", type=int, default=224)
     parser.add_argument("--dropout", type=float, default=0.3)

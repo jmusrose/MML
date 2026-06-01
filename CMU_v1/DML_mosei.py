@@ -12,7 +12,7 @@ CMU-MOSEI 主入口脚本。
 风格参考：``DML_v1/RGB_v1/DML_nyu.py``。MOSI 与 MOSEI 在训练循环层面
 完全镜像，差异主要在主入口的默认 CLI 参数与 ``Classifier`` 来源:
 
-- ``--data_path`` 默认 ``./data/mosei.pkl``
+- ``--data_path`` 默认 ``../datasets_shared/mosei.pkl``
 - ``--vision_dim`` 默认 ``35``
 - ``--max_epochs`` 默认 ``10``
 - ``--savedir`` 默认 ``./savepath/mosei``
@@ -43,6 +43,7 @@ from utils.utils import Averager, append_experiment_record, set_seed
 
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(_THIS_DIR)
 
 
 def get_args(parser: argparse.ArgumentParser) -> None:
@@ -53,7 +54,7 @@ def get_args(parser: argparse.ArgumentParser) -> None:
 
     与 MOSI 版本的差异（design.md / Requirement 2.x）::
 
-        --data_path     默认 ./data/mosei.pkl
+        --data_path     默认 ../datasets_shared/mosei.pkl
         --vision_dim    默认 35（MOSI 为 47）
         --max_epochs    默认 10（MOSI 为 30，MOSEI 数据量大故少 epoch）
         --savedir       默认 ./savepath/mosei
@@ -64,7 +65,7 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--data_path",
         type=str,
-        default=os.path.join(_THIS_DIR, "data", "mosei.pkl"),
+        default=os.path.join(_REPO_ROOT, "datasets_shared", "mosei.pkl"),
     )
     parser.add_argument("--dropout", type=float, default=0.3)
     parser.add_argument(

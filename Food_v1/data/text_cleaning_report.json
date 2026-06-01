@@ -1,0 +1,61 @@
+{
+    "html_root": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html",
+    "out_root": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean",
+    "max_words": 300,
+    "files_seen": 93409,
+    "files_skipped": 0,
+    "files_written": 93409,
+    "empty_outputs": 476,
+    "examples": [
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_0.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_0.txt",
+            "words": 300
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_1.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_1.txt",
+            "words": 202
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_10.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_10.txt",
+            "words": 300
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_100.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_100.txt",
+            "words": 300
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_101.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_101.txt",
+            "words": 57
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_102.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_102.txt",
+            "words": 300
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_103.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_103.txt",
+            "words": 300
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_104.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_104.txt",
+            "words": 300
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_105.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_105.txt",
+            "words": 300
+        },
+        {
+            "input": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_html\\apple_pie\\apple_pie_106.html",
+            "output": "E:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\data\\texts_clean\\apple_pie\\apple_pie_106.txt",
+            "words": 300
+        }
+    ]
+}

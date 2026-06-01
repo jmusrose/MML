@@ -441,3 +441,224 @@ INFO - 05/30/26 23:02:52 - 0:44:35 - ===========================================
 INFO - 05/30/26 23:02:52 - 0:44:35 - Saved final results to e:\Paper_Experiment\DML\DML_v1\RGB_v1\savepath\nyud\dml_nyu_seed0_lr0.00024\final_results.json
 INFO - 05/30/26 23:02:52 - 0:44:35 - Best Clean Model: epoch=13, clean_acc=0.7187
 INFO - 05/30/26 23:02:52 - 0:44:35 - Appended experiment record to e:\Paper_Experiment\DML\DML_v1\RGB_v1\savepath\nyud\all_experiments.json
+INFO - 05/31/26 21:49:25 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v1\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\RGB_v1\data\nyud2_trainvaltest
+                                     dropout: 0.3
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00024
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 19
+                                     n_workers: 8
+                                     name: dml_nyu_seed0_lr0.00024
+                                     note: 
+                                     num_image_embeds: 1
+                                     savedir: e:\Paper_Experiment\DML\DML_v1\RGB_v1\savepath\nyud\dml_nyu_seed0_lr0.00024
+                                     seed: 0
+INFO - 05/31/26 21:49:26 - 0:00:01 - Epoch 0 training started...
+INFO - 05/31/26 21:50:00 - 0:00:34 - Epoch 0: Total Loss: 5.7636
+INFO - 05/31/26 21:50:26 - 0:01:00 - Epoch 0: Clean - Acc: 0.5795
+INFO - 05/31/26 21:50:26 - 0:01:01 -  *** NEW BEST CLEAN ACC *** Epoch 0 | Clean Acc: 0.5795
+INFO - 05/31/26 21:50:26 - 0:01:01 - Epoch 1 training started...
+INFO - 05/31/26 21:50:53 - 0:01:28 - Epoch 1: Total Loss: 2.1960
+INFO - 05/31/26 21:51:19 - 0:01:53 - Epoch 1: Clean - Acc: 0.6713
+INFO - 05/31/26 21:51:19 - 0:01:54 -  *** NEW BEST CLEAN ACC *** Epoch 1 | Clean Acc: 0.6713
+INFO - 05/31/26 21:51:19 - 0:01:54 - Epoch 2 training started...
+INFO - 05/31/26 21:51:46 - 0:02:20 - Epoch 2: Total Loss: 1.0930
+INFO - 05/31/26 21:52:11 - 0:02:46 - Epoch 2: Clean - Acc: 0.6300
+INFO - 05/31/26 21:52:11 - 0:02:46 - Epoch 3 training started...
+INFO - 05/31/26 21:52:38 - 0:03:12 - Epoch 3: Total Loss: 0.5647
+INFO - 05/31/26 21:53:03 - 0:03:38 - Epoch 3: Clean - Acc: 0.6728
+INFO - 05/31/26 21:53:03 - 0:03:38 -  *** NEW BEST CLEAN ACC *** Epoch 3 | Clean Acc: 0.6728
+INFO - 05/31/26 21:53:03 - 0:03:38 - Epoch 4 training started...
+INFO - 05/31/26 21:53:30 - 0:04:05 - Epoch 4: Total Loss: 0.3173
+INFO - 05/31/26 21:53:56 - 0:04:30 - Epoch 4: Clean - Acc: 0.6835
+INFO - 05/31/26 21:53:56 - 0:04:31 -  *** NEW BEST CLEAN ACC *** Epoch 4 | Clean Acc: 0.6835
+INFO - 05/31/26 21:53:56 - 0:04:31 - Epoch 5 training started...
+INFO - 05/31/26 21:54:23 - 0:04:58 - Epoch 5: Total Loss: 0.1757
+INFO - 05/31/26 21:54:48 - 0:05:23 - Epoch 5: Clean - Acc: 0.6820
+INFO - 05/31/26 21:54:48 - 0:05:23 - Epoch 6 training started...
+INFO - 05/31/26 21:55:15 - 0:05:50 - Epoch 6: Total Loss: 0.1321
+INFO - 05/31/26 21:55:40 - 0:06:15 - Epoch 6: Clean - Acc: 0.6820
+INFO - 05/31/26 21:55:40 - 0:06:15 - Epoch 7 training started...
+INFO - 05/31/26 21:56:07 - 0:06:42 - Epoch 7: Total Loss: 0.0767
+INFO - 05/31/26 21:56:32 - 0:07:07 - Epoch 7: Clean - Acc: 0.6850
+INFO - 05/31/26 21:56:33 - 0:07:07 -  *** NEW BEST CLEAN ACC *** Epoch 7 | Clean Acc: 0.6850
+INFO - 05/31/26 21:56:33 - 0:07:07 - Epoch 8 training started...
+INFO - 05/31/26 21:56:59 - 0:07:34 - Epoch 8: Total Loss: 0.0750
+INFO - 05/31/26 21:57:24 - 0:07:59 - Epoch 8: Clean - Acc: 0.6911
+INFO - 05/31/26 21:57:25 - 0:07:59 -  *** NEW BEST CLEAN ACC *** Epoch 8 | Clean Acc: 0.6911
+INFO - 05/31/26 21:57:25 - 0:07:59 - Epoch 9 training started...
+INFO - 05/31/26 21:57:52 - 0:08:26 - Epoch 9: Total Loss: 0.0555
+INFO - 05/31/26 21:58:17 - 0:08:52 - Epoch 9: Clean - Acc: 0.6881
+INFO - 05/31/26 21:58:17 - 0:08:52 - Epoch 10 training started...
+INFO - 05/31/26 21:58:44 - 0:09:18 - Epoch 10: Total Loss: 0.0414
+INFO - 05/31/26 21:59:09 - 0:09:44 - Epoch 10: Clean - Acc: 0.6988
+INFO - 05/31/26 21:59:09 - 0:09:44 -  *** NEW BEST CLEAN ACC *** Epoch 10 | Clean Acc: 0.6988
+INFO - 05/31/26 21:59:09 - 0:09:44 - Epoch 11 training started...
+INFO - 05/31/26 21:59:36 - 0:10:11 - Epoch 11: Total Loss: 0.0337
+INFO - 05/31/26 22:00:01 - 0:10:36 - Epoch 11: Clean - Acc: 0.7018
+INFO - 05/31/26 22:00:02 - 0:10:36 -  *** NEW BEST CLEAN ACC *** Epoch 11 | Clean Acc: 0.7018
+INFO - 05/31/26 22:00:02 - 0:10:36 - Epoch 12 training started...
+INFO - 05/31/26 22:00:29 - 0:11:03 - Epoch 12: Total Loss: 0.0302
+INFO - 05/31/26 22:00:54 - 0:11:28 - Epoch 12: Clean - Acc: 0.6835
+INFO - 05/31/26 22:00:54 - 0:11:28 - Epoch 13 training started...
+INFO - 05/31/26 22:01:21 - 0:11:55 - Epoch 13: Total Loss: 0.0234
+INFO - 05/31/26 22:01:45 - 0:12:20 - Epoch 13: Clean - Acc: 0.7187
+INFO - 05/31/26 22:01:46 - 0:12:20 -  *** NEW BEST CLEAN ACC *** Epoch 13 | Clean Acc: 0.7187
+INFO - 05/31/26 22:01:46 - 0:12:20 - Epoch 14 training started...
+INFO - 05/31/26 22:02:13 - 0:12:47 - Epoch 14: Total Loss: 0.0178
+INFO - 05/31/26 22:02:38 - 0:13:12 - Epoch 14: Clean - Acc: 0.7003
+INFO - 05/31/26 22:02:38 - 0:13:12 - Epoch 15 training started...
+INFO - 05/31/26 22:03:05 - 0:13:39 - Epoch 15: Total Loss: 0.0158
+INFO - 05/31/26 22:03:30 - 0:14:04 - Epoch 15: Clean - Acc: 0.7018
+INFO - 05/31/26 22:03:30 - 0:14:04 - Epoch 16 training started...
+INFO - 05/31/26 22:03:57 - 0:14:31 - Epoch 16: Total Loss: 0.0151
+INFO - 05/31/26 22:04:24 - 0:14:59 - Epoch 16: Clean - Acc: 0.6758
+INFO - 05/31/26 22:04:24 - 0:14:59 - Epoch 17 training started...
+INFO - 05/31/26 22:04:54 - 0:15:28 - Epoch 17: Total Loss: 0.0158
+INFO - 05/31/26 22:05:22 - 0:15:57 - Epoch 17: Clean - Acc: 0.7064
+INFO - 05/31/26 22:05:22 - 0:15:57 - Epoch 18 training started...
+INFO - 05/31/26 22:05:52 - 0:16:27 - Epoch 18: Total Loss: 0.0131
+INFO - 05/31/26 22:06:21 - 0:16:55 - Epoch 18: Clean - Acc: 0.7034
+INFO - 05/31/26 22:06:21 - 0:16:55 - Epoch 19 training started...
+INFO - 05/31/26 22:06:49 - 0:17:24 - Epoch 19: Total Loss: 0.0130
+INFO - 05/31/26 22:07:15 - 0:17:49 - Epoch 19: Clean - Acc: 0.7034
+INFO - 05/31/26 22:07:15 - 0:17:49 - Epoch 20 training started...
+INFO - 05/31/26 22:07:42 - 0:18:16 - Epoch 20: Total Loss: 0.0161
+INFO - 05/31/26 22:08:07 - 0:18:42 - Epoch 20: Clean - Acc: 0.7110
+INFO - 05/31/26 22:08:07 - 0:18:42 - Epoch 21 training started...
+INFO - 05/31/26 22:08:34 - 0:19:09 - Epoch 21: Total Loss: 0.0242
+INFO - 05/31/26 22:09:00 - 0:19:34 - Epoch 21: Clean - Acc: 0.7018
+INFO - 05/31/26 22:09:00 - 0:19:34 - Epoch 22 training started...
+INFO - 05/31/26 22:09:27 - 0:20:01 - Epoch 22: Total Loss: 0.0303
+INFO - 05/31/26 22:09:52 - 0:20:27 - Epoch 22: Clean - Acc: 0.7003
+INFO - 05/31/26 22:09:52 - 0:20:27 - Epoch 23 training started...
+INFO - 05/31/26 22:10:19 - 0:20:54 - Epoch 23: Total Loss: 0.0256
+INFO - 05/31/26 22:10:44 - 0:21:19 - Epoch 23: Clean - Acc: 0.6728
+INFO - 05/31/26 22:10:44 - 0:21:19 - Epoch 24 training started...
+INFO - 05/31/26 22:11:12 - 0:21:46 - Epoch 24: Total Loss: 0.0160
+INFO - 05/31/26 22:11:37 - 0:22:12 - Epoch 24: Clean - Acc: 0.6651
+INFO - 05/31/26 22:11:37 - 0:22:12 - Epoch 25 training started...
+INFO - 05/31/26 22:12:04 - 0:22:39 - Epoch 25: Total Loss: 0.0145
+INFO - 05/31/26 22:12:29 - 0:23:04 - Epoch 25: Clean - Acc: 0.6789
+INFO - 05/31/26 22:12:29 - 0:23:04 - Epoch 26 training started...
+INFO - 05/31/26 22:12:57 - 0:23:31 - Epoch 26: Total Loss: 0.0139
+INFO - 05/31/26 22:13:22 - 0:23:57 - Epoch 26: Clean - Acc: 0.6927
+INFO - 05/31/26 22:13:22 - 0:23:57 - Epoch 27 training started...
+INFO - 05/31/26 22:13:49 - 0:24:24 - Epoch 27: Total Loss: 0.0108
+INFO - 05/31/26 22:14:14 - 0:24:49 - Epoch 27: Clean - Acc: 0.7018
+INFO - 05/31/26 22:14:14 - 0:24:49 - Epoch 28 training started...
+INFO - 05/31/26 22:14:41 - 0:25:16 - Epoch 28: Total Loss: 0.0077
+INFO - 05/31/26 22:15:06 - 0:25:41 - Epoch 28: Clean - Acc: 0.6972
+INFO - 05/31/26 22:15:06 - 0:25:41 - Epoch 29 training started...
+INFO - 05/31/26 22:15:33 - 0:26:08 - Epoch 29: Total Loss: 0.0072
+INFO - 05/31/26 22:15:58 - 0:26:33 - Epoch 29: Clean - Acc: 0.6988
+INFO - 05/31/26 22:15:58 - 0:26:33 - Epoch 30 training started...
+INFO - 05/31/26 22:16:25 - 0:27:00 - Epoch 30: Total Loss: 0.0092
+INFO - 05/31/26 22:16:50 - 0:27:25 - Epoch 30: Clean - Acc: 0.6942
+INFO - 05/31/26 22:16:50 - 0:27:25 - Epoch 31 training started...
+INFO - 05/31/26 22:17:17 - 0:27:52 - Epoch 31: Total Loss: 0.0076
+INFO - 05/31/26 22:17:42 - 0:28:17 - Epoch 31: Clean - Acc: 0.6911
+INFO - 05/31/26 22:17:42 - 0:28:17 - Epoch 32 training started...
+INFO - 05/31/26 22:18:09 - 0:28:44 - Epoch 32: Total Loss: 0.0063
+INFO - 05/31/26 22:18:35 - 0:29:09 - Epoch 32: Clean - Acc: 0.7064
+INFO - 05/31/26 22:18:35 - 0:29:09 - Epoch 33 training started...
+INFO - 05/31/26 22:19:01 - 0:29:36 - Epoch 33: Total Loss: 0.0086
+INFO - 05/31/26 22:19:29 - 0:30:04 - Epoch 33: Clean - Acc: 0.7049
+INFO - 05/31/26 22:19:29 - 0:30:04 - Epoch 34 training started...
+INFO - 05/31/26 22:19:59 - 0:30:34 - Epoch 34: Total Loss: 0.0059
+INFO - 05/31/26 22:20:28 - 0:31:02 - Epoch 34: Clean - Acc: 0.7095
+INFO - 05/31/26 22:20:28 - 0:31:02 - Epoch 35 training started...
+INFO - 05/31/26 22:20:58 - 0:31:32 - Epoch 35: Total Loss: 0.0070
+INFO - 05/31/26 22:21:26 - 0:32:01 - Epoch 35: Clean - Acc: 0.7034
+INFO - 05/31/26 22:21:26 - 0:32:01 - Epoch 36 training started...
+INFO - 05/31/26 22:21:53 - 0:32:27 - Epoch 36: Total Loss: 0.0062
+INFO - 05/31/26 22:22:18 - 0:32:53 - Epoch 36: Clean - Acc: 0.7095
+INFO - 05/31/26 22:22:18 - 0:32:53 - Epoch 37 training started...
+INFO - 05/31/26 22:22:45 - 0:33:19 - Epoch 37: Total Loss: 0.0077
+INFO - 05/31/26 22:23:10 - 0:33:45 - Epoch 37: Clean - Acc: 0.7018
+INFO - 05/31/26 22:23:10 - 0:33:45 - Epoch 38 training started...
+INFO - 05/31/26 22:23:37 - 0:34:12 - Epoch 38: Total Loss: 0.0069
+INFO - 05/31/26 22:24:02 - 0:34:37 - Epoch 38: Clean - Acc: 0.7080
+INFO - 05/31/26 22:24:02 - 0:34:37 - Epoch 39 training started...
+INFO - 05/31/26 22:24:29 - 0:35:04 - Epoch 39: Total Loss: 0.0054
+INFO - 05/31/26 22:24:54 - 0:35:29 - Epoch 39: Clean - Acc: 0.7095
+INFO - 05/31/26 22:24:54 - 0:35:29 - Epoch 40 training started...
+INFO - 05/31/26 22:25:21 - 0:35:55 - Epoch 40: Total Loss: 0.0066
+INFO - 05/31/26 22:25:46 - 0:36:21 - Epoch 40: Clean - Acc: 0.7034
+INFO - 05/31/26 22:25:46 - 0:36:21 - Epoch 41 training started...
+INFO - 05/31/26 22:26:13 - 0:36:48 - Epoch 41: Total Loss: 0.0057
+INFO - 05/31/26 22:26:38 - 0:37:13 - Epoch 41: Clean - Acc: 0.7018
+INFO - 05/31/26 22:26:38 - 0:37:13 - Epoch 42 training started...
+INFO - 05/31/26 22:27:05 - 0:37:40 - Epoch 42: Total Loss: 0.0063
+INFO - 05/31/26 22:27:30 - 0:38:05 - Epoch 42: Clean - Acc: 0.7018
+INFO - 05/31/26 22:27:30 - 0:38:05 - Epoch 43 training started...
+INFO - 05/31/26 22:27:58 - 0:38:32 - Epoch 43: Total Loss: 0.0065
+INFO - 05/31/26 22:28:23 - 0:38:57 - Epoch 43: Clean - Acc: 0.6988
+INFO - 05/31/26 22:28:23 - 0:38:57 - Epoch 44 training started...
+INFO - 05/31/26 22:28:50 - 0:39:24 - Epoch 44: Total Loss: 0.0068
+INFO - 05/31/26 22:29:15 - 0:39:49 - Epoch 44: Clean - Acc: 0.7049
+INFO - 05/31/26 22:29:15 - 0:39:49 - Epoch 45 training started...
+INFO - 05/31/26 22:29:42 - 0:40:16 - Epoch 45: Total Loss: 0.0046
+INFO - 05/31/26 22:30:07 - 0:40:41 - Epoch 45: Clean - Acc: 0.7034
+INFO - 05/31/26 22:30:07 - 0:40:41 - Epoch 46 training started...
+INFO - 05/31/26 22:30:34 - 0:41:08 - Epoch 46: Total Loss: 0.0071
+INFO - 05/31/26 22:30:59 - 0:41:34 - Epoch 46: Clean - Acc: 0.7049
+INFO - 05/31/26 22:30:59 - 0:41:34 - Epoch 47 training started...
+INFO - 05/31/26 22:31:26 - 0:42:00 - Epoch 47: Total Loss: 0.0066
+INFO - 05/31/26 22:31:51 - 0:42:26 - Epoch 47: Clean - Acc: 0.7049
+INFO - 05/31/26 22:31:51 - 0:42:26 - Epoch 48 training started...
+INFO - 05/31/26 22:32:18 - 0:42:52 - Epoch 48: Total Loss: 0.0071
+INFO - 05/31/26 22:32:43 - 0:43:18 - Epoch 48: Clean - Acc: 0.7125
+INFO - 05/31/26 22:32:43 - 0:43:18 - Epoch 49 training started...
+INFO - 05/31/26 22:33:10 - 0:43:45 - Epoch 49: Total Loss: 0.0058
+INFO - 05/31/26 22:33:35 - 0:44:10 - Epoch 49: Clean - Acc: 0.7095
+INFO - 05/31/26 22:33:35 - 0:44:10 - Loading best model for final robust evaluation on Test sets...
+INFO - 05/31/26 22:33:36 - 0:44:10 - Generating and Evaluating on dataset for: Clean Test ...
+INFO - 05/31/26 22:34:01 - 0:44:35 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 5.0) ...
+INFO - 05/31/26 22:34:29 - 0:45:03 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 10.0) ...
+INFO - 05/31/26 22:34:57 - 0:45:32 - Generating and Evaluating on dataset for: Gaussian (Lvl 5.0) ...
+INFO - 05/31/26 22:35:26 - 0:46:01 - Generating and Evaluating on dataset for: Gaussian (Lvl 10.0) ...
+INFO - 05/31/26 22:35:55 - 0:46:29 - 
+                                     ============================================================
+INFO - 05/31/26 22:35:55 - 0:46:29 -       FINAL ROBUSTNESS EVALUATION RESULTS ON TEST SET       
+INFO - 05/31/26 22:35:55 - 0:46:29 - ============================================================
+INFO - 05/31/26 22:35:55 - 0:46:29 - | Test Scenario                       | Score (Acc)        |
+INFO - 05/31/26 22:35:55 - 0:46:29 - |-------------------------------------|--------------------|
+INFO - 05/31/26 22:35:55 - 0:46:29 - | Clean Test                          |             0.7187 |
+INFO - 05/31/26 22:35:55 - 0:46:29 - | Salt & Pepper (Lvl 5.0)             |             0.5810 |
+INFO - 05/31/26 22:35:55 - 0:46:29 - | Salt & Pepper (Lvl 10.0)            |             0.4404 |
+INFO - 05/31/26 22:35:55 - 0:46:29 - | Gaussian (Lvl 5.0)                  |             0.6376 |
+INFO - 05/31/26 22:35:55 - 0:46:29 - | Gaussian (Lvl 10.0)                 |             0.5719 |
+INFO - 05/31/26 22:35:55 - 0:46:29 - ============================================================
+                                     
+INFO - 05/31/26 22:35:55 - 0:46:29 - Saved final results to e:\Paper_Experiment\DML\DML_v1\RGB_v1\savepath\nyud\dml_nyu_seed0_lr0.00024\final_results.json
+INFO - 05/31/26 22:35:55 - 0:46:29 - Best Clean Model: epoch=13, clean_acc=0.7187
+INFO - 05/31/26 22:35:55 - 0:46:29 - Appended experiment record to e:\Paper_Experiment\DML\DML_v1\RGB_v1\savepath\nyud\all_experiments.json
+INFO - 06/01/26 16:34:52 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v1\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\datasets_shared\nyud2_trainvaltest
+                                     dropout: 0.3
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00024
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 19
+                                     n_workers: 8
+                                     name: dml_nyu_seed0_lr0.00024
+                                     note: 
+                                     num_image_embeds: 1
+                                     savedir: e:\Paper_Experiment\DML\DML_v1\RGB_v1\savepath\nyud\dml_nyu_seed0_lr0.00024
+                                     seed: 0
+INFO - 06/01/26 16:34:52 - 0:00:01 - Epoch 0 training started...
+INFO - 06/01/26 16:35:30 - 0:00:39 - Epoch 0: Total Loss: 5.7636

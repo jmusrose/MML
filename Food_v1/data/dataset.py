@@ -20,16 +20,17 @@ class Food101Dataset(Dataset):
 
     Loads image-text pairs organized by directory structure:
         data_root/images/{split}/{class_name}/{id}.jpg
+        data_root/texts_clean/{class_name}/{id}.txt
         data_root/texts_txt/{class_name}/{id}.txt
 
-    Handles missing text files (uses empty string) and missing/corrupt
-    image files (uses gray placeholder).
+    Uses cleaned text first, falls back to raw text, and handles
+    missing/corrupt image files with a gray placeholder.
     """
 
     def __init__(self, data_root, split, tokenizer, transforms, mode, vocab, args):
         """
         Args:
-            data_root: Root data directory containing images/ and texts_txt/
+            data_root: Root data directory containing images/ and text folders
             split: 'train' or 'test'
             tokenizer: BERT tokenizer.tokenize function
             transforms: torchvision image transforms
@@ -50,7 +51,8 @@ class Food101Dataset(Dataset):
         # Build sample list by scanning image directory
         self.samples = []
         img_split_dir = os.path.join(data_root, "images", split)
-        texts_dir = os.path.join(data_root, "texts_txt")
+        clean_texts_dir = os.path.join(data_root, "texts_clean")
+        raw_texts_dir = os.path.join(data_root, "texts_txt")
 
         # Get sorted class names for consistent label indexing
         self.classes = sorted(
@@ -67,20 +69,25 @@ class Food101Dataset(Dataset):
                 if not img_file.lower().endswith(('.jpg', '.jpeg', '.png')):
                     continue
                 img_path = os.path.join(cls_img_dir, img_file)
-                # Derive text path: same base name but .txt, in texts_txt/{class}/
+                # Derive text paths: prefer cleaned text and fall back to raw text.
                 base_name = os.path.splitext(img_file)[0]
-                text_path = os.path.join(texts_dir, cls_name, base_name + ".txt")
-                self.samples.append((img_path, text_path, label))
+                clean_text_path = os.path.join(
+                    clean_texts_dir, cls_name, base_name + ".txt"
+                )
+                raw_text_path = os.path.join(
+                    raw_texts_dir, cls_name, base_name + ".txt"
+                )
+                self.samples.append((img_path, clean_text_path, raw_text_path, label))
 
     def __len__(self):
         return len(self.samples)
 
     def __getitem__(self, index):
         """Returns (token_ids, segment_ids, image_tensor, label, index)"""
-        img_path, text_path, label = self.samples[index]
+        img_path, clean_text_path, raw_text_path, label = self.samples[index]
 
         # Load text
-        text = self._load_text(text_path)
+        text = self._load_text(clean_text_path) or self._load_text(raw_text_path)
 
         # Apply text noise in test mode
         if self.args.noise_level > 0.0 and self.mode == "test":

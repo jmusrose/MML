@@ -36,6 +36,7 @@ from utils.utils import Averager, append_experiment_record, set_seed
 
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(_THIS_DIR)
 
 
 def get_args(parser: argparse.ArgumentParser) -> None:
@@ -61,7 +62,7 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--data_path",
         type=str,
-        default=os.path.join(_THIS_DIR, "data", "mosi.pkl"),
+        default=os.path.join(_REPO_ROOT, "datasets_shared", "mosi.pkl"),
     )
     parser.add_argument("--dropout", type=float, default=0.3)
     parser.add_argument(

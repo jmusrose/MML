@@ -36,6 +36,7 @@ from utils.utils import Averager, append_experiment_record, set_seed
 
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(_THIS_DIR)
 
 
 def get_args(parser: argparse.ArgumentParser) -> None:
@@ -45,7 +46,7 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     19，``--img_embed_pool_type`` 受限为 ``{"max", "avg"}``。
     """
     parser.add_argument("--batch_sz", type=int, default=64)
-    parser.add_argument("--data_path", type=str, default=os.path.join(_THIS_DIR, "data", "nyud2_trainvaltest"))
+    parser.add_argument("--data_path", type=str, default=os.path.join(_REPO_ROOT, "datasets_shared", "nyud2_trainvaltest"))
     parser.add_argument("--LOAD_SIZE", type=int, default=256)
     parser.add_argument("--FINE_SIZE", type=int, default=224)
     parser.add_argument("--dropout", type=float, default=0.3)

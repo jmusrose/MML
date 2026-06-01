@@ -35,6 +35,10 @@ from utils.utils import (
 )
 
 
+_THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+_REPO_ROOT = os.path.dirname(_THIS_DIR)
+
+
 def get_args(parser):
     """Register all CLI arguments."""
     parser.add_argument("--batch_sz", type=int, default=32, help="Batch size")
@@ -47,7 +51,7 @@ def get_args(parser):
     parser.add_argument(
         "--data_path",
         type=str,
-        default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "datasets"),
+        default=os.path.join(_REPO_ROOT, "datasets_shared"),
         help="Dataset root directory",
     )
     parser.add_argument(
