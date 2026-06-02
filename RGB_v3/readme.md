@@ -1,0 +1,1 @@
+RGB_v1主要是针对RGB-Depth数据集。使用了两个encoder提取视觉特征，然后用线性层输出logit，之后做的logit平均。
