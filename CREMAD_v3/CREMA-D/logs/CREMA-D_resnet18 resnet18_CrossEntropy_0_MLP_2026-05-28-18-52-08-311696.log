@@ -1,0 +1,5 @@
+2026-05-28 18:52:08,311 ---------------------Cfg is set as follow--------------------
+2026-05-28 18:52:08,311 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 32, 'num_workers': 8, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}}, 'test': {'batch_size': 32, 'num_workers': 8}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'output_dir': '.', 'seed': 0, 'fps': 3, 'use_gpu': True, 'gpu_id': 0, 'debug': False}
+2026-05-28 18:52:08,312 -------------------------------------------------------------
+2026-05-28 18:52:08,597 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-05-28 18:52:08,946 Epoch 0 is pending...
