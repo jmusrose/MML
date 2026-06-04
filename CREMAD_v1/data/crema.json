@@ -14,7 +14,7 @@
     },
     "train": {
         "epoch_dict": 100,
-        "batch_size": 32,
+        "batch_size": 16,
         "num_workers": 0,
         "val_size": 16,
         "val_batch_size": 16,
@@ -22,7 +22,7 @@
         "optimizer": {
             "type": "SGD",
             "momentum": 0.9,
-            "lr": 0.01,
+            "lr": 0.005,
             "wc": 1e-4
         },
         "lr_scheduler": {

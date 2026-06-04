@@ -38,3 +38,99 @@ INFO - 06/01/26 12:42:17 - 0:00:00 - Starting DML Food-101 training...
 INFO - 06/01/26 12:48:21 - 0:00:00 - Starting DML Food-101 training...
 INFO - 06/01/26 12:49:36 - 0:00:00 - Starting DML Food-101 training...
 INFO - 06/01/26 17:19:08 - 0:00:00 - Starting DML Food-101 training...
+INFO - 06/03/26 01:02:14 - 0:00:00 - Starting DML Food-101 training...
+INFO - 06/03/26 01:35:49 - 0:33:35 - Epoch 0: Total Loss: 4.5178
+INFO - 06/03/26 01:38:59 - 0:36:45 - Validation: Loss: 0.38294 | Acc: 0.92644
+INFO - 06/03/26 01:38:59 - 0:36:45 - *** NEW BEST MODEL *** Epoch 0 | Acc: 0.9264
+INFO - 06/03/26 02:12:42 - 1:10:28 - Epoch 1: Total Loss: 2.5663
+INFO - 06/03/26 02:15:53 - 1:13:39 - Validation: Loss: 0.32805 | Acc: 0.93027
+INFO - 06/03/26 02:15:53 - 1:13:39 - *** NEW BEST MODEL *** Epoch 1 | Acc: 0.9303
+INFO - 06/03/26 02:49:34 - 1:47:20 - Epoch 2: Total Loss: 1.9167
+INFO - 06/03/26 02:52:45 - 1:50:31 - Validation: Loss: 0.31195 | Acc: 0.93317
+INFO - 06/03/26 02:52:45 - 1:50:31 - *** NEW BEST MODEL *** Epoch 2 | Acc: 0.9332
+INFO - 06/03/26 03:26:26 - 2:24:12 - Epoch 3: Total Loss: 1.4310
+INFO - 06/03/26 03:29:37 - 2:27:23 - Validation: Loss: 0.32908 | Acc: 0.92851
+INFO - 06/03/26 04:03:14 - 3:01:00 - Epoch 4: Total Loss: 1.0897
+INFO - 06/03/26 04:06:25 - 3:04:11 - Validation: Loss: 0.35425 | Acc: 0.92323
+INFO - 06/03/26 04:40:03 - 3:37:49 - Epoch 5: Total Loss: 0.8883
+INFO - 06/03/26 04:43:15 - 3:41:01 - Validation: Loss: 0.35038 | Acc: 0.92169
+INFO - 06/03/26 05:16:51 - 4:14:38 - Epoch 6: Total Loss: 0.5290
+INFO - 06/03/26 05:20:03 - 4:17:49 - Validation: Loss: 0.35052 | Acc: 0.92367
+INFO - 06/03/26 05:53:40 - 4:51:26 - Epoch 7: Total Loss: 0.4320
+INFO - 06/03/26 05:56:52 - 4:54:38 - Validation: Loss: 0.37418 | Acc: 0.91667
+INFO - 06/03/26 06:30:29 - 5:28:15 - Epoch 8: Total Loss: 0.3941
+INFO - 06/03/26 06:33:40 - 5:31:26 - Validation: Loss: 0.36215 | Acc: 0.92283
+INFO - 06/03/26 07:07:17 - 6:05:03 - Epoch 9: Total Loss: 0.3193
+INFO - 06/03/26 07:10:29 - 6:08:15 - Validation: Loss: 0.35140 | Acc: 0.92424
+INFO - 06/03/26 07:44:04 - 6:41:50 - Epoch 10: Total Loss: 0.2993
+INFO - 06/03/26 07:47:15 - 6:45:01 - Validation: Loss: 0.36324 | Acc: 0.92080
+INFO - 06/03/26 08:20:50 - 7:18:36 - Epoch 11: Total Loss: 0.2897
+INFO - 06/03/26 08:24:01 - 7:21:47 - Validation: Loss: 0.40290 | Acc: 0.91209
+INFO - 06/03/26 08:57:39 - 7:55:25 - Epoch 12: Total Loss: 0.2664
+INFO - 06/03/26 09:00:50 - 7:58:36 - Validation: Loss: 0.37411 | Acc: 0.91909
+INFO - 06/03/26 09:34:26 - 8:32:12 - Epoch 13: Total Loss: 0.2589
+INFO - 06/03/26 09:37:37 - 8:35:23 - Validation: Loss: 0.37817 | Acc: 0.91988
+INFO - 06/03/26 10:11:15 - 9:09:01 - Epoch 14: Total Loss: 0.2572
+INFO - 06/03/26 10:14:26 - 9:12:12 - Validation: Loss: 0.38560 | Acc: 0.91667
+INFO - 06/03/26 10:27:15 - 0:00:00 - Starting DML Food-101 training...
+INFO - 06/03/26 10:46:49 - 0:19:34 - Epoch 0: Total Loss: 11.4499
+INFO - 06/03/26 10:53:18 - 0:26:02 - Validation: Loss: 2.93663 | Acc: 0.43419
+INFO - 06/03/26 10:53:18 - 0:26:02 - *** NEW BEST MODEL *** Epoch 0 | Acc: 0.4342
+INFO - 06/03/26 10:55:47 - 0:00:00 - Starting DML Food-101 training...
+INFO - 06/03/26 12:04:42 - 0:00:00 - Starting DML Food-101 training...
+INFO - 06/04/26 10:18:10 - 0:00:00 - Starting DML Food-101 training...
+INFO - 06/04/26 10:37:55 - 0:19:45 - Epoch 0: Total Loss: 11.4499, loss_fused:3.6663, loss_txt:4.5884, loss_img:3.1952, acc_fused:0.2946, acc_txt:0.0217, acc_img:0.3025
+INFO - 06/04/26 10:44:19 - 0:26:09 - Validation: Loss: 2.93663 | Acc: 0.43419
+INFO - 06/04/26 10:44:19 - 0:26:09 - *** NEW BEST MODEL *** Epoch 0 | Acc: 0.4342
+INFO - 06/04/26 11:03:53 - 0:45:43 - Epoch 1: Total Loss: 9.8554, loss_fused:2.8870, loss_txt:4.5379, loss_img:2.4305, acc_fused:0.4383, acc_txt:0.0396, acc_img:0.4343
+INFO - 06/04/26 11:10:06 - 0:51:56 - Validation: Loss: 2.54148 | Acc: 0.48450
+INFO - 06/04/26 11:10:06 - 0:51:56 - *** NEW BEST MODEL *** Epoch 1 | Acc: 0.4845
+INFO - 06/04/26 11:29:58 - 1:11:48 - Epoch 2: Total Loss: 9.4073, loss_fused:2.6201, loss_txt:4.5009, loss_img:2.2863, acc_fused:0.4748, acc_txt:0.0546, acc_img:0.4651
+INFO - 06/04/26 11:36:40 - 1:18:30 - Validation: Loss: 2.38258 | Acc: 0.49406
+INFO - 06/04/26 11:36:40 - 1:18:30 - *** NEW BEST MODEL *** Epoch 2 | Acc: 0.4941
+INFO - 06/04/26 12:05:58 - 1:47:48 - Epoch 3: Total Loss: 8.6078, loss_fused:2.0980, loss_txt:4.4718, loss_img:2.0380, acc_fused:0.5459, acc_txt:0.0645, acc_img:0.5378
+INFO - 06/04/26 12:12:12 - 1:54:01 - Validation: Loss: 1.67617 | Acc: 0.60935
+INFO - 06/04/26 12:12:12 - 1:54:01 - *** NEW BEST MODEL *** Epoch 3 | Acc: 0.6094
+INFO - 06/04/26 12:42:11 - 2:24:01 - Epoch 4: Total Loss: 7.4132, loss_fused:1.5263, loss_txt:4.4456, loss_img:1.4413, acc_fused:0.6712, acc_txt:0.0753, acc_img:0.6602
+INFO - 06/04/26 12:49:04 - 2:30:54 - Validation: Loss: 1.50090 | Acc: 0.65245
+INFO - 06/04/26 12:49:04 - 2:30:54 - *** NEW BEST MODEL *** Epoch 4 | Acc: 0.6524
+INFO - 06/04/26 13:37:20 - 3:19:10 - Epoch 5: Total Loss: 2.2405, loss_fused:0.3444, loss_txt:0.9574, loss_img:0.9388, acc_fused:0.9395, acc_txt:0.8156, acc_img:0.7602
+INFO - 06/04/26 13:43:47 - 3:25:36 - Validation: Loss: 0.39719 | Acc: 0.91469
+INFO - 06/04/26 13:43:47 - 3:25:36 - *** NEW BEST MODEL *** Epoch 5 | Acc: 0.9147
+INFO - 06/04/26 14:31:02 - 4:12:51 - Epoch 6: Total Loss: 1.5044, loss_fused:0.1702, loss_txt:0.6696, loss_img:0.6645, acc_fused:0.9700, acc_txt:0.8543, acc_img:0.8187
+INFO - 06/04/26 14:37:23 - 4:19:12 - Validation: Loss: 0.38311 | Acc: 0.91389
+INFO - 06/04/26 15:20:35 - 5:02:25 - Epoch 7: Total Loss: 1.1672, loss_fused:0.1053, loss_txt:0.5859, loss_img:0.4759, acc_fused:0.9826, acc_txt:0.8679, acc_img:0.8683
+INFO - 06/04/26 15:26:42 - 5:08:31 - Validation: Loss: 0.39627 | Acc: 0.90870
+INFO - 06/04/26 16:11:03 - 5:52:52 - Epoch 8: Total Loss: 0.9595, loss_fused:0.0719, loss_txt:0.5149, loss_img:0.3726, acc_fused:0.9888, acc_txt:0.8788, acc_img:0.8958
+INFO - 06/04/26 16:17:20 - 5:59:10 - Validation: Loss: 0.39943 | Acc: 0.91103
+INFO - 06/04/26 17:05:17 - 6:47:06 - Epoch 9: Total Loss: 0.5913, loss_fused:0.0342, loss_txt:0.3913, loss_img:0.1659, acc_fused:0.9942, acc_txt:0.9056, acc_img:0.9579
+INFO - 06/04/26 17:11:36 - 6:53:26 - Validation: Loss: 0.37726 | Acc: 0.91433
+INFO - 06/04/26 18:00:44 - 7:42:34 - Epoch 10: Total Loss: 0.4678, loss_fused:0.0262, loss_txt:0.3285, loss_img:0.1131, acc_fused:0.9952, acc_txt:0.9205, acc_img:0.9742
+INFO - 06/04/26 18:07:29 - 7:49:19 - Validation: Loss: 0.38804 | Acc: 0.91469
+INFO - 06/04/26 18:07:29 - 7:49:19 - No improvement for 5 epochs. Stopping early.
+INFO - 06/04/26 18:07:29 - 7:49:19 - Loading best model for final robust evaluation...
+INFO - 06/04/26 18:07:31 - 7:49:20 - --- Evaluating: Clean Test ---
+INFO - 06/04/26 18:13:55 - 7:55:45 - Clean Test: Loss: 0.39719 | Acc: 0.91469
+INFO - 06/04/26 18:13:55 - 7:55:45 - --- Evaluating: Gaussian (Lvl 5.0) ---
+INFO - 06/04/26 18:21:28 - 8:03:18 - Gaussian (Lvl 5.0): Loss: 0.97767 | Acc: 0.79680
+INFO - 06/04/26 18:21:28 - 8:03:18 - --- Evaluating: Gaussian (Lvl 10.0) ---
+INFO - 06/04/26 18:29:09 - 8:10:59 - Gaussian (Lvl 10.0): Loss: 2.20872 | Acc: 0.56493
+INFO - 06/04/26 18:29:09 - 8:10:59 - --- Evaluating: Salt & Pepper (Lvl 5.0) ---
+INFO - 06/04/26 18:36:24 - 8:18:14 - Salt & Pepper (Lvl 5.0): Loss: 0.77527 | Acc: 0.83518
+INFO - 06/04/26 18:36:24 - 8:18:14 - --- Evaluating: Salt & Pepper (Lvl 10.0) ---
+INFO - 06/04/26 18:44:04 - 8:25:54 - Salt & Pepper (Lvl 10.0): Loss: 1.93090 | Acc: 0.59328
+INFO - 06/04/26 18:44:04 - 8:25:54 - 
+                                     ============================================================
+INFO - 06/04/26 18:44:04 - 8:25:54 -       FINAL ROBUSTNESS EVALUATION RESULTS ON TEST SET       
+INFO - 06/04/26 18:44:04 - 8:25:54 - ============================================================
+INFO - 06/04/26 18:44:04 - 8:25:54 - | Test Scenario                       | Score (Acc)        |
+INFO - 06/04/26 18:44:04 - 8:25:54 - |-------------------------------------|--------------------|
+INFO - 06/04/26 18:44:04 - 8:25:54 - | Clean Test                          |             0.9147 |
+INFO - 06/04/26 18:44:04 - 8:25:54 - | Gaussian (Lvl 5.0)                  |             0.7968 |
+INFO - 06/04/26 18:44:04 - 8:25:54 - | Gaussian (Lvl 10.0)                 |             0.5649 |
+INFO - 06/04/26 18:44:04 - 8:25:54 - | Salt & Pepper (Lvl 5.0)             |             0.8352 |
+INFO - 06/04/26 18:44:04 - 8:25:54 - | Salt & Pepper (Lvl 10.0)            |             0.5933 |
+INFO - 06/04/26 18:44:04 - 8:25:54 - ============================================================
+                                     
+INFO - 06/04/26 18:44:04 - 8:25:54 - Saved final results to e:\Paper_Experiment\DML\DML_v1\Food_v1\savepath\dml_food101\final_results.json
+INFO - 06/04/26 18:44:04 - 8:25:54 - Appended experiment record to e:\Paper_Experiment\DML\DML_v1\Food_v1\savepath\all_experiments.json

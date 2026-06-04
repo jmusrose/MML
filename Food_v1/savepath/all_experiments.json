@@ -1,0 +1,21 @@
+[
+    {
+        "timestamp": "2026-06-04T18:44:04",
+        "dataset": "food101",
+        "name": "dml_food101",
+        "note": "",
+        "seed": 1,
+        "lr": 3e-05,
+        "batch_sz": 8,
+        "max_epochs": 50,
+        "best_clean_acc": 0.9146856840993133,
+        "robustness": {
+            "Clean Test": 0.9146856840993133,
+            "Gaussian (Lvl 5.0)": 0.7967952104243705,
+            "Gaussian (Lvl 10.0)": 0.5649322063743617,
+            "Salt & Pepper (Lvl 5.0)": 0.8351822503961965,
+            "Salt & Pepper (Lvl 10.0)": 0.5932822680049304
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\savepath\\dml_food101"
+    }
+]

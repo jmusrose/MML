@@ -164,6 +164,14 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
     model.train()
     #sadasd
     tl = Averager()
+    tl_both = Averager()
+    tl_rgb = Averager()
+    tl_depth = Averager()
+    tl_ib = Averager()
+    correct_both = 0
+    correct_rgb = 0
+    correct_depth = 0
+    total_samples = 0
     criterion = nn.CrossEntropyLoss().cuda()
 
     for step, batch in enumerate(tqdm(train_loader, desc=f"Training epoch {epoch}")):
@@ -197,9 +205,34 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
         optimizer.step()
 
         tl.add(loss.item())
+        tl_both.add(loss_parts['both'].item())
+        tl_rgb.add(loss_parts['rgb'].item())
+        tl_depth.add(loss_parts['depth'].item())
+        tl_ib.add(loss_parts['ib'].item())
+        with torch.no_grad():
+            correct_both += (torch.argmax(both_out, dim=1) == tgt).sum().item()
+            correct_rgb += (torch.argmax(rgb_out, dim=1) == tgt).sum().item()
+            correct_depth += (torch.argmax(depth_out, dim=1) == tgt).sum().item()
+            total_samples += tgt.size(0)
 
     loss = tl.item()
-    logger.info(f'Epoch {epoch}: Total Loss: {loss:.4f}')
+    loss_both_ave = tl_both.item()
+    loss_rgb_ave = tl_rgb.item()
+    loss_depth_ave = tl_depth.item()
+    loss_ib_ave = tl_ib.item()
+    acc_both = correct_both / total_samples if total_samples else 0.0
+    acc_rgb = correct_rgb / total_samples if total_samples else 0.0
+    acc_depth = correct_depth / total_samples if total_samples else 0.0
+    logger.info(
+        f'Epoch {epoch}: Total Loss: {loss:.4f}, '
+        f'loss_both:{loss_both_ave:.4f}, '
+        f'loss_rgb:{loss_rgb_ave:.4f}, '
+        f'loss_depth:{loss_depth_ave:.4f}, '
+        f'loss_ib:{loss_ib_ave:.4f}, '
+        f'acc_both:{acc_both:.4f}, '
+        f'acc_rgb:{acc_rgb:.4f}, '
+        f'acc_depth:{acc_depth:.4f}'
+    )
     return model
 
 

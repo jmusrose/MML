@@ -56,10 +56,10 @@ def get_args(parser):
     )
     parser.add_argument("--dropout", type=float, default=0.1, help="Dropout rate")
     parser.add_argument(
-        "--freeze_img", type=int, default=0, help="Epochs to freeze image encoder"
+        "--freeze_img", type=int, default=3, help="Epochs to freeze image encoder"
     )
     parser.add_argument(
-        "--freeze_txt", type=int, default=0, help="Epochs to freeze text encoder"
+        "--freeze_txt", type=int, default=5, help="Epochs to freeze text encoder"
     )
     parser.add_argument(
         "--hidden_sz", type=int, default=768, help="BERT hidden size"
@@ -93,7 +93,7 @@ def get_args(parser):
     parser.add_argument(
         "--n_classes", type=int, default=101, help="Number of food classes"
     )
-    parser.add_argument("--n_workers", type=int, default=4, help="DataLoader workers")
+    parser.add_argument("--n_workers", type=int, default=0, help="DataLoader workers")
     parser.add_argument("--name", type=str, default="dml_food101", help="Experiment name")
     parser.add_argument(
         "--note",
@@ -120,7 +120,7 @@ def get_args(parser):
         help="Number of image embedding patches",
     )
     parser.add_argument(
-        "--patience", type=int, default=15, help="Early stopping patience"
+        "--patience", type=int, default=5, help="Early stopping patience"
     )
     parser.add_argument(
         "--savedir",
@@ -170,6 +170,13 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
     """
     model.train()
     tl = Averager()
+    tl_fused = Averager()
+    tl_txt = Averager()
+    tl_img = Averager()
+    correct_fused = 0
+    correct_txt = 0
+    correct_img = 0
+    total_samples = 0
     device = next(model.parameters()).device
 
     # Freeze/unfreeze encoders based on epoch
@@ -207,9 +214,31 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
         optimizer.step()
 
         tl.add(loss.item())
+        tl_fused.add(loss_fused.item())
+        tl_txt.add(loss_txt.item())
+        tl_img.add(loss_img.item())
+        with torch.no_grad():
+            correct_fused += (torch.argmax(fused_logits, dim=1) == target).sum().item()
+            correct_txt += (torch.argmax(txt_logits, dim=1) == target).sum().item()
+            correct_img += (torch.argmax(img_logits, dim=1) == target).sum().item()
+            total_samples += target.size(0)
 
     avg_loss = tl.item()
-    logger.info(f"Epoch {epoch}: Total Loss: {avg_loss:.4f}")
+    loss_fused_ave = tl_fused.item()
+    loss_txt_ave = tl_txt.item()
+    loss_img_ave = tl_img.item()
+    acc_fused = correct_fused / total_samples if total_samples else 0.0
+    acc_txt = correct_txt / total_samples if total_samples else 0.0
+    acc_img = correct_img / total_samples if total_samples else 0.0
+    logger.info(
+        f"Epoch {epoch}: Total Loss: {avg_loss:.4f}, "
+        f"loss_fused:{loss_fused_ave:.4f}, "
+        f"loss_txt:{loss_txt_ave:.4f}, "
+        f"loss_img:{loss_img_ave:.4f}, "
+        f"acc_fused:{acc_fused:.4f}, "
+        f"acc_txt:{acc_txt:.4f}, "
+        f"acc_img:{acc_img:.4f}"
+    )
     return model
 
 

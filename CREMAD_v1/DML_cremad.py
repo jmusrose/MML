@@ -55,6 +55,13 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger):
     """
     model.train()
     tl = Averager()
+    tl_fused = Averager()
+    tl_audio = Averager()
+    tl_video = Averager()
+    correct_fused = 0
+    correct_audio = 0
+    correct_video = 0
+    total_samples = 0
     criterion = nn.CrossEntropyLoss().cuda()
 
     for step, (spectrogram, image, y) in enumerate(tqdm(train_loader, desc=f"Training epoch {epoch}")):
@@ -84,10 +91,33 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger):
         optimizer.step()
 
         tl.add(loss.item())
+        tl_fused.add(loss_fused.item())
+        tl_audio.add(loss_audio.item())
+        tl_video.add(loss_video.item())
+        with torch.no_grad():
+            labels = torch.argmax(y, dim=1)
+            correct_fused += (torch.argmax(fused_logits, dim=1) == labels).sum().item()
+            correct_audio += (torch.argmax(audio_logits, dim=1) == labels).sum().item()
+            correct_video += (torch.argmax(video_logits, dim=1) == labels).sum().item()
+            total_samples += labels.size(0)
 
     loss_ave = tl.item()
+    loss_fused_ave = tl_fused.item()
+    loss_audio_ave = tl_audio.item()
+    loss_video_ave = tl_video.item()
+    acc_fused = correct_fused / total_samples if total_samples else 0.0
+    acc_audio = correct_audio / total_samples if total_samples else 0.0
+    acc_video = correct_video / total_samples if total_samples else 0.0
     logger.info('+++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-    logger.info(f'Epoch {epoch}: Average Training Loss: {loss_ave:.4f}')
+    logger.info(
+        f'Epoch {epoch}: Average Training Loss: {loss_ave:.4f}, '
+        f'loss_fused:{loss_fused_ave:.4f}, '
+        f'loss_audio:{loss_audio_ave:.4f}, '
+        f'loss_video:{loss_video_ave:.4f}, '
+        f'acc_fused:{acc_fused:.4f}, '
+        f'acc_audio:{acc_audio:.4f}, '
+        f'acc_video:{acc_video:.4f}'
+    )
     return model
 
 

@@ -94,7 +94,7 @@ def get_args(parser):
         "--max_epochs", type=int, default=50, help="Maximum training epochs"
     )
     parser.add_argument(
-        "--max_seq_len", type=int, default=512, help="Maximum text sequence length"
+        "--max_seq_len", type=int, default=64, help="Maximum text sequence length"
     )
     parser.add_argument(
         "--n_classes", type=int, default=3, help="Number of sentiment classes"
@@ -126,7 +126,7 @@ def get_args(parser):
         help="Number of image embedding patches",
     )
     parser.add_argument(
-        "--patience", type=int, default=15, help="Early stopping patience"
+        "--patience", type=int, default=5, help="Early stopping patience"
     )
     parser.add_argument(
         "--savedir",
@@ -170,6 +170,13 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
     """
     model.train()
     tl = Averager()
+    tl_fused = Averager()
+    tl_txt = Averager()
+    tl_img = Averager()
+    correct_fused = 0
+    correct_txt = 0
+    correct_img = 0
+    total_samples = 0
 
     # Freeze/unfreeze encoders based on epoch
     if epoch < args.freeze_img:
@@ -218,9 +225,31 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
         optimizer.step()
 
         tl.add(loss.item())
+        tl_fused.add(loss_fused.item())
+        tl_txt.add(loss_txt.item())
+        tl_img.add(loss_img.item())
+        with torch.no_grad():
+            correct_fused += (torch.argmax(fused_logits, dim=1) == target).sum().item()
+            correct_txt += (torch.argmax(txt_logits, dim=1) == target).sum().item()
+            correct_img += (torch.argmax(img_logits, dim=1) == target).sum().item()
+            total_samples += target.size(0)
 
     avg_loss = tl.item()
-    logger.info(f"Epoch {epoch}: Total Loss: {avg_loss:.4f}")
+    loss_fused_ave = tl_fused.item()
+    loss_txt_ave = tl_txt.item()
+    loss_img_ave = tl_img.item()
+    acc_fused = correct_fused / total_samples if total_samples else 0.0
+    acc_txt = correct_txt / total_samples if total_samples else 0.0
+    acc_img = correct_img / total_samples if total_samples else 0.0
+    logger.info(
+        f"Epoch {epoch}: Total Loss: {avg_loss:.4f}, "
+        f"loss_fused:{loss_fused_ave:.4f}, "
+        f"loss_txt:{loss_txt_ave:.4f}, "
+        f"loss_img:{loss_img_ave:.4f}, "
+        f"acc_fused:{acc_fused:.4f}, "
+        f"acc_txt:{acc_txt:.4f}, "
+        f"acc_img:{acc_img:.4f}"
+    )
     return model
 
 

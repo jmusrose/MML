@@ -1,0 +1,12 @@
+{
+    "best_clean_model": {
+        "clean_acc": 0.9146856840993133
+    },
+    "robustness": {
+        "Clean Test": 0.9146856840993133,
+        "Gaussian (Lvl 5.0)": 0.7967952104243705,
+        "Gaussian (Lvl 10.0)": 0.5649322063743617,
+        "Salt & Pepper (Lvl 5.0)": 0.8351822503961965,
+        "Salt & Pepper (Lvl 10.0)": 0.5932822680049304
+    }
+}

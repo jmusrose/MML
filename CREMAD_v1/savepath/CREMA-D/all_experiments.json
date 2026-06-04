@@ -1,0 +1,22 @@
+[
+    {
+        "timestamp": "2026-06-04T00:53:42",
+        "dataset": "CREMA-D",
+        "name": "dml_cremad_seed0_lr0.005",
+        "note": "",
+        "seed": 0,
+        "lr": 0.005,
+        "batch_sz": 16,
+        "max_epochs": 100,
+        "best_clean_epoch": 80,
+        "best_clean_acc": 0.7090558766859345,
+        "robustness": {
+            "Clean Test": 0.7090558766859345,
+            "Salt & Pepper (Lvl 5.0)": 0.6249197174052665,
+            "Salt & Pepper (Lvl 10.0)": 0.5144508670520231,
+            "Gaussian (Lvl 5.0)": 0.7199743095696853,
+            "Gaussian (Lvl 10.0)": 0.7116249197174053
+        },
+        "savedir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.005"
+    }
+]

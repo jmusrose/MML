@@ -36,5 +36,43 @@
             "Salt & Pepper (Lvl 10.0)": 0.5915221579961464
         },
         "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\MVSA_v1\\savepath\\dml_mvsa"
+    },
+    {
+        "timestamp": "2026-06-02T19:12:32",
+        "dataset": "mvsa",
+        "name": "dml_mvsa",
+        "note": "",
+        "seed": 1,
+        "lr": 3e-05,
+        "batch_sz": 32,
+        "max_epochs": 50,
+        "best_clean_acc": 0.8015414258188824,
+        "robustness": {
+            "Clean Test": 0.8015414258188824,
+            "Gaussian (Lvl 5.0)": 0.6763005780346821,
+            "Gaussian (Lvl 10.0)": 0.5741811175337187,
+            "Salt & Pepper (Lvl 5.0)": 0.7090558766859345,
+            "Salt & Pepper (Lvl 10.0)": 0.5934489402697495
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\MVSA_v1\\savepath\\dml_mvsa"
+    },
+    {
+        "timestamp": "2026-06-03T01:02:04",
+        "dataset": "mvsa",
+        "name": "dml_mvsa",
+        "note": "",
+        "seed": 1,
+        "lr": 3e-05,
+        "batch_sz": 32,
+        "max_epochs": 50,
+        "best_clean_acc": 0.8015414258188824,
+        "robustness": {
+            "Clean Test": 0.8015414258188824,
+            "Gaussian (Lvl 5.0)": 0.6763005780346821,
+            "Gaussian (Lvl 10.0)": 0.5741811175337187,
+            "Salt & Pepper (Lvl 5.0)": 0.7090558766859345,
+            "Salt & Pepper (Lvl 10.0)": 0.5934489402697495
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\MVSA_v1\\savepath\\dml_mvsa"
     }
 ]

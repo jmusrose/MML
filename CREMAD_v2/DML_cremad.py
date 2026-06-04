@@ -56,6 +56,14 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
     """
     model.train()
     tl = Averager()
+    tl_fused = Averager()
+    tl_audio = Averager()
+    tl_video = Averager()
+    tl_ib = Averager()
+    correct_fused = 0
+    correct_audio = 0
+    correct_video = 0
+    total_samples = 0
     criterion = nn.CrossEntropyLoss().cuda()
     ib_beta = cfg.get("ib_beta", 1e-3)
 
@@ -91,10 +99,36 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
         optimizer.step()
 
         tl.add(loss.item())
+        tl_fused.add(loss_parts['fused'].item())
+        tl_audio.add(loss_parts['audio'].item())
+        tl_video.add(loss_parts['video'].item())
+        tl_ib.add(loss_parts['ib'].item())
+        with torch.no_grad():
+            labels = torch.argmax(y, dim=1)
+            correct_fused += (torch.argmax(fused_logits, dim=1) == labels).sum().item()
+            correct_audio += (torch.argmax(audio_logits, dim=1) == labels).sum().item()
+            correct_video += (torch.argmax(video_logits, dim=1) == labels).sum().item()
+            total_samples += labels.size(0)
 
     loss_ave = tl.item()
+    loss_fused_ave = tl_fused.item()
+    loss_audio_ave = tl_audio.item()
+    loss_video_ave = tl_video.item()
+    loss_ib_ave = tl_ib.item()
+    acc_fused = correct_fused / total_samples if total_samples else 0.0
+    acc_audio = correct_audio / total_samples if total_samples else 0.0
+    acc_video = correct_video / total_samples if total_samples else 0.0
     logger.info('+++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-    logger.info(f'Epoch {epoch}: Average Training Loss: {loss_ave:.4f}')
+    logger.info(
+        f'Epoch {epoch}: Average Training Loss: {loss_ave:.4f}, '
+        f'loss_fused:{loss_fused_ave:.4f}, '
+        f'loss_audio:{loss_audio_ave:.4f}, '
+        f'loss_video:{loss_video_ave:.4f}, '
+        f'loss_ib:{loss_ib_ave:.4f}, '
+        f'acc_fused:{acc_fused:.4f}, '
+        f'acc_audio:{acc_audio:.4f}, '
+        f'acc_video:{acc_video:.4f}'
+    )
     return model
 
 
