@@ -68,10 +68,12 @@ class Classifier(nn.Module):
 
         rgb_out = self._sample_logits(rgb_mu, rgb_logvar)
         depth_out = self._sample_logits(depth_mu, depth_logvar)
-        ib_loss = self._kl_to_standard_normal(rgb_mu, rgb_logvar)
-        ib_loss = ib_loss + self._kl_to_standard_normal(depth_mu, depth_logvar)
+        ib_losses = {
+            "rgb": self._kl_to_standard_normal(rgb_mu, rgb_logvar),
+            "depth": self._kl_to_standard_normal(depth_mu, depth_logvar),
+        }
 
         # 决策级融合（唯一融合方式）
         both_output = 0.5 * (rgb_out + depth_out)
 
-        return both_output, rgb_out, depth_out, rgb_out, depth_out, ib_loss
+        return both_output, rgb_out, depth_out, rgb_out, depth_out, ib_losses

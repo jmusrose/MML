@@ -105,17 +105,38 @@ def information_bottleneck_classification_loss(
     rgb_out,
     depth_out,
     target,
-    ib_loss,
+    ib_losses,
     ib_beta,
+    ib_betas=None,
 ):
     loss_both = criterion(both_out, target)
     loss_rgb = criterion(rgb_out, target)
     loss_depth = criterion(depth_out, target)
-    weighted_ib = ib_beta * ib_loss
+
+    if isinstance(ib_losses, dict):
+        if ib_betas is None:
+            ib_betas = {
+                "rgb": ib_beta,
+                "depth": ib_beta,
+            }
+        weighted_ib_rgb = ib_betas["rgb"] * ib_losses["rgb"]
+        weighted_ib_depth = ib_betas["depth"] * ib_losses["depth"]
+        weighted_ib = weighted_ib_rgb + weighted_ib_depth
+    else:
+        weighted_ib_rgb = None
+        weighted_ib_depth = None
+        weighted_ib = ib_beta * ib_losses
+
     loss = loss_both + loss_rgb + loss_depth + weighted_ib
-    return loss, {
+    parts = {
         "both": loss_both,
         "rgb": loss_rgb,
         "depth": loss_depth,
         "ib": weighted_ib,
     }
+    if weighted_ib_rgb is not None:
+        parts["ib_rgb"] = weighted_ib_rgb
+        parts["ib_depth"] = weighted_ib_depth
+        parts["beta_rgb"] = float(ib_betas["rgb"])
+        parts["beta_depth"] = float(ib_betas["depth"])
+    return loss, parts

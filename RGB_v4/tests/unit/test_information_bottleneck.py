@@ -45,14 +45,17 @@ def test_classifier_returns_information_bottleneck_outputs(monkeypatch, module_n
     outputs = model(rgb, depth)
 
     assert len(outputs) == 6
-    both_out, rgb_out, depth_out, rgb_latent, depth_latent, ib_loss = outputs
+    both_out, rgb_out, depth_out, rgb_latent, depth_latent, ib_losses = outputs
     assert both_out.shape == (2, 3)
     assert rgb_out.shape == (2, 3)
     assert depth_out.shape == (2, 3)
     assert rgb_latent.shape == (2, 3)
     assert depth_latent.shape == (2, 3)
-    assert ib_loss.ndim == 0
-    assert ib_loss >= 0
+    assert set(ib_losses) == {"rgb", "depth"}
+    assert ib_losses["rgb"].ndim == 0
+    assert ib_losses["depth"].ndim == 0
+    assert ib_losses["rgb"] >= 0
+    assert ib_losses["depth"] >= 0
 
 
 @pytest.mark.parametrize(
@@ -89,7 +92,7 @@ def test_eval_mode_uses_mean_logits_without_sampling(monkeypatch, module_name):
     assert torch.allclose(first[2], second[2])
 
 
-def test_information_bottleneck_loss_adds_beta_weighted_kl():
+def test_information_bottleneck_loss_adds_modality_specific_beta_weighted_kl():
     from tool.loss import information_bottleneck_classification_loss
 
     criterion = nn.CrossEntropyLoss()
@@ -97,8 +100,8 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
     both_out = torch.tensor([[2.0, 0.0], [0.0, 2.0]])
     rgb_out = torch.tensor([[1.5, 0.0], [0.0, 1.5]])
     depth_out = torch.tensor([[1.0, 0.0], [0.0, 1.0]])
-    ib_loss = torch.tensor(4.0)
-    beta = 0.25
+    ib_losses = {"rgb": torch.tensor(4.0), "depth": torch.tensor(2.0)}
+    ib_betas = {"rgb": 0.5, "depth": 0.25}
 
     loss, parts = information_bottleneck_classification_loss(
         criterion,
@@ -106,8 +109,9 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
         rgb_out,
         depth_out,
         target,
-        ib_loss,
-        beta,
+        ib_losses,
+        ib_beta=0.1,
+        ib_betas=ib_betas,
     )
 
     expected_ce = (
@@ -115,5 +119,8 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
         + criterion(rgb_out, target)
         + criterion(depth_out, target)
     )
-    assert torch.allclose(loss, expected_ce + beta * ib_loss)
-    assert torch.allclose(parts["ib"], beta * ib_loss)
+    expected_ib = ib_betas["rgb"] * ib_losses["rgb"] + ib_betas["depth"] * ib_losses["depth"]
+    assert torch.allclose(loss, expected_ce + expected_ib)
+    assert torch.allclose(parts["ib"], expected_ib)
+    assert torch.allclose(parts["ib_rgb"], ib_betas["rgb"] * ib_losses["rgb"])
+    assert torch.allclose(parts["ib_depth"], ib_betas["depth"] * ib_losses["depth"])

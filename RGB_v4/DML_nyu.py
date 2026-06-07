@@ -32,7 +32,11 @@ from data.aligned_conc_dataset import AlignedConcDataset
 from data.aligned_conc_dataset_noised import AlignedConcDataset as AlignedConcDatasetNoised
 from models.dml_classifier_nyu import Classifier
 from tool.loss import information_bottleneck_classification_loss
-from utils.conformal import calibrate_conformal, evaluate_conformal
+from utils.conformal import (
+    calibrate_conformal,
+    conformal_uncertainty_from_logits,
+    evaluate_conformal,
+)
 from utils.logger import create_logger
 from utils.utils import Averager, append_experiment_record, set_seed
 
@@ -138,7 +142,25 @@ def compute_mAP(outputs, labels):
     return float(np.mean(aps))
 
 
-def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
+def _batch_conformal_ib_betas(rgb_out, depth_out, conformal_thresholds, args):
+    if conformal_thresholds is None:
+        return None, {}
+
+    uncertainties = conformal_uncertainty_from_logits(
+        {
+            "rgb": rgb_out.detach().cpu().numpy(),
+            "depth": depth_out.detach().cpu().numpy(),
+        },
+        conformal_thresholds,
+    )
+    ib_betas = {
+        "rgb": args.ib_beta * (1.0 + uncertainties["rgb"]),
+        "depth": args.ib_beta * (1.0 + uncertainties["depth"]),
+    }
+    return ib_betas, uncertainties
+
+
+def train_rgbd(epoch, train_loader, model, optimizer, logger, args, conformal_thresholds=None):
     """单 epoch 训练循环（决策级融合 + 三路 CE 损失之和）。
 
     参数
@@ -177,6 +199,12 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
     tl_rgb = Averager()
     tl_depth = Averager()
     tl_ib = Averager()
+    tl_ib_rgb = Averager()
+    tl_ib_depth = Averager()
+    tl_beta_rgb = Averager()
+    tl_beta_depth = Averager()
+    tl_uncertainty_rgb = Averager()
+    tl_uncertainty_depth = Averager()
     correct_both = 0
     correct_rgb = 0
     correct_depth = 0
@@ -190,16 +218,26 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
 
         optimizer.zero_grad()
 
-        both_out, rgb_out, depth_out, _, _, ib_loss = model(rgb, depth)
+        both_out, rgb_out, depth_out, _, _, ib_losses = model(rgb, depth)
+        ib_betas, uncertainties = _batch_conformal_ib_betas(
+            rgb_out,
+            depth_out,
+            conformal_thresholds,
+            args,
+        )
         loss, loss_parts = information_bottleneck_classification_loss(
             criterion,
             both_out,
             rgb_out,
             depth_out,
             tgt,
-            ib_loss,
+            ib_losses,
             args.ib_beta,
+            ib_betas=ib_betas,
         )
+        if uncertainties:
+            loss_parts["uncertainty_rgb"] = uncertainties["rgb"]
+            loss_parts["uncertainty_depth"] = uncertainties["depth"]
 
         if torch.isnan(loss).any() or loss <= 0:
             print(f"NaN detected at step {step}")
@@ -218,6 +256,13 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
         tl_rgb.add(loss_parts['rgb'].item())
         tl_depth.add(loss_parts['depth'].item())
         tl_ib.add(loss_parts['ib'].item())
+        if "ib_rgb" in loss_parts:
+            tl_ib_rgb.add(loss_parts["ib_rgb"].item())
+            tl_ib_depth.add(loss_parts["ib_depth"].item())
+            tl_beta_rgb.add(loss_parts["beta_rgb"])
+            tl_beta_depth.add(loss_parts["beta_depth"])
+            tl_uncertainty_rgb.add(loss_parts["uncertainty_rgb"])
+            tl_uncertainty_depth.add(loss_parts["uncertainty_depth"])
         with torch.no_grad():
             correct_both += (torch.argmax(both_out, dim=1) == tgt).sum().item()
             correct_rgb += (torch.argmax(rgb_out, dim=1) == tgt).sum().item()
@@ -229,6 +274,12 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
     loss_rgb_ave = tl_rgb.item()
     loss_depth_ave = tl_depth.item()
     loss_ib_ave = tl_ib.item()
+    loss_ib_rgb_ave = tl_ib_rgb.item()
+    loss_ib_depth_ave = tl_ib_depth.item()
+    beta_rgb_ave = tl_beta_rgb.item()
+    beta_depth_ave = tl_beta_depth.item()
+    uncertainty_rgb_ave = tl_uncertainty_rgb.item()
+    uncertainty_depth_ave = tl_uncertainty_depth.item()
     acc_both = correct_both / total_samples if total_samples else 0.0
     acc_rgb = correct_rgb / total_samples if total_samples else 0.0
     acc_depth = correct_depth / total_samples if total_samples else 0.0
@@ -238,6 +289,12 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
         f'loss_rgb:{loss_rgb_ave:.4f}, '
         f'loss_depth:{loss_depth_ave:.4f}, '
         f'loss_ib:{loss_ib_ave:.4f}, '
+        f'loss_ib_rgb:{loss_ib_rgb_ave:.4f}, '
+        f'loss_ib_depth:{loss_ib_depth_ave:.4f}, '
+        f'beta_rgb:{beta_rgb_ave:.6f}, '
+        f'beta_depth:{beta_depth_ave:.6f}, '
+        f'uncertainty_rgb:{uncertainty_rgb_ave:.4f}, '
+        f'uncertainty_depth:{uncertainty_depth_ave:.4f}, '
         f'acc_both:{acc_both:.4f}, '
         f'acc_rgb:{acc_rgb:.4f}, '
         f'acc_depth:{acc_depth:.4f}'
@@ -447,7 +504,21 @@ def main():
 
     for epoch in range(args.max_epochs):
         logger.info(f'Epoch {epoch} training started...')
-        model = train_rgbd(epoch, train_loader, model, optimizer, logger, args)
+        calib_logits, calib_labels = collect_multimodal_logits(calib_loader, model)
+        epoch_conformal_calibration = calibrate_conformal(
+            calib_logits,
+            calib_labels,
+            args.conformal_alpha,
+        )
+        model = train_rgbd(
+            epoch,
+            train_loader,
+            model,
+            optimizer,
+            logger,
+            args,
+            conformal_thresholds=epoch_conformal_calibration["thresholds"],
+        )
 
         val_acc = val_rgbd(epoch, val_loader, model, logger, args)
 
