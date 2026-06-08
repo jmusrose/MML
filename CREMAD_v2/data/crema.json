@@ -14,7 +14,7 @@
     },
     "train": {
         "epoch_dict": 100,
-        "batch_size": 32,
+        "batch_size": 16,
         "num_workers": 0,
         "val_size": 16,
         "val_batch_size": 16,
@@ -30,7 +30,7 @@
         }
     },
     "test": {
-        "batch_size": 32,
+        "batch_size": 16,
         "num_workers": 0
     },
     "experiment": {

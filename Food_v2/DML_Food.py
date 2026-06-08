@@ -42,7 +42,7 @@ _REPO_ROOT = os.path.dirname(_THIS_DIR)
 
 def get_args(parser):
     """Register all CLI arguments."""
-    parser.add_argument("--batch_sz", type=int, default=32, help="Batch size")
+    parser.add_argument("--batch_sz", type=int, default=8, help="Batch size")
     parser.add_argument(
         "--bert_model",
         type=str,
@@ -60,7 +60,7 @@ def get_args(parser):
         "--freeze_img", type=int, default=3, help="Epochs to freeze image encoder"
     )
     parser.add_argument(
-        "--freeze_txt", type=int, default=5, help="Epochs to freeze text encoder"
+        "--freeze_txt", type=int, default=4, help="Epochs to freeze text encoder"
     )
     parser.add_argument(
         "--hidden_sz", type=int, default=768, help="BERT hidden size"
@@ -101,7 +101,7 @@ def get_args(parser):
         "--max_epochs", type=int, default=50, help="Maximum training epochs"
     )
     parser.add_argument(
-        "--max_seq_len", type=int, default=512, help="Maximum text sequence length"
+        "--max_seq_len", type=int, default=256, help="Maximum text sequence length"
     )
     parser.add_argument(
         "--n_classes", type=int, default=101, help="Number of food classes"

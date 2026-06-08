@@ -133,14 +133,16 @@ def test_classifier_returns_rgb_v2_style_information_bottleneck_outputs(
     outputs = model(txt, mask, segment, img)
 
     assert len(outputs) == 6
-    fused, txt_logits, img_logits, txt_latent, img_latent, ib_loss = outputs
+    fused, txt_logits, img_logits, txt_latent, img_latent, ib_losses = outputs
     assert torch.allclose(fused, 0.5 * txt_logits + 0.5 * img_logits)
     assert torch.allclose(txt_latent, txt_logits)
     assert torch.allclose(img_latent, img_logits)
-    assert torch.allclose(ib_loss, torch.tensor(4.0))
+    assert set(ib_losses) == {"text", "image"}
+    assert torch.allclose(ib_losses["text"], torch.tensor(1.25))
+    assert torch.allclose(ib_losses["image"], torch.tensor(2.75))
 
 
-def test_information_bottleneck_loss_adds_beta_weighted_kl():
+def test_information_bottleneck_loss_adds_modality_specific_beta_weighted_kl():
     from utils.loss import information_bottleneck_classification_loss
 
     criterion = nn.CrossEntropyLoss()
@@ -148,8 +150,8 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
     fused_logits = torch.tensor([[2.0, 0.0], [0.0, 2.0]])
     txt_logits = torch.tensor([[1.5, 0.0], [0.0, 1.5]])
     img_logits = torch.tensor([[1.0, 0.0], [0.0, 1.0]])
-    ib_loss = torch.tensor(4.0)
-    beta = 0.25
+    ib_losses = {"text": torch.tensor(4.0), "image": torch.tensor(2.0)}
+    ib_betas = {"text": 0.5, "image": 0.25}
 
     loss, parts = information_bottleneck_classification_loss(
         criterion,
@@ -157,8 +159,9 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
         txt_logits,
         img_logits,
         target,
-        ib_loss,
-        beta,
+        ib_losses,
+        ib_beta=0.1,
+        ib_betas=ib_betas,
     )
 
     expected_ce = (
@@ -166,5 +169,8 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
         + criterion(txt_logits, target)
         + criterion(img_logits, target)
     )
-    assert torch.allclose(loss, expected_ce + beta * ib_loss)
-    assert torch.allclose(parts["ib"], beta * ib_loss)
+    expected_ib = ib_betas["text"] * ib_losses["text"] + ib_betas["image"] * ib_losses["image"]
+    assert torch.allclose(loss, expected_ce + expected_ib)
+    assert torch.allclose(parts["ib"], expected_ib)
+    assert torch.allclose(parts["ib_text"], ib_betas["text"] * ib_losses["text"])
+    assert torch.allclose(parts["ib_image"], ib_betas["image"] * ib_losses["image"])

@@ -23,7 +23,11 @@ import torch.optim as optim
 
 from data.helpers import get_data_loaders, get_test_loader
 from models.dml_classifier import Classifier
-from utils.conformal import calibrate_conformal, evaluate_conformal
+from utils.conformal import (
+    calibrate_conformal,
+    conformal_uncertainty_from_logits,
+    evaluate_conformal,
+)
 from utils.logger import create_logger
 from utils.loss import information_bottleneck_classification_loss
 from utils.utils import (
@@ -195,7 +199,34 @@ def set_module_trainable(module, trainable):
         param.requires_grad = trainable
 
 
-def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
+def _batch_conformal_ib_betas(txt_logits, img_logits, conformal_thresholds, args):
+    if conformal_thresholds is None:
+        return None, {}
+
+    uncertainties = conformal_uncertainty_from_logits(
+        {
+            "text": txt_logits.detach().cpu().numpy(),
+            "image": img_logits.detach().cpu().numpy(),
+        },
+        conformal_thresholds,
+    )
+    ib_betas = {
+        "text": args.ib_beta * (1.0 + uncertainties["text"]),
+        "image": args.ib_beta * (1.0 + uncertainties["image"]),
+    }
+    return ib_betas, uncertainties
+
+
+def train_epoch(
+    epoch,
+    train_loader,
+    model,
+    optimizer,
+    criterion,
+    logger,
+    args,
+    conformal_thresholds=None,
+):
     """Single epoch training with 3-branch CE loss and IB KL loss.
 
     Loss = CE(fused, target) + CE(text, target) + CE(image, target) + beta * KL
@@ -206,6 +237,12 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
     tl_txt = Averager()
     tl_img = Averager()
     tl_ib = Averager()
+    tl_ib_txt = Averager()
+    tl_ib_img = Averager()
+    tl_beta_txt = Averager()
+    tl_beta_img = Averager()
+    tl_uncertainty_txt = Averager()
+    tl_uncertainty_img = Averager()
     correct_fused = 0
     correct_txt = 0
     correct_img = 0
@@ -226,8 +263,14 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
 
         optimizer.zero_grad()
 
-        fused_logits, txt_logits, img_logits, _, _, ib_loss = model(
+        fused_logits, txt_logits, img_logits, _, _, ib_losses = model(
             text, mask, segment, image
+        )
+        ib_betas, uncertainties = _batch_conformal_ib_betas(
+            txt_logits,
+            img_logits,
+            conformal_thresholds,
+            args,
         )
 
         loss, loss_parts = information_bottleneck_classification_loss(
@@ -236,9 +279,13 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
             txt_logits,
             img_logits,
             target,
-            ib_loss,
+            ib_losses,
             args.ib_beta,
+            ib_betas=ib_betas,
         )
+        if uncertainties:
+            loss_parts["uncertainty_text"] = uncertainties["text"]
+            loss_parts["uncertainty_image"] = uncertainties["image"]
 
         if torch.isnan(loss).any():
             logger.warning(
@@ -257,6 +304,13 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
         tl_txt.add(loss_parts['txt'].item())
         tl_img.add(loss_parts['img'].item())
         tl_ib.add(loss_parts['ib'].item())
+        if "ib_text" in loss_parts:
+            tl_ib_txt.add(loss_parts["ib_text"].item())
+            tl_ib_img.add(loss_parts["ib_image"].item())
+            tl_beta_txt.add(loss_parts["beta_text"])
+            tl_beta_img.add(loss_parts["beta_image"])
+            tl_uncertainty_txt.add(loss_parts["uncertainty_text"])
+            tl_uncertainty_img.add(loss_parts["uncertainty_image"])
         with torch.no_grad():
             correct_fused += (torch.argmax(fused_logits, dim=1) == target).sum().item()
             correct_txt += (torch.argmax(txt_logits, dim=1) == target).sum().item()
@@ -268,6 +322,12 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
     loss_txt_ave = tl_txt.item()
     loss_img_ave = tl_img.item()
     loss_ib_ave = tl_ib.item()
+    loss_ib_txt_ave = tl_ib_txt.item()
+    loss_ib_img_ave = tl_ib_img.item()
+    beta_txt_ave = tl_beta_txt.item()
+    beta_img_ave = tl_beta_img.item()
+    uncertainty_txt_ave = tl_uncertainty_txt.item()
+    uncertainty_img_ave = tl_uncertainty_img.item()
     acc_fused = correct_fused / total_samples if total_samples else 0.0
     acc_txt = correct_txt / total_samples if total_samples else 0.0
     acc_img = correct_img / total_samples if total_samples else 0.0
@@ -277,6 +337,12 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
         f"loss_txt:{loss_txt_ave:.4f}, "
         f"loss_img:{loss_img_ave:.4f}, "
         f"loss_ib:{loss_ib_ave:.4f}, "
+        f"loss_ib_text:{loss_ib_txt_ave:.4f}, "
+        f"loss_ib_image:{loss_ib_img_ave:.4f}, "
+        f"beta_text:{beta_txt_ave:.6f}, "
+        f"beta_image:{beta_img_ave:.6f}, "
+        f"uncertainty_text:{uncertainty_txt_ave:.4f}, "
+        f"uncertainty_image:{uncertainty_img_ave:.4f}, "
         f"acc_fused:{acc_fused:.4f}, "
         f"acc_txt:{acc_txt:.4f}, "
         f"acc_img:{acc_img:.4f}"
@@ -387,8 +453,21 @@ def main():
     logger.info("Starting DML Food-101 training...")
 
     for epoch in range(args.max_epochs):
+        calib_logits, calib_labels = collect_multimodal_logits(cp_loader, model)
+        epoch_conformal_calibration = calibrate_conformal(
+            calib_logits,
+            calib_labels,
+            args.conformal_alpha,
+        )
         model = train_epoch(
-            epoch, train_loader, model, optimizer, criterion, logger, args
+            epoch,
+            train_loader,
+            model,
+            optimizer,
+            criterion,
+            logger,
+            args,
+            conformal_thresholds=epoch_conformal_calibration["thresholds"],
         )
 
         val_metrics = eval_epoch(epoch, val_loader, model, criterion, logger, args)

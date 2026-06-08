@@ -92,3 +92,20 @@ def test_conformal_uncertainty_weights_use_prediction_set_sizes():
     for modality in expected_reliability:
         assert metrics[modality]["avg_reliability"] == expected_reliability[modality]
         assert metrics[modality]["avg_weight"] == expected_reliability[modality] / denom
+
+
+def test_conformal_uncertainty_from_logits_reports_average_set_size_ratio():
+    from utils.conformal import conformal_uncertainty_from_logits
+
+    logits = {
+        "audio": np.array([[4.0, 0.0], [0.0, 4.0]]),
+        "video": np.array([[4.0, 0.0], [0.0, 4.0]]),
+    }
+
+    uncertainties = conformal_uncertainty_from_logits(
+        logits,
+        {"audio": float("inf"), "video": 0.2},
+    )
+
+    assert uncertainties["audio"] == 1.0
+    assert uncertainties["video"] == 0.5

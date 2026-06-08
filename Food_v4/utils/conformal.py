@@ -108,3 +108,24 @@ def evaluate_conformal(logits_by_modality, labels, thresholds, tau=1.0):
         }
 
     return metrics
+
+
+def conformal_uncertainty_from_logits(logits_by_modality, thresholds):
+    uncertainties = {}
+
+    for modality, logits in logits_by_modality.items():
+        if modality not in thresholds:
+            raise KeyError(f"missing conformal threshold for modality {modality}")
+
+        probs = softmax_logits(logits)
+        threshold = thresholds[modality]
+        if math.isinf(threshold):
+            prediction_sets = np.ones_like(probs, dtype=bool)
+        else:
+            prediction_sets = probs >= (1.0 - threshold)
+
+        set_sizes = prediction_sets.sum(axis=1)
+        uncertainty = set_sizes.astype(np.float64) / float(probs.shape[1])
+        uncertainties[modality] = float(np.mean(uncertainty))
+
+    return uncertainties

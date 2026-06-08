@@ -19,6 +19,7 @@
         "val_size": 16,
         "val_batch_size": 16,
         "val_num_workers": 0,
+        "early_stopping_patience": 15,
         "optimizer": {
             "type": "SGD",
             "momentum": 0.9,

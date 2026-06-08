@@ -15,9 +15,23 @@ class FakeDataset:
         self.args = args
         self.data_dir = data_dir
         self.transform = transform
+        split = Path(data_dir).name
+        self.classes = ["class_a", "class_b"]
+        self.imgs = [
+            (str(Path(data_dir) / "class_a" / "shared.png"), 0),
+        ]
+        if split == "train":
+            self.imgs.append((str(Path(data_dir) / "class_b" / "train_only.png"), 1))
+        else:
+            self.imgs.extend(
+                [
+                    (str(Path(data_dir) / "class_b" / f"{split}_only.png"), 1),
+                    (str(Path(data_dir) / "class_a" / f"{split}_extra.png"), 0),
+                ]
+            )
 
     def __len__(self):
-        return 8
+        return len(self.imgs)
 
 
 class FakeLoader:
@@ -124,3 +138,16 @@ def test_nyu_dataloaders_use_dataset_val_split(monkeypatch):
     assert train_loader.shuffle is True
     assert val_loader.shuffle is False
     assert test_loader.shuffle is False
+
+
+def test_infer_n_classes_from_split_datasets(monkeypatch):
+    install_training_import_stubs(monkeypatch)
+    sys.modules.pop("DML_nyu", None)
+    DML_nyu = importlib.import_module("DML_nyu")
+
+    datasets = [
+        SimpleNamespace(classes=["a", "b", "c"]),
+        SimpleNamespace(classes=["a", "b", "c"]),
+    ]
+
+    assert DML_nyu.infer_n_classes_from_datasets(*datasets) == 3

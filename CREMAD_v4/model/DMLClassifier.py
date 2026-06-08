@@ -99,7 +99,7 @@ class DMLClassifier(nn.Module):
         Returns:
             tuple: (
                 fused_logits, audio_logits, video_logits,
-                audio_latent, video_latent, ib_loss
+                audio_latent, video_latent, ib_losses
             )
         """
         audio_features = self.audio_encoder(audio)
@@ -112,9 +112,11 @@ class DMLClassifier(nn.Module):
 
         audio_logits = self._sample_logits(audio_mu, audio_logvar)
         video_logits = self._sample_logits(video_mu, video_logvar)
-        ib_loss = self._kl_to_standard_normal(audio_mu, audio_logvar)
-        ib_loss = ib_loss + self._kl_to_standard_normal(video_mu, video_logvar)
+        ib_losses = {
+            "audio": self._kl_to_standard_normal(audio_mu, audio_logvar),
+            "video": self._kl_to_standard_normal(video_mu, video_logvar),
+        }
 
         fused_logits = 0.5 * audio_logits + 0.5 * video_logits
 
-        return fused_logits, audio_logits, video_logits, audio_logits, video_logits, ib_loss
+        return fused_logits, audio_logits, video_logits, audio_logits, video_logits, ib_losses

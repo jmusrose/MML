@@ -42,12 +42,15 @@ class Classifier(nn.Module):
             img_logits: image branch output [B, n_classes]
             txt_latent: sampled text logits [B, n_classes]
             img_latent: sampled image logits [B, n_classes]
-            ib_loss: KL(text) + KL(image)
+            ib_losses: {"text": KL(text), "image": KL(image)}
         """
         txt_logits, _, txt_ib_loss = self.txtclf(txt, mask, segment)
         img_logits, _, img_ib_loss = self.imgclf(img)
 
         fused_logits = 0.5 * txt_logits + 0.5 * img_logits
-        ib_loss = txt_ib_loss + img_ib_loss
+        ib_losses = {
+            "text": txt_ib_loss,
+            "image": img_ib_loss,
+        }
 
-        return fused_logits, txt_logits, img_logits, txt_logits, img_logits, ib_loss
+        return fused_logits, txt_logits, img_logits, txt_logits, img_logits, ib_losses

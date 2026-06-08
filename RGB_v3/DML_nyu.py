@@ -56,11 +56,12 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--lr_factor", type=float, default=0.3)
     parser.add_argument("--lr_patience", type=int, default=10)
     parser.add_argument("--max_epochs", type=int, default=50)
+    parser.add_argument("--patience", type=int, default=3)
     parser.add_argument("--n_workers", type=int, default=8)
     parser.add_argument("--savedir", type=str, default=os.path.join(_THIS_DIR, "savepath", "nyud"))
     parser.add_argument("--name", type=str, default="s")
     parser.add_argument("--seed", type=int, default=0)
-    parser.add_argument("--n_classes", type=int, default=19)
+    parser.add_argument("--n_classes", type=int, default=10)
     parser.add_argument("--img_hidden_sz", type=int, default=512)
     parser.add_argument("--num_image_embeds", type=int, default=1)
     parser.add_argument("--ib_beta", type=float, default=1e-3)
@@ -433,6 +434,7 @@ def main():
         transforms.Compose(train_transforms),
         transforms.Compose(val_transforms),
     )
+    validation_loader = test_loader
 
     # 5) 模型 / 优化器 / 调度器
     model = Classifier(args).cuda()
@@ -443,17 +445,19 @@ def main():
     best_val_acc = 0.0
     best_val_epoch = 0
     best_val_model_state = copy.deepcopy(model.state_dict())
+    n_no_improve = 0
 
     for epoch in range(args.max_epochs):
         logger.info(f'Epoch {epoch} training started...')
         model = train_rgbd(epoch, train_loader, model, optimizer, logger, args)
 
-        val_acc = val_rgbd(epoch, val_loader, model, logger, args)
+        val_acc = val_rgbd(epoch, validation_loader, model, logger, args)
 
         if val_acc > best_val_acc:
             best_val_acc = val_acc
             best_val_epoch = epoch
             best_val_model_state = copy.deepcopy(model.state_dict())
+            n_no_improve = 0
             torch.save(
                 {
                     'epoch': epoch,
@@ -467,8 +471,15 @@ def main():
                 f' *** NEW BEST VAL ACC *** Epoch {epoch} '
                 f'| Val Acc: {best_val_acc:.4f}'
             )
+        else:
+            n_no_improve += 1
 
         scheduler.step(val_acc)
+        if n_no_improve >= args.patience:
+            logger.info(
+                f"No improvement for {args.patience} epochs. Stopping early."
+            )
+            break
 
     # 7) 鲁棒性评估：加载 best 检查点
     logger.info("Loading best model for final robust evaluation on Test sets...")

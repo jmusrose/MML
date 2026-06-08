@@ -18,7 +18,7 @@ def test_classifier_source_declares_information_bottleneck_heads():
     assert "self.video_logvar" in source
     assert "def _sample_logits" in source
     assert "def _kl_to_standard_normal" in source
-    assert "ib_loss" in source
+    assert "ib_losses" in source
 
 
 def test_training_source_uses_information_bottleneck_loss():
@@ -86,15 +86,18 @@ def test_classifier_returns_information_bottleneck_outputs(monkeypatch):
     outputs = model(audio, video)
 
     assert len(outputs) == 6
-    fused, audio_logits, video_logits, audio_latent, video_latent, ib_loss = outputs
+    fused, audio_logits, video_logits, audio_latent, video_latent, ib_losses = outputs
     assert fused.shape == (2, 6)
     assert audio_logits.shape == (2, 6)
     assert video_logits.shape == (2, 6)
     assert audio_latent.shape == (2, 6)
     assert video_latent.shape == (2, 6)
     assert torch.allclose(fused, 0.5 * audio_logits + 0.5 * video_logits)
-    assert ib_loss.ndim == 0
-    assert ib_loss >= 0
+    assert set(ib_losses) == {"audio", "video"}
+    assert ib_losses["audio"].ndim == 0
+    assert ib_losses["video"].ndim == 0
+    assert ib_losses["audio"] >= 0
+    assert ib_losses["video"] >= 0
 
 
 def test_eps_scale_zero_uses_mean_logits_during_training(monkeypatch):
@@ -126,7 +129,7 @@ def test_eval_mode_uses_mean_logits_without_sampling(monkeypatch):
     assert torch.allclose(first[2], second[2])
 
 
-def test_information_bottleneck_loss_adds_beta_weighted_kl():
+def test_information_bottleneck_loss_adds_modality_specific_beta_weighted_kl():
     torch = pytest.importorskip("torch")
     nn = pytest.importorskip("torch.nn")
     from utils.loss import information_bottleneck_classification_loss
@@ -136,8 +139,8 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
     fused_logits = torch.tensor([[2.0, 0.0], [0.0, 2.0]])
     audio_logits = torch.tensor([[1.5, 0.0], [0.0, 1.5]])
     video_logits = torch.tensor([[1.0, 0.0], [0.0, 1.0]])
-    ib_loss = torch.tensor(4.0)
-    beta = 0.25
+    ib_losses = {"audio": torch.tensor(4.0), "video": torch.tensor(2.0)}
+    ib_betas = {"audio": 0.5, "video": 0.25}
 
     loss, parts = information_bottleneck_classification_loss(
         criterion,
@@ -145,8 +148,9 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
         audio_logits,
         video_logits,
         target,
-        ib_loss,
-        beta,
+        ib_losses,
+        ib_beta=0.1,
+        ib_betas=ib_betas,
     )
 
     expected_ce = (
@@ -154,5 +158,8 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
         + criterion(audio_logits, target)
         + criterion(video_logits, target)
     )
-    assert torch.allclose(loss, expected_ce + beta * ib_loss)
-    assert torch.allclose(parts["ib"], beta * ib_loss)
+    expected_ib = ib_betas["audio"] * ib_losses["audio"] + ib_betas["video"] * ib_losses["video"]
+    assert torch.allclose(loss, expected_ce + expected_ib)
+    assert torch.allclose(parts["ib"], expected_ib)
+    assert torch.allclose(parts["ib_audio"], ib_betas["audio"] * ib_losses["audio"])
+    assert torch.allclose(parts["ib_video"], ib_betas["video"] * ib_losses["video"])

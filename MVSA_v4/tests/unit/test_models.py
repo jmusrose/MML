@@ -68,7 +68,7 @@ class TestClassifier:
         img = torch.randn(B, 3, 224, 224)
 
         with torch.no_grad():
-            fused, txt_logits, img_logits, txt_latent, img_latent, ib_loss = model(
+            fused, txt_logits, img_logits, txt_latent, img_latent, ib_losses = model(
                 txt, mask, segment, img
             )
 
@@ -77,7 +77,9 @@ class TestClassifier:
         assert img_logits.shape == (B, mock_args.n_classes)
         assert txt_latent.shape == (B, mock_args.n_classes)
         assert img_latent.shape == (B, mock_args.n_classes)
-        assert ib_loss.ndim == 0
+        assert set(ib_losses) == {"text", "image"}
+        assert ib_losses["text"].ndim == 0
+        assert ib_losses["image"].ndim == 0
 
     def test_fusion_is_average(self, mock_args):
         """Fused logits should be exactly 0.5 * txt + 0.5 * img."""

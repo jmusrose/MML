@@ -22,3 +22,14 @@ def test_cremad_entrypoint_exposes_conformal_uncertainty_tau():
     assert "--uncertainty_tau" in source
     assert '"tau": float(cfg["uncertainty_tau"])' in source
     assert "tau=cfg['uncertainty_tau']" in source
+
+
+def test_cremad_entrypoint_defines_early_stopping():
+    source = (PROJECT_ROOT / "DML_cremad.py").read_text(encoding="utf-8")
+
+    assert "--patience" in source
+    assert "early_stopping_patience" in source
+    assert "n_no_improve" in source
+    assert "if n_no_improve >= early_stopping_patience" in source
+    assert "Stopping early" in source
+    assert "break" in source

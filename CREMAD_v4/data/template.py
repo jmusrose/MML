@@ -28,6 +28,7 @@ config = dict(
         val_size=16,
         val_batch_size=16,
         val_num_workers=8,
+        early_stopping_patience=15,
         shuffle=True,
         optimizer=dict(
             type='SGD',

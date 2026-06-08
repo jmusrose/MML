@@ -47,10 +47,33 @@ from utils.utils import (
 )
 from utils.loss import information_bottleneck_classification_loss
 from utils.tools import weight_init, compute_mAP, setup_seed
-from utils.conformal import calibrate_conformal, evaluate_conformal
+from utils.conformal import (
+    calibrate_conformal,
+    conformal_uncertainty_from_logits,
+    evaluate_conformal,
+)
 
 
-def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
+def _batch_conformal_ib_betas(audio_logits, video_logits, conformal_thresholds, cfg):
+    if conformal_thresholds is None:
+        return None, {}
+
+    ib_beta = cfg.get("ib_beta", 1e-3)
+    uncertainties = conformal_uncertainty_from_logits(
+        {
+            "audio": audio_logits.detach().cpu().numpy(),
+            "video": video_logits.detach().cpu().numpy(),
+        },
+        conformal_thresholds,
+    )
+    ib_betas = {
+        "audio": ib_beta * (1.0 + uncertainties["audio"]),
+        "video": ib_beta * (1.0 + uncertainties["video"]),
+    }
+    return ib_betas, uncertainties
+
+
+def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg, conformal_thresholds=None):
     """单 epoch 训练循环（决策级融合 + 三路 CE 损失之和）。
 
     损失 = CE(fused, target) + CE(audio, target) + CE(video, target)
@@ -61,6 +84,12 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
     tl_audio = Averager()
     tl_video = Averager()
     tl_ib = Averager()
+    tl_ib_audio = Averager()
+    tl_ib_video = Averager()
+    tl_beta_audio = Averager()
+    tl_beta_video = Averager()
+    tl_uncertainty_audio = Averager()
+    tl_uncertainty_video = Averager()
     correct_fused = 0
     correct_audio = 0
     correct_video = 0
@@ -75,16 +104,26 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
 
         optimizer.zero_grad()
 
-        fused_logits, audio_logits, video_logits, _, _, ib_loss = model(spectrogram, image)
+        fused_logits, audio_logits, video_logits, _, _, ib_losses = model(spectrogram, image)
+        ib_betas, uncertainties = _batch_conformal_ib_betas(
+            audio_logits,
+            video_logits,
+            conformal_thresholds,
+            cfg,
+        )
         loss, loss_parts = information_bottleneck_classification_loss(
             criterion,
             fused_logits,
             audio_logits,
             video_logits,
             y,
-            ib_loss,
+            ib_losses,
             ib_beta,
+            ib_betas=ib_betas,
         )
+        if uncertainties:
+            loss_parts["uncertainty_audio"] = uncertainties["audio"]
+            loss_parts["uncertainty_video"] = uncertainties["video"]
 
         # NaN detection
         if torch.isnan(loss).any():
@@ -104,6 +143,13 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
         tl_audio.add(loss_parts['audio'].item())
         tl_video.add(loss_parts['video'].item())
         tl_ib.add(loss_parts['ib'].item())
+        if "ib_audio" in loss_parts:
+            tl_ib_audio.add(loss_parts["ib_audio"].item())
+            tl_ib_video.add(loss_parts["ib_video"].item())
+            tl_beta_audio.add(loss_parts["beta_audio"])
+            tl_beta_video.add(loss_parts["beta_video"])
+            tl_uncertainty_audio.add(loss_parts["uncertainty_audio"])
+            tl_uncertainty_video.add(loss_parts["uncertainty_video"])
         with torch.no_grad():
             labels = torch.argmax(y, dim=1)
             correct_fused += (torch.argmax(fused_logits, dim=1) == labels).sum().item()
@@ -116,6 +162,12 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
     loss_audio_ave = tl_audio.item()
     loss_video_ave = tl_video.item()
     loss_ib_ave = tl_ib.item()
+    loss_ib_audio_ave = tl_ib_audio.item()
+    loss_ib_video_ave = tl_ib_video.item()
+    beta_audio_ave = tl_beta_audio.item()
+    beta_video_ave = tl_beta_video.item()
+    uncertainty_audio_ave = tl_uncertainty_audio.item()
+    uncertainty_video_ave = tl_uncertainty_video.item()
     acc_fused = correct_fused / total_samples if total_samples else 0.0
     acc_audio = correct_audio / total_samples if total_samples else 0.0
     acc_video = correct_video / total_samples if total_samples else 0.0
@@ -126,6 +178,12 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
         f'loss_audio:{loss_audio_ave:.4f}, '
         f'loss_video:{loss_video_ave:.4f}, '
         f'loss_ib:{loss_ib_ave:.4f}, '
+        f'loss_ib_audio:{loss_ib_audio_ave:.4f}, '
+        f'loss_ib_video:{loss_ib_video_ave:.4f}, '
+        f'beta_audio:{beta_audio_ave:.6f}, '
+        f'beta_video:{beta_video_ave:.6f}, '
+        f'uncertainty_audio:{uncertainty_audio_ave:.4f}, '
+        f'uncertainty_video:{uncertainty_video_ave:.4f}, '
         f'acc_fused:{acc_fused:.4f}, '
         f'acc_audio:{acc_audio:.4f}, '
         f'acc_video:{acc_video:.4f}'
@@ -259,6 +317,7 @@ if __name__ == '__main__':
     parser.add_argument('--conformal_alpha', type=float, default=None)
     parser.add_argument('--uncertainty_tau', type=float, default=None)
     parser.add_argument('--calib_size', type=int, default=None)
+    parser.add_argument('--patience', type=int, default=None)
     args = parser.parse_args()
 
     cfg = config
@@ -276,6 +335,9 @@ if __name__ == '__main__':
     if args.calib_size is not None:
         cfg['calib_size'] = args.calib_size
     cfg.setdefault('calib_size', 0)
+    if args.patience is not None:
+        cfg.setdefault('train', {})['early_stopping_patience'] = args.patience
+    cfg.setdefault('train', {}).setdefault('early_stopping_patience', 15)
 
     # Anchor output_dir to the script directory if user left it as '.'
     # so logs/checkpoints land next to this script regardless of cwd.
@@ -384,18 +446,44 @@ if __name__ == '__main__':
     )
 
     # ----- TRAINING LOOP -----
+    n_no_improve = 0
+    early_stopping_patience = cfg['train']['early_stopping_patience']
     for epoch in range(cfg['train']['epoch_dict']):
         logger.info(f'Epoch {epoch} is pending...')
-        model = train_audio_video(epoch, train_loader, model, optimizer, logger, cfg)
+        calib_logits, calib_labels = collect_multimodal_logits(calib_loader, model)
+        epoch_conformal_calibration = calibrate_conformal(
+            calib_logits,
+            calib_labels,
+            cfg['conformal_alpha'],
+        )
+        model = train_audio_video(
+            epoch,
+            train_loader,
+            model,
+            optimizer,
+            logger,
+            cfg,
+            conformal_thresholds=epoch_conformal_calibration["thresholds"],
+        )
+        previous_best_acc = best_acc
         acc, acc_a, acc_v = val(epoch, val_loader, model, logger)
+        is_improvement = acc > previous_best_acc
 
         # Save best model
-        if acc >= best_acc and acc > 0:
+        if is_improvement and acc > 0:
+            n_no_improve = 0
             save_path = os.path.join(savedir, 'model_best_clean.pt')
             torch.save(model.state_dict(), save_path)
             logger.info(f'Model saved to {save_path}')
+        else:
+            n_no_improve += 1
 
         scheduler.step()
+        if n_no_improve >= early_stopping_patience:
+            logger.info(
+                f"No improvement for {early_stopping_patience} epochs. Stopping early."
+            )
+            break
 
     # ----- FINAL SUMMARY -----
     logger.info('=' * 60)
@@ -515,6 +603,7 @@ if __name__ == '__main__':
         "uncertainty_tau": cfg.get("uncertainty_tau", 1.0),
         "calib_size": cfg.get("calib_size", 0),
         "max_epochs": cfg['train']['epoch_dict'],
+        "patience": early_stopping_patience,
         "best_clean_epoch": int(best_epoch),
         "best_clean_acc": float(final_results.get("Clean Test", 0.0)),
         "robustness": final_results,

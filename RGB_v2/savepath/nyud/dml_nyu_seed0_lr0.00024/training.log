@@ -290,3 +290,204 @@ INFO - 06/01/26 16:32:10 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML
                                      seed: 0
 INFO - 06/01/26 16:32:11 - 0:00:01 - Epoch 0 training started...
 INFO - 06/01/26 16:32:46 - 0:00:36 - Epoch 0: Total Loss: 6.7762
+INFO - 06/04/26 21:40:09 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v2\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\datasets_shared\nyud2_trainvaltest
+                                     dropout: 0.3
+                                     ib_beta: 0.001
+                                     ib_eps_scale: 1.0
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00024
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 19
+                                     n_workers: 8
+                                     name: dml_nyu_seed0_lr0.00024
+                                     note: 
+                                     num_image_embeds: 1
+                                     savedir: e:\Paper_Experiment\DML\DML_v1\RGB_v2\savepath\nyud\dml_nyu_seed0_lr0.00024
+                                     seed: 0
+INFO - 06/04/26 21:40:09 - 0:00:00 - Epoch 0 training started...
+INFO - 06/04/26 21:40:37 - 0:00:28 - Epoch 0: Total Loss: 6.7762, loss_both:2.0761, loss_rgb:2.2737, loss_depth:2.3997, loss_ib:0.0268, acc_both:0.3477, acc_rgb:0.3135, acc_depth:0.2781
+INFO - 06/04/26 21:41:01 - 0:00:53 - Epoch 0: Clean - Acc: 0.5749
+INFO - 06/04/26 21:41:01 - 0:00:53 -  *** NEW BEST CLEAN ACC *** Epoch 0 | Clean Acc: 0.5749
+INFO - 06/04/26 21:41:01 - 0:00:53 - Epoch 1 training started...
+INFO - 06/04/26 21:41:28 - 0:01:19 - Epoch 1: Total Loss: 2.7689, loss_both:0.7666, loss_rgb:0.7929, loss_depth:1.1344, loss_ib:0.0750, acc_both:0.7826, acc_rgb:0.7434, acc_depth:0.6346
+INFO - 06/04/26 21:41:52 - 0:01:43 - Epoch 1: Clean - Acc: 0.6208
+INFO - 06/04/26 21:41:52 - 0:01:44 -  *** NEW BEST CLEAN ACC *** Epoch 1 | Clean Acc: 0.6208
+INFO - 06/04/26 21:41:52 - 0:01:44 - Epoch 2 training started...
+INFO - 06/04/26 21:42:18 - 0:02:10 - Epoch 2: Total Loss: 1.5665, loss_both:0.3716, loss_rgb:0.3444, loss_depth:0.7439, loss_ib:0.1066, acc_both:0.9305, acc_rgb:0.9204, acc_depth:0.7788
+INFO - 06/04/26 21:42:42 - 0:02:34 - Epoch 2: Clean - Acc: 0.6865
+INFO - 06/04/26 21:42:42 - 0:02:34 -  *** NEW BEST CLEAN ACC *** Epoch 2 | Clean Acc: 0.6865
+INFO - 06/04/26 21:42:42 - 0:02:34 - Epoch 3 training started...
+INFO - 06/04/26 21:43:08 - 0:03:00 - Epoch 3: Total Loss: 0.9681, loss_both:0.1886, loss_rgb:0.1677, loss_depth:0.4911, loss_ib:0.1207, acc_both:0.9785, acc_rgb:0.9722, acc_depth:0.8685
+INFO - 06/04/26 21:43:32 - 0:03:24 - Epoch 3: Clean - Acc: 0.6682
+INFO - 06/04/26 21:43:32 - 0:03:24 - Epoch 4 training started...
+INFO - 06/04/26 21:43:58 - 0:03:50 - Epoch 4: Total Loss: 0.5988, loss_both:0.0954, loss_rgb:0.0989, loss_depth:0.2782, loss_ib:0.1263, acc_both:0.9949, acc_rgb:0.9848, acc_depth:0.9444
+INFO - 06/04/26 21:44:23 - 0:04:14 - Epoch 4: Clean - Acc: 0.6957
+INFO - 06/04/26 21:44:23 - 0:04:15 -  *** NEW BEST CLEAN ACC *** Epoch 4 | Clean Acc: 0.6957
+INFO - 06/04/26 21:44:23 - 0:04:15 - Epoch 5 training started...
+INFO - 06/04/26 21:44:50 - 0:04:41 - Epoch 5: Total Loss: 0.4447, loss_both:0.0570, loss_rgb:0.0524, loss_depth:0.2080, loss_ib:0.1272, acc_both:0.9975, acc_rgb:0.9949, acc_depth:0.9659
+INFO - 06/04/26 21:45:14 - 0:05:06 - Epoch 5: Clean - Acc: 0.6758
+INFO - 06/04/26 21:45:14 - 0:05:06 - Epoch 6 training started...
+INFO - 06/04/26 21:45:41 - 0:05:32 - Epoch 6: Total Loss: 0.3303, loss_both:0.0344, loss_rgb:0.0354, loss_depth:0.1344, loss_ib:0.1261, acc_both:1.0000, acc_rgb:0.9962, acc_depth:0.9760
+INFO - 06/04/26 21:46:05 - 0:05:57 - Epoch 6: Clean - Acc: 0.6835
+INFO - 06/04/26 21:46:05 - 0:05:57 - Epoch 7 training started...
+INFO - 06/04/26 21:46:32 - 0:06:23 - Epoch 7: Total Loss: 0.2882, loss_both:0.0259, loss_rgb:0.0291, loss_depth:0.1092, loss_ib:0.1240, acc_both:1.0000, acc_rgb:0.9962, acc_depth:0.9836
+INFO - 06/04/26 21:46:56 - 0:06:47 - Epoch 7: Clean - Acc: 0.6804
+INFO - 06/04/26 21:46:56 - 0:06:47 - Epoch 8 training started...
+INFO - 06/04/26 21:47:22 - 0:07:13 - Epoch 8: Total Loss: 0.2257, loss_both:0.0176, loss_rgb:0.0195, loss_depth:0.0672, loss_ib:0.1214, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9937
+INFO - 06/04/26 21:47:46 - 0:07:37 - Epoch 8: Clean - Acc: 0.6988
+INFO - 06/04/26 21:47:46 - 0:07:37 -  *** NEW BEST CLEAN ACC *** Epoch 8 | Clean Acc: 0.6988
+INFO - 06/04/26 21:47:46 - 0:07:37 - Epoch 9 training started...
+INFO - 06/04/26 21:48:12 - 0:08:03 - Epoch 9: Total Loss: 0.2034, loss_both:0.0154, loss_rgb:0.0158, loss_depth:0.0539, loss_ib:0.1184, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9962
+INFO - 06/04/26 21:48:36 - 0:08:27 - Epoch 9: Clean - Acc: 0.6957
+INFO - 06/04/26 21:48:36 - 0:08:27 - Epoch 10 training started...
+INFO - 06/04/26 21:49:02 - 0:08:53 - Epoch 10: Total Loss: 0.1734, loss_both:0.0102, loss_rgb:0.0121, loss_depth:0.0339, loss_ib:0.1172, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/04/26 21:49:26 - 0:09:17 - Epoch 10: Clean - Acc: 0.7003
+INFO - 06/04/26 21:49:26 - 0:09:18 -  *** NEW BEST CLEAN ACC *** Epoch 10 | Clean Acc: 0.7003
+INFO - 06/04/26 21:49:26 - 0:09:18 - Epoch 11 training started...
+INFO - 06/04/26 21:49:52 - 0:09:43 - Epoch 11: Total Loss: 0.1574, loss_both:0.0080, loss_rgb:0.0097, loss_depth:0.0257, loss_ib:0.1140, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:50:16 - 0:10:08 - Epoch 11: Clean - Acc: 0.6927
+INFO - 06/04/26 21:50:16 - 0:10:08 - Epoch 12 training started...
+INFO - 06/04/26 21:50:42 - 0:10:33 - Epoch 12: Total Loss: 0.1563, loss_both:0.0090, loss_rgb:0.0128, loss_depth:0.0237, loss_ib:0.1108, acc_both:1.0000, acc_rgb:0.9987, acc_depth:1.0000
+INFO - 06/04/26 21:51:06 - 0:10:57 - Epoch 12: Clean - Acc: 0.6881
+INFO - 06/04/26 21:51:06 - 0:10:57 - Epoch 13 training started...
+INFO - 06/04/26 21:51:32 - 0:11:23 - Epoch 13: Total Loss: 0.1452, loss_both:0.0077, loss_rgb:0.0107, loss_depth:0.0181, loss_ib:0.1087, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:51:56 - 0:11:47 - Epoch 13: Clean - Acc: 0.7064
+INFO - 06/04/26 21:51:56 - 0:11:48 -  *** NEW BEST CLEAN ACC *** Epoch 13 | Clean Acc: 0.7064
+INFO - 06/04/26 21:51:56 - 0:11:48 - Epoch 14 training started...
+INFO - 06/04/26 21:52:22 - 0:12:13 - Epoch 14: Total Loss: 0.1496, loss_both:0.0082, loss_rgb:0.0120, loss_depth:0.0231, loss_ib:0.1064, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:52:46 - 0:12:37 - Epoch 14: Clean - Acc: 0.7018
+INFO - 06/04/26 21:52:46 - 0:12:37 - Epoch 15 training started...
+INFO - 06/04/26 21:53:12 - 0:13:03 - Epoch 15: Total Loss: 0.1381, loss_both:0.0068, loss_rgb:0.0099, loss_depth:0.0164, loss_ib:0.1049, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:53:36 - 0:13:27 - Epoch 15: Clean - Acc: 0.6865
+INFO - 06/04/26 21:53:36 - 0:13:27 - Epoch 16 training started...
+INFO - 06/04/26 21:54:02 - 0:13:53 - Epoch 16: Total Loss: 0.1389, loss_both:0.0074, loss_rgb:0.0095, loss_depth:0.0188, loss_ib:0.1032, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:54:29 - 0:14:20 - Epoch 16: Clean - Acc: 0.6743
+INFO - 06/04/26 21:54:29 - 0:14:20 - Epoch 17 training started...
+INFO - 06/04/26 21:54:58 - 0:14:49 - Epoch 17: Total Loss: 0.1378, loss_both:0.0076, loss_rgb:0.0100, loss_depth:0.0185, loss_ib:0.1017, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:55:25 - 0:15:16 - Epoch 17: Clean - Acc: 0.6972
+INFO - 06/04/26 21:55:25 - 0:15:16 - Epoch 18 training started...
+INFO - 06/04/26 21:55:51 - 0:15:42 - Epoch 18: Total Loss: 0.1352, loss_both:0.0075, loss_rgb:0.0095, loss_depth:0.0181, loss_ib:0.1000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/04/26 21:56:15 - 0:16:06 - Epoch 18: Clean - Acc: 0.6988
+INFO - 06/04/26 21:56:15 - 0:16:06 - Epoch 19 training started...
+INFO - 06/04/26 21:56:41 - 0:16:32 - Epoch 19: Total Loss: 0.1298, loss_both:0.0062, loss_rgb:0.0077, loss_depth:0.0164, loss_ib:0.0996, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:57:05 - 0:16:56 - Epoch 19: Clean - Acc: 0.6942
+INFO - 06/04/26 21:57:05 - 0:16:56 - Epoch 20 training started...
+INFO - 06/04/26 21:57:31 - 0:17:22 - Epoch 20: Total Loss: 0.1288, loss_both:0.0068, loss_rgb:0.0091, loss_depth:0.0149, loss_ib:0.0980, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:57:55 - 0:17:46 - Epoch 20: Clean - Acc: 0.7003
+INFO - 06/04/26 21:57:55 - 0:17:46 - Epoch 21 training started...
+INFO - 06/04/26 21:58:21 - 0:18:12 - Epoch 21: Total Loss: 0.1261, loss_both:0.0062, loss_rgb:0.0087, loss_depth:0.0132, loss_ib:0.0979, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:58:45 - 0:18:36 - Epoch 21: Clean - Acc: 0.7018
+INFO - 06/04/26 21:58:45 - 0:18:36 - Epoch 22 training started...
+INFO - 06/04/26 21:59:11 - 0:19:02 - Epoch 22: Total Loss: 0.1212, loss_both:0.0053, loss_rgb:0.0081, loss_depth:0.0105, loss_ib:0.0973, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 21:59:35 - 0:19:26 - Epoch 22: Clean - Acc: 0.6972
+INFO - 06/04/26 21:59:35 - 0:19:26 - Epoch 23 training started...
+INFO - 06/04/26 22:00:01 - 0:19:52 - Epoch 23: Total Loss: 0.1191, loss_both:0.0052, loss_rgb:0.0076, loss_depth:0.0103, loss_ib:0.0960, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:00:25 - 0:20:16 - Epoch 23: Clean - Acc: 0.7034
+INFO - 06/04/26 22:00:25 - 0:20:16 - Epoch 24 training started...
+INFO - 06/04/26 22:00:51 - 0:20:42 - Epoch 24: Total Loss: 0.1257, loss_both:0.0065, loss_rgb:0.0089, loss_depth:0.0167, loss_ib:0.0936, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/04/26 22:01:15 - 0:21:06 - Epoch 24: Clean - Acc: 0.7095
+INFO - 06/04/26 22:01:15 - 0:21:07 -  *** NEW BEST CLEAN ACC *** Epoch 24 | Clean Acc: 0.7095
+INFO - 06/04/26 22:01:15 - 0:21:07 - Epoch 25 training started...
+INFO - 06/04/26 22:01:41 - 0:21:32 - Epoch 25: Total Loss: 0.1285, loss_both:0.0071, loss_rgb:0.0084, loss_depth:0.0204, loss_ib:0.0926, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9975
+INFO - 06/04/26 22:02:05 - 0:21:56 - Epoch 25: Clean - Acc: 0.7018
+INFO - 06/04/26 22:02:05 - 0:21:56 - Epoch 26 training started...
+INFO - 06/04/26 22:02:31 - 0:22:22 - Epoch 26: Total Loss: 0.1273, loss_both:0.0069, loss_rgb:0.0085, loss_depth:0.0195, loss_ib:0.0924, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/04/26 22:02:55 - 0:22:46 - Epoch 26: Clean - Acc: 0.6850
+INFO - 06/04/26 22:02:55 - 0:22:46 - Epoch 27 training started...
+INFO - 06/04/26 22:03:21 - 0:23:12 - Epoch 27: Total Loss: 0.1275, loss_both:0.0071, loss_rgb:0.0095, loss_depth:0.0182, loss_ib:0.0928, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:03:45 - 0:23:36 - Epoch 27: Clean - Acc: 0.7064
+INFO - 06/04/26 22:03:45 - 0:23:36 - Epoch 28 training started...
+INFO - 06/04/26 22:04:11 - 0:24:02 - Epoch 28: Total Loss: 0.1261, loss_both:0.0067, loss_rgb:0.0099, loss_depth:0.0163, loss_ib:0.0933, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:04:35 - 0:24:26 - Epoch 28: Clean - Acc: 0.6911
+INFO - 06/04/26 22:04:35 - 0:24:26 - Epoch 29 training started...
+INFO - 06/04/26 22:05:01 - 0:24:52 - Epoch 29: Total Loss: 0.1201, loss_both:0.0055, loss_rgb:0.0088, loss_depth:0.0117, loss_ib:0.0940, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:05:25 - 0:25:16 - Epoch 29: Clean - Acc: 0.6957
+INFO - 06/04/26 22:05:25 - 0:25:16 - Epoch 30 training started...
+INFO - 06/04/26 22:05:51 - 0:25:42 - Epoch 30: Total Loss: 0.1218, loss_both:0.0063, loss_rgb:0.0090, loss_depth:0.0132, loss_ib:0.0933, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:06:15 - 0:26:06 - Epoch 30: Clean - Acc: 0.6927
+INFO - 06/04/26 22:06:15 - 0:26:06 - Epoch 31 training started...
+INFO - 06/04/26 22:06:41 - 0:26:32 - Epoch 31: Total Loss: 0.1185, loss_both:0.0058, loss_rgb:0.0091, loss_depth:0.0108, loss_ib:0.0927, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:07:05 - 0:26:56 - Epoch 31: Clean - Acc: 0.6972
+INFO - 06/04/26 22:07:05 - 0:26:56 - Epoch 32 training started...
+INFO - 06/04/26 22:07:31 - 0:27:22 - Epoch 32: Total Loss: 0.1239, loss_both:0.0067, loss_rgb:0.0108, loss_depth:0.0145, loss_ib:0.0920, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/04/26 22:07:55 - 0:27:46 - Epoch 32: Clean - Acc: 0.7003
+INFO - 06/04/26 22:07:55 - 0:27:46 - Epoch 33 training started...
+INFO - 06/04/26 22:08:20 - 0:28:12 - Epoch 33: Total Loss: 0.1267, loss_both:0.0060, loss_rgb:0.0133, loss_depth:0.0150, loss_ib:0.0923, acc_both:1.0000, acc_rgb:0.9987, acc_depth:0.9987
+INFO - 06/04/26 22:08:45 - 0:28:36 - Epoch 33: Clean - Acc: 0.6682
+INFO - 06/04/26 22:08:45 - 0:28:36 - Epoch 34 training started...
+INFO - 06/04/26 22:09:11 - 0:29:02 - Epoch 34: Total Loss: 0.1357, loss_both:0.0071, loss_rgb:0.0237, loss_depth:0.0146, loss_ib:0.0902, acc_both:1.0000, acc_rgb:0.9975, acc_depth:0.9987
+INFO - 06/04/26 22:09:38 - 0:29:30 - Epoch 34: Clean - Acc: 0.6575
+INFO - 06/04/26 22:09:38 - 0:29:30 - Epoch 35 training started...
+INFO - 06/04/26 22:10:07 - 0:29:59 - Epoch 35: Total Loss: 0.1286, loss_both:0.0078, loss_rgb:0.0180, loss_depth:0.0131, loss_ib:0.0896, acc_both:1.0000, acc_rgb:0.9987, acc_depth:1.0000
+INFO - 06/04/26 22:10:33 - 0:30:24 - Epoch 35: Clean - Acc: 0.6881
+INFO - 06/04/26 22:10:33 - 0:30:24 - Epoch 36 training started...
+INFO - 06/04/26 22:10:59 - 0:30:50 - Epoch 36: Total Loss: 0.1216, loss_both:0.0067, loss_rgb:0.0136, loss_depth:0.0105, loss_ib:0.0909, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:11:23 - 0:31:14 - Epoch 36: Clean - Acc: 0.6820
+INFO - 06/04/26 22:11:23 - 0:31:14 - Epoch 37 training started...
+INFO - 06/04/26 22:11:49 - 0:31:40 - Epoch 37: Total Loss: 0.1314, loss_both:0.0091, loss_rgb:0.0163, loss_depth:0.0149, loss_ib:0.0911, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:12:13 - 0:32:04 - Epoch 37: Clean - Acc: 0.6865
+INFO - 06/04/26 22:12:13 - 0:32:04 - Epoch 38 training started...
+INFO - 06/04/26 22:12:39 - 0:32:30 - Epoch 38: Total Loss: 0.1194, loss_both:0.0060, loss_rgb:0.0105, loss_depth:0.0107, loss_ib:0.0922, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:13:03 - 0:32:54 - Epoch 38: Clean - Acc: 0.6758
+INFO - 06/04/26 22:13:03 - 0:32:54 - Epoch 39 training started...
+INFO - 06/04/26 22:13:29 - 0:33:20 - Epoch 39: Total Loss: 0.1148, loss_both:0.0051, loss_rgb:0.0088, loss_depth:0.0081, loss_ib:0.0929, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:13:53 - 0:33:44 - Epoch 39: Clean - Acc: 0.6774
+INFO - 06/04/26 22:13:53 - 0:33:44 - Epoch 40 training started...
+INFO - 06/04/26 22:14:19 - 0:34:10 - Epoch 40: Total Loss: 0.1140, loss_both:0.0052, loss_rgb:0.0082, loss_depth:0.0086, loss_ib:0.0919, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:14:43 - 0:34:34 - Epoch 40: Clean - Acc: 0.6881
+INFO - 06/04/26 22:14:43 - 0:34:34 - Epoch 41 training started...
+INFO - 06/04/26 22:15:09 - 0:35:00 - Epoch 41: Total Loss: 0.1119, loss_both:0.0046, loss_rgb:0.0074, loss_depth:0.0076, loss_ib:0.0923, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:15:33 - 0:35:24 - Epoch 41: Clean - Acc: 0.6942
+INFO - 06/04/26 22:15:33 - 0:35:24 - Epoch 42 training started...
+INFO - 06/04/26 22:15:59 - 0:35:50 - Epoch 42: Total Loss: 0.1103, loss_both:0.0045, loss_rgb:0.0069, loss_depth:0.0073, loss_ib:0.0917, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:16:23 - 0:36:14 - Epoch 42: Clean - Acc: 0.6774
+INFO - 06/04/26 22:16:23 - 0:36:14 - Epoch 43 training started...
+INFO - 06/04/26 22:16:49 - 0:36:40 - Epoch 43: Total Loss: 0.1100, loss_both:0.0046, loss_rgb:0.0076, loss_depth:0.0075, loss_ib:0.0903, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:17:13 - 0:37:04 - Epoch 43: Clean - Acc: 0.6758
+INFO - 06/04/26 22:17:13 - 0:37:04 - Epoch 44 training started...
+INFO - 06/04/26 22:17:39 - 0:37:30 - Epoch 44: Total Loss: 0.1140, loss_both:0.0057, loss_rgb:0.0089, loss_depth:0.0093, loss_ib:0.0900, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:18:03 - 0:37:54 - Epoch 44: Clean - Acc: 0.6728
+INFO - 06/04/26 22:18:03 - 0:37:54 - Epoch 45 training started...
+INFO - 06/04/26 22:18:29 - 0:38:20 - Epoch 45: Total Loss: 0.1089, loss_both:0.0044, loss_rgb:0.0068, loss_depth:0.0072, loss_ib:0.0905, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:18:53 - 0:38:44 - Epoch 45: Clean - Acc: 0.6774
+INFO - 06/04/26 22:18:53 - 0:38:44 - Epoch 46 training started...
+INFO - 06/04/26 22:19:19 - 0:39:10 - Epoch 46: Total Loss: 0.1095, loss_both:0.0051, loss_rgb:0.0076, loss_depth:0.0076, loss_ib:0.0893, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:19:43 - 0:39:34 - Epoch 46: Clean - Acc: 0.6850
+INFO - 06/04/26 22:19:43 - 0:39:34 - Epoch 47 training started...
+INFO - 06/04/26 22:20:09 - 0:40:00 - Epoch 47: Total Loss: 0.1078, loss_both:0.0045, loss_rgb:0.0070, loss_depth:0.0069, loss_ib:0.0894, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:20:33 - 0:40:24 - Epoch 47: Clean - Acc: 0.6942
+INFO - 06/04/26 22:20:33 - 0:40:24 - Epoch 48 training started...
+INFO - 06/04/26 22:20:59 - 0:40:50 - Epoch 48: Total Loss: 0.1097, loss_both:0.0048, loss_rgb:0.0075, loss_depth:0.0078, loss_ib:0.0895, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:21:23 - 0:41:14 - Epoch 48: Clean - Acc: 0.6927
+INFO - 06/04/26 22:21:23 - 0:41:14 - Epoch 49 training started...
+INFO - 06/04/26 22:21:49 - 0:41:40 - Epoch 49: Total Loss: 0.1104, loss_both:0.0053, loss_rgb:0.0083, loss_depth:0.0080, loss_ib:0.0889, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/04/26 22:22:13 - 0:42:04 - Epoch 49: Clean - Acc: 0.6896
+INFO - 06/04/26 22:22:13 - 0:42:04 - Loading best model for final robust evaluation on Test sets...
+INFO - 06/04/26 22:22:13 - 0:42:05 - Generating and Evaluating on dataset for: Clean Test ...
+INFO - 06/04/26 22:22:37 - 0:42:29 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 5.0) ...
+INFO - 06/04/26 22:23:01 - 0:42:53 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 10.0) ...
+INFO - 06/04/26 22:23:25 - 0:43:17 - Generating and Evaluating on dataset for: Gaussian (Lvl 5.0) ...
+INFO - 06/04/26 22:23:50 - 0:43:41 - Generating and Evaluating on dataset for: Gaussian (Lvl 10.0) ...
+INFO - 06/04/26 22:24:15 - 0:44:07 - 
+                                     ============================================================
+INFO - 06/04/26 22:24:15 - 0:44:07 -       FINAL ROBUSTNESS EVALUATION RESULTS ON TEST SET       
+INFO - 06/04/26 22:24:15 - 0:44:07 - ============================================================
+INFO - 06/04/26 22:24:15 - 0:44:07 - | Test Scenario                       | Score (Acc)        |
+INFO - 06/04/26 22:24:15 - 0:44:07 - |-------------------------------------|--------------------|
+INFO - 06/04/26 22:24:15 - 0:44:07 - | Clean Test                          |             0.7095 |
+INFO - 06/04/26 22:24:15 - 0:44:07 - | Salt & Pepper (Lvl 5.0)             |             0.6040 |
+INFO - 06/04/26 22:24:15 - 0:44:07 - | Salt & Pepper (Lvl 10.0)            |             0.4557 |
+INFO - 06/04/26 22:24:15 - 0:44:07 - | Gaussian (Lvl 5.0)                  |             0.6208 |
+INFO - 06/04/26 22:24:15 - 0:44:07 - | Gaussian (Lvl 10.0)                 |             0.5306 |
+INFO - 06/04/26 22:24:15 - 0:44:07 - ============================================================
+                                     
+INFO - 06/04/26 22:24:15 - 0:44:07 - Saved final results to e:\Paper_Experiment\DML\DML_v1\RGB_v2\savepath\nyud\dml_nyu_seed0_lr0.00024\final_results.json
+INFO - 06/04/26 22:24:15 - 0:44:07 - Best Clean Model: epoch=24, clean_acc=0.7095
+INFO - 06/04/26 22:24:15 - 0:44:07 - Appended experiment record to e:\Paper_Experiment\DML\DML_v1\RGB_v2\savepath\nyud\all_experiments.json
