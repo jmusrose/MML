@@ -88,6 +88,8 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     )
     parser.add_argument("--lr_factor", type=float, default=0.3)
     parser.add_argument("--lr_patience", type=int, default=5)
+    parser.add_argument("--early_stop_patience", type=int, default=3)
+    parser.add_argument("--early_stop_min_delta", type=float, default=0.0)
     parser.add_argument("--max_epochs", type=int, default=10)
     parser.add_argument("--n_workers", type=int, default=4)
     parser.add_argument(
@@ -385,6 +387,7 @@ def main():
     best_clean_epoch = 0
     best_clean_metrics = {"mae": 0.0, "corr": 0.0, "acc7": 0.0, "acc2": 0.0, "f1": 0.0}
     best_clean_model_state = copy.deepcopy(model.state_dict())
+    early_stop_counter = 0
 
     for epoch in range(args.max_epochs):
         logger.info(f"Epoch {epoch} training started...")
@@ -392,11 +395,12 @@ def main():
 
         metrics = val_cmu(epoch, test_loader, model, logger, args)
 
-        if metrics["acc2"] > best_clean_acc2:
+        if metrics["acc2"] > best_clean_acc2 + args.early_stop_min_delta:
             best_clean_acc2 = float(metrics["acc2"])
             best_clean_epoch = epoch
             best_clean_metrics = {k: float(v) for k, v in metrics.items()}
             best_clean_model_state = copy.deepcopy(model.state_dict())
+            early_stop_counter = 0
             torch.save(
                 {
                     "epoch": epoch,
@@ -411,8 +415,24 @@ def main():
                 f" *** NEW BEST CLEAN ACC2 *** Epoch {epoch} "
                 f"| Acc2: {best_clean_acc2:.4f}"
             )
+        else:
+            early_stop_counter += 1
+            logger.info(
+                f"No clean acc2 improvement for {early_stop_counter}/"
+                f"{args.early_stop_patience} epochs."
+            )
 
         scheduler.step(metrics["acc2"])
+        if (
+            args.early_stop_patience > 0
+            and early_stop_counter >= args.early_stop_patience
+        ):
+            logger.info(
+                f"Stopping early at epoch {epoch}: clean acc2 did not improve "
+                f"by at least {args.early_stop_min_delta} for "
+                f"{args.early_stop_patience} epochs."
+            )
+            break
 
     # 6) 鲁棒性评估：加载 best 检查点
     logger.info("Loading best model for final robust evaluation on Test sets...")

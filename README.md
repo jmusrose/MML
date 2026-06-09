@@ -79,7 +79,7 @@ The PowerShell version, `run_all_projects.ps1`, is also kept for users who prefe
 
 ## Run Information Bottleneck Projects Sequentially
 
-Use `run_all_projectsv2.bat` from the repository root to train the v2 Information Bottleneck variants in this order: `RGB_v2` NYU, `RGB_v2` SUN, `MVSA_v2`, and `CREMAD_v2`.
+Use `run_all_projectsv2.bat` from the repository root to train the v2 Information Bottleneck variants in this order: `RGB_v2` NYU, `RGB_v2` SUN, `MVSA_v2`, `Food_v2`, and `CREMAD_v2`.
 
 Preview commands without starting training:
 
@@ -97,6 +97,19 @@ Override the shared Information Bottleneck parameters for RGB_v2 and MVSA_v2:
 
 ```bat
 run_all_projectsv2.bat --ib-beta 1e-3 --ib-eps-scale 1.0
+```
+
+Override the shared early stopping patience. The runner passes this as
+`--early_stop_patience` to RGB_v2/CREMAD_v2 and as `--patience` to MVSA_v2/Food_v2:
+
+```bat
+run_all_projectsv2.bat --early-stop-patience 3 --early-stop-min-delta 0.0
+```
+
+Override the SUN train split ratio passed to `RGB_v2\DML_sun.py`:
+
+```bat
+run_all_projectsv2.bat --sun-val-split-ratio 0.2
 ```
 
 Use another Python executable when needed:

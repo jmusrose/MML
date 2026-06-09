@@ -113,7 +113,7 @@ def test_sun_dataloaders_split_calibration_from_train(monkeypatch):
         data_path="sunrgbd",
         batch_sz=4,
         n_workers=0,
-        calib_size=3,
+        val_split_ratio=0.3,
     )
 
     train_loader, val_loader, test_loader, calib_loader = DML_sun.build_sun_dataloaders(

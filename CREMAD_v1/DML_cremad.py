@@ -210,6 +210,8 @@ if __name__ == '__main__':
         type=str,
         default=os.path.join(SCRIPT_DIR, 'data', 'crema.json'),
     )
+    parser.add_argument('--early_stop_patience', type=int, default=None)
+    parser.add_argument('--early_stop_min_delta', type=float, default=None)
     args = parser.parse_args()
 
     cfg = config
@@ -218,6 +220,10 @@ if __name__ == '__main__':
         exp_params = json.load(f)
 
     cfg = deep_update_dict(exp_params, cfg)
+    if args.early_stop_patience is not None:
+        cfg['train']['early_stop_patience'] = args.early_stop_patience
+    if args.early_stop_min_delta is not None:
+        cfg['train']['early_stop_min_delta'] = args.early_stop_min_delta
 
     # Anchor output_dir to the script directory if user left it as '.'
     # so logs/checkpoints land next to this script regardless of cwd.
@@ -307,18 +313,39 @@ if __name__ == '__main__':
     )
 
     # ----- TRAINING LOOP -----
+    early_stop_counter = 0
+    early_stop_best_acc = -float("inf")
     for epoch in range(cfg['train']['epoch_dict']):
         logger.info(f'Epoch {epoch} is pending...')
         model = train_audio_video(epoch, train_loader, model, optimizer, logger)
         acc, acc_a, acc_v = val(epoch, test_loader, model, logger)
 
         # Save best model
-        if acc >= best_acc and acc > 0:
+        if acc > early_stop_best_acc + cfg['train']['early_stop_min_delta']:
+            early_stop_best_acc = acc
+            early_stop_counter = 0
             save_path = os.path.join(savedir, 'model_best_clean.pt')
-            torch.save(model.state_dict(), save_path)
-            logger.info(f'Model saved to {save_path}')
+            if acc > 0:
+                torch.save(model.state_dict(), save_path)
+                logger.info(f'Model saved to {save_path}')
+        else:
+            early_stop_counter += 1
+            logger.info(
+                f"No clean accuracy improvement for {early_stop_counter}/"
+                f"{cfg['train']['early_stop_patience']} epochs."
+            )
 
         scheduler.step()
+        if (
+            cfg['train']['early_stop_patience'] > 0
+            and early_stop_counter >= cfg['train']['early_stop_patience']
+        ):
+            logger.info(
+                f"Stopping early at epoch {epoch}: clean accuracy did not improve "
+                f"by at least {cfg['train']['early_stop_min_delta']} for "
+                f"{cfg['train']['early_stop_patience']} epochs."
+            )
+            break
 
     # ----- FINAL SUMMARY -----
     logger.info('=' * 60)

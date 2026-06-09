@@ -62,6 +62,14 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--lr", type=float, default=2.4e-4)
     parser.add_argument("--lr_factor", type=float, default=0.3)
     parser.add_argument("--lr_patience", type=int, default=10)
+    parser.add_argument("--early_stop_patience", type=int, default=3)
+    parser.add_argument("--early_stop_min_delta", type=float, default=0.0)
+    parser.add_argument(
+        "--val_split_ratio",
+        type=float,
+        default=0.2,
+        help="Ratio of SUN train samples held out for validation; must satisfy 0 < ratio < 1.",
+    )
     parser.add_argument("--max_epochs", type=int, default=50)
     parser.add_argument("--n_workers", type=int, default=8)
     parser.add_argument("--savedir", type=str, default=os.path.join(_THIS_DIR, "savepath", "sun_rgbd"))
@@ -106,6 +114,14 @@ def get_scheduler(optimizer, args):
         factor=args.lr_factor,
         verbose=True,
     )
+
+
+def _resolve_train_split_size(num_samples, val_split_ratio):
+    if num_samples < 2:
+        raise ValueError("SUN train split needs at least 2 samples for train/validation")
+    if not 0 < val_split_ratio < 1:
+        raise ValueError("--val_split_ratio must satisfy 0 < ratio < 1")
+    return min(max(1, int(round(num_samples * val_split_ratio))), num_samples - 1)
 
 
 def compute_mAP(outputs, labels):
@@ -363,13 +379,18 @@ def main():
         data_dir=os.path.join(args.data_path, 'train'),
         transform=transforms.Compose(train_transforms),
     )
+    full_val_dataset = AlignedConcDataset(
+        args,
+        data_dir=os.path.join(args.data_path, 'train'),
+        transform=transforms.Compose(val_transforms),
+    )
 
     num_samples = len(full_train_dataset)
-    val_indices = torch.randperm(num_samples)[:4]
-    val_dataset = Subset(full_train_dataset, val_indices)
-    train_indices = torch.tensor(
-        [i for i in range(num_samples) if i not in val_indices.tolist()]
-    )
+    val_size = _resolve_train_split_size(num_samples, args.val_split_ratio)
+    indices = torch.randperm(num_samples).tolist()
+    val_indices = indices[:val_size]
+    train_indices = indices[val_size:]
+    val_dataset = Subset(full_val_dataset, val_indices)
     train_dataset = Subset(full_train_dataset, train_indices)
 
     train_loader = DataLoader(
@@ -380,7 +401,7 @@ def main():
     )
     val_loader = DataLoader(
         val_dataset,
-        batch_size=4,
+        batch_size=args.batch_sz,
         shuffle=False,
         num_workers=args.n_workers,
     )
@@ -404,6 +425,7 @@ def main():
     best_clean_acc = 0.0
     best_clean_epoch = 0
     best_clean_model_state = copy.deepcopy(model.state_dict())
+    early_stop_counter = 0
 
     for epoch in range(args.max_epochs):
         logger.info(f'Epoch {epoch} training started...')
@@ -411,10 +433,11 @@ def main():
 
         clean_acc = val_rgbd(epoch, test_loader, model, logger, args)
 
-        if clean_acc > best_clean_acc:
+        if clean_acc > best_clean_acc + args.early_stop_min_delta:
             best_clean_acc = clean_acc
             best_clean_epoch = epoch
             best_clean_model_state = copy.deepcopy(model.state_dict())
+            early_stop_counter = 0
             torch.save(
                 {
                     'epoch': epoch,
@@ -428,8 +451,24 @@ def main():
                 f' *** NEW BEST CLEAN ACC *** Epoch {epoch} '
                 f'| Clean Acc: {best_clean_acc:.4f}'
             )
+        else:
+            early_stop_counter += 1
+            logger.info(
+                f"No clean accuracy improvement for {early_stop_counter}/"
+                f"{args.early_stop_patience} epochs."
+            )
 
         scheduler.step(clean_acc)
+        if (
+            args.early_stop_patience > 0
+            and early_stop_counter >= args.early_stop_patience
+        ):
+            logger.info(
+                f"Stopping early at epoch {epoch}: clean accuracy did not improve "
+                f"by at least {args.early_stop_min_delta} for "
+                f"{args.early_stop_patience} epochs."
+            )
+            break
 
 
     # 7) 鲁棒性评估：加载 best 检查点
@@ -580,6 +619,7 @@ def main():
         "lr": args.lr,
         "ib_beta": args.ib_beta,
         "ib_eps_scale": args.ib_eps_scale,
+        "val_split_ratio": args.val_split_ratio,
         "batch_sz": args.batch_sz,
         "max_epochs": args.max_epochs,
         "best_clean_epoch": int(best_clean_epoch),

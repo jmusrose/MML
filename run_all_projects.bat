@@ -5,6 +5,8 @@ set "ROOT=%~dp0"
 set "PYTHON_EXE=E:\anaconda3\envs\pytorch2.5\python.exe"
 set "DRY_RUN=0"
 set "CONTINUE_ON_ERROR=0"
+set "EARLY_STOP_PATIENCE=3"
+set "EARLY_STOP_MIN_DELTA=0.0"
 
 :parse_args
 if "%~1"=="" goto after_parse
@@ -34,8 +36,20 @@ if /I "%~1"=="--python" (
     shift
     goto parse_args
 )
+if /I "%~1"=="--early-stop-patience" (
+    set "EARLY_STOP_PATIENCE=%~2"
+    shift
+    shift
+    goto parse_args
+)
+if /I "%~1"=="--early-stop-min-delta" (
+    set "EARLY_STOP_MIN_DELTA=%~2"
+    shift
+    shift
+    goto parse_args
+)
 echo Unknown argument: %~1
-echo Usage: run_all_projects.bat [--dry-run] [--continue-on-error] [--python path\to\python.exe]
+echo Usage: run_all_projects.bat [--dry-run] [--continue-on-error] [--python path\to\python.exe] [--early-stop-patience N] [--early-stop-min-delta VALUE]
 exit /b 2
 
 :after_parse
@@ -44,6 +58,8 @@ if not exist "%PYTHON_EXE%" (
     echo Falling back to python on PATH.
     set "PYTHON_EXE=python"
 )
+
+set "EARLY_STOP_ARGS=--early_stop_patience %EARLY_STOP_PATIENCE% --early_stop_min_delta %EARLY_STOP_MIN_DELTA%"
 
 call :run_step "RGB_v1 NYU" "%ROOT%RGB_v1" "DML_nyu.py"
 if errorlevel 1 exit /b %errorlevel%
@@ -61,7 +77,7 @@ call :run_step "CREMAD_v1" "%ROOT%CREMAD_v1" "DML_cremad.py"
 if errorlevel 1 exit /b %errorlevel%
 
 echo.
-echo All requested project runs finished.
+echo All requested v1 project runs finished.
 exit /b 0
 
 :run_step
@@ -75,14 +91,14 @@ if not exist "%STEP_DIR%\%STEP_SCRIPT%" (
 )
 
 echo.
-echo [%STEP_NAME%] "%PYTHON_EXE%" %STEP_SCRIPT%
+echo [%STEP_NAME%] "%PYTHON_EXE%" %STEP_SCRIPT% %EARLY_STOP_ARGS%
 
 if "%DRY_RUN%"=="1" (
     exit /b 0
 )
 
 pushd "%STEP_DIR%"
-"%PYTHON_EXE%" "%STEP_SCRIPT%"
+"%PYTHON_EXE%" "%STEP_SCRIPT%" %EARLY_STOP_ARGS%
 set "EXIT_CODE=%ERRORLEVEL%"
 popd
 

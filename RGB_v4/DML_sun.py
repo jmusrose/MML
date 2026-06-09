@@ -81,10 +81,10 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--conformal_alpha", type=float, default=0.1)
     parser.add_argument("--uncertainty_tau", type=float, default=1.0)
     parser.add_argument(
-        "--calib_size",
-        type=int,
-        default=0,
-        help="共形校准样本数；SUN<=0时默认从train划20%",
+        "--val_split_ratio",
+        type=float,
+        default=0.2,
+        help="Ratio of SUN train samples held out for validation/calibration; must satisfy 0 < ratio < 1.",
     )
     parser.add_argument(
         "--img_embed_pool_type",
@@ -386,12 +386,12 @@ def collect_multimodal_logits(loader, model):
     }, np.asarray(labels, dtype=np.int64)
 
 
-def _resolve_train_split_calib_size(num_samples, requested_size):
+def _resolve_train_split_size(num_samples, val_split_ratio):
     if num_samples < 2:
         raise ValueError("SUN train split needs at least 2 samples for train/calibration")
-    if requested_size > 0:
-        return min(int(requested_size), num_samples - 1)
-    return min(max(1, int(round(num_samples * 0.2))), num_samples - 1)
+    if not 0 < val_split_ratio < 1:
+        raise ValueError("--val_split_ratio must satisfy 0 < ratio < 1")
+    return min(max(1, int(round(num_samples * val_split_ratio))), num_samples - 1)
 
 
 def build_sun_dataloaders(args, train_transform, val_transform):
@@ -407,10 +407,7 @@ def build_sun_dataloaders(args, train_transform, val_transform):
     )
 
     num_samples = len(train_source)
-    calib_size = _resolve_train_split_calib_size(
-        num_samples,
-        int(getattr(args, "calib_size", 0)),
-    )
+    calib_size = _resolve_train_split_size(num_samples, args.val_split_ratio)
     indices = torch.randperm(num_samples).tolist()
     calib_indices = indices[:calib_size]
     train_indices = indices[calib_size:]
@@ -746,6 +743,7 @@ def main():
         "ib_beta": args.ib_beta,
         "ib_eps_scale": args.ib_eps_scale,
         "uncertainty_tau": args.uncertainty_tau,
+        "val_split_ratio": args.val_split_ratio,
         "batch_sz": args.batch_sz,
         "max_epochs": args.max_epochs,
         "patience": args.patience,

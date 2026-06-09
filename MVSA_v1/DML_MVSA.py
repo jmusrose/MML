@@ -88,7 +88,7 @@ def get_args(parser):
         "--lr_factor", type=float, default=0.5, help="LR reduction factor"
     )
     parser.add_argument(
-        "--lr_patience", type=int, default=2, help="LR scheduler patience"
+        "--lr_patience", type=int, default=10, help="LR scheduler patience"
     )
     parser.add_argument(
         "--max_epochs", type=int, default=50, help="Maximum training epochs"
@@ -126,7 +126,17 @@ def get_args(parser):
         help="Number of image embedding patches",
     )
     parser.add_argument(
-        "--patience", type=int, default=5, help="Early stopping patience"
+        "--early_stop_patience",
+        "--patience",
+        type=int,
+        default=3,
+        help="Early stopping patience",
+    )
+    parser.add_argument(
+        "--early_stop_min_delta",
+        type=float,
+        default=0.0,
+        help="Minimum clean accuracy improvement required to reset early stopping",
     )
     parser.add_argument(
         "--savedir",
@@ -321,7 +331,7 @@ def main():
 
     # Training loop
     best_metric = -np.inf
-    n_no_improve = 0
+    early_stop_counter = 0
 
     logger.info("Starting DML MVSA training...")
 
@@ -336,10 +346,10 @@ def main():
         tuning_metric = val_metrics["acc"]
         scheduler.step(tuning_metric)
 
-        is_improvement = tuning_metric > best_metric
+        is_improvement = tuning_metric > best_metric + args.early_stop_min_delta
         if is_improvement:
             best_metric = tuning_metric
-            n_no_improve = 0
+            early_stop_counter = 0
             logger.info(f"*** NEW BEST MODEL *** Epoch {epoch} | Acc: {best_metric:.4f}")
             save_checkpoint(
                 {
@@ -347,7 +357,7 @@ def main():
                     "state_dict": model.state_dict(),
                     "optimizer": optimizer.state_dict(),
                     "scheduler": scheduler.state_dict(),
-                    "n_no_improve": n_no_improve,
+                    "early_stop_counter": early_stop_counter,
                     "best_metric": best_metric,
                 },
                 is_improvement,
@@ -355,11 +365,20 @@ def main():
                 filename="model_best_clean.pt",
             )
         else:
-            n_no_improve += 1
-
-        if n_no_improve >= args.patience:
+            early_stop_counter += 1
             logger.info(
-                f"No improvement for {args.patience} epochs. Stopping early."
+                f"No validation accuracy improvement for {early_stop_counter}/"
+                f"{args.early_stop_patience} epochs."
+            )
+
+        if (
+            args.early_stop_patience > 0
+            and early_stop_counter >= args.early_stop_patience
+        ):
+            logger.info(
+                f"Stopping early at epoch {epoch}: validation accuracy did not "
+                f"improve by at least {args.early_stop_min_delta} for "
+                f"{args.early_stop_patience} epochs."
             )
             break
 

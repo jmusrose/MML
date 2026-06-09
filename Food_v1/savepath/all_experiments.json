@@ -17,5 +17,24 @@
             "Salt & Pepper (Lvl 10.0)": 0.5932822680049304
         },
         "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\savepath\\dml_food101"
+    },
+    {
+        "timestamp": "2026-06-09T06:17:24",
+        "dataset": "food101",
+        "name": "dml_food101",
+        "note": "",
+        "seed": 1,
+        "lr": 3e-05,
+        "batch_sz": 8,
+        "max_epochs": 50,
+        "best_clean_acc": 0.9161384046487058,
+        "robustness": {
+            "Clean Test": 0.9161384046487058,
+            "Gaussian (Lvl 5.0)": 0.7898837823560486,
+            "Gaussian (Lvl 10.0)": 0.534337031167459,
+            "Salt & Pepper (Lvl 5.0)": 0.8311322415918295,
+            "Salt & Pepper (Lvl 10.0)": 0.5979485824969185
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\Food_v1\\savepath\\dml_food101"
     }
 ]

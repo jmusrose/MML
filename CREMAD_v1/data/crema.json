@@ -19,6 +19,8 @@
         "val_size": 16,
         "val_batch_size": 16,
         "val_num_workers": 0,
+        "early_stop_patience": 3,
+        "early_stop_min_delta": 0.0,
         "optimizer": {
             "type": "SGD",
             "momentum": 0.9,
@@ -30,7 +32,7 @@
         }
     },
     "test": {
-        "batch_size": 32,
+        "batch_size": 16,
         "num_workers": 0
     },
     "experiment": {

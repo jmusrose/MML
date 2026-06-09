@@ -40,5 +40,25 @@
             "Gaussian (Lvl 10.0)": 0.7366730892742454
         },
         "savedir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.01"
+    },
+    {
+        "timestamp": "2026-06-09T07:03:06",
+        "dataset": "CREMA-D",
+        "name": "dml_cremad_seed0_lr0.005",
+        "note": "",
+        "seed": 0,
+        "lr": 0.005,
+        "batch_sz": 16,
+        "max_epochs": 100,
+        "best_clean_epoch": 7,
+        "best_clean_acc": 0.6339113680154143,
+        "robustness": {
+            "Clean Test": 0.6339113680154143,
+            "Salt & Pepper (Lvl 5.0)": 0.4662813102119461,
+            "Salt & Pepper (Lvl 10.0)": 0.2915863840719332,
+            "Gaussian (Lvl 5.0)": 0.6319845857418112,
+            "Gaussian (Lvl 10.0)": 0.6339113680154143
+        },
+        "savedir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.005"
     }
 ]

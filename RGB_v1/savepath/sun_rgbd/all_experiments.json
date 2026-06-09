@@ -98,5 +98,25 @@
             "Gaussian (Lvl 10.0)": 0.39364670530156687
         },
         "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v1\\savepath\\sun_rgbd\\dml_sun_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-08T22:18:32",
+        "dataset": "sun",
+        "name": "dml_sun_seed0_lr0.00024",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00024,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 3,
+        "best_clean_acc": 0.5949774629748873,
+        "robustness": {
+            "Clean Test": 0.5949774629748873,
+            "Salt & Pepper (Lvl 5.0)": 0.5181369392573514,
+            "Salt & Pepper (Lvl 10.0)": 0.4078128353723975,
+            "Gaussian (Lvl 5.0)": 0.47671174071689204,
+            "Gaussian (Lvl 10.0)": 0.40373470701867353
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v1\\savepath\\sun_rgbd\\dml_sun_seed0_lr0.00024"
     }
 ]

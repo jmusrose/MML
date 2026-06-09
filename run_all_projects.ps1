@@ -2,11 +2,13 @@ param(
     [string]$PythonExe = "E:\anaconda3\envs\pytorch2.5\python.exe",
     [switch]$DryRun,
     [switch]$ContinueOnError,
-    [string[]]$CremadArgs = @(),
-    [string[]]$FoodArgs = @(),
-    [string[]]$MvsaArgs = @(),
+    [int]$EarlyStopPatience = 3,
+    [double]$EarlyStopMinDelta = 0.0,
     [string[]]$RgbNyuArgs = @(),
-    [string[]]$RgbSunArgs = @()
+    [string[]]$RgbSunArgs = @(),
+    [string[]]$MvsaArgs = @(),
+    [string[]]$FoodArgs = @(),
+    [string[]]$CremadArgs = @()
 )
 
 $ErrorActionPreference = "Stop"
@@ -17,41 +19,46 @@ if (-not (Test-Path -LiteralPath $PythonExe)) {
     $PythonExe = "python"
 }
 
+$CommonArgs = @(
+    "--early_stop_patience", [string]$EarlyStopPatience,
+    "--early_stop_min_delta", [string]$EarlyStopMinDelta
+)
+
 $Steps = @(
-    @{
-        Name = "CREMAD_v1"
-        WorkingDirectory = Join-Path $Root "CREMAD_v1"
-        ScriptPath = "CREMAD_v1\DML_cremad.py"
-        Script = "DML_cremad.py"
-        Args = $CremadArgs
-    },
-    @{
-        Name = "Food_v1"
-        WorkingDirectory = Join-Path $Root "Food_v1"
-        ScriptPath = "Food_v1\DML_Food.py"
-        Script = "DML_Food.py"
-        Args = $FoodArgs
-    },
-    @{
-        Name = "MVSA"
-        WorkingDirectory = Join-Path $Root "MVSA"
-        ScriptPath = "MVSA\DML_MVSA.py"
-        Script = "DML_MVSA.py"
-        Args = $MvsaArgs
-    },
     @{
         Name = "RGB_v1 NYU"
         WorkingDirectory = Join-Path $Root "RGB_v1"
         ScriptPath = "RGB_v1\DML_nyu.py"
         Script = "DML_nyu.py"
-        Args = $RgbNyuArgs
+        Args = $CommonArgs + $RgbNyuArgs
     },
     @{
         Name = "RGB_v1 SUN"
         WorkingDirectory = Join-Path $Root "RGB_v1"
         ScriptPath = "RGB_v1\DML_sun.py"
         Script = "DML_sun.py"
-        Args = $RgbSunArgs
+        Args = $CommonArgs + $RgbSunArgs
+    },
+    @{
+        Name = "MVSA_v1"
+        WorkingDirectory = Join-Path $Root "MVSA_v1"
+        ScriptPath = "MVSA_v1\DML_MVSA.py"
+        Script = "DML_MVSA.py"
+        Args = $CommonArgs + $MvsaArgs
+    },
+    @{
+        Name = "Food_v1"
+        WorkingDirectory = Join-Path $Root "Food_v1"
+        ScriptPath = "Food_v1\DML_Food.py"
+        Script = "DML_Food.py"
+        Args = $CommonArgs + $FoodArgs
+    },
+    @{
+        Name = "CREMAD_v1"
+        WorkingDirectory = Join-Path $Root "CREMAD_v1"
+        ScriptPath = "CREMAD_v1\DML_cremad.py"
+        Script = "DML_cremad.py"
+        Args = $CommonArgs + $CremadArgs
     }
 )
 
@@ -89,4 +96,4 @@ foreach ($Step in $Steps) {
 }
 
 Write-Host ""
-Write-Host "All requested project runs finished."
+Write-Host "All requested v1 project runs finished."

@@ -7,15 +7,16 @@ def test_run_all_projects_script_exists_and_runs_expected_order():
 
     text = script.read_text(encoding="utf-8")
     expected = [
-        "CREMAD_v1\\DML_cremad.py",
-        "Food_v1\\DML_Food.py",
-        "MVSA\\DML_MVSA.py",
         "RGB_v1\\DML_nyu.py",
         "RGB_v1\\DML_sun.py",
+        "MVSA_v1\\DML_MVSA.py",
+        "Food_v1\\DML_Food.py",
+        "CREMAD_v1\\DML_cremad.py",
     ]
 
     positions = [text.index(item) for item in expected]
     assert positions == sorted(positions)
+    assert "MVSA\\DML_MVSA.py" not in text
 
 
 def test_run_all_projects_script_supports_dry_run_and_failure_policy():
@@ -23,6 +24,10 @@ def test_run_all_projects_script_supports_dry_run_and_failure_policy():
 
     assert "[switch]$DryRun" in text
     assert "[switch]$ContinueOnError" in text
+    assert "$EarlyStopPatience" in text
+    assert "$EarlyStopMinDelta" in text
+    assert "--early_stop_patience" in text
+    assert "--early_stop_min_delta" in text
     assert "$LASTEXITCODE" in text
     assert "pytorch2.5" in text
 
@@ -59,6 +64,10 @@ def test_run_all_projects_bat_supports_dry_run_and_failure_policy():
 
     assert "--dry-run" in text
     assert "--continue-on-error" in text
+    assert "--early-stop-patience" in text
+    assert "--early-stop-min-delta" in text
+    assert "--early_stop_patience" in text
+    assert "--early_stop_min_delta" in text
     assert "pytorch2.5" in text
     assert "%ERRORLEVEL%" in text
 
@@ -77,6 +86,8 @@ def test_run_all_projectsv2_scripts_exist_and_run_information_bottleneck_project
         "DML_sun.py",
         "MVSA_v2",
         "DML_MVSA.py",
+        "Food_v2",
+        "DML_Food.py",
         "CREMAD_v2",
         "DML_cremad.py",
     ]
@@ -89,13 +100,51 @@ def test_run_all_projectsv2_scripts_exist_and_run_information_bottleneck_project
     assert "ib_eps_scale" in ps1_text
     assert "--ib-beta" in bat_text
     assert "--ib-eps-scale" in bat_text
+    assert "$FoodArgs" in ps1_text
+    assert "$EarlyStopPatience" in ps1_text
+    assert "$EarlyStopMinDelta" in ps1_text
+    assert "--early-stop-patience" in bat_text
+    assert "--early-stop-min-delta" in bat_text
+    assert "--early_stop_patience" in ps1_text
+    assert "--early_stop_min_delta" in ps1_text
+    assert "--patience" in ps1_text
+    assert "$SunValSplitRatio" in ps1_text
+    assert "--sun-val-split-ratio" in bat_text
+    assert "--val_split_ratio" in ps1_text
+    assert "--val_split_ratio" in bat_text
     assert "pytorch2.5" in ps1_text
     assert "pytorch2.5" in bat_text
+
+
+def test_run_all_projectsv2_scripts_pass_expected_project_specific_args():
+    ps1_text = Path("run_all_projectsv2.ps1").read_text(encoding="utf-8")
+    bat_text = Path("run_all_projectsv2.bat").read_text(encoding="utf-8")
+
+    assert "RGB_v2\\DML_nyu.py" in ps1_text
+    assert "RGB_v2\\DML_sun.py" in ps1_text
+    assert "MVSA_v2\\DML_MVSA.py" in ps1_text
+    assert "Food_v2\\DML_Food.py" in ps1_text
+    assert "CREMAD_v2\\DML_cremad.py" in ps1_text
+
+    assert 'Script = "DML_sun.py"' in ps1_text
+    assert '"--val_split_ratio", $SunValSplitRatio' in ps1_text
+    assert 'Script = "DML_MVSA.py"' in ps1_text
+    assert '"--patience", $EarlyStopPatience' in ps1_text
+    assert 'Script = "DML_cremad.py"' in ps1_text
+    assert '"--config", "data\\crema.json"' in ps1_text
+
+    assert 'call :run_step "RGB_v2 SUN"' in bat_text
+    assert '--val_split_ratio "%SUN_VAL_SPLIT_RATIO%"' in bat_text
+    assert 'call :run_step "MVSA_v2"' in bat_text
+    assert '--patience "%EARLY_STOP_PATIENCE%"' in bat_text
+    assert 'call :run_step "CREMAD_v2"' in bat_text
+    assert '--config "data\\crema.json"' in bat_text
 
 
 def test_readme_documents_v2_information_bottleneck_runner():
     text = Path("README.md").read_text(encoding="utf-8")
 
+    assert "Food_v2" in text
     assert "CREMAD_v2" in text
     assert "run_all_projectsv2.bat" in text
     assert "run_all_projectsv2.ps1" in text

@@ -17,6 +17,8 @@
         "batch_size": 16,
         "num_workers": 0,
         "val_size": 16,
+        "early_stop_patience": 3,
+        "early_stop_min_delta": 0.0,
         "val_batch_size": 16,
         "val_num_workers": 0,
         "optimizer": {
@@ -37,7 +39,7 @@
         "name": "",
         "note": ""
     },
-    "save_dir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D",
+    "save_dir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D",
     "setting": {
         "type": "CREMA Classification",
         "num_class": 6
