@@ -156,7 +156,7 @@ def get_args(parser):
         help="Number of image embedding patches",
     )
     parser.add_argument(
-        "--patience", type=int, default=15, help="Early stopping patience"
+        "--patience", type=int, default=4, help="Early stopping patience"
     )
     parser.add_argument(
         "--savedir",

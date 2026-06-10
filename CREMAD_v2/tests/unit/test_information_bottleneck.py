@@ -30,13 +30,18 @@ def test_training_source_uses_information_bottleneck_loss():
 
 
 def test_config_source_defines_information_bottleneck_defaults():
+    import json
+
     template = (PROJECT_ROOT / "data" / "template.py").read_text(encoding="utf-8")
-    config = (PROJECT_ROOT / "data" / "crema.json").read_text(encoding="utf-8")
+    config_text = (PROJECT_ROOT / "data" / "crema.json").read_text(encoding="utf-8")
+    config = json.loads(config_text)
 
     assert "ib_beta" in template
     assert "ib_eps_scale" in template
-    assert '"ib_beta"' in config
-    assert '"ib_eps_scale"' in config
+    assert '"ib_beta"' in config_text
+    assert '"ib_eps_scale"' in config_text
+    assert config["ib_beta"] == 1e-3
+    assert config["ib_eps_scale"] == 0.0
 
 
 def make_config(eps_scale=0.0):

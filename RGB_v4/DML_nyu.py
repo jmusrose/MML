@@ -60,7 +60,7 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--lr_factor", type=float, default=0.3)
     parser.add_argument("--lr_patience", type=int, default=10)
     parser.add_argument("--max_epochs", type=int, default=50)
-    parser.add_argument("--patience", type=int, default=3)
+    parser.add_argument("--patience", type=int, default=5)
     parser.add_argument("--n_workers", type=int, default=8)
     parser.add_argument("--savedir", type=str, default=os.path.join(_THIS_DIR, "savepath", "nyud"))
     parser.add_argument("--name", type=str, default="s")
@@ -380,7 +380,7 @@ def collect_multimodal_logits(loader, model):
 
 
 def infer_n_classes_from_datasets(*datasets):
-    class_lists = [tuple(dataset.classes) for dataset in datasets]
+    class_lists = [tuple(_dataset_classes(dataset)) for dataset in datasets]
     if not class_lists:
         raise ValueError("at least one dataset is required to infer n_classes")
 
@@ -394,32 +394,44 @@ def infer_n_classes_from_datasets(*datasets):
     return len(expected)
 
 
+def _dataset_classes(dataset):
+    while not hasattr(dataset, "classes") and hasattr(dataset, "dataset"):
+        dataset = dataset.dataset
+    return dataset.classes
+
+
 def build_nyu_dataloaders(args, train_transform, val_transform):
-    """Build NYU train/val/test loaders from the dataset's explicit splits."""
-    val_dataset = AlignedConcDataset(
-        args,
-        data_dir=os.path.join(args.data_path, 'val'),
-        transform=val_transform,
-    )
-    train_dataset = AlignedConcDataset(
+    """Build NYU loaders with the CPSC-style split.
+
+    The CPSC RGB pipeline reads the explicit train split, randomly holds out
+    four train samples for validation/calibration, trains on the remaining
+    train samples, and keeps the explicit test split for testing.
+    """
+    train_source = AlignedConcDataset(
         args,
         data_dir=os.path.join(args.data_path, 'train'),
         transform=train_transform,
     )
-    calib_size = int(getattr(args, "calib_size", 0))
-    if calib_size > 0:
-        calib_dataset = Subset(val_dataset, list(range(min(calib_size, len(val_dataset)))))
-    else:
-        calib_dataset = val_dataset
+    val_source = AlignedConcDataset(
+        args,
+        data_dir=os.path.join(args.data_path, 'train'),
+        transform=val_transform,
+    )
+
+    num_samples = len(train_source)
+    val_size = min(4, num_samples)
+    indices = torch.randperm(num_samples).tolist()
+    val_indices = indices[:val_size]
+    train_indices = indices[val_size:]
 
     train_loader = DataLoader(
-        train_dataset,
+        Subset(train_source, train_indices),
         batch_size=args.batch_sz,
         shuffle=True,
         num_workers=args.n_workers,
     )
     val_loader = DataLoader(
-        val_dataset,
+        Subset(val_source, val_indices),
         batch_size=args.batch_sz,
         shuffle=False,
         num_workers=args.n_workers,
@@ -434,13 +446,7 @@ def build_nyu_dataloaders(args, train_transform, val_transform):
         shuffle=False,
         num_workers=args.n_workers,
     )
-    calib_loader = DataLoader(
-        calib_dataset,
-        batch_size=args.batch_sz,
-        shuffle=False,
-        num_workers=args.n_workers,
-    )
-    return train_loader, val_loader, test_loader, calib_loader
+    return train_loader, val_loader, test_loader, val_loader
 
 
 def main():

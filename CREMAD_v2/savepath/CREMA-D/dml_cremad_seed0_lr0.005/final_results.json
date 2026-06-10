@@ -1,0 +1,13 @@
+{
+    "best_clean_model": {
+        "epoch": 4,
+        "clean_acc": 0.5362877328195247
+    },
+    "robustness": {
+        "Clean Test": 0.5362877328195247,
+        "Salt & Pepper (Lvl 5.0)": 0.5401412973667309,
+        "Salt & Pepper (Lvl 10.0)": 0.5414258188824663,
+        "Gaussian (Lvl 5.0)": 0.5362877328195247,
+        "Gaussian (Lvl 10.0)": 0.5362877328195247
+    }
+}

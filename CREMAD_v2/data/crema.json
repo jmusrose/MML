@@ -24,7 +24,7 @@
         "optimizer": {
             "type": "SGD",
             "momentum": 0.9,
-            "lr": 0.01,
+            "lr": 0.005,
             "wc": 1e-4
         },
         "lr_scheduler": {
@@ -47,5 +47,5 @@
     "seed": 0,
     "fps": 3,
     "ib_beta": 1e-3,
-    "ib_eps_scale": 1.0
+    "ib_eps_scale": 0.0
 }

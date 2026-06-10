@@ -124,7 +124,7 @@ def get_args(parser):
         "--lr_factor", type=float, default=0.5, help="LR reduction factor"
     )
     parser.add_argument(
-        "--lr_patience", type=int, default=2, help="LR scheduler patience"
+        "--lr_patience", type=int, default=5, help="LR scheduler patience"
     )
     parser.add_argument(
         "--max_epochs", type=int, default=50, help="Maximum training epochs"

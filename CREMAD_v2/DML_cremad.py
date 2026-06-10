@@ -223,6 +223,8 @@ if __name__ == '__main__':
     )
     parser.add_argument('--early_stop_patience', type=int, default=None)
     parser.add_argument('--early_stop_min_delta', type=float, default=None)
+    parser.add_argument('--ib_beta', type=float, default=None)
+    parser.add_argument('--ib_eps_scale', type=float, default=None)
     args = parser.parse_args()
 
     cfg = config
@@ -235,6 +237,10 @@ if __name__ == '__main__':
         cfg['train']['early_stop_patience'] = args.early_stop_patience
     if args.early_stop_min_delta is not None:
         cfg['train']['early_stop_min_delta'] = args.early_stop_min_delta
+    if args.ib_beta is not None:
+        cfg['ib_beta'] = args.ib_beta
+    if args.ib_eps_scale is not None:
+        cfg['ib_eps_scale'] = args.ib_eps_scale
 
     # Anchor output_dir to the script directory if user left it as '.'
     # so logs/checkpoints land next to this script regardless of cwd.
@@ -460,7 +466,7 @@ if __name__ == '__main__':
         "lr": cfg['train']['optimizer']['lr'],
         "batch_sz": cfg['train']['batch_size'],
         "ib_beta": cfg.get("ib_beta", 1e-3),
-        "ib_eps_scale": cfg.get("ib_eps_scale", 1.0),
+        "ib_eps_scale": cfg.get("ib_eps_scale", 0.0),
         "max_epochs": cfg['train']['epoch_dict'],
         "best_clean_epoch": int(best_epoch),
         "best_clean_acc": float(final_results.get("Clean Test", 0.0)),

@@ -68,7 +68,7 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--lr_factor", type=float, default=0.3)
     parser.add_argument("--lr_patience", type=int, default=10)
     parser.add_argument("--max_epochs", type=int, default=50)
-    parser.add_argument("--patience", type=int, default=2)
+    parser.add_argument("--patience", type=int, default=5)
     parser.add_argument("--n_workers", type=int, default=8)
     parser.add_argument("--savedir", type=str, default=os.path.join(_THIS_DIR, "savepath", "sun_rgbd"))
     parser.add_argument("--name", type=str, default="s")

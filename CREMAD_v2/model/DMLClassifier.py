@@ -71,7 +71,7 @@ class DMLClassifier(nn.Module):
         self.video_encoder = VideoEncoder(config, config['fps'])
         self.hidden_dim = 512
         num_classes = config['setting']['num_class']
-        self.ib_eps_scale = config.get("ib_eps_scale", 1.0)
+        self.ib_eps_scale = config.get("ib_eps_scale", 0.0)
 
         self.audio_mu = nn.Linear(self.hidden_dim, num_classes)
         self.audio_logvar = nn.Linear(self.hidden_dim, num_classes)

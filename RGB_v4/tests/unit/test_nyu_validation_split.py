@@ -17,18 +17,11 @@ class FakeDataset:
         self.transform = transform
         split = Path(data_dir).name
         self.classes = ["class_a", "class_b"]
+        count = 10 if split == "train" else 3
         self.imgs = [
-            (str(Path(data_dir) / "class_a" / "shared.png"), 0),
+            (str(Path(data_dir) / f"class_{idx % 2}" / f"{split}_{idx}.png"), idx % 2)
+            for idx in range(count)
         ]
-        if split == "train":
-            self.imgs.append((str(Path(data_dir) / "class_b" / "train_only.png"), 1))
-        else:
-            self.imgs.extend(
-                [
-                    (str(Path(data_dir) / "class_b" / f"{split}_only.png"), 1),
-                    (str(Path(data_dir) / "class_a" / f"{split}_extra.png"), 0),
-                ]
-            )
 
     def __len__(self):
         return len(self.imgs)
@@ -42,6 +35,14 @@ class FakeLoader:
         self.num_workers = num_workers
 
 
+class FakeTensor:
+    def __init__(self, values):
+        self.values = list(values)
+
+    def tolist(self):
+        return self.values
+
+
 class FakeSubset:
     def __init__(self, dataset, indices):
         self.dataset = dataset
@@ -53,6 +54,7 @@ class FakeSubset:
 
 def install_training_import_stubs(monkeypatch):
     torch = types.ModuleType("torch")
+    torch.randperm = lambda n: FakeTensor(range(n))
     torch.utils = types.ModuleType("torch.utils")
     torch.utils.data = types.ModuleType("torch.utils.data")
     torch.utils.data.DataLoader = object
@@ -105,7 +107,7 @@ def install_training_import_stubs(monkeypatch):
         monkeypatch.setitem(sys.modules, name, module)
 
 
-def test_nyu_dataloaders_use_dataset_val_split(monkeypatch):
+def test_nyu_dataloaders_use_cpsc_train_split_for_validation(monkeypatch):
     install_training_import_stubs(monkeypatch)
     sys.modules.pop("DML_nyu", None)
     DML_nyu = importlib.import_module("DML_nyu")
@@ -118,7 +120,7 @@ def test_nyu_dataloaders_use_dataset_val_split(monkeypatch):
         data_path="nyud2_trainvaltest",
         batch_sz=4,
         n_workers=0,
-        calib_size=3,
+        calib_size=0,
     )
 
     train_loader, val_loader, test_loader, calib_loader = DML_nyu.build_nyu_dataloaders(
@@ -127,13 +129,14 @@ def test_nyu_dataloaders_use_dataset_val_split(monkeypatch):
         val_transform="val-transform",
     )
 
-    assert train_loader.dataset.data_dir.endswith("train")
-    assert val_loader.dataset.data_dir.endswith("val")
+    assert train_loader.dataset.dataset.data_dir.endswith("train")
+    assert val_loader.dataset.dataset.data_dir.endswith("train")
     assert test_loader.dataset.data_dir.endswith("test")
-    assert calib_loader.dataset.dataset.data_dir.endswith("val")
-    assert len(calib_loader.dataset.indices) == 3
-    assert train_loader.dataset.transform == "train-transform"
-    assert val_loader.dataset.transform == "val-transform"
+    assert calib_loader is val_loader
+    assert train_loader.dataset.indices == [4, 5, 6, 7, 8, 9]
+    assert val_loader.dataset.indices == [0, 1, 2, 3]
+    assert train_loader.dataset.dataset.transform == "train-transform"
+    assert val_loader.dataset.dataset.transform == "val-transform"
     assert test_loader.dataset.transform == "val-transform"
     assert train_loader.shuffle is True
     assert val_loader.shuffle is False
@@ -151,3 +154,14 @@ def test_infer_n_classes_from_split_datasets(monkeypatch):
     ]
 
     assert DML_nyu.infer_n_classes_from_datasets(*datasets) == 3
+
+
+def test_infer_n_classes_from_subset_datasets(monkeypatch):
+    install_training_import_stubs(monkeypatch)
+    sys.modules.pop("DML_nyu", None)
+    DML_nyu = importlib.import_module("DML_nyu")
+
+    base_dataset = SimpleNamespace(classes=["a", "b"])
+    subset = FakeSubset(base_dataset, [0])
+
+    assert DML_nyu.infer_n_classes_from_datasets(subset, base_dataset) == 2

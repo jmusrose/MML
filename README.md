@@ -119,3 +119,29 @@ run_all_projectsv2.bat --python E:\anaconda3\envs\pytorch2.5\python.exe
 ```
 
 The PowerShell version, `run_all_projectsv2.ps1`, exposes the same defaults via `-IbBeta` and `-IbEpsScale`. `CREMAD_v2` reads its Information Bottleneck defaults from `CREMAD_v2\data\crema.json`.
+
+## Run Information Bottleneck + Conformal Projects Sequentially
+
+Use `run_all_projectsv4.bat` from the repository root to train the v4 variants in this order: `RGB_v4` NYU, `RGB_v4` SUN, `MVSA_v4`, `Food_v4`, and `CREMAD_v4`.
+
+Preview commands without starting training:
+
+```bat
+run_all_projectsv4.bat --dry-run
+```
+
+Start the full v4 sequence with the default PyTorch 2.5 environment:
+
+```bat
+run_all_projectsv4.bat
+```
+
+`run_all_projectsv4.bat` does not pass training hyperparameters; each v4 entrypoint uses its own code/config defaults. `RGB_v4` NYU keeps its CPSC-style four-sample validation/calibration split from the train split, and `RGB_v4` SUN uses its entrypoint default train-split validation/calibration holdout.
+
+Use another Python executable when needed:
+
+```bat
+run_all_projectsv4.bat --python E:\anaconda3\envs\pytorch2.5\python.exe
+```
+
+The PowerShell version, `run_all_projectsv4.ps1`, exposes the same defaults via PascalCase parameters such as `-IbBeta`, `-ConformalAlpha`, `-CalibSize`, and `-SunValSplitRatio`.
