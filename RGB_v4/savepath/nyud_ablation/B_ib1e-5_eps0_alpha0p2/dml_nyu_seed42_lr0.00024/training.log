@@ -1,0 +1,37 @@
+INFO - 06/11/26 16:53:30 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v4\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     calib_size: 0
+                                     conformal_alpha: 0.2
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\datasets_shared\nyud2_trainvaltest
+                                     dropout: 0.3
+                                     ib_beta: 1e-05
+                                     ib_eps_scale: 0.0
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00024
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 10
+                                     n_workers: 8
+                                     name: dml_nyu_seed42_lr0.00024
+                                     note: 
+                                     num_image_embeds: 1
+                                     patience: 5
+                                     savedir: savepath\nyud_ablation\B_ib1e-5_eps0_alpha0p2\dml_nyu_seed42_lr0.00024
+                                     seed: 42
+                                     uncertainty_tau: 1.0
+INFO - 06/11/26 16:53:30 - 0:00:00 - Epoch 0 training started...
+INFO - 06/11/26 16:54:24 - 0:00:54 - Epoch 0: Total Loss: 4.9367, loss_both:1.5799, loss_rgb:1.6362, loss_depth:1.7204, loss_ib:0.0002, loss_ib_rgb:0.0001, loss_ib_depth:0.0001, beta_rgb:0.000018, beta_depth:0.000018, uncertainty_rgb:0.7830, uncertainty_depth:0.7670, acc_both:0.4665, acc_rgb:0.4273, acc_depth:0.3793
+INFO - 06/11/26 16:54:51 - 0:01:21 - Epoch 0: Val - Acc: 0.5994
+INFO - 06/11/26 16:54:51 - 0:01:21 -  *** NEW BEST VAL ACC *** Epoch 0 | Val Acc: 0.5994
+INFO - 06/11/26 16:54:51 - 0:01:21 - Epoch 1 training started...
+INFO - 06/11/26 16:55:44 - 0:02:15 - Epoch 1: Total Loss: 2.1827, loss_both:0.6346, loss_rgb:0.6212, loss_depth:0.9265, loss_ib:0.0004, loss_ib_rgb:0.0002, loss_ib_depth:0.0002, beta_rgb:0.000011, beta_depth:0.000012, uncertainty_rgb:0.1443, uncertainty_depth:0.2350, acc_both:0.8394, acc_rgb:0.8205, acc_depth:0.6903
+INFO - 06/11/26 16:56:11 - 0:02:42 - Epoch 1: Val - Acc: 0.6636
+INFO - 06/11/26 16:56:12 - 0:02:42 -  *** NEW BEST VAL ACC *** Epoch 1 | Val Acc: 0.6636
+INFO - 06/11/26 16:56:12 - 0:02:42 - Epoch 2 training started...
+INFO - 06/11/26 16:57:05 - 0:03:35 - Epoch 2: Total Loss: 1.1342, loss_both:0.2863, loss_rgb:0.2797, loss_depth:0.5677, loss_ib:0.0005, loss_ib_rgb:0.0003, loss_ib_depth:0.0002, beta_rgb:0.000011, beta_depth:0.000011, uncertainty_rgb:0.1149, uncertainty_depth:0.1383, acc_both:0.9608, acc_rgb:0.9317, acc_depth:0.8407
+INFO - 06/11/26 16:57:32 - 0:04:02 - Epoch 2: Val - Acc: 0.6468
+INFO - 06/11/26 16:57:32 - 0:04:02 - Epoch 3 training started...

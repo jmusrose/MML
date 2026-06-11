@@ -1,0 +1,26 @@
+INFO - 06/11/26 01:32:29 - 0:00:00 - Starting DML Food-101 training...
+INFO - 06/11/26 01:49:11 - 0:16:42 - Epoch 0: Total Loss: 12.6965, loss_fused:4.0622, loss_txt:4.7827, loss_img:3.6419, loss_ib:0.2097, loss_ib_text:0.0502, loss_ib_image:0.1595, beta_text:0.001665, beta_image:0.001623, uncertainty_text:0.6650, uncertainty_image:0.6234, acc_fused:0.1799, acc_txt:0.0109, acc_img:0.2306
+INFO - 06/11/26 01:54:37 - 0:22:08 - Validation: Loss: 3.49577 | Acc: 0.39664
+INFO - 06/11/26 01:54:37 - 0:22:08 - *** NEW BEST MODEL *** Epoch 0 | Acc: 0.3966
+INFO - 06/11/26 02:11:23 - 0:38:54 - Epoch 1: Total Loss: 10.8955, loss_fused:3.3049, loss_txt:4.6509, loss_img:2.6467, loss_ib:0.2931, loss_ib_text:0.0924, loss_ib_image:0.2006, beta_text:0.001600, beta_image:0.001207, uncertainty_text:0.5998, uncertainty_image:0.2070, acc_fused:0.3915, acc_txt:0.0145, acc_img:0.4175
+INFO - 06/11/26 02:16:50 - 0:44:20 - Validation: Loss: 3.05488 | Acc: 0.46144
+INFO - 06/11/26 02:16:50 - 0:44:20 - *** NEW BEST MODEL *** Epoch 1 | Acc: 0.4614
+INFO - 06/11/26 02:33:39 - 1:01:10 - Epoch 2: Total Loss: 10.2788, loss_fused:2.9650, loss_txt:4.6228, loss_img:2.3430, loss_ib:0.3479, loss_ib_text:0.1035, loss_ib_image:0.2445, beta_text:0.001628, beta_image:0.001185, uncertainty_text:0.6277, uncertainty_image:0.1850, acc_fused:0.4525, acc_txt:0.0178, acc_img:0.4656
+INFO - 06/11/26 02:39:06 - 1:06:36 - Validation: Loss: 2.82791 | Acc: 0.48349
+INFO - 06/11/26 02:39:06 - 1:06:36 - *** NEW BEST MODEL *** Epoch 2 | Acc: 0.4835
+INFO - 06/11/26 03:02:26 - 1:29:56 - Epoch 3: Total Loss: 8.9871, loss_fused:2.1409, loss_txt:4.6035, loss_img:1.7958, loss_ib:0.4469, loss_ib_text:0.1072, loss_ib_image:0.3397, beta_text:0.001638, beta_image:0.001098, uncertainty_text:0.6380, uncertainty_image:0.0981, acc_fused:0.5779, acc_txt:0.0211, acc_img:0.5812
+INFO - 06/11/26 03:07:53 - 1:35:24 - Validation: Loss: 1.79368 | Acc: 0.63981
+INFO - 06/11/26 03:07:53 - 1:35:24 - *** NEW BEST MODEL *** Epoch 3 | Acc: 0.6398
+INFO - 06/11/26 03:31:15 - 1:58:46 - Epoch 4: Total Loss: 7.4602, loss_fused:1.3958, loss_txt:4.5885, loss_img:1.0328, loss_ib:0.4431, loss_ib_text:0.1050, loss_ib_image:0.3381, beta_text:0.001640, beta_image:0.001066, uncertainty_text:0.6400, uncertainty_image:0.0661, acc_fused:0.7457, acc_txt:0.0240, acc_img:0.7480
+INFO - 06/11/26 03:36:46 - 2:04:16 - Validation: Loss: 1.59774 | Acc: 0.65645
+INFO - 06/11/26 03:36:46 - 2:04:16 - *** NEW BEST MODEL *** Epoch 4 | Acc: 0.6565
+INFO - 06/11/26 15:03:07 - 0:00:00 - Starting DML Food-101 training...
+INFO - 06/11/26 15:12:58 - 0:09:51 - Epoch 0: Total Loss: 12.2916, loss_fused:3.8717, loss_txt:4.7137, loss_img:3.4324, loss_ib:0.2737, loss_ib_text:0.0792, loss_ib_image:0.1944, beta_text:0.001730, beta_image:0.001526, uncertainty_text:0.7296, uncertainty_image:0.5262, acc_fused:0.2183, acc_txt:0.0129, acc_img:0.2516
+INFO - 06/11/26 15:16:13 - 0:13:06 - Validation: Loss: 3.14796 | Acc: 0.42177
+INFO - 06/11/26 15:16:13 - 0:13:06 - *** NEW BEST MODEL *** Epoch 0 | Acc: 0.4218
+INFO - 06/11/26 15:26:16 - 0:23:09 - Epoch 1: Total Loss: 10.6629, loss_fused:3.1179, loss_txt:4.6198, loss_img:2.5648, loss_ib:0.3604, loss_ib_text:0.1056, loss_ib_image:0.2548, beta_text:0.001639, beta_image:0.001206, uncertainty_text:0.6392, uncertainty_image:0.2058, acc_fused:0.3983, acc_txt:0.0184, acc_img:0.4130
+INFO - 06/11/26 15:29:26 - 0:26:19 - Validation: Loss: 2.73016 | Acc: 0.47720
+INFO - 06/11/26 15:29:26 - 0:26:19 - *** NEW BEST MODEL *** Epoch 1 | Acc: 0.4772
+INFO - 06/11/26 15:39:19 - 0:36:12 - Epoch 2: Total Loss: 10.1865, loss_fused:2.8366, loss_txt:4.5843, loss_img:2.3539, loss_ib:0.4118, loss_ib_text:0.1073, loss_ib_image:0.3045, beta_text:0.001657, beta_image:0.001202, uncertainty_text:0.6567, uncertainty_image:0.2017, acc_fused:0.4473, acc_txt:0.0246, acc_img:0.4525
+INFO - 06/11/26 15:42:34 - 0:39:26 - Validation: Loss: 2.55574 | Acc: 0.49357
+INFO - 06/11/26 15:42:34 - 0:39:26 - *** NEW BEST MODEL *** Epoch 2 | Acc: 0.4936

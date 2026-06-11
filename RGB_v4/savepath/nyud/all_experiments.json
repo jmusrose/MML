@@ -1313,5 +1313,190 @@
             }
         },
         "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v4\\savepath\\nyud\\dml_nyu_seed42_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-10T22:40:41",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed42_lr0.00024",
+        "note": "",
+        "seed": 42,
+        "lr": 0.00024,
+        "ib_beta": 0.01,
+        "ib_eps_scale": 1.0,
+        "uncertainty_tau": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "patience": 5,
+        "best_val_epoch": 12,
+        "best_val_acc": 0.6987767584097859,
+        "best_clean_acc": 0.6987767584097859,
+        "robustness": {
+            "Clean Test": 0.6987767584097859,
+            "Salt & Pepper (Lvl 5.0)": 0.5519877675840978,
+            "Salt & Pepper (Lvl 10.0)": 0.39143730886850153,
+            "Gaussian (Lvl 5.0)": 0.6269113149847095,
+            "Gaussian (Lvl 10.0)": 0.5519877675840978
+        },
+        "conformal": {
+            "alpha": 0.05,
+            "tau": 1.0,
+            "calibration": {
+                "source": "val",
+                "size": 4
+            },
+            "thresholds": {
+                "fusion": Infinity,
+                "rgb": Infinity,
+                "depth": Infinity
+            },
+            "robustness": {
+                "Clean Test": {
+                    "fusion": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "rgb": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "depth": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    }
+                },
+                "Salt & Pepper (Lvl 5.0)": {
+                    "fusion": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "rgb": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "depth": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    }
+                },
+                "Salt & Pepper (Lvl 10.0)": {
+                    "fusion": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "rgb": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "depth": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    }
+                },
+                "Gaussian (Lvl 5.0)": {
+                    "fusion": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "rgb": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "depth": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    }
+                },
+                "Gaussian (Lvl 10.0)": {
+                    "fusion": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "rgb": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    },
+                    "depth": {
+                        "coverage": 1.0,
+                        "avg_set_size": 10.0,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 1.0,
+                        "avg_reliability": 0.36787944117144233,
+                        "avg_weight": 0.3333333333333333
+                    }
+                }
+            }
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v4\\savepath\\nyud\\dml_nyu_seed42_lr0.00024"
     }
 ]

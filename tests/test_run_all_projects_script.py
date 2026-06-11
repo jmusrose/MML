@@ -227,3 +227,41 @@ def test_run_all_projectsv4_scripts_pass_expected_project_specific_args():
     assert "--val_split_ratio" not in bat_text
     assert "--config" not in bat_text
     assert '--patience' not in bat_text
+
+
+def test_rgb_v4_nyu_sun_ablation_bat_runs_four_groups_for_each_dataset():
+    script = Path("run_rgb_v4_nyu_sun_ablation.bat")
+    assert script.exists()
+
+    text = script.read_text(encoding="utf-8")
+    expected_groups = [
+        ("A", "--ib_beta 0 --ib_eps_scale 0"),
+        ("B", "--ib_beta 1e-5 --ib_eps_scale 0"),
+        ("C", "--ib_beta 1e-4 --ib_eps_scale 0"),
+        ("D", "--ib_beta 1e-4 --ib_eps_scale 0.1"),
+    ]
+
+    assert text.count('call :run_step "RGB_v4 NYU') == 4
+    assert text.count('call :run_step "RGB_v4 SUN') == 4
+    assert text.count('call :run_step "MVSA_v4') == 4
+    assert "--conformal_alpha 0.2" in text
+    assert "--conformal_alpha 0.1" in text
+    assert "--savedir savepath\\nyud_ablation" in text
+    assert "--savedir savepath\\sun_rgbd_ablation" in text
+    assert "--savedir savepath\\dml_mvsa_ablation" in text
+    assert "--patience" not in text
+
+    for label, args in expected_groups:
+        assert f"NYU {label}" in text
+        assert f"SUN {label}" in text
+        assert args in text
+
+    expected_mvsa_groups = [
+        ("A", "--ib_beta 0 --ib_eps_scale 0"),
+        ("B", "--ib_beta 1e-6 --ib_eps_scale 0"),
+        ("C", "--ib_beta 1e-5 --ib_eps_scale 0"),
+        ("D", "--ib_beta 1e-5 --ib_eps_scale 0.1"),
+    ]
+    for label, args in expected_mvsa_groups:
+        assert f"MVSA_v4 {label}" in text
+        assert args in text
