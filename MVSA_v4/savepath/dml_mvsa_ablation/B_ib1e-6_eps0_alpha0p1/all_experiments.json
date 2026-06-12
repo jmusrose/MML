@@ -1,0 +1,184 @@
+[
+    {
+        "timestamp": "2026-06-12T03:54:32",
+        "dataset": "mvsa",
+        "name": "dml_mvsa",
+        "note": "",
+        "seed": 1,
+        "lr": 3e-05,
+        "ib_beta": 1e-06,
+        "ib_eps_scale": 0.0,
+        "uncertainty_tau": 1.0,
+        "batch_sz": 32,
+        "max_epochs": 50,
+        "best_clean_acc": 0.7726396917148363,
+        "robustness": {
+            "Clean Test": 0.7726396917148363,
+            "Gaussian (Lvl 5.0)": 0.7167630057803468,
+            "Gaussian (Lvl 10.0)": 0.6011560693641619,
+            "Salt & Pepper (Lvl 5.0)": 0.7360308285163777,
+            "Salt & Pepper (Lvl 10.0)": 0.6763005780346821
+        },
+        "conformal": {
+            "alpha": 0.1,
+            "tau": 1.0,
+            "calibration": {
+                "source": "cp",
+                "size": 16
+            },
+            "thresholds": {
+                "fused": 0.9658394596433362,
+                "text": 0.9991716402235916,
+                "image": 0.9665443323324773
+            },
+            "robustness": {
+                "Clean Test": {
+                    "fused": {
+                        "coverage": 0.9344894026974951,
+                        "avg_set_size": 1.6897880539499037,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.48554913294797686,
+                        "avg_uncertainty": 0.563262684649968,
+                        "avg_reliability": 0.5865208716010257,
+                        "avg_weight": 0.3725181497971887
+                    },
+                    "text": {
+                        "coverage": 0.9922928709055877,
+                        "avg_set_size": 2.6300578034682083,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 0.8766859344894026,
+                        "avg_reliability": 0.4217199693975325,
+                        "avg_weight": 0.2736255344274672
+                    },
+                    "image": {
+                        "coverage": 0.8631984585741811,
+                        "avg_set_size": 1.861271676300578,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.4142581888246628,
+                        "avg_uncertainty": 0.6204238921001927,
+                        "avg_reliability": 0.5574588593933109,
+                        "avg_weight": 0.35385631577534393
+                    }
+                },
+                "Gaussian (Lvl 5.0)": {
+                    "fused": {
+                        "coverage": 0.9344894026974951,
+                        "avg_set_size": 1.8786127167630058,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.37957610789980734,
+                        "avg_uncertainty": 0.626204238921002,
+                        "avg_reliability": 0.5529382113258903,
+                        "avg_weight": 0.3610832510302841
+                    },
+                    "text": {
+                        "coverage": 0.9961464354527938,
+                        "avg_set_size": 2.6763005780346822,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0019267822736030828,
+                        "avg_uncertainty": 0.8921001926782273,
+                        "avg_reliability": 0.4151008407752058,
+                        "avg_weight": 0.27726368297048254
+                    },
+                    "image": {
+                        "coverage": 0.7880539499036608,
+                        "avg_set_size": 1.882466281310212,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.394990366088632,
+                        "avg_uncertainty": 0.6274887604367374,
+                        "avg_reliability": 0.5532648717376786,
+                        "avg_weight": 0.3616530659992332
+                    }
+                },
+                "Gaussian (Lvl 10.0)": {
+                    "fused": {
+                        "coverage": 0.9113680154142582,
+                        "avg_set_size": 2.1445086705202314,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.2697495183044316,
+                        "avg_uncertainty": 0.7148362235067437,
+                        "avg_reliability": 0.507916899525117,
+                        "avg_weight": 0.33296608457313454
+                    },
+                    "text": {
+                        "coverage": 0.9961464354527938,
+                        "avg_set_size": 2.811175337186898,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 0.9370584457289658,
+                        "avg_reliability": 0.3953605441201759,
+                        "avg_weight": 0.264963991234742
+                    },
+                    "image": {
+                        "coverage": 0.605009633911368,
+                        "avg_set_size": 1.5684007707129095,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.5934489402697495,
+                        "avg_uncertainty": 0.5228002569043031,
+                        "avg_reliability": 0.610399789657548,
+                        "avg_weight": 0.40206992419212345
+                    }
+                },
+                "Salt & Pepper (Lvl 5.0)": {
+                    "fused": {
+                        "coverage": 0.9344894026974951,
+                        "avg_set_size": 1.8227360308285163,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.4238921001926782,
+                        "avg_uncertainty": 0.6075786769428387,
+                        "avg_reliability": 0.5636219347798681,
+                        "avg_weight": 0.36581988814529376
+                    },
+                    "text": {
+                        "coverage": 0.9942196531791907,
+                        "avg_set_size": 2.66859344894027,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 0.8895311496467565,
+                        "avg_reliability": 0.41611158104064816,
+                        "avg_weight": 0.27670713190997814
+                    },
+                    "image": {
+                        "coverage": 0.8458574181117534,
+                        "avg_set_size": 1.9036608863198459,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.3853564547206166,
+                        "avg_uncertainty": 0.6345536287732819,
+                        "avg_reliability": 0.5496255711117193,
+                        "avg_weight": 0.35747297994472815
+                    }
+                },
+                "Salt & Pepper (Lvl 10.0)": {
+                    "fused": {
+                        "coverage": 0.9344894026974951,
+                        "avg_set_size": 2.0828516377649327,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.2832369942196532,
+                        "avg_uncertainty": 0.6942838792549775,
+                        "avg_reliability": 0.5176668827376741,
+                        "avg_weight": 0.3544167222662529
+                    },
+                    "text": {
+                        "coverage": 0.9961464354527938,
+                        "avg_set_size": 2.851637764932563,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.0,
+                        "avg_uncertainty": 0.9505459216441874,
+                        "avg_reliability": 0.38947173634544724,
+                        "avg_weight": 0.2739157500609897
+                    },
+                    "image": {
+                        "coverage": 0.815028901734104,
+                        "avg_set_size": 1.9441233140655105,
+                        "empty_rate": 0.0,
+                        "singleton_rate": 0.3603082851637765,
+                        "avg_uncertainty": 0.6480411046885036,
+                        "avg_reliability": 0.5422945770598411,
+                        "avg_weight": 0.3716675276727573
+                    }
+                }
+            }
+        },
+        "savedir": "savepath\\dml_mvsa_ablation\\B_ib1e-6_eps0_alpha0p1\\dml_mvsa"
+    }
+]

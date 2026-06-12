@@ -1,0 +1,221 @@
+2026-05-29 20:48:20,563 ---------------------Cfg is set as follow--------------------
+2026-05-29 20:48:20,563 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 32, 'num_workers': 8, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 8, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}}, 'test': {'batch_size': 32, 'num_workers': 8}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v1', 'seed': 0, 'fps': 3, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-05-29 20:48:20,564 -------------------------------------------------------------
+2026-05-29 20:48:20,972 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-05-29 20:48:21,452 Epoch 0 is pending...
+2026-05-30 21:48:13,783 ---------------------Cfg is set as follow--------------------
+2026-05-30 21:48:13,802 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 32, 'num_workers': 8, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 8, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}}, 'test': {'batch_size': 32, 'num_workers': 8}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v1', 'seed': 0, 'fps': 3, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-05-30 21:48:13,803 -------------------------------------------------------------
+2026-05-30 21:48:14,031 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-05-30 21:48:14,374 Epoch 0 is pending...
+2026-05-30 21:55:46,491 ---------------------Cfg is set as follow--------------------
+2026-05-30 21:55:46,491 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 32, 'num_workers': 8, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 8, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}}, 'test': {'batch_size': 32, 'num_workers': 8}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v1', 'seed': 0, 'fps': 3, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-05-30 21:55:46,491 -------------------------------------------------------------
+2026-05-30 21:55:46,780 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-05-30 21:55:47,112 Epoch 0 is pending...
+2026-05-30 22:03:34,064 ---------------------Cfg is set as follow--------------------
+2026-05-30 22:03:34,064 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 32, 'num_workers': 8, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 8, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}}, 'test': {'batch_size': 32, 'num_workers': 8}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v1', 'seed': 0, 'fps': 3, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-05-30 22:03:34,065 -------------------------------------------------------------
+2026-05-30 22:03:34,362 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-05-30 22:03:34,665 Epoch 0 is pending...
+2026-05-30 22:09:46,642 ---------------------Cfg is set as follow--------------------
+2026-05-30 22:09:46,642 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 32, 'num_workers': -1, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': -1, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}}, 'test': {'batch_size': 32, 'num_workers': 8}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v1', 'seed': 0, 'fps': 3, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-05-30 22:09:46,642 -------------------------------------------------------------
+2026-05-30 22:09:46,951 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-05-30 22:10:03,241 ---------------------Cfg is set as follow--------------------
+2026-05-30 22:10:03,241 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 32, 'num_workers': 0, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 0, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}}, 'test': {'batch_size': 32, 'num_workers': 0}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v1', 'seed': 0, 'fps': 3, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v1/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-05-30 22:10:03,242 -------------------------------------------------------------
+2026-05-30 22:10:03,542 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-05-30 22:10:03,865 Epoch 0 is pending...
+2026-06-09 21:36:16,873 ---------------------Cfg is set as follow--------------------
+2026-06-09 21:36:16,873 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/datasets_shared/CREMA-D'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 16, 'num_workers': 0, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 0, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}, 'early_stop_patience': 3, 'early_stop_min_delta': 0.0}, 'test': {'batch_size': 16, 'num_workers': 0}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v2', 'seed': 0, 'fps': 3, 'ib_beta': 0.001, 'ib_eps_scale': 1.0, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-06-09 21:36:16,874 -------------------------------------------------------------
+2026-06-09 21:36:17,198 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-06-09 21:36:17,534 Epoch 0 is pending...
+2026-06-10 04:07:47,839 ---------------------Cfg is set as follow--------------------
+2026-06-10 04:07:47,839 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/datasets_shared/CREMA-D'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 16, 'num_workers': 0, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 0, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}, 'early_stop_patience': 3, 'early_stop_min_delta': 0.0}, 'test': {'batch_size': 16, 'num_workers': 0}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v2', 'seed': 0, 'fps': 3, 'ib_beta': 0.001, 'ib_eps_scale': 1.0, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-06-10 04:07:47,839 -------------------------------------------------------------
+2026-06-10 04:07:48,142 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-06-10 04:07:48,461 Epoch 0 is pending...
+2026-06-10 04:11:08,233 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:11:08,233 Epoch 0: Average Training Loss: 5.5784, loss_fused:1.7037, loss_audio:1.7345, loss_video:2.1001, loss_ib:0.0400, acc_fused:0.3007, acc_audio:0.3398, acc_video:0.1583
+2026-06-10 04:11:43,728 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:11:43,728 Epoch 0: f1:0.1810, acc:0.2961, mAP:0.4208, f1_a:0.1698, acc_a:0.2794, mAP_a:0.4065, f1_v:0.0814, acc_v:0.1715, mAP_v:0.1764
+2026-06-10 04:11:43,728 NEW BEST ACC | Epoch 0 | Acc: 0.2961
+2026-06-10 04:11:43,815 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 04:11:43,816 Epoch 1 is pending...
+2026-06-10 04:14:57,761 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:14:57,761 Epoch 1: Average Training Loss: 4.8695, loss_fused:1.4810, loss_audio:1.4998, loss_video:1.8574, loss_ib:0.0312, acc_fused:0.3994, acc_audio:0.4178, acc_video:0.1653
+2026-06-10 04:15:32,089 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:15:32,089 Epoch 1: f1:0.0486, acc:0.1708, mAP:0.1840, f1_a:0.0486, acc_a:0.1708, mAP_a:0.1768, f1_v:0.0767, acc_v:0.1715, mAP_v:0.1753
+2026-06-10 04:15:32,090 No clean accuracy improvement for 1/3 epochs.
+2026-06-10 04:15:32,090 Epoch 2 is pending...
+2026-06-10 04:18:44,191 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:18:44,191 Epoch 2: Average Training Loss: 4.6294, loss_fused:1.3872, loss_audio:1.3872, loss_video:1.8241, loss_ib:0.0309, acc_fused:0.4345, acc_audio:0.4532, acc_video:0.1704
+2026-06-10 04:19:18,468 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:19:18,468 Epoch 2: f1:0.1318, acc:0.2646, mAP:0.2760, f1_a:0.1329, acc_a:0.2646, mAP_a:0.2763, f1_v:0.0425, acc_v:0.1458, mAP_v:0.1738
+2026-06-10 04:19:18,469 No clean accuracy improvement for 2/3 epochs.
+2026-06-10 04:19:18,469 Epoch 3 is pending...
+2026-06-10 04:22:38,234 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:22:38,234 Epoch 3: Average Training Loss: 4.4798, loss_fused:1.3164, loss_audio:1.3121, loss_video:1.8177, loss_ib:0.0336, acc_fused:0.4800, acc_audio:0.4980, acc_video:0.1617
+2026-06-10 04:23:12,447 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:23:12,447 Epoch 3: f1:0.4872, acc:0.5035, mAP:0.5439, f1_a:0.4789, acc_a:0.4971, mAP_a:0.5411, f1_v:0.0486, acc_v:0.1708, mAP_v:0.1777
+2026-06-10 04:23:12,447 NEW BEST ACC | Epoch 3 | Acc: 0.5035
+2026-06-10 04:23:12,541 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 04:23:12,542 Epoch 4 is pending...
+2026-06-10 04:26:22,611 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:26:22,611 Epoch 4: Average Training Loss: 4.3264, loss_fused:1.2468, loss_audio:1.2353, loss_video:1.8104, loss_ib:0.0340, acc_fused:0.5246, acc_audio:0.5323, acc_video:0.1668
+2026-06-10 04:26:56,787 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:26:56,788 Epoch 4: f1:0.4894, acc:0.4881, mAP:0.5803, f1_a:0.4928, acc_a:0.4900, mAP_a:0.5692, f1_v:0.0640, acc_v:0.1477, mAP_v:0.1803
+2026-06-10 04:26:56,788 No clean accuracy improvement for 1/3 epochs.
+2026-06-10 04:26:56,789 Epoch 5 is pending...
+2026-06-10 04:30:05,653 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:30:05,653 Epoch 5: Average Training Loss: 4.2397, loss_fused:1.2019, loss_audio:1.1874, loss_video:1.8127, loss_ib:0.0376, acc_fused:0.5396, acc_audio:0.5464, acc_video:0.1568
+2026-06-10 04:30:40,105 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:30:40,105 Epoch 5: f1:0.3750, acc:0.4220, mAP:0.5512, f1_a:0.3769, acc_a:0.4226, mAP_a:0.5405, f1_v:0.0791, acc_v:0.1715, mAP_v:0.1786
+2026-06-10 04:30:40,106 No clean accuracy improvement for 2/3 epochs.
+2026-06-10 04:30:40,106 Epoch 6 is pending...
+2026-06-10 04:33:48,751 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:33:48,751 Epoch 6: Average Training Loss: 4.1347, loss_fused:1.1502, loss_audio:1.1362, loss_video:1.8109, loss_ib:0.0375, acc_fused:0.5706, acc_audio:0.5773, acc_video:0.1709
+2026-06-10 04:34:22,863 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:34:22,864 Epoch 6: f1:0.4947, acc:0.5100, mAP:0.6208, f1_a:0.5091, acc_a:0.5189, mAP_a:0.6182, f1_v:0.0485, acc_v:0.1702, mAP_v:0.1870
+2026-06-10 04:34:22,864 NEW BEST ACC | Epoch 6 | Acc: 0.5100
+2026-06-10 04:34:22,955 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 04:34:22,956 Epoch 7 is pending...
+2026-06-10 04:37:39,943 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:37:39,943 Epoch 7: Average Training Loss: 3.9917, loss_fused:1.0861, loss_audio:1.0642, loss_video:1.8030, loss_ib:0.0385, acc_fused:0.5912, acc_audio:0.5998, acc_video:0.1743
+2026-06-10 04:38:14,085 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:38:14,086 Epoch 7: f1:0.5527, acc:0.5626, mAP:0.6368, f1_a:0.5627, acc_a:0.5729, mAP_a:0.6367, f1_v:0.0486, acc_v:0.1708, mAP_v:0.1792
+2026-06-10 04:38:14,086 NEW BEST ACC | Epoch 7 | Acc: 0.5626
+2026-06-10 04:38:14,180 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 04:38:14,180 Epoch 8 is pending...
+2026-06-10 04:41:22,340 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:41:22,340 Epoch 8: Average Training Loss: 3.8940, loss_fused:1.0319, loss_audio:1.0142, loss_video:1.8067, loss_ib:0.0413, acc_fused:0.6182, acc_audio:0.6258, acc_video:0.1699
+2026-06-10 04:41:56,703 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:41:56,703 Epoch 8: f1:0.5489, acc:0.5607, mAP:0.6172, f1_a:0.5589, acc_a:0.5690, mAP_a:0.6146, f1_v:0.0486, acc_v:0.1708, mAP_v:0.1874
+2026-06-10 04:41:56,704 No clean accuracy improvement for 1/3 epochs.
+2026-06-10 04:41:56,704 Epoch 9 is pending...
+2026-06-10 04:45:04,113 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:45:04,113 Epoch 9: Average Training Loss: 3.8049, loss_fused:0.9876, loss_audio:0.9682, loss_video:1.8060, loss_ib:0.0431, acc_fused:0.6323, acc_audio:0.6413, acc_video:0.1677
+2026-06-10 04:45:38,714 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:45:38,714 Epoch 9: f1:0.5488, acc:0.5601, mAP:0.6446, f1_a:0.5579, acc_a:0.5710, mAP_a:0.6395, f1_v:0.0586, acc_v:0.1760, mAP_v:0.1888
+2026-06-10 04:45:38,715 No clean accuracy improvement for 2/3 epochs.
+2026-06-10 04:45:38,715 Epoch 10 is pending...
+2026-06-10 04:48:51,036 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:48:51,036 Epoch 10: Average Training Loss: 3.6430, loss_fused:0.9066, loss_audio:0.8842, loss_video:1.8050, loss_ib:0.0472, acc_fused:0.6727, acc_audio:0.6752, acc_video:0.1716
+2026-06-10 04:49:25,422 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 04:49:25,422 Epoch 10: f1:0.5470, acc:0.5626, mAP:0.6264, f1_a:0.5536, acc_a:0.5658, mAP_a:0.6252, f1_v:0.0486, acc_v:0.1708, mAP_v:0.1911
+2026-06-10 04:49:25,423 No clean accuracy improvement for 3/3 epochs.
+2026-06-10 04:49:25,423 Stopping early at epoch 10: clean accuracy did not improve by at least 0.0 for 3 epochs.
+2026-06-10 04:49:25,423 ============================================================
+2026-06-10 04:49:25,423 Training complete. Best epoch: 7, Best acc: 0.5626
+2026-06-10 04:49:25,423 Best metrics: Epoch 7: f1:0.5527, acc:0.5626, mAP:0.6368, f1_a:0.5627, acc_a:0.5729, mAP_a:0.6367, f1_v:0.0486, acc_v:0.1708, mAP_v:0.1792
+2026-06-10 04:49:25,423 ============================================================
+2026-06-10 04:49:25,423 Loading best model for robustness evaluation...
+2026-06-10 04:49:25,677 Loaded best model from E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 04:49:25,677 Evaluating scenario: Clean Test ...
+2026-06-10 04:50:03,413   Clean Test: Acc = 0.5639
+2026-06-10 04:50:03,413 Evaluating scenario: Salt & Pepper (Lvl 5.0) ...
+2026-06-10 04:50:50,684   Salt & Pepper (Lvl 5.0): Acc = 0.5639
+2026-06-10 04:50:50,684 Evaluating scenario: Salt & Pepper (Lvl 10.0) ...
+2026-06-10 04:51:40,246   Salt & Pepper (Lvl 10.0): Acc = 0.5645
+2026-06-10 04:51:40,246 Evaluating scenario: Gaussian (Lvl 5.0) ...
+2026-06-10 04:52:22,016   Gaussian (Lvl 5.0): Acc = 0.5639
+2026-06-10 04:52:22,016 Evaluating scenario: Gaussian (Lvl 10.0) ...
+2026-06-10 04:53:03,744   Gaussian (Lvl 10.0): Acc = 0.5639
+2026-06-10 04:53:03,744 
+============================================================
+2026-06-10 04:53:03,745             FINAL ROBUSTNESS EVALUATION RESULTS             
+2026-06-10 04:53:03,745 ============================================================
+2026-06-10 04:53:03,745 | Test Scenario                       | Accuracy           |
+2026-06-10 04:53:03,745 |-------------------------------------|--------------------|
+2026-06-10 04:53:03,745 | Clean Test                          |             0.5639 |
+2026-06-10 04:53:03,745 | Salt & Pepper (Lvl 5.0)             |             0.5639 |
+2026-06-10 04:53:03,745 | Salt & Pepper (Lvl 10.0)            |             0.5645 |
+2026-06-10 04:53:03,745 | Gaussian (Lvl 5.0)                  |             0.5639 |
+2026-06-10 04:53:03,745 | Gaussian (Lvl 10.0)                 |             0.5639 |
+2026-06-10 04:53:03,745 ============================================================
+
+2026-06-10 04:53:03,746 Saved final results to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\final_results.json
+2026-06-10 04:53:03,746 Appended experiment record to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\all_experiments.json
+2026-06-10 17:01:39,046 ---------------------Cfg is set as follow--------------------
+2026-06-10 17:01:39,047 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/datasets_shared/CREMA-D'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 16, 'num_workers': 0, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 0, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.01, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}, 'early_stop_patience': 3, 'early_stop_min_delta': 0.0}, 'test': {'batch_size': 16, 'num_workers': 0}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.01', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v2', 'seed': 0, 'fps': 3, 'ib_beta': 0.01, 'ib_eps_scale': 1.0, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\\dml_cremad_seed0_lr0.01', 'log_name': 'training.log'}
+2026-06-10 17:01:39,047 -------------------------------------------------------------
+2026-06-10 17:01:39,468 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-06-10 17:01:39,932 Epoch 0 is pending...
+2026-06-10 17:05:14,590 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:05:14,590 Epoch 0: Average Training Loss: 5.6608, loss_fused:1.6826, loss_audio:1.7285, loss_video:2.0239, loss_ib:0.2258, acc_fused:0.3103, acc_audio:0.3345, acc_video:0.1654
+2026-06-10 17:05:54,415 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:05:54,415 Epoch 0: f1:0.3110, acc:0.3719, mAP:0.4505, f1_a:0.3479, acc_a:0.3982, mAP_a:0.4574, f1_v:0.0486, acc_v:0.1708, mAP_v:0.1729
+2026-06-10 17:05:54,415 NEW BEST ACC | Epoch 0 | Acc: 0.3719
+2026-06-10 17:05:54,522 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 17:05:54,523 Epoch 1 is pending...
+2026-06-10 17:09:20,045 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:09:20,045 Epoch 1: Average Training Loss: 5.0418, loss_fused:1.5083, loss_audio:1.5186, loss_video:1.8512, loss_ib:0.1637, acc_fused:0.3878, acc_audio:0.4013, acc_video:0.1636
+2026-06-10 17:09:56,067 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:09:56,067 Epoch 1: f1:0.3392, acc:0.3751, mAP:0.4468, f1_a:0.3414, acc_a:0.3783, mAP_a:0.4444, f1_v:0.0612, acc_v:0.1715, mAP_v:0.1748
+2026-06-10 17:09:56,067 NEW BEST ACC | Epoch 1 | Acc: 0.3751
+2026-06-10 17:09:56,163 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 17:09:56,163 Epoch 2 is pending...
+2026-06-10 17:13:19,286 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:13:19,286 Epoch 2: Average Training Loss: 4.8296, loss_fused:1.4249, loss_audio:1.3999, loss_video:1.8364, loss_ib:0.1684, acc_fused:0.4214, acc_audio:0.4406, acc_video:0.1760
+2026-06-10 17:13:56,248 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:13:56,248 Epoch 2: f1:0.1479, acc:0.2306, mAP:0.3988, f1_a:0.1477, acc_a:0.2306, mAP_a:0.3768, f1_v:0.0424, acc_v:0.1458, mAP_v:0.1716
+2026-06-10 17:13:56,249 No clean accuracy improvement for 1/3 epochs.
+2026-06-10 17:13:56,249 Epoch 3 is pending...
+2026-06-10 17:17:21,838 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:17:21,838 Epoch 3: Average Training Loss: 4.6938, loss_fused:1.3592, loss_audio:1.3221, loss_video:1.8359, loss_ib:0.1764, acc_fused:0.4698, acc_audio:0.4875, acc_video:0.1619
+2026-06-10 17:18:01,828 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:18:01,828 Epoch 3: f1:0.3670, acc:0.4136, mAP:0.5252, f1_a:0.3643, acc_a:0.4155, mAP_a:0.5197, f1_v:0.0486, acc_v:0.1708, mAP_v:0.1762
+2026-06-10 17:18:01,828 NEW BEST ACC | Epoch 3 | Acc: 0.4136
+2026-06-10 17:18:01,922 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 17:18:01,924 Epoch 4 is pending...
+2026-06-10 17:21:22,204 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:21:22,204 Epoch 4: Average Training Loss: 4.5596, loss_fused:1.2996, loss_audio:1.2537, loss_video:1.8258, loss_ib:0.1805, acc_fused:0.5137, acc_audio:0.5234, acc_video:0.1614
+2026-06-10 17:21:59,600 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:21:59,600 Epoch 4: f1:0.2855, acc:0.3147, mAP:0.5448, f1_a:0.2940, acc_a:0.3237, mAP_a:0.5176, f1_v:0.0823, acc_v:0.1644, mAP_v:0.1771
+2026-06-10 17:21:59,601 No clean accuracy improvement for 1/3 epochs.
+2026-06-10 17:21:59,601 Epoch 5 is pending...
+2026-06-10 17:25:20,241 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:25:20,241 Epoch 5: Average Training Loss: 4.4791, loss_fused:1.2553, loss_audio:1.2015, loss_video:1.8302, loss_ib:0.1921, acc_fused:0.5294, acc_audio:0.5364, acc_video:0.1571
+2026-06-10 17:25:56,896 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:25:56,896 Epoch 5: f1:0.3371, acc:0.3963, mAP:0.5331, f1_a:0.3460, acc_a:0.4053, mAP_a:0.5238, f1_v:0.0570, acc_v:0.1741, mAP_v:0.1853
+2026-06-10 17:25:56,896 No clean accuracy improvement for 2/3 epochs.
+2026-06-10 17:25:56,897 Epoch 6 is pending...
+2026-06-10 17:29:16,994 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:29:16,994 Epoch 6: Average Training Loss: 4.3807, loss_fused:1.2075, loss_audio:1.1486, loss_video:1.8272, loss_ib:0.1974, acc_fused:0.5471, acc_audio:0.5679, acc_video:0.1712
+2026-06-10 17:29:54,954 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-10 17:29:54,955 Epoch 6: f1:0.3630, acc:0.3873, mAP:0.5811, f1_a:0.3634, acc_a:0.3847, mAP_a:0.5699, f1_v:0.0890, acc_v:0.1798, mAP_v:0.1810
+2026-06-10 17:29:54,955 No clean accuracy improvement for 3/3 epochs.
+2026-06-10 17:29:54,955 Stopping early at epoch 6: clean accuracy did not improve by at least 0.0 for 3 epochs.
+2026-06-10 17:29:54,956 ============================================================
+2026-06-10 17:29:54,956 Training complete. Best epoch: 3, Best acc: 0.4136
+2026-06-10 17:29:54,956 Best metrics: Epoch 3: f1:0.3670, acc:0.4136, mAP:0.5252, f1_a:0.3643, acc_a:0.4155, mAP_a:0.5197, f1_v:0.0486, acc_v:0.1708, mAP_v:0.1762
+2026-06-10 17:29:54,956 ============================================================
+2026-06-10 17:29:54,956 Loading best model for robustness evaluation...
+2026-06-10 17:29:55,242 Loaded best model from E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\model_best_clean.pt
+2026-06-10 17:29:55,242 Evaluating scenario: Clean Test ...
+2026-06-10 17:30:34,337   Clean Test: Acc = 0.4162
+2026-06-10 17:30:34,337 Evaluating scenario: Salt & Pepper (Lvl 5.0) ...
+2026-06-10 17:31:21,519   Salt & Pepper (Lvl 5.0): Acc = 0.4181
+2026-06-10 17:31:21,519 Evaluating scenario: Salt & Pepper (Lvl 10.0) ...
+2026-06-10 17:32:20,657   Salt & Pepper (Lvl 10.0): Acc = 0.4194
+2026-06-10 17:32:20,658 Evaluating scenario: Gaussian (Lvl 5.0) ...
+2026-06-10 17:33:08,458   Gaussian (Lvl 5.0): Acc = 0.4155
+2026-06-10 17:33:08,458 Evaluating scenario: Gaussian (Lvl 10.0) ...
+2026-06-10 17:33:55,116   Gaussian (Lvl 10.0): Acc = 0.4168
+2026-06-10 17:33:55,117 
+============================================================
+2026-06-10 17:33:55,117             FINAL ROBUSTNESS EVALUATION RESULTS             
+2026-06-10 17:33:55,117 ============================================================
+2026-06-10 17:33:55,117 | Test Scenario                       | Accuracy           |
+2026-06-10 17:33:55,117 |-------------------------------------|--------------------|
+2026-06-10 17:33:55,117 | Clean Test                          |             0.4162 |
+2026-06-10 17:33:55,118 | Salt & Pepper (Lvl 5.0)             |             0.4181 |
+2026-06-10 17:33:55,118 | Salt & Pepper (Lvl 10.0)            |             0.4194 |
+2026-06-10 17:33:55,118 | Gaussian (Lvl 5.0)                  |             0.4155 |
+2026-06-10 17:33:55,118 | Gaussian (Lvl 10.0)                 |             0.4168 |
+2026-06-10 17:33:55,118 ============================================================
+
+2026-06-10 17:33:55,120 Saved final results to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.01\final_results.json
+2026-06-10 17:33:55,121 Appended experiment record to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\all_experiments.json

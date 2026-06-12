@@ -1,0 +1,187 @@
+[
+    {
+        "timestamp": "2026-06-11T22:37:47",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed42_lr0.00024",
+        "note": "",
+        "seed": 42,
+        "lr": 0.00024,
+        "ib_beta": 0.0001,
+        "ib_eps_scale": 0.0,
+        "uncertainty_tau": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "patience": 5,
+        "best_val_epoch": 5,
+        "best_val_acc": 0.6834862385321101,
+        "best_clean_acc": 0.6834862385321101,
+        "robustness": {
+            "Clean Test": 0.6834862385321101,
+            "Salt & Pepper (Lvl 5.0)": 0.5428134556574924,
+            "Salt & Pepper (Lvl 10.0)": 0.41896024464831805,
+            "Gaussian (Lvl 5.0)": 0.6314984709480123,
+            "Gaussian (Lvl 10.0)": 0.5703363914373089
+        },
+        "conformal": {
+            "alpha": 0.2,
+            "tau": 1.0,
+            "calibration": {
+                "source": "val",
+                "size": 4
+            },
+            "thresholds": {
+                "fusion": 0.17647650330626985,
+                "rgb": 0.23232692357004459,
+                "depth": 0.5426444692197856
+            },
+            "robustness": {
+                "Clean Test": {
+                    "fusion": {
+                        "coverage": 0.39755351681957185,
+                        "avg_set_size": 0.44036697247706424,
+                        "empty_rate": 0.5596330275229358,
+                        "singleton_rate": 0.44036697247706424,
+                        "avg_uncertainty": 0.04403669724770643,
+                        "avg_reliability": 0.9580935418873949,
+                        "avg_weight": 0.3387546376387461
+                    },
+                    "rgb": {
+                        "coverage": 0.41437308868501527,
+                        "avg_set_size": 0.5458715596330275,
+                        "empty_rate": 0.4541284403669725,
+                        "singleton_rate": 0.5458715596330275,
+                        "avg_uncertainty": 0.054587155963302755,
+                        "avg_reliability": 0.9480534529645834,
+                        "avg_weight": 0.3352440718487312
+                    },
+                    "depth": {
+                        "coverage": 0.5626911314984709,
+                        "avg_set_size": 0.8256880733944955,
+                        "empty_rate": 0.17889908256880735,
+                        "singleton_rate": 0.8165137614678899,
+                        "avg_uncertainty": 0.08256880733944953,
+                        "avg_reliability": 0.9214669319425632,
+                        "avg_weight": 0.32600129051252286
+                    }
+                },
+                "Salt & Pepper (Lvl 5.0)": {
+                    "fusion": {
+                        "coverage": 0.26758409785932724,
+                        "avg_set_size": 0.3073394495412844,
+                        "empty_rate": 0.6926605504587156,
+                        "singleton_rate": 0.3073394495412844,
+                        "avg_uncertainty": 0.030733944954128442,
+                        "avg_reliability": 0.9707527844422444,
+                        "avg_weight": 0.3404923653882397
+                    },
+                    "rgb": {
+                        "coverage": 0.308868501529052,
+                        "avg_set_size": 0.46788990825688076,
+                        "empty_rate": 0.5321100917431193,
+                        "singleton_rate": 0.46788990825688076,
+                        "avg_uncertainty": 0.046788990825688076,
+                        "avg_reliability": 0.955474388255357,
+                        "avg_weight": 0.33511396511326524
+                    },
+                    "depth": {
+                        "coverage": 0.43425076452599387,
+                        "avg_set_size": 0.7935779816513762,
+                        "empty_rate": 0.20795107033639143,
+                        "singleton_rate": 0.790519877675841,
+                        "avg_uncertainty": 0.0793577981651376,
+                        "avg_reliability": 0.9244949172441423,
+                        "avg_weight": 0.32439366949849513
+                    }
+                },
+                "Salt & Pepper (Lvl 10.0)": {
+                    "fusion": {
+                        "coverage": 0.13914373088685014,
+                        "avg_set_size": 0.1651376146788991,
+                        "empty_rate": 0.8348623853211009,
+                        "singleton_rate": 0.1651376146788991,
+                        "avg_uncertainty": 0.01651376146788991,
+                        "avg_reliability": 0.9842850782077731,
+                        "avg_weight": 0.3427620861530048
+                    },
+                    "rgb": {
+                        "coverage": 0.22935779816513763,
+                        "avg_set_size": 0.3944954128440367,
+                        "empty_rate": 0.6055045871559633,
+                        "singleton_rate": 0.3944954128440367,
+                        "avg_uncertainty": 0.039449541284403665,
+                        "avg_reliability": 0.9624587979407914,
+                        "avg_weight": 0.3350701742408955
+                    },
+                    "depth": {
+                        "coverage": 0.3165137614678899,
+                        "avg_set_size": 0.7874617737003058,
+                        "empty_rate": 0.21253822629969418,
+                        "singleton_rate": 0.7874617737003058,
+                        "avg_uncertainty": 0.07874617737003058,
+                        "avg_reliability": 0.925063104416696,
+                        "avg_weight": 0.3221677396060998
+                    }
+                },
+                "Gaussian (Lvl 5.0)": {
+                    "fusion": {
+                        "coverage": 0.3379204892966361,
+                        "avg_set_size": 0.37920489296636084,
+                        "empty_rate": 0.6207951070336392,
+                        "singleton_rate": 0.37920489296636084,
+                        "avg_uncertainty": 0.03792048929663608,
+                        "avg_reliability": 0.9639138832919235,
+                        "avg_weight": 0.3382201939742535
+                    },
+                    "rgb": {
+                        "coverage": 0.290519877675841,
+                        "avg_set_size": 0.39143730886850153,
+                        "empty_rate": 0.6085626911314985,
+                        "singleton_rate": 0.39143730886850153,
+                        "avg_uncertainty": 0.03914373088685016,
+                        "avg_reliability": 0.9627498150110178,
+                        "avg_weight": 0.33785339136531845
+                    },
+                    "depth": {
+                        "coverage": 0.5321100917431193,
+                        "avg_set_size": 0.8134556574923547,
+                        "empty_rate": 0.18807339449541285,
+                        "singleton_rate": 0.8103975535168195,
+                        "avg_uncertainty": 0.08134556574923546,
+                        "avg_reliability": 0.9226033062876704,
+                        "avg_weight": 0.32392641466042815
+                    }
+                },
+                "Gaussian (Lvl 10.0)": {
+                    "fusion": {
+                        "coverage": 0.23700305810397554,
+                        "avg_set_size": 0.26605504587155965,
+                        "empty_rate": 0.7339449541284404,
+                        "singleton_rate": 0.26605504587155965,
+                        "avg_uncertainty": 0.02660550458715596,
+                        "avg_reliability": 0.9746815148903011,
+                        "avg_weight": 0.33951428635740616
+                    },
+                    "rgb": {
+                        "coverage": 0.23547400611620795,
+                        "avg_set_size": 0.37920489296636084,
+                        "empty_rate": 0.6207951070336392,
+                        "singleton_rate": 0.37920489296636084,
+                        "avg_uncertainty": 0.037920489296636085,
+                        "avg_reliability": 0.9639138832919235,
+                        "avg_weight": 0.3357548988771972
+                    },
+                    "depth": {
+                        "coverage": 0.44801223241590216,
+                        "avg_set_size": 0.7140672782874617,
+                        "empty_rate": 0.2889908256880734,
+                        "singleton_rate": 0.7079510703363915,
+                        "avg_uncertainty": 0.07140672782874617,
+                        "avg_reliability": 0.9320752080379284,
+                        "avg_weight": 0.32473081476539667
+                    }
+                }
+            }
+        },
+        "savedir": "savepath\\nyud_ablation\\C_ib1e-4_eps0_alpha0p2\\dml_nyu_seed42_lr0.00024"
+    }
+]

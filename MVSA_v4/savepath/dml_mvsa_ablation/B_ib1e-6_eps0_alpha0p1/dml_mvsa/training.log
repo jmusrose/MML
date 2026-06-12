@@ -1,0 +1,89 @@
+INFO - 06/12/26 02:18:27 - 0:00:00 - Starting DML MVSA training...
+INFO - 06/12/26 02:19:08 - 0:00:41 - Epoch 0: Total Loss: 3.0933, loss_fused:1.0025, loss_txt:1.0763, loss_img:1.0145, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000002, uncertainty_text:0.9972, uncertainty_image:0.7092, acc_fused:0.5179, acc_txt:0.4288, acc_img:0.5146
+INFO - 06/12/26 02:19:27 - 0:01:00 - Validation: Loss: 0.96680 | Acc: 0.55019
+INFO - 06/12/26 02:19:27 - 0:01:00 - *** NEW BEST MODEL *** Epoch 0 | Acc: 0.5502
+INFO - 06/12/26 02:20:08 - 0:01:42 - Epoch 1: Total Loss: 2.9230, loss_fused:0.9590, loss_txt:1.0098, loss_img:0.9542, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000002, uncertainty_text:0.9611, uncertainty_image:0.6611, acc_fused:0.5484, acc_txt:0.5387, acc_img:0.5549
+INFO - 06/12/26 02:20:28 - 0:02:01 - Validation: Loss: 0.94532 | Acc: 0.55405
+INFO - 06/12/26 02:20:28 - 0:02:01 - *** NEW BEST MODEL *** Epoch 1 | Acc: 0.5541
+INFO - 06/12/26 02:21:09 - 0:02:43 - Epoch 2: Total Loss: 2.8241, loss_fused:0.9305, loss_txt:0.9925, loss_img:0.9011, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000002, uncertainty_text:0.8257, uncertainty_image:0.6254, acc_fused:0.5510, acc_txt:0.5406, acc_img:0.5737
+INFO - 06/12/26 02:21:29 - 0:03:02 - Validation: Loss: 0.93153 | Acc: 0.54633
+INFO - 06/12/26 02:22:20 - 0:03:53 - Epoch 3: Total Loss: 2.6873, loss_fused:0.8661, loss_txt:0.9952, loss_img:0.8260, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000002, uncertainty_text:0.9172, uncertainty_image:0.6756, acc_fused:0.5984, acc_txt:0.5367, acc_img:0.6251
+INFO - 06/12/26 02:22:39 - 0:04:13 - Validation: Loss: 0.81076 | Acc: 0.60039
+INFO - 06/12/26 02:22:39 - 0:04:13 - *** NEW BEST MODEL *** Epoch 3 | Acc: 0.6004
+INFO - 06/12/26 02:23:33 - 0:05:06 - Epoch 4: Total Loss: 1.8635, loss_fused:0.5258, loss_txt:0.9834, loss_img:0.3542, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000002, uncertainty_text:0.9546, uncertainty_image:0.5364, acc_fused:0.8376, acc_txt:0.5478, acc_img:0.8882
+INFO - 06/12/26 02:23:52 - 0:05:25 - Validation: Loss: 0.75775 | Acc: 0.66602
+INFO - 06/12/26 02:23:52 - 0:05:25 - *** NEW BEST MODEL *** Epoch 4 | Acc: 0.6660
+INFO - 06/12/26 02:27:35 - 0:09:08 - Epoch 5: Total Loss: 1.2161, loss_fused:0.2417, loss_txt:0.8732, loss_img:0.1012, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.7958, uncertainty_image:0.3669, acc_fused:0.9721, acc_txt:0.6036, acc_img:0.9805
+INFO - 06/12/26 02:27:54 - 0:09:27 - Validation: Loss: 0.68039 | Acc: 0.71429
+INFO - 06/12/26 02:27:54 - 0:09:27 - *** NEW BEST MODEL *** Epoch 5 | Acc: 0.7143
+INFO - 06/12/26 02:31:38 - 0:13:11 - Epoch 6: Total Loss: 0.7330, loss_fused:0.0876, loss_txt:0.6188, loss_img:0.0266, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.6278, uncertainty_image:0.3444, acc_fused:0.9942, acc_txt:0.7466, acc_img:0.9968
+INFO - 06/12/26 02:31:57 - 0:13:30 - Validation: Loss: 0.61772 | Acc: 0.73938
+INFO - 06/12/26 02:31:57 - 0:13:30 - *** NEW BEST MODEL *** Epoch 6 | Acc: 0.7394
+INFO - 06/12/26 02:36:17 - 0:17:51 - Epoch 7: Total Loss: 0.4420, loss_fused:0.0414, loss_txt:0.3808, loss_img:0.0198, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.6731, uncertainty_image:0.3502, acc_fused:0.9968, acc_txt:0.8655, acc_img:0.9981
+INFO - 06/12/26 02:36:37 - 0:18:10 - Validation: Loss: 0.60369 | Acc: 0.77413
+INFO - 06/12/26 02:36:37 - 0:18:10 - *** NEW BEST MODEL *** Epoch 7 | Acc: 0.7741
+INFO - 06/12/26 02:40:18 - 0:21:51 - Epoch 8: Total Loss: 0.3440, loss_fused:0.0253, loss_txt:0.3075, loss_img:0.0112, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.8181, uncertainty_image:0.4369, acc_fused:0.9994, acc_txt:0.8856, acc_img:0.9974
+INFO - 06/12/26 02:40:37 - 0:22:10 - Validation: Loss: 0.64134 | Acc: 0.77413
+INFO - 06/12/26 02:44:16 - 0:25:50 - Epoch 9: Total Loss: 0.1912, loss_fused:0.0165, loss_txt:0.1510, loss_img:0.0237, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9668, uncertainty_image:0.3520, acc_fused:0.9987, acc_txt:0.9506, acc_img:0.9974
+INFO - 06/12/26 02:44:38 - 0:26:11 - Validation: Loss: 0.64048 | Acc: 0.77992
+INFO - 06/12/26 02:44:38 - 0:26:11 - *** NEW BEST MODEL *** Epoch 9 | Acc: 0.7799
+INFO - 06/12/26 02:48:29 - 0:30:02 - Epoch 10: Total Loss: 0.1298, loss_fused:0.0160, loss_txt:0.0571, loss_img:0.0565, loss_ib:0.0000, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.7192, uncertainty_image:0.3731, acc_fused:0.9981, acc_txt:0.9877, acc_img:0.9935
+INFO - 06/12/26 02:48:49 - 0:30:23 - Validation: Loss: 0.66882 | Acc: 0.78571
+INFO - 06/12/26 02:48:49 - 0:30:23 - *** NEW BEST MODEL *** Epoch 10 | Acc: 0.7857
+INFO - 06/12/26 02:52:37 - 0:34:10 - Epoch 11: Total Loss: 0.1083, loss_fused:0.0132, loss_txt:0.0333, loss_img:0.0617, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.8154, uncertainty_image:0.3762, acc_fused:0.9981, acc_txt:0.9896, acc_img:0.9883
+INFO - 06/12/26 02:52:57 - 0:34:30 - Validation: Loss: 0.82671 | Acc: 0.77413
+INFO - 06/12/26 02:56:43 - 0:38:16 - Epoch 12: Total Loss: 0.1328, loss_fused:0.0144, loss_txt:0.0564, loss_img:0.0620, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.8459, uncertainty_image:0.3638, acc_fused:0.9974, acc_txt:0.9799, acc_img:0.9903
+INFO - 06/12/26 02:57:04 - 0:38:37 - Validation: Loss: 0.69528 | Acc: 0.77027
+INFO - 06/12/26 03:00:49 - 0:42:22 - Epoch 13: Total Loss: 0.1096, loss_fused:0.0146, loss_txt:0.0365, loss_img:0.0584, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9210, uncertainty_image:0.4547, acc_fused:0.9968, acc_txt:0.9883, acc_img:0.9890
+INFO - 06/12/26 03:01:09 - 0:42:42 - Validation: Loss: 0.68320 | Acc: 0.78185
+INFO - 06/12/26 03:04:56 - 0:46:29 - Epoch 14: Total Loss: 0.0608, loss_fused:0.0074, loss_txt:0.0196, loss_img:0.0338, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.8609, uncertainty_image:0.4236, acc_fused:0.9987, acc_txt:0.9942, acc_img:0.9909
+INFO - 06/12/26 03:05:16 - 0:46:49 - Validation: Loss: 0.79276 | Acc: 0.77027
+INFO - 06/12/26 03:08:59 - 0:50:32 - Epoch 15: Total Loss: 0.0498, loss_fused:0.0079, loss_txt:0.0288, loss_img:0.0131, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9864, uncertainty_image:0.4366, acc_fused:0.9974, acc_txt:0.9909, acc_img:0.9968
+INFO - 06/12/26 03:09:18 - 0:50:51 - Validation: Loss: 0.73257 | Acc: 0.74517
+INFO - 06/12/26 03:13:03 - 0:54:36 - Epoch 16: Total Loss: 0.0967, loss_fused:0.0071, loss_txt:0.0373, loss_img:0.0523, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9884, uncertainty_image:0.3666, acc_fused:0.9981, acc_txt:0.9890, acc_img:0.9968
+INFO - 06/12/26 03:13:23 - 0:54:56 - Validation: Loss: 0.72287 | Acc: 0.76448
+INFO - 06/12/26 03:17:11 - 0:58:44 - Epoch 17: Total Loss: 0.0547, loss_fused:0.0063, loss_txt:0.0233, loss_img:0.0251, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.6093, uncertainty_image:0.4709, acc_fused:0.9981, acc_txt:0.9922, acc_img:0.9955
+INFO - 06/12/26 03:17:30 - 0:59:03 - Validation: Loss: 0.74261 | Acc: 0.77799
+INFO - 06/12/26 03:21:15 - 1:02:48 - Epoch 18: Total Loss: 0.0291, loss_fused:0.0050, loss_txt:0.0133, loss_img:0.0108, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.8540, uncertainty_image:0.4425, acc_fused:0.9987, acc_txt:0.9942, acc_img:0.9974
+INFO - 06/12/26 03:21:35 - 1:03:08 - Validation: Loss: 0.73417 | Acc: 0.77027
+INFO - 06/12/26 03:25:19 - 1:06:53 - Epoch 19: Total Loss: 0.0297, loss_fused:0.0042, loss_txt:0.0175, loss_img:0.0080, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9206, uncertainty_image:0.4036, acc_fused:0.9981, acc_txt:0.9929, acc_img:0.9981
+INFO - 06/12/26 03:25:39 - 1:07:12 - Validation: Loss: 0.76567 | Acc: 0.77413
+INFO - 06/12/26 03:29:27 - 1:11:00 - Epoch 20: Total Loss: 0.0188, loss_fused:0.0036, loss_txt:0.0103, loss_img:0.0048, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.8248, uncertainty_image:0.3481, acc_fused:0.9987, acc_txt:0.9961, acc_img:0.9981
+INFO - 06/12/26 03:29:48 - 1:11:21 - Validation: Loss: 0.73713 | Acc: 0.78185
+INFO - 06/12/26 03:33:37 - 1:15:10 - Epoch 21: Total Loss: 0.0141, loss_fused:0.0031, loss_txt:0.0050, loss_img:0.0060, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9747, uncertainty_image:0.3632, acc_fused:0.9987, acc_txt:0.9981, acc_img:0.9987
+INFO - 06/12/26 03:34:08 - 1:15:41 - Validation: Loss: 0.79988 | Acc: 0.77027
+INFO - 06/12/26 03:37:53 - 1:19:27 - Epoch 22: Total Loss: 0.0300, loss_fused:0.0041, loss_txt:0.0052, loss_img:0.0207, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9838, uncertainty_image:0.3605, acc_fused:0.9981, acc_txt:0.9974, acc_img:0.9968
+INFO - 06/12/26 03:38:13 - 1:19:46 - Validation: Loss: 0.82592 | Acc: 0.76834
+INFO - 06/12/26 03:42:01 - 1:23:34 - Epoch 23: Total Loss: 0.0188, loss_fused:0.0030, loss_txt:0.0043, loss_img:0.0114, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9828, uncertainty_image:0.3970, acc_fused:0.9987, acc_txt:0.9981, acc_img:0.9968
+INFO - 06/12/26 03:42:32 - 1:24:05 - Validation: Loss: 0.82118 | Acc: 0.76641
+INFO - 06/12/26 03:46:19 - 1:27:52 - Epoch 24: Total Loss: 0.0132, loss_fused:0.0030, loss_txt:0.0041, loss_img:0.0061, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9872, uncertainty_image:0.4471, acc_fused:0.9987, acc_txt:0.9974, acc_img:0.9981
+INFO - 06/12/26 03:46:38 - 1:28:11 - Validation: Loss: 0.84907 | Acc: 0.77220
+INFO - 06/12/26 03:50:27 - 1:32:00 - Epoch 25: Total Loss: 0.0778, loss_fused:0.0058, loss_txt:0.0041, loss_img:0.0678, loss_ib:0.0001, loss_ib_text:0.0000, loss_ib_image:0.0000, beta_text:0.000002, beta_image:0.000001, uncertainty_text:0.9845, uncertainty_image:0.3854, acc_fused:0.9987, acc_txt:0.9981, acc_img:0.9974
+INFO - 06/12/26 03:50:47 - 1:32:20 - Validation: Loss: 0.87082 | Acc: 0.77027
+INFO - 06/12/26 03:50:47 - 1:32:20 - No improvement for 15 epochs. Stopping early.
+INFO - 06/12/26 03:50:47 - 1:32:20 - Loading best model for final robust evaluation...
+INFO - 06/12/26 03:51:04 - 1:32:38 - --- Evaluating: Clean Test ---
+INFO - 06/12/26 03:51:27 - 1:33:00 - Clean Test: Loss: 0.67226 | Acc: 0.77264
+INFO - 06/12/26 03:51:46 - 1:33:20 - --- Evaluating: Gaussian (Lvl 5.0) ---
+INFO - 06/12/26 03:52:08 - 1:33:41 - Gaussian (Lvl 5.0): Loss: 0.82419 | Acc: 0.71676
+INFO - 06/12/26 03:52:28 - 1:34:01 - --- Evaluating: Gaussian (Lvl 10.0) ---
+INFO - 06/12/26 03:52:49 - 1:34:23 - Gaussian (Lvl 10.0): Loss: 1.04444 | Acc: 0.60116
+INFO - 06/12/26 03:53:09 - 1:34:42 - --- Evaluating: Salt & Pepper (Lvl 5.0) ---
+INFO - 06/12/26 03:53:31 - 1:35:04 - Salt & Pepper (Lvl 5.0): Loss: 0.76496 | Acc: 0.73603
+INFO - 06/12/26 03:53:50 - 1:35:24 - --- Evaluating: Salt & Pepper (Lvl 10.0) ---
+INFO - 06/12/26 03:54:12 - 1:35:45 - Salt & Pepper (Lvl 10.0): Loss: 0.91862 | Acc: 0.67630
+INFO - 06/12/26 03:54:32 - 1:36:05 - 
+                                     ============================================================
+INFO - 06/12/26 03:54:32 - 1:36:05 -       FINAL ROBUSTNESS EVALUATION RESULTS ON TEST SET       
+INFO - 06/12/26 03:54:32 - 1:36:05 - ============================================================
+INFO - 06/12/26 03:54:32 - 1:36:05 - | Test Scenario                       | Score (Acc)        |
+INFO - 06/12/26 03:54:32 - 1:36:05 - |-------------------------------------|--------------------|
+INFO - 06/12/26 03:54:32 - 1:36:05 - | Clean Test                          |             0.7726 |
+INFO - 06/12/26 03:54:32 - 1:36:05 - | Gaussian (Lvl 5.0)                  |             0.7168 |
+INFO - 06/12/26 03:54:32 - 1:36:05 - | Gaussian (Lvl 10.0)                 |             0.6012 |
+INFO - 06/12/26 03:54:32 - 1:36:05 - | Salt & Pepper (Lvl 5.0)             |             0.7360 |
+INFO - 06/12/26 03:54:32 - 1:36:05 - | Salt & Pepper (Lvl 10.0)            |             0.6763 |
+INFO - 06/12/26 03:54:32 - 1:36:05 - ============================================================
+                                     
+INFO - 06/12/26 03:54:32 - 1:36:05 - Saved final results to savepath\dml_mvsa_ablation\B_ib1e-6_eps0_alpha0p1\dml_mvsa\final_results.json
+INFO - 06/12/26 03:54:32 - 1:36:05 - Appended experiment record to savepath\dml_mvsa_ablation\B_ib1e-6_eps0_alpha0p1\all_experiments.json

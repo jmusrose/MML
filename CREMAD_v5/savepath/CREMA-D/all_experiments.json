@@ -1,0 +1,68 @@
+[
+    {
+        "timestamp": "2026-06-10T04:53:03",
+        "dataset": "CREMA-D",
+        "name": "dml_cremad_seed0_lr0.01",
+        "note": "",
+        "seed": 0,
+        "lr": 0.01,
+        "batch_sz": 16,
+        "ib_beta": 0.001,
+        "ib_eps_scale": 1.0,
+        "max_epochs": 100,
+        "best_clean_epoch": 7,
+        "best_clean_acc": 0.5639049454078355,
+        "robustness": {
+            "Clean Test": 0.5639049454078355,
+            "Salt & Pepper (Lvl 5.0)": 0.5639049454078355,
+            "Salt & Pepper (Lvl 10.0)": 0.5645472061657033,
+            "Gaussian (Lvl 5.0)": 0.5639049454078355,
+            "Gaussian (Lvl 10.0)": 0.5639049454078355
+        },
+        "savedir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\\dml_cremad_seed0_lr0.01"
+    },
+    {
+        "timestamp": "2026-06-10T17:33:55",
+        "dataset": "CREMA-D",
+        "name": "dml_cremad_seed0_lr0.01",
+        "note": "",
+        "seed": 0,
+        "lr": 0.01,
+        "batch_sz": 16,
+        "ib_beta": 0.01,
+        "ib_eps_scale": 1.0,
+        "max_epochs": 100,
+        "best_clean_epoch": 3,
+        "best_clean_acc": 0.4161849710982659,
+        "robustness": {
+            "Clean Test": 0.4161849710982659,
+            "Salt & Pepper (Lvl 5.0)": 0.41811175337186895,
+            "Salt & Pepper (Lvl 10.0)": 0.4193962748876044,
+            "Gaussian (Lvl 5.0)": 0.4155427103403982,
+            "Gaussian (Lvl 10.0)": 0.4168272318561336
+        },
+        "savedir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\\dml_cremad_seed0_lr0.01"
+    },
+    {
+        "timestamp": "2026-06-10T19:02:17",
+        "dataset": "CREMA-D",
+        "name": "dml_cremad_seed0_lr0.005",
+        "note": "",
+        "seed": 0,
+        "lr": 0.005,
+        "batch_sz": 16,
+        "ib_beta": 0.001,
+        "ib_eps_scale": 0.0,
+        "max_epochs": 100,
+        "best_clean_epoch": 4,
+        "best_clean_acc": 0.5362877328195247,
+        "robustness": {
+            "Clean Test": 0.5362877328195247,
+            "Salt & Pepper (Lvl 5.0)": 0.5401412973667309,
+            "Salt & Pepper (Lvl 10.0)": 0.5414258188824663,
+            "Gaussian (Lvl 5.0)": 0.5362877328195247,
+            "Gaussian (Lvl 10.0)": 0.5362877328195247
+        },
+        "savedir": "E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\\dml_cremad_seed0_lr0.005"
+    }
+]

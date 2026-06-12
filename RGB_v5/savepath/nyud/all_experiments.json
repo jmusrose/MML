@@ -1,0 +1,88 @@
+[
+    {
+        "timestamp": "2026-05-26T11:08:51",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.00024",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00024,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 13,
+        "best_clean_acc": 0.7186544342507645,
+        "robustness": {
+            "Clean Test": 0.7186544342507645,
+            "Salt & Pepper (Lvl 5.0)": 0.581039755351682,
+            "Salt & Pepper (Lvl 10.0)": 0.44036697247706424,
+            "Gaussian (Lvl 5.0)": 0.6376146788990825,
+            "Gaussian (Lvl 10.0)": 0.5718654434250765
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB\\savepath\\nyud\\dml_nyu_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-04T22:24:15",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.00024",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00024,
+        "ib_beta": 0.001,
+        "ib_eps_scale": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 24,
+        "best_clean_acc": 0.709480122324159,
+        "robustness": {
+            "Clean Test": 0.709480122324159,
+            "Salt & Pepper (Lvl 5.0)": 0.6039755351681957,
+            "Salt & Pepper (Lvl 10.0)": 0.45565749235474007,
+            "Gaussian (Lvl 5.0)": 0.6207951070336392,
+            "Gaussian (Lvl 10.0)": 0.5305810397553516
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v2\\savepath\\nyud\\dml_nyu_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-09T21:45:50",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.00024",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00024,
+        "ib_beta": 0.001,
+        "ib_eps_scale": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 4,
+        "best_clean_acc": 0.6957186544342507,
+        "robustness": {
+            "Clean Test": 0.6957186544342507,
+            "Salt & Pepper (Lvl 5.0)": 0.555045871559633,
+            "Salt & Pepper (Lvl 10.0)": 0.44801223241590216,
+            "Gaussian (Lvl 5.0)": 0.5948012232415902,
+            "Gaussian (Lvl 10.0)": 0.4969418960244648
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v2\\savepath\\nyud\\dml_nyu_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-10T08:23:14",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.00024",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00024,
+        "ib_beta": 0.01,
+        "ib_eps_scale": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 4,
+        "best_clean_acc": 0.6941896024464832,
+        "robustness": {
+            "Clean Test": 0.6941896024464832,
+            "Salt & Pepper (Lvl 5.0)": 0.5321100917431193,
+            "Salt & Pepper (Lvl 10.0)": 0.42813455657492355,
+            "Gaussian (Lvl 5.0)": 0.6055045871559633,
+            "Gaussian (Lvl 10.0)": 0.5091743119266054
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v2\\savepath\\nyud\\dml_nyu_seed0_lr0.00024"
+    }
+]

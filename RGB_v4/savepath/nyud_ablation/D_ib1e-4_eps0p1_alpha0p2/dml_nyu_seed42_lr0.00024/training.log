@@ -1,0 +1,85 @@
+INFO - 06/11/26 22:37:50 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v4\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     calib_size: 0
+                                     conformal_alpha: 0.2
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\datasets_shared\nyud2_trainvaltest
+                                     dropout: 0.3
+                                     ib_beta: 0.0001
+                                     ib_eps_scale: 0.1
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00024
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 10
+                                     n_workers: 8
+                                     name: dml_nyu_seed42_lr0.00024
+                                     note: 
+                                     num_image_embeds: 1
+                                     patience: 5
+                                     savedir: savepath\nyud_ablation\D_ib1e-4_eps0p1_alpha0p2\dml_nyu_seed42_lr0.00024
+                                     seed: 42
+                                     uncertainty_tau: 1.0
+INFO - 06/11/26 22:37:50 - 0:00:00 - Epoch 0 training started...
+INFO - 06/11/26 22:38:39 - 0:00:50 - Epoch 0: Total Loss: 4.9543, loss_both:1.5839, loss_rgb:1.6422, loss_depth:1.7260, loss_ib:0.0022, loss_ib_rgb:0.0010, loss_ib_depth:0.0012, beta_rgb:0.000178, beta_depth:0.000177, uncertainty_rgb:0.7834, uncertainty_depth:0.7670, acc_both:0.4589, acc_rgb:0.4134, acc_depth:0.3742
+INFO - 06/11/26 22:39:04 - 0:01:14 - Epoch 0: Val - Acc: 0.5994
+INFO - 06/11/26 22:39:04 - 0:01:14 -  *** NEW BEST VAL ACC *** Epoch 0 | Val Acc: 0.5994
+INFO - 06/11/26 22:39:04 - 0:01:14 - Epoch 1 training started...
+INFO - 06/11/26 22:39:53 - 0:02:03 - Epoch 1: Total Loss: 2.1813, loss_both:0.6335, loss_rgb:0.6235, loss_depth:0.9203, loss_ib:0.0040, loss_ib_rgb:0.0021, loss_ib_depth:0.0019, beta_rgb:0.000115, beta_depth:0.000118, uncertainty_rgb:0.1522, uncertainty_depth:0.1758, acc_both:0.8344, acc_rgb:0.8205, acc_depth:0.6915
+INFO - 06/11/26 22:40:17 - 0:02:27 - Epoch 1: Val - Acc: 0.6697
+INFO - 06/11/26 22:40:17 - 0:02:27 -  *** NEW BEST VAL ACC *** Epoch 1 | Val Acc: 0.6697
+INFO - 06/11/26 22:40:17 - 0:02:27 - Epoch 2 training started...
+INFO - 06/11/26 22:41:06 - 0:03:16 - Epoch 2: Total Loss: 1.1536, loss_both:0.2911, loss_rgb:0.2833, loss_depth:0.5735, loss_ib:0.0057, loss_ib_rgb:0.0031, loss_ib_depth:0.0026, beta_rgb:0.000112, beta_depth:0.000118, uncertainty_rgb:0.1152, uncertainty_depth:0.1754, acc_both:0.9545, acc_rgb:0.9305, acc_depth:0.8369
+INFO - 06/11/26 22:41:30 - 0:03:40 - Epoch 2: Val - Acc: 0.6346
+INFO - 06/11/26 22:41:30 - 0:03:40 - Epoch 3 training started...
+INFO - 06/11/26 22:42:19 - 0:04:29 - Epoch 3: Total Loss: 0.6704, loss_both:0.1407, loss_rgb:0.1521, loss_depth:0.3705, loss_ib:0.0070, loss_ib_rgb:0.0037, loss_ib_depth:0.0033, beta_rgb:0.000110, beta_depth:0.000123, uncertainty_rgb:0.1047, uncertainty_depth:0.2327, acc_both:0.9874, acc_rgb:0.9735, acc_depth:0.9241
+INFO - 06/11/26 22:42:43 - 0:04:53 - Epoch 3: Val - Acc: 0.6758
+INFO - 06/11/26 22:42:43 - 0:04:53 -  *** NEW BEST VAL ACC *** Epoch 3 | Val Acc: 0.6758
+INFO - 06/11/26 22:42:43 - 0:04:53 - Epoch 4 training started...
+INFO - 06/11/26 22:43:32 - 0:05:42 - Epoch 4: Total Loss: 0.3556, loss_both:0.0656, loss_rgb:0.0668, loss_depth:0.2160, loss_ib:0.0073, loss_ib_rgb:0.0041, loss_ib_depth:0.0032, beta_rgb:0.000110, beta_depth:0.000112, uncertainty_rgb:0.0996, uncertainty_depth:0.1175, acc_both:0.9987, acc_rgb:0.9924, acc_depth:0.9595
+INFO - 06/11/26 22:43:56 - 0:06:06 - Epoch 4: Val - Acc: 0.6223
+INFO - 06/11/26 22:43:56 - 0:06:06 - Epoch 5 training started...
+INFO - 06/11/26 22:44:48 - 0:06:58 - Epoch 5: Total Loss: 0.2225, loss_both:0.0371, loss_rgb:0.0412, loss_depth:0.1361, loss_ib:0.0081, loss_ib_rgb:0.0044, loss_ib_depth:0.0037, beta_rgb:0.000110, beta_depth:0.000114, uncertainty_rgb:0.0964, uncertainty_depth:0.1356, acc_both:1.0000, acc_rgb:0.9975, acc_depth:0.9772
+INFO - 06/11/26 22:45:15 - 0:07:25 - Epoch 5: Val - Acc: 0.6835
+INFO - 06/11/26 22:45:16 - 0:07:26 -  *** NEW BEST VAL ACC *** Epoch 5 | Val Acc: 0.6835
+INFO - 06/11/26 22:45:16 - 0:07:26 - Epoch 6 training started...
+INFO - 06/11/26 22:46:07 - 0:08:17 - Epoch 6: Total Loss: 0.1444, loss_both:0.0221, loss_rgb:0.0314, loss_depth:0.0823, loss_ib:0.0086, loss_ib_rgb:0.0047, loss_ib_depth:0.0039, beta_rgb:0.000110, beta_depth:0.000110, uncertainty_rgb:0.0985, uncertainty_depth:0.0981, acc_both:1.0000, acc_rgb:0.9987, acc_depth:0.9937
+INFO - 06/11/26 22:46:31 - 0:08:41 - Epoch 6: Val - Acc: 0.6667
+INFO - 06/11/26 22:46:31 - 0:08:41 - Epoch 7 training started...
+INFO - 06/11/26 22:47:20 - 0:09:30 - Epoch 7: Total Loss: 0.1240, loss_both:0.0182, loss_rgb:0.0227, loss_depth:0.0738, loss_ib:0.0092, loss_ib_rgb:0.0050, loss_ib_depth:0.0043, beta_rgb:0.000110, beta_depth:0.000111, uncertainty_rgb:0.0999, uncertainty_depth:0.1092, acc_both:1.0000, acc_rgb:0.9975, acc_depth:0.9924
+INFO - 06/11/26 22:47:45 - 0:09:55 - Epoch 7: Val - Acc: 0.6544
+INFO - 06/11/26 22:47:45 - 0:09:55 - Epoch 8 training started...
+INFO - 06/11/26 22:48:33 - 0:10:43 - Epoch 8: Total Loss: 0.1032, loss_both:0.0139, loss_rgb:0.0151, loss_depth:0.0647, loss_ib:0.0096, loss_ib_rgb:0.0051, loss_ib_depth:0.0045, beta_rgb:0.000110, beta_depth:0.000113, uncertainty_rgb:0.1000, uncertainty_depth:0.1252, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9899
+INFO - 06/11/26 22:48:58 - 0:11:08 - Epoch 8: Val - Acc: 0.6804
+INFO - 06/11/26 22:48:58 - 0:11:08 - Epoch 9 training started...
+INFO - 06/11/26 22:49:46 - 0:11:56 - Epoch 9: Total Loss: 0.0683, loss_both:0.0093, loss_rgb:0.0138, loss_depth:0.0354, loss_ib:0.0098, loss_ib_rgb:0.0052, loss_ib_depth:0.0046, beta_rgb:0.000110, beta_depth:0.000111, uncertainty_rgb:0.0998, uncertainty_depth:0.1123, acc_both:1.0000, acc_rgb:0.9975, acc_depth:0.9987
+INFO - 06/11/26 22:50:10 - 0:12:21 - Epoch 9: Val - Acc: 0.6498
+INFO - 06/11/26 22:50:10 - 0:12:21 - Epoch 10 training started...
+INFO - 06/11/26 22:50:59 - 0:13:09 - Epoch 10: Total Loss: 0.0616, loss_both:0.0081, loss_rgb:0.0095, loss_depth:0.0342, loss_ib:0.0100, loss_ib_rgb:0.0053, loss_ib_depth:0.0047, beta_rgb:0.000110, beta_depth:0.000110, uncertainty_rgb:0.0998, uncertainty_depth:0.1027, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9975
+INFO - 06/11/26 22:51:23 - 0:13:33 - Epoch 10: Val - Acc: 0.6804
+INFO - 06/11/26 22:51:23 - 0:13:33 - No improvement for 5 epochs. Stopping early.
+INFO - 06/11/26 22:51:23 - 0:13:33 - Loading best model for final robust evaluation on Test sets...
+INFO - 06/11/26 22:51:46 - 0:13:56 - Generating and Evaluating on dataset for: Clean Test ...
+INFO - 06/11/26 22:52:10 - 0:14:20 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 5.0) ...
+INFO - 06/11/26 22:52:35 - 0:14:45 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 10.0) ...
+INFO - 06/11/26 22:52:59 - 0:15:09 - Generating and Evaluating on dataset for: Gaussian (Lvl 5.0) ...
+INFO - 06/11/26 22:53:24 - 0:15:34 - Generating and Evaluating on dataset for: Gaussian (Lvl 10.0) ...
+INFO - 06/11/26 22:53:49 - 0:15:59 - 
+                                     ============================================================
+INFO - 06/11/26 22:53:49 - 0:15:59 -       FINAL ROBUSTNESS EVALUATION RESULTS ON TEST SET       
+INFO - 06/11/26 22:53:49 - 0:15:59 - ============================================================
+INFO - 06/11/26 22:53:49 - 0:15:59 - | Test Scenario                       | Score (Acc)        |
+INFO - 06/11/26 22:53:49 - 0:15:59 - |-------------------------------------|--------------------|
+INFO - 06/11/26 22:53:49 - 0:15:59 - | Clean Test                          |             0.6835 |
+INFO - 06/11/26 22:53:49 - 0:15:59 - | Salt & Pepper (Lvl 5.0)             |             0.5398 |
+INFO - 06/11/26 22:53:49 - 0:15:59 - | Salt & Pepper (Lvl 10.0)            |             0.4037 |
+INFO - 06/11/26 22:53:49 - 0:15:59 - | Gaussian (Lvl 5.0)                  |             0.6162 |
+INFO - 06/11/26 22:53:49 - 0:15:59 - | Gaussian (Lvl 10.0)                 |             0.5719 |
+INFO - 06/11/26 22:53:49 - 0:15:59 - ============================================================
+                                     
+INFO - 06/11/26 22:53:49 - 0:15:59 - Saved final results to savepath\nyud_ablation\D_ib1e-4_eps0p1_alpha0p2\dml_nyu_seed42_lr0.00024\final_results.json
+INFO - 06/11/26 22:53:49 - 0:15:59 - Best Val Model: epoch=5, val_acc=0.6835, clean_test_acc=0.6835
+INFO - 06/11/26 22:53:49 - 0:15:59 - Appended experiment record to savepath\nyud_ablation\D_ib1e-4_eps0p1_alpha0p2\all_experiments.json
