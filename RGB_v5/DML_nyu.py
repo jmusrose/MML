@@ -51,10 +51,10 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--LOAD_SIZE", type=int, default=256)
     parser.add_argument("--FINE_SIZE", type=int, default=224)
     parser.add_argument("--dropout", type=float, default=0.3)
-    parser.add_argument("--lr", type=float, default=2.4e-4)
+    parser.add_argument("--lr", type=float, default=1.5e-4)
     parser.add_argument("--lr_factor", type=float, default=0.3)
     parser.add_argument("--lr_patience", type=int, default=10)
-    parser.add_argument("--early_stop_patience", type=int, default=3)
+    parser.add_argument("--early_stop_patience", type=int, default=10)
     parser.add_argument("--early_stop_min_delta", type=float, default=0.0)
     parser.add_argument("--max_epochs", type=int, default=50)
     parser.add_argument("--n_workers", type=int, default=8)
@@ -64,8 +64,9 @@ def get_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--n_classes", type=int, default=19)
     parser.add_argument("--img_hidden_sz", type=int, default=512)
     parser.add_argument("--num_image_embeds", type=int, default=1)
-    parser.add_argument("--ib_beta", type=float, default=1e-3)
+    parser.add_argument("--ib_beta", type=float, default=1e-5)
     parser.add_argument("--ib_eps_scale", type=float, default=1.0)
+    parser.add_argument("--ib_warmup_epochs", type=int, default=20)
     parser.add_argument(
         "--img_embed_pool_type",
         type=str,
@@ -184,6 +185,7 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
         optimizer.zero_grad()
 
         both_out, rgb_out, depth_out, _, _, ib_loss = model(rgb, depth)
+        effective_ib_beta = args.ib_beta if epoch >= args.ib_warmup_epochs else 0.0
         loss, loss_parts = information_bottleneck_classification_loss(
             criterion,
             both_out,
@@ -191,7 +193,7 @@ def train_rgbd(epoch, train_loader, model, optimizer, logger, args):
             depth_out,
             tgt,
             ib_loss,
-            args.ib_beta,
+            effective_ib_beta,
         )
 
         if torch.isnan(loss).any() or loss <= 0:
@@ -404,6 +406,15 @@ def main():
         model = train_rgbd(epoch, train_loader, model, optimizer, logger, args)
 
         clean_acc = val_rgbd(epoch, test_loader, model, logger, args)
+        kl_enabled = epoch >= args.ib_warmup_epochs
+        if not kl_enabled:
+            best_clean_model_state = copy.deepcopy(model.state_dict())
+            logger.info(
+                f"IB warmup epoch {epoch}/{args.ib_warmup_epochs}: "
+                "KL loss and early stopping are disabled."
+            )
+            scheduler.step(clean_acc)
+            continue
 
         if clean_acc > best_clean_acc + args.early_stop_min_delta:
             best_clean_acc = clean_acc
@@ -590,6 +601,7 @@ def main():
         "lr": args.lr,
         "ib_beta": args.ib_beta,
         "ib_eps_scale": args.ib_eps_scale,
+        "ib_warmup_epochs": args.ib_warmup_epochs,
         "batch_sz": args.batch_sz,
         "max_epochs": args.max_epochs,
         "best_clean_epoch": int(best_clean_epoch),

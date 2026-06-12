@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 import os
 import sys
+from pathlib import Path
 
 import pytest
 import torch
@@ -126,3 +127,16 @@ def test_information_bottleneck_loss_adds_beta_weighted_kl():
     )
     assert torch.allclose(loss, expected_ce + beta * ib_loss)
     assert torch.allclose(parts["ib"], beta * ib_loss)
+
+
+@pytest.mark.parametrize("script_name", ["DML_nyu.py", "DML_sun.py"])
+def test_training_entrypoint_supports_ib_warmup_before_early_stopping(script_name):
+    source = (Path(__file__).resolve().parents[2] / script_name).read_text(
+        encoding="utf-8"
+    )
+
+    assert "--ib_warmup_epochs" in source
+    assert "effective_ib_beta = args.ib_beta if epoch >= args.ib_warmup_epochs else 0.0" in source
+    assert "kl_enabled = epoch >= args.ib_warmup_epochs" in source
+    assert "if not kl_enabled:" in source
+    assert "continue" in source

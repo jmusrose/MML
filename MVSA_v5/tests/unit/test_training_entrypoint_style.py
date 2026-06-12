@@ -15,3 +15,13 @@ def test_mvsa_entrypoint_uses_rgb_style_result_outputs():
     assert "--ib_beta" in source
     assert "--ib_eps_scale" in source
     assert "information_bottleneck_classification_loss" in source
+
+
+def test_mvsa_entrypoint_supports_ib_warmup_before_early_stopping():
+    source = Path("DML_MVSA.py").read_text(encoding="utf-8")
+
+    assert "--ib_warmup_epochs" in source
+    assert "effective_ib_beta = args.ib_beta if epoch >= args.ib_warmup_epochs else 0.0" in source
+    assert "kl_enabled = epoch >= args.ib_warmup_epochs" in source
+    assert "if not kl_enabled:" in source
+    assert "continue" in source

@@ -84,5 +84,115 @@
             "Gaussian (Lvl 10.0)": 0.5091743119266054
         },
         "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v2\\savepath\\nyud\\dml_nyu_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-12T14:58:55",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.00024",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00024,
+        "ib_beta": 0.001,
+        "ib_eps_scale": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 5,
+        "best_clean_acc": 0.6896024464831805,
+        "robustness": {
+            "Clean Test": 0.6896024464831805,
+            "Salt & Pepper (Lvl 5.0)": 0.5489296636085627,
+            "Salt & Pepper (Lvl 10.0)": 0.42048929663608564,
+            "Gaussian (Lvl 5.0)": 0.6085626911314985,
+            "Gaussian (Lvl 10.0)": 0.5382262996941896
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v5\\savepath\\nyud\\dml_nyu_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-12T15:19:37",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.00024",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00024,
+        "ib_beta": 0.0001,
+        "ib_eps_scale": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 10,
+        "best_clean_acc": 0.7003058103975535,
+        "robustness": {
+            "Clean Test": 0.7003058103975535,
+            "Salt & Pepper (Lvl 5.0)": 0.5672782874617737,
+            "Salt & Pepper (Lvl 10.0)": 0.38685015290519875,
+            "Gaussian (Lvl 5.0)": 0.6299694189602446,
+            "Gaussian (Lvl 10.0)": 0.5902140672782875
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v5\\savepath\\nyud\\dml_nyu_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-12T16:20:42",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.0001",
+        "note": "",
+        "seed": 0,
+        "lr": 0.0001,
+        "ib_beta": 0.0001,
+        "ib_eps_scale": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 8,
+        "best_clean_acc": 0.6941896024464832,
+        "robustness": {
+            "Clean Test": 0.6941896024464832,
+            "Salt & Pepper (Lvl 5.0)": 0.5535168195718655,
+            "Salt & Pepper (Lvl 10.0)": 0.38990825688073394,
+            "Gaussian (Lvl 5.0)": 0.5718654434250765,
+            "Gaussian (Lvl 10.0)": 0.4984709480122324
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v5\\savepath\\nyud\\dml_nyu_seed0_lr0.0001"
+    },
+    {
+        "timestamp": "2026-06-12T16:33:49",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.00015",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00015,
+        "ib_beta": 0.0001,
+        "ib_eps_scale": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 6,
+        "best_clean_acc": 0.6987767584097859,
+        "robustness": {
+            "Clean Test": 0.6987767584097859,
+            "Salt & Pepper (Lvl 5.0)": 0.5489296636085627,
+            "Salt & Pepper (Lvl 10.0)": 0.37155963302752293,
+            "Gaussian (Lvl 5.0)": 0.5840978593272171,
+            "Gaussian (Lvl 10.0)": 0.5122324159021406
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v5\\savepath\\nyud\\dml_nyu_seed0_lr0.00015"
+    },
+    {
+        "timestamp": "2026-06-12T16:46:33",
+        "dataset": "nyu",
+        "name": "dml_nyu_seed0_lr0.00015",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00015,
+        "ib_beta": 1e-05,
+        "ib_eps_scale": 1.0,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 6,
+        "best_clean_acc": 0.7048929663608563,
+        "robustness": {
+            "Clean Test": 0.7048929663608563,
+            "Salt & Pepper (Lvl 5.0)": 0.5458715596330275,
+            "Salt & Pepper (Lvl 10.0)": 0.37767584097859325,
+            "Gaussian (Lvl 5.0)": 0.5902140672782875,
+            "Gaussian (Lvl 10.0)": 0.5229357798165137
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v5\\savepath\\nyud\\dml_nyu_seed0_lr0.00015"
     }
 ]

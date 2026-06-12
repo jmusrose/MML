@@ -30,3 +30,13 @@ def test_food_entrypoint_uses_information_bottleneck_training():
     assert "information_bottleneck_classification_loss" in source
     assert '"ib_beta": args.ib_beta' in source
     assert '"ib_eps_scale": args.ib_eps_scale' in source
+
+
+def test_food_entrypoint_supports_ib_warmup_before_early_stopping():
+    source = Path("DML_Food.py").read_text(encoding="utf-8")
+
+    assert "--ib_warmup_epochs" in source
+    assert "effective_ib_beta = args.ib_beta if epoch >= args.ib_warmup_epochs else 0.0" in source
+    assert "kl_enabled = epoch >= args.ib_warmup_epochs" in source
+    assert "if not kl_enabled:" in source
+    assert "continue" in source

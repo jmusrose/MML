@@ -86,5 +86,51 @@
             "Gaussian (Lvl 10.0)": 0.4601845889675896
         },
         "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v2\\savepath\\sun_rgbd\\dml_sun_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-12T15:36:41",
+        "dataset": "sun",
+        "name": "dml_sun_seed0_lr0.00024",
+        "note": "",
+        "seed": 0,
+        "lr": 0.00024,
+        "ib_beta": 0.0001,
+        "ib_eps_scale": 1.0,
+        "val_split_ratio": 0.2,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 2,
+        "best_clean_acc": 0.591972526293196,
+        "robustness": {
+            "Clean Test": 0.591972526293196,
+            "Salt & Pepper (Lvl 5.0)": 0.49881948916076413,
+            "Salt & Pepper (Lvl 10.0)": 0.38935393861343637,
+            "Gaussian (Lvl 5.0)": 0.4936681691350075,
+            "Gaussian (Lvl 10.0)": 0.4316376904915218
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v5\\savepath\\sun_rgbd\\dml_sun_seed0_lr0.00024"
+    },
+    {
+        "timestamp": "2026-06-12T16:07:02",
+        "dataset": "sun",
+        "name": "dml_sun_seed0_lr0.0001",
+        "note": "",
+        "seed": 0,
+        "lr": 0.0001,
+        "ib_beta": 0.0001,
+        "ib_eps_scale": 1.0,
+        "val_split_ratio": 0.2,
+        "batch_sz": 64,
+        "max_epochs": 50,
+        "best_clean_epoch": 7,
+        "best_clean_acc": 0.613650998068255,
+        "robustness": {
+            "Clean Test": 0.613650998068255,
+            "Salt & Pepper (Lvl 5.0)": 0.5052586391929599,
+            "Salt & Pepper (Lvl 10.0)": 0.4007297703369822,
+            "Gaussian (Lvl 5.0)": 0.48722901910281174,
+            "Gaussian (Lvl 10.0)": 0.4213350504400086
+        },
+        "savedir": "e:\\Paper_Experiment\\DML\\DML_v1\\RGB_v5\\savepath\\sun_rgbd\\dml_sun_seed0_lr0.0001"
     }
 ]

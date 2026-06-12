@@ -58,6 +58,7 @@ config = dict(
     fps=3,
     ib_beta=1e-3,
     ib_eps_scale=0.0,
+    ib_warmup_epochs=0,
     use_gpu=True,
     gpu_id=0,
     debug=False,

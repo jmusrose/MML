@@ -1,0 +1,172 @@
+INFO - 06/12/26 16:21:35 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v5\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\datasets_shared\nyud2_trainvaltest
+                                     dropout: 0.3
+                                     early_stop_min_delta: 0.0
+                                     early_stop_patience: 3
+                                     ib_beta: 0.0001
+                                     ib_eps_scale: 1.0
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00015
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 19
+                                     n_workers: 8
+                                     name: dml_nyu_seed0_lr0.00015
+                                     note: 
+                                     num_image_embeds: 1
+                                     savedir: e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\dml_nyu_seed0_lr0.00015
+                                     seed: 0
+INFO - 06/12/26 16:21:35 - 0:00:01 - Epoch 0 training started...
+INFO - 06/12/26 16:22:06 - 0:00:31 - Epoch 0: Total Loss: 6.5875, loss_both:2.1067, loss_rgb:2.2284, loss_depth:2.2155, loss_ib:0.0368, acc_both:0.3173, acc_rgb:0.2819, acc_depth:0.2794
+INFO - 06/12/26 16:22:31 - 0:00:56 - Epoch 0: Clean - Acc: 0.4648
+INFO - 06/12/26 16:22:31 - 0:00:57 -  *** NEW BEST CLEAN ACC *** Epoch 0 | Clean Acc: 0.4648
+INFO - 06/12/26 16:22:31 - 0:00:57 - Epoch 1 training started...
+INFO - 06/12/26 16:22:58 - 0:01:24 - Epoch 1: Total Loss: 3.8847, loss_both:1.1914, loss_rgb:1.1966, loss_depth:1.4460, loss_ib:0.0507, acc_both:0.6258, acc_rgb:0.6157, acc_depth:0.5006
+INFO - 06/12/26 16:23:23 - 0:01:48 - Epoch 1: Clean - Acc: 0.6116
+INFO - 06/12/26 16:23:23 - 0:01:49 -  *** NEW BEST CLEAN ACC *** Epoch 1 | Clean Acc: 0.6116
+INFO - 06/12/26 16:23:23 - 0:01:49 - Epoch 2 training started...
+INFO - 06/12/26 16:23:50 - 0:02:16 - Epoch 2: Total Loss: 2.5598, loss_both:0.7309, loss_rgb:0.7054, loss_depth:1.0654, loss_ib:0.0580, acc_both:0.7965, acc_rgb:0.7901, acc_depth:0.6308
+INFO - 06/12/26 16:24:15 - 0:02:40 - Epoch 2: Clean - Acc: 0.6483
+INFO - 06/12/26 16:24:16 - 0:02:41 -  *** NEW BEST CLEAN ACC *** Epoch 2 | Clean Acc: 0.6483
+INFO - 06/12/26 16:24:16 - 0:02:41 - Epoch 3 training started...
+INFO - 06/12/26 16:24:43 - 0:03:08 - Epoch 3: Total Loss: 1.5824, loss_both:0.3996, loss_rgb:0.3866, loss_depth:0.7338, loss_ib:0.0624, acc_both:0.9216, acc_rgb:0.9014, acc_depth:0.7800
+INFO - 06/12/26 16:25:08 - 0:03:33 - Epoch 3: Clean - Acc: 0.6789
+INFO - 06/12/26 16:25:08 - 0:03:33 -  *** NEW BEST CLEAN ACC *** Epoch 3 | Clean Acc: 0.6789
+INFO - 06/12/26 16:25:08 - 0:03:33 - Epoch 4 training started...
+INFO - 06/12/26 16:25:36 - 0:04:01 - Epoch 4: Total Loss: 0.9806, loss_both:0.2052, loss_rgb:0.1942, loss_depth:0.5149, loss_ib:0.0662, acc_both:0.9772, acc_rgb:0.9558, acc_depth:0.8635
+INFO - 06/12/26 16:26:05 - 0:04:30 - Epoch 4: Clean - Acc: 0.6774
+INFO - 06/12/26 16:26:05 - 0:04:30 - No clean accuracy improvement for 1/3 epochs.
+INFO - 06/12/26 16:26:05 - 0:04:30 - Epoch 5 training started...
+INFO - 06/12/26 16:26:39 - 0:05:04 - Epoch 5: Total Loss: 0.5767, loss_both:0.0954, loss_rgb:0.0899, loss_depth:0.3228, loss_ib:0.0687, acc_both:0.9949, acc_rgb:0.9848, acc_depth:0.9229
+INFO - 06/12/26 16:27:10 - 0:05:35 - Epoch 5: Clean - Acc: 0.6865
+INFO - 06/12/26 16:27:11 - 0:05:36 -  *** NEW BEST CLEAN ACC *** Epoch 5 | Clean Acc: 0.6865
+INFO - 06/12/26 16:27:11 - 0:05:36 - Epoch 6 training started...
+INFO - 06/12/26 16:27:44 - 0:06:09 - Epoch 6: Total Loss: 0.4153, loss_both:0.0579, loss_rgb:0.0609, loss_depth:0.2262, loss_ib:0.0702, acc_both:0.9975, acc_rgb:0.9899, acc_depth:0.9469
+INFO - 06/12/26 16:28:14 - 0:06:39 - Epoch 6: Clean - Acc: 0.6988
+INFO - 06/12/26 16:28:14 - 0:06:39 -  *** NEW BEST CLEAN ACC *** Epoch 6 | Clean Acc: 0.6988
+INFO - 06/12/26 16:28:14 - 0:06:39 - Epoch 7 training started...
+INFO - 06/12/26 16:28:46 - 0:07:12 - Epoch 7: Total Loss: 0.2769, loss_both:0.0305, loss_rgb:0.0273, loss_depth:0.1478, loss_ib:0.0713, acc_both:1.0000, acc_rgb:0.9975, acc_depth:0.9659
+INFO - 06/12/26 16:29:16 - 0:07:41 - Epoch 7: Clean - Acc: 0.6789
+INFO - 06/12/26 16:29:16 - 0:07:41 - No clean accuracy improvement for 1/3 epochs.
+INFO - 06/12/26 16:29:16 - 0:07:41 - Epoch 8 training started...
+INFO - 06/12/26 16:29:47 - 0:08:12 - Epoch 8: Total Loss: 0.2477, loss_both:0.0274, loss_rgb:0.0432, loss_depth:0.1064, loss_ib:0.0707, acc_both:1.0000, acc_rgb:0.9937, acc_depth:0.9848
+INFO - 06/12/26 16:30:16 - 0:08:41 - Epoch 8: Clean - Acc: 0.6881
+INFO - 06/12/26 16:30:16 - 0:08:41 - No clean accuracy improvement for 2/3 epochs.
+INFO - 06/12/26 16:30:16 - 0:08:41 - Epoch 9 training started...
+INFO - 06/12/26 16:30:48 - 0:09:13 - Epoch 9: Total Loss: 0.1874, loss_both:0.0179, loss_rgb:0.0263, loss_depth:0.0719, loss_ib:0.0713, acc_both:0.9987, acc_rgb:0.9987, acc_depth:0.9949
+INFO - 06/12/26 16:31:17 - 0:09:42 - Epoch 9: Clean - Acc: 0.6804
+INFO - 06/12/26 16:31:17 - 0:09:42 - No clean accuracy improvement for 3/3 epochs.
+INFO - 06/12/26 16:31:17 - 0:09:42 - Stopping early at epoch 9: clean accuracy did not improve by at least 0.0 for 3 epochs.
+INFO - 06/12/26 16:31:17 - 0:09:42 - Loading best model for final robust evaluation on Test sets...
+INFO - 06/12/26 16:31:18 - 0:09:43 - Generating and Evaluating on dataset for: Clean Test ...
+INFO - 06/12/26 16:31:46 - 0:10:11 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 5.0) ...
+INFO - 06/12/26 16:32:15 - 0:10:40 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 10.0) ...
+INFO - 06/12/26 16:32:45 - 0:11:10 - Generating and Evaluating on dataset for: Gaussian (Lvl 5.0) ...
+INFO - 06/12/26 16:33:15 - 0:11:40 - Generating and Evaluating on dataset for: Gaussian (Lvl 10.0) ...
+INFO - 06/12/26 16:33:49 - 0:12:15 - 
+                                     ============================================================
+INFO - 06/12/26 16:33:49 - 0:12:15 -       FINAL ROBUSTNESS EVALUATION RESULTS ON TEST SET       
+INFO - 06/12/26 16:33:49 - 0:12:15 - ============================================================
+INFO - 06/12/26 16:33:49 - 0:12:15 - | Test Scenario                       | Score (Acc)        |
+INFO - 06/12/26 16:33:49 - 0:12:15 - |-------------------------------------|--------------------|
+INFO - 06/12/26 16:33:49 - 0:12:15 - | Clean Test                          |             0.6988 |
+INFO - 06/12/26 16:33:49 - 0:12:15 - | Salt & Pepper (Lvl 5.0)             |             0.5489 |
+INFO - 06/12/26 16:33:49 - 0:12:15 - | Salt & Pepper (Lvl 10.0)            |             0.3716 |
+INFO - 06/12/26 16:33:49 - 0:12:15 - | Gaussian (Lvl 5.0)                  |             0.5841 |
+INFO - 06/12/26 16:33:49 - 0:12:15 - | Gaussian (Lvl 10.0)                 |             0.5122 |
+INFO - 06/12/26 16:33:49 - 0:12:15 - ============================================================
+                                     
+INFO - 06/12/26 16:33:49 - 0:12:15 - Saved final results to e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\dml_nyu_seed0_lr0.00015\final_results.json
+INFO - 06/12/26 16:33:49 - 0:12:15 - Best Clean Model: epoch=6, clean_acc=0.6988
+INFO - 06/12/26 16:33:49 - 0:12:15 - Appended experiment record to e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\all_experiments.json
+INFO - 06/12/26 16:35:46 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v5\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\datasets_shared\nyud2_trainvaltest
+                                     dropout: 0.3
+                                     early_stop_min_delta: 0.0
+                                     early_stop_patience: 3
+                                     ib_beta: 1e-05
+                                     ib_eps_scale: 1.0
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00015
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 19
+                                     n_workers: 8
+                                     name: dml_nyu_seed0_lr0.00015
+                                     note: 
+                                     num_image_embeds: 1
+                                     savedir: e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\dml_nyu_seed0_lr0.00015
+                                     seed: 0
+INFO - 06/12/26 16:35:47 - 0:00:00 - Epoch 0 training started...
+INFO - 06/12/26 16:36:15 - 0:00:29 - Epoch 0: Total Loss: 6.5553, loss_both:2.1068, loss_rgb:2.2284, loss_depth:2.2164, loss_ib:0.0037, acc_both:0.3161, acc_rgb:0.2819, acc_depth:0.2794
+INFO - 06/12/26 16:36:42 - 0:00:56 - Epoch 0: Clean - Acc: 0.4602
+INFO - 06/12/26 16:36:42 - 0:00:56 -  *** NEW BEST CLEAN ACC *** Epoch 0 | Clean Acc: 0.4602
+INFO - 06/12/26 16:36:42 - 0:00:56 - Epoch 1 training started...
+INFO - 06/12/26 16:37:10 - 0:01:23 - Epoch 1: Total Loss: 3.8430, loss_both:1.1924, loss_rgb:1.1968, loss_depth:1.4487, loss_ib:0.0052, acc_both:0.6296, acc_rgb:0.6144, acc_depth:0.4968
+INFO - 06/12/26 16:37:34 - 0:01:48 - Epoch 1: Clean - Acc: 0.6162
+INFO - 06/12/26 16:37:34 - 0:01:48 -  *** NEW BEST CLEAN ACC *** Epoch 1 | Clean Acc: 0.6162
+INFO - 06/12/26 16:37:34 - 0:01:48 - Epoch 2 training started...
+INFO - 06/12/26 16:38:01 - 0:02:15 - Epoch 2: Total Loss: 2.5021, loss_both:0.7292, loss_rgb:0.7067, loss_depth:1.0602, loss_ib:0.0060, acc_both:0.7965, acc_rgb:0.7901, acc_depth:0.6245
+INFO - 06/12/26 16:38:25 - 0:02:39 - Epoch 2: Clean - Acc: 0.6407
+INFO - 06/12/26 16:38:26 - 0:02:40 -  *** NEW BEST CLEAN ACC *** Epoch 2 | Clean Acc: 0.6407
+INFO - 06/12/26 16:38:26 - 0:02:40 - Epoch 3 training started...
+INFO - 06/12/26 16:38:52 - 0:03:06 - Epoch 3: Total Loss: 1.5207, loss_both:0.3973, loss_rgb:0.3844, loss_depth:0.7324, loss_ib:0.0065, acc_both:0.9204, acc_rgb:0.9027, acc_depth:0.7838
+INFO - 06/12/26 16:39:17 - 0:03:31 - Epoch 3: Clean - Acc: 0.6820
+INFO - 06/12/26 16:39:17 - 0:03:31 -  *** NEW BEST CLEAN ACC *** Epoch 3 | Clean Acc: 0.6820
+INFO - 06/12/26 16:39:17 - 0:03:31 - Epoch 4 training started...
+INFO - 06/12/26 16:39:44 - 0:03:58 - Epoch 4: Total Loss: 0.9175, loss_both:0.2040, loss_rgb:0.1936, loss_depth:0.5128, loss_ib:0.0070, acc_both:0.9772, acc_rgb:0.9558, acc_depth:0.8635
+INFO - 06/12/26 16:40:08 - 0:04:22 - Epoch 4: Clean - Acc: 0.6804
+INFO - 06/12/26 16:40:08 - 0:04:22 - No clean accuracy improvement for 1/3 epochs.
+INFO - 06/12/26 16:40:08 - 0:04:22 - Epoch 5 training started...
+INFO - 06/12/26 16:40:35 - 0:04:49 - Epoch 5: Total Loss: 0.5120, loss_both:0.0948, loss_rgb:0.0891, loss_depth:0.3207, loss_ib:0.0074, acc_both:0.9949, acc_rgb:0.9861, acc_depth:0.9229
+INFO - 06/12/26 16:41:00 - 0:05:13 - Epoch 5: Clean - Acc: 0.6972
+INFO - 06/12/26 16:41:00 - 0:05:14 -  *** NEW BEST CLEAN ACC *** Epoch 5 | Clean Acc: 0.6972
+INFO - 06/12/26 16:41:00 - 0:05:14 - Epoch 6 training started...
+INFO - 06/12/26 16:41:26 - 0:05:40 - Epoch 6: Total Loss: 0.3495, loss_both:0.0570, loss_rgb:0.0605, loss_depth:0.2243, loss_ib:0.0077, acc_both:0.9962, acc_rgb:0.9912, acc_depth:0.9520
+INFO - 06/12/26 16:41:51 - 0:06:05 - Epoch 6: Clean - Acc: 0.7049
+INFO - 06/12/26 16:41:51 - 0:06:05 -  *** NEW BEST CLEAN ACC *** Epoch 6 | Clean Acc: 0.7049
+INFO - 06/12/26 16:41:51 - 0:06:05 - Epoch 7 training started...
+INFO - 06/12/26 16:42:18 - 0:06:32 - Epoch 7: Total Loss: 0.2115, loss_both:0.0294, loss_rgb:0.0263, loss_depth:0.1478, loss_ib:0.0080, acc_both:1.0000, acc_rgb:0.9975, acc_depth:0.9671
+INFO - 06/12/26 16:42:43 - 0:06:57 - Epoch 7: Clean - Acc: 0.6820
+INFO - 06/12/26 16:42:43 - 0:06:57 - No clean accuracy improvement for 1/3 epochs.
+INFO - 06/12/26 16:42:43 - 0:06:57 - Epoch 8 training started...
+INFO - 06/12/26 16:43:11 - 0:07:25 - Epoch 8: Total Loss: 0.1855, loss_both:0.0276, loss_rgb:0.0428, loss_depth:0.1070, loss_ib:0.0081, acc_both:1.0000, acc_rgb:0.9949, acc_depth:0.9874
+INFO - 06/12/26 16:43:36 - 0:07:50 - Epoch 8: Clean - Acc: 0.6789
+INFO - 06/12/26 16:43:36 - 0:07:50 - No clean accuracy improvement for 2/3 epochs.
+INFO - 06/12/26 16:43:36 - 0:07:50 - Epoch 9 training started...
+INFO - 06/12/26 16:44:03 - 0:08:16 - Epoch 9: Total Loss: 0.1240, loss_both:0.0176, loss_rgb:0.0263, loss_depth:0.0717, loss_ib:0.0083, acc_both:0.9987, acc_rgb:0.9987, acc_depth:0.9912
+INFO - 06/12/26 16:44:27 - 0:08:41 - Epoch 9: Clean - Acc: 0.6774
+INFO - 06/12/26 16:44:27 - 0:08:41 - No clean accuracy improvement for 3/3 epochs.
+INFO - 06/12/26 16:44:27 - 0:08:41 - Stopping early at epoch 9: clean accuracy did not improve by at least 0.0 for 3 epochs.
+INFO - 06/12/26 16:44:27 - 0:08:41 - Loading best model for final robust evaluation on Test sets...
+INFO - 06/12/26 16:44:28 - 0:08:41 - Generating and Evaluating on dataset for: Clean Test ...
+INFO - 06/12/26 16:44:52 - 0:09:06 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 5.0) ...
+INFO - 06/12/26 16:45:17 - 0:09:31 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 10.0) ...
+INFO - 06/12/26 16:45:42 - 0:09:56 - Generating and Evaluating on dataset for: Gaussian (Lvl 5.0) ...
+INFO - 06/12/26 16:46:08 - 0:10:22 - Generating and Evaluating on dataset for: Gaussian (Lvl 10.0) ...
+INFO - 06/12/26 16:46:33 - 0:10:47 - 
+                                     ============================================================
+INFO - 06/12/26 16:46:33 - 0:10:47 -       FINAL ROBUSTNESS EVALUATION RESULTS ON TEST SET       
+INFO - 06/12/26 16:46:33 - 0:10:47 - ============================================================
+INFO - 06/12/26 16:46:33 - 0:10:47 - | Test Scenario                       | Score (Acc)        |
+INFO - 06/12/26 16:46:33 - 0:10:47 - |-------------------------------------|--------------------|
+INFO - 06/12/26 16:46:33 - 0:10:47 - | Clean Test                          |             0.7049 |
+INFO - 06/12/26 16:46:33 - 0:10:47 - | Salt & Pepper (Lvl 5.0)             |             0.5459 |
+INFO - 06/12/26 16:46:33 - 0:10:47 - | Salt & Pepper (Lvl 10.0)            |             0.3777 |
+INFO - 06/12/26 16:46:33 - 0:10:47 - | Gaussian (Lvl 5.0)                  |             0.5902 |
+INFO - 06/12/26 16:46:33 - 0:10:47 - | Gaussian (Lvl 10.0)                 |             0.5229 |
+INFO - 06/12/26 16:46:33 - 0:10:47 - ============================================================
+                                     
+INFO - 06/12/26 16:46:33 - 0:10:47 - Saved final results to e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\dml_nyu_seed0_lr0.00015\final_results.json
+INFO - 06/12/26 16:46:33 - 0:10:47 - Best Clean Model: epoch=6, clean_acc=0.7049
+INFO - 06/12/26 16:46:33 - 0:10:47 - Appended experiment record to e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\all_experiments.json

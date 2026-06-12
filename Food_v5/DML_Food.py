@@ -57,10 +57,10 @@ def get_args(parser):
     )
     parser.add_argument("--dropout", type=float, default=0.1, help="Dropout rate")
     parser.add_argument(
-        "--freeze_img", type=int, default=3, help="Epochs to freeze image encoder"
+        "--freeze_img", type=int, default=0, help="Epochs to freeze image encoder"
     )
     parser.add_argument(
-        "--freeze_txt", type=int, default=4, help="Epochs to freeze text encoder"
+        "--freeze_txt", type=int, default=0, help="Epochs to freeze text encoder"
     )
     parser.add_argument(
         "--hidden_sz", type=int, default=768, help="BERT hidden size"
@@ -92,10 +92,16 @@ def get_args(parser):
         help="Scale for reparameterization noise during training",
     )
     parser.add_argument(
+        "--ib_warmup_epochs",
+        type=int,
+        default=5,
+        help="Epochs to train with CE only before enabling IB KL and early stopping",
+    )
+    parser.add_argument(
         "--lr_factor", type=float, default=0.5, help="LR reduction factor"
     )
     parser.add_argument(
-        "--lr_patience", type=int, default=2, help="LR scheduler patience"
+        "--lr_patience", type=int, default=4, help="LR scheduler patience"
     )
     parser.add_argument(
         "--max_epochs", type=int, default=50, help="Maximum training epochs"
@@ -211,6 +217,7 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
             text, mask, segment, image
         )
 
+        effective_ib_beta = args.ib_beta if epoch >= args.ib_warmup_epochs else 0.0
         loss, loss_parts = information_bottleneck_classification_loss(
             criterion,
             fused_logits,
@@ -218,7 +225,7 @@ def train_epoch(epoch, train_loader, model, optimizer, criterion, logger, args):
             img_logits,
             target,
             ib_loss,
-            args.ib_beta,
+            effective_ib_beta,
         )
 
         if torch.isnan(loss).any():
@@ -347,6 +354,13 @@ def main():
 
         tuning_metric = val_metrics["acc"]
         scheduler.step(tuning_metric)
+        kl_enabled = epoch >= args.ib_warmup_epochs
+        if not kl_enabled:
+            logger.info(
+                f"IB warmup epoch {epoch}/{args.ib_warmup_epochs}: "
+                "KL loss and early stopping are disabled."
+            )
+            continue
 
         is_improvement = tuning_metric > best_metric
         if is_improvement:
@@ -446,6 +460,7 @@ def main():
         "lr": args.lr,
         "ib_beta": args.ib_beta,
         "ib_eps_scale": args.ib_eps_scale,
+        "ib_warmup_epochs": args.ib_warmup_epochs,
         "batch_sz": args.batch_sz,
         "max_epochs": args.max_epochs,
         "best_clean_acc": float(final_results.get("Clean Test", 0.0)),

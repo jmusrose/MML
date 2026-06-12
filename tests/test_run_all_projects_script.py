@@ -265,3 +265,67 @@ def test_rgb_v4_nyu_sun_ablation_bat_runs_four_groups_for_each_dataset():
     for label, args in expected_mvsa_groups:
         assert f"MVSA_v4 {label}" in text
         assert args in text
+
+
+def test_run_all_projectsv5_scripts_exist_and_run_feature_ib_projects():
+    ps1 = Path("run_all_projectsv5.ps1")
+    bat = Path("run_all_projectsv5.bat")
+    assert ps1.exists()
+    assert bat.exists()
+
+    ps1_text = ps1.read_text(encoding="utf-8")
+    bat_text = bat.read_text(encoding="utf-8")
+    expected = [
+        "RGB_v5",
+        "DML_nyu.py",
+        "DML_sun.py",
+        "MVSA_v5",
+        "DML_MVSA.py",
+        "Food_v5",
+        "DML_Food.py",
+        "CREMAD_v5",
+        "DML_cremad.py",
+    ]
+
+    for item in expected:
+        assert item in ps1_text
+        assert item in bat_text
+
+    assert "ib_beta" in ps1_text
+    assert "ib_eps_scale" in ps1_text
+    assert "ib_warmup_epochs" in ps1_text
+    assert "--ib-warmup-epochs" in bat_text
+    assert "pytorch2.5" in ps1_text
+    assert "pytorch2.5" in bat_text
+
+
+def test_run_all_projectsv5_scripts_pass_expected_project_specific_args():
+    ps1_text = Path("run_all_projectsv5.ps1").read_text(encoding="utf-8")
+    bat_text = Path("run_all_projectsv5.bat").read_text(encoding="utf-8")
+
+    assert "RGB_v5\\DML_nyu.py" in ps1_text
+    assert "RGB_v5\\DML_sun.py" in ps1_text
+    assert "MVSA_v5\\DML_MVSA.py" in ps1_text
+    assert "Food_v5\\DML_Food.py" in ps1_text
+    assert "CREMAD_v5\\DML_cremad.py" in ps1_text
+
+    assert 'Script = "DML_nyu.py"' in ps1_text
+    assert '"--ib_beta", $RgbNyuIbBeta' in ps1_text
+    assert '"--ib_warmup_epochs", $IbWarmupEpochs' in ps1_text
+    assert 'Script = "DML_sun.py"' in ps1_text
+    assert '"--val_split_ratio", $SunValSplitRatio' in ps1_text
+    assert 'Script = "DML_MVSA.py"' in ps1_text
+    assert '"--patience", $EarlyStopPatience' in ps1_text
+    assert 'Script = "DML_Food.py"' in ps1_text
+    assert 'Script = "DML_cremad.py"' in ps1_text
+    assert '"--config", "data\\crema.json"' in ps1_text
+
+    assert 'call :run_step "RGB_v5 NYU"' in bat_text
+    assert 'call :run_step "RGB_v5 SUN"' in bat_text
+    assert 'call :run_step "MVSA_v5"' in bat_text
+    assert 'call :run_step "Food_v5"' in bat_text
+    assert 'call :run_step "CREMAD_v5"' in bat_text
+    assert "--ib_warmup_epochs" in bat_text
+    assert "--val_split_ratio" in bat_text
+    assert "--patience" in bat_text
+    assert '--config "data\\crema.json"' in bat_text

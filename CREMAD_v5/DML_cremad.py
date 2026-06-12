@@ -65,7 +65,7 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
     correct_video = 0
     total_samples = 0
     criterion = nn.CrossEntropyLoss().cuda()
-    ib_beta = cfg.get("ib_beta", 1e-3)
+    effective_ib_beta = cfg.get("ib_beta", 1e-3) if epoch >= cfg.get("ib_warmup_epochs", 0) else 0.0
 
     for step, (spectrogram, image, y) in enumerate(tqdm(train_loader, desc=f"Training epoch {epoch}")):
         image = image.float().cuda()
@@ -82,7 +82,7 @@ def train_audio_video(epoch, train_loader, model, optimizer, logger, cfg):
             video_logits,
             y,
             ib_loss,
-            ib_beta,
+            effective_ib_beta,
         )
 
         # NaN detection
@@ -225,6 +225,7 @@ if __name__ == '__main__':
     parser.add_argument('--early_stop_min_delta', type=float, default=None)
     parser.add_argument('--ib_beta', type=float, default=None)
     parser.add_argument('--ib_eps_scale', type=float, default=None)
+    parser.add_argument('--ib_warmup_epochs', type=int, default=None)
     args = parser.parse_args()
 
     cfg = config
@@ -241,6 +242,8 @@ if __name__ == '__main__':
         cfg['ib_beta'] = args.ib_beta
     if args.ib_eps_scale is not None:
         cfg['ib_eps_scale'] = args.ib_eps_scale
+    if args.ib_warmup_epochs is not None:
+        cfg['ib_warmup_epochs'] = args.ib_warmup_epochs
 
     # Anchor output_dir to the script directory if user left it as '.'
     # so logs/checkpoints land next to this script regardless of cwd.
@@ -336,6 +339,14 @@ if __name__ == '__main__':
         logger.info(f'Epoch {epoch} is pending...')
         model = train_audio_video(epoch, train_loader, model, optimizer, logger, cfg)
         acc, acc_a, acc_v = val(epoch, test_loader, model, logger)
+        kl_enabled = epoch >= cfg.get('ib_warmup_epochs', 0)
+        if not kl_enabled:
+            logger.info(
+                f"IB warmup epoch {epoch}/{cfg.get('ib_warmup_epochs', 0)}: "
+                "KL loss and early stopping are disabled."
+            )
+            scheduler.step()
+            continue
 
         # Save best model
         if acc > early_stop_best_acc + cfg['train']['early_stop_min_delta']:
@@ -467,6 +478,7 @@ if __name__ == '__main__':
         "batch_sz": cfg['train']['batch_size'],
         "ib_beta": cfg.get("ib_beta", 1e-3),
         "ib_eps_scale": cfg.get("ib_eps_scale", 0.0),
+        "ib_warmup_epochs": cfg.get("ib_warmup_epochs", 0),
         "max_epochs": cfg['train']['epoch_dict'],
         "best_clean_epoch": int(best_epoch),
         "best_clean_acc": float(final_results.get("Clean Test", 0.0)),

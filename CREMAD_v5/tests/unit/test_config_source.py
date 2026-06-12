@@ -24,8 +24,10 @@ def test_cremad_script_allows_information_bottleneck_cli_overrides():
 
     assert "parser.add_argument('--ib_beta'" in source
     assert "parser.add_argument('--ib_eps_scale'" in source
+    assert "parser.add_argument('--ib_warmup_epochs'" in source
     assert "cfg['ib_beta'] = args.ib_beta" in source
     assert "cfg['ib_eps_scale'] = args.ib_eps_scale" in source
+    assert "cfg['ib_warmup_epochs'] = args.ib_warmup_epochs" in source
 
 
 def test_cremad_v2_config_writes_outputs_under_v2_savepath():
