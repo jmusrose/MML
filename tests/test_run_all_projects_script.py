@@ -291,10 +291,10 @@ def test_run_all_projectsv5_scripts_exist_and_run_feature_ib_projects():
         assert item in ps1_text
         assert item in bat_text
 
-    assert "ib_beta" in ps1_text
-    assert "ib_eps_scale" in ps1_text
-    assert "ib_warmup_epochs" in ps1_text
-    assert "--ib-warmup-epochs" in bat_text
+    assert "--ib_beta" not in ps1_text
+    assert "--ib_eps_scale" not in ps1_text
+    assert "--ib_warmup_epochs" not in ps1_text
+    assert "--ib-warmup-epochs" not in bat_text
     assert "pytorch2.5" in ps1_text
     assert "pytorch2.5" in bat_text
 
@@ -310,22 +310,19 @@ def test_run_all_projectsv5_scripts_pass_expected_project_specific_args():
     assert "CREMAD_v5\\DML_cremad.py" in ps1_text
 
     assert 'Script = "DML_nyu.py"' in ps1_text
-    assert '"--ib_beta", $RgbNyuIbBeta' in ps1_text
-    assert '"--ib_warmup_epochs", $IbWarmupEpochs' in ps1_text
     assert 'Script = "DML_sun.py"' in ps1_text
-    assert '"--val_split_ratio", $SunValSplitRatio' in ps1_text
     assert 'Script = "DML_MVSA.py"' in ps1_text
-    assert '"--patience", $EarlyStopPatience' in ps1_text
     assert 'Script = "DML_Food.py"' in ps1_text
     assert 'Script = "DML_cremad.py"' in ps1_text
-    assert '"--config", "data\\crema.json"' in ps1_text
+    assert "Args =" not in ps1_text
 
     assert 'call :run_step "RGB_v5 NYU"' in bat_text
     assert 'call :run_step "RGB_v5 SUN"' in bat_text
     assert 'call :run_step "MVSA_v5"' in bat_text
     assert 'call :run_step "Food_v5"' in bat_text
     assert 'call :run_step "CREMAD_v5"' in bat_text
-    assert "--ib_warmup_epochs" in bat_text
-    assert "--val_split_ratio" in bat_text
-    assert "--patience" in bat_text
-    assert '--config "data\\crema.json"' in bat_text
+    assert "STEP_ARGS" not in bat_text
+    assert "--ib_warmup_epochs" not in bat_text
+    assert "--val_split_ratio" not in bat_text
+    assert "--patience" not in bat_text
+    assert "--config" not in bat_text

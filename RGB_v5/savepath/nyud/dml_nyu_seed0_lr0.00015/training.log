@@ -170,3 +170,174 @@ INFO - 06/12/26 16:46:33 - 0:10:47 - ===========================================
 INFO - 06/12/26 16:46:33 - 0:10:47 - Saved final results to e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\dml_nyu_seed0_lr0.00015\final_results.json
 INFO - 06/12/26 16:46:33 - 0:10:47 - Best Clean Model: epoch=6, clean_acc=0.7049
 INFO - 06/12/26 16:46:33 - 0:10:47 - Appended experiment record to e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\all_experiments.json
+INFO - 06/13/26 00:04:30 - 0:00:00 - CONTENT_MODEL_PATH: e:\Paper_Experiment\DML\DML_v1\RGB_v5\checkpoint\resnet18_pretrained.pth
+                                     FINE_SIZE: 224
+                                     LOAD_SIZE: 256
+                                     batch_sz: 64
+                                     data_path: e:\Paper_Experiment\DML\DML_v1\datasets_shared\nyud2_trainvaltest
+                                     dropout: 0.3
+                                     early_stop_min_delta: 0.0
+                                     early_stop_patience: 10
+                                     ib_beta: 1e-05
+                                     ib_eps_scale: 1.0
+                                     ib_warmup_epochs: 20
+                                     img_embed_pool_type: avg
+                                     img_hidden_sz: 512
+                                     lr: 0.00015
+                                     lr_factor: 0.3
+                                     lr_patience: 10
+                                     max_epochs: 50
+                                     n_classes: 19
+                                     n_workers: 8
+                                     name: dml_nyu_seed0_lr0.00015
+                                     note: 
+                                     num_image_embeds: 1
+                                     savedir: e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\dml_nyu_seed0_lr0.00015
+                                     seed: 0
+INFO - 06/13/26 00:04:31 - 0:00:01 - Epoch 0 training started...
+INFO - 06/13/26 00:05:03 - 0:00:33 - Epoch 0: Total Loss: 6.5520, loss_both:2.1069, loss_rgb:2.2283, loss_depth:2.2167, loss_ib:0.0000, acc_both:0.3186, acc_rgb:0.2819, acc_depth:0.2807
+INFO - 06/13/26 00:05:28 - 0:00:58 - Epoch 0: Clean - Acc: 0.4633
+INFO - 06/13/26 00:05:28 - 0:00:58 - IB warmup epoch 0/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:05:28 - 0:00:58 - Epoch 1 training started...
+INFO - 06/13/26 00:05:56 - 0:01:26 - Epoch 1: Total Loss: 3.8360, loss_both:1.1918, loss_rgb:1.1972, loss_depth:1.4470, loss_ib:0.0000, acc_both:0.6296, acc_rgb:0.6169, acc_depth:0.4956
+INFO - 06/13/26 00:06:21 - 0:01:51 - Epoch 1: Clean - Acc: 0.6177
+INFO - 06/13/26 00:06:21 - 0:01:51 - IB warmup epoch 1/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:06:21 - 0:01:51 - Epoch 2 training started...
+INFO - 06/13/26 00:06:47 - 0:02:18 - Epoch 2: Total Loss: 2.4992, loss_both:0.7301, loss_rgb:0.7072, loss_depth:1.0619, loss_ib:0.0000, acc_both:0.8003, acc_rgb:0.7901, acc_depth:0.6220
+INFO - 06/13/26 00:07:12 - 0:02:42 - Epoch 2: Clean - Acc: 0.6544
+INFO - 06/13/26 00:07:12 - 0:02:42 - IB warmup epoch 2/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:07:12 - 0:02:42 - Epoch 3 training started...
+INFO - 06/13/26 00:07:39 - 0:03:09 - Epoch 3: Total Loss: 1.5199, loss_both:0.3990, loss_rgb:0.3875, loss_depth:0.7334, loss_ib:0.0000, acc_both:0.9229, acc_rgb:0.9039, acc_depth:0.7876
+INFO - 06/13/26 00:08:04 - 0:03:34 - Epoch 3: Clean - Acc: 0.6865
+INFO - 06/13/26 00:08:04 - 0:03:34 - IB warmup epoch 3/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:08:04 - 0:03:34 - Epoch 4 training started...
+INFO - 06/13/26 00:08:31 - 0:04:01 - Epoch 4: Total Loss: 0.9055, loss_both:0.2032, loss_rgb:0.1939, loss_depth:0.5085, loss_ib:0.0000, acc_both:0.9772, acc_rgb:0.9545, acc_depth:0.8660
+INFO - 06/13/26 00:08:56 - 0:04:26 - Epoch 4: Clean - Acc: 0.6789
+INFO - 06/13/26 00:08:56 - 0:04:26 - IB warmup epoch 4/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:08:56 - 0:04:26 - Epoch 5 training started...
+INFO - 06/13/26 00:09:22 - 0:04:53 - Epoch 5: Total Loss: 0.5046, loss_both:0.0945, loss_rgb:0.0903, loss_depth:0.3197, loss_ib:0.0000, acc_both:0.9937, acc_rgb:0.9848, acc_depth:0.9229
+INFO - 06/13/26 00:09:47 - 0:05:17 - Epoch 5: Clean - Acc: 0.6957
+INFO - 06/13/26 00:09:47 - 0:05:17 - IB warmup epoch 5/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:09:47 - 0:05:17 - Epoch 6 training started...
+INFO - 06/13/26 00:10:14 - 0:05:44 - Epoch 6: Total Loss: 0.3396, loss_both:0.0563, loss_rgb:0.0597, loss_depth:0.2236, loss_ib:0.0000, acc_both:0.9975, acc_rgb:0.9912, acc_depth:0.9494
+INFO - 06/13/26 00:10:39 - 0:06:09 - Epoch 6: Clean - Acc: 0.6942
+INFO - 06/13/26 00:10:39 - 0:06:09 - IB warmup epoch 6/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:10:39 - 0:06:09 - Epoch 7 training started...
+INFO - 06/13/26 00:11:06 - 0:06:36 - Epoch 7: Total Loss: 0.2029, loss_both:0.0294, loss_rgb:0.0269, loss_depth:0.1466, loss_ib:0.0000, acc_both:1.0000, acc_rgb:0.9975, acc_depth:0.9671
+INFO - 06/13/26 00:11:31 - 0:07:01 - Epoch 7: Clean - Acc: 0.6850
+INFO - 06/13/26 00:11:31 - 0:07:01 - IB warmup epoch 7/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:11:31 - 0:07:01 - Epoch 8 training started...
+INFO - 06/13/26 00:11:57 - 0:07:27 - Epoch 8: Total Loss: 0.1794, loss_both:0.0277, loss_rgb:0.0446, loss_depth:0.1072, loss_ib:0.0000, acc_both:1.0000, acc_rgb:0.9937, acc_depth:0.9823
+INFO - 06/13/26 00:12:22 - 0:07:52 - Epoch 8: Clean - Acc: 0.6774
+INFO - 06/13/26 00:12:22 - 0:07:52 - IB warmup epoch 8/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:12:22 - 0:07:52 - Epoch 9 training started...
+INFO - 06/13/26 00:12:49 - 0:08:19 - Epoch 9: Total Loss: 0.1196, loss_both:0.0185, loss_rgb:0.0280, loss_depth:0.0731, loss_ib:0.0000, acc_both:0.9987, acc_rgb:0.9975, acc_depth:0.9912
+INFO - 06/13/26 00:13:14 - 0:08:44 - Epoch 9: Clean - Acc: 0.6758
+INFO - 06/13/26 00:13:14 - 0:08:44 - IB warmup epoch 9/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:13:14 - 0:08:44 - Epoch 10 training started...
+INFO - 06/13/26 00:13:40 - 0:09:11 - Epoch 10: Total Loss: 0.0808, loss_both:0.0118, loss_rgb:0.0193, loss_depth:0.0497, loss_ib:0.0000, acc_both:1.0000, acc_rgb:0.9987, acc_depth:0.9937
+INFO - 06/13/26 00:14:05 - 0:09:35 - Epoch 10: Clean - Acc: 0.6881
+INFO - 06/13/26 00:14:05 - 0:09:36 - IB warmup epoch 10/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:14:05 - 0:09:36 - Epoch 11 training started...
+INFO - 06/13/26 00:14:32 - 0:10:02 - Epoch 11: Total Loss: 0.0640, loss_both:0.0092, loss_rgb:0.0138, loss_depth:0.0409, loss_ib:0.0000, acc_both:1.0000, acc_rgb:0.9987, acc_depth:0.9962
+INFO - 06/13/26 00:14:57 - 0:10:27 - Epoch 11: Clean - Acc: 0.6865
+INFO - 06/13/26 00:14:57 - 0:10:27 - IB warmup epoch 11/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:14:57 - 0:10:27 - Epoch 12 training started...
+INFO - 06/13/26 00:15:24 - 0:10:54 - Epoch 12: Total Loss: 0.0507, loss_both:0.0072, loss_rgb:0.0094, loss_depth:0.0341, loss_ib:0.0000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/13/26 00:15:49 - 0:11:19 - Epoch 12: Clean - Acc: 0.7003
+INFO - 06/13/26 00:15:49 - 0:11:19 - IB warmup epoch 12/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:15:49 - 0:11:19 - Epoch 13 training started...
+INFO - 06/13/26 00:16:15 - 0:11:45 - Epoch 13: Total Loss: 0.0520, loss_both:0.0062, loss_rgb:0.0105, loss_depth:0.0352, loss_ib:0.0000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9975
+INFO - 06/13/26 00:16:40 - 0:12:10 - Epoch 13: Clean - Acc: 0.7064
+INFO - 06/13/26 00:16:40 - 0:12:10 - IB warmup epoch 13/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:16:40 - 0:12:10 - Epoch 14 training started...
+INFO - 06/13/26 00:17:07 - 0:12:37 - Epoch 14: Total Loss: 0.0318, loss_both:0.0046, loss_rgb:0.0070, loss_depth:0.0202, loss_ib:0.0000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:17:32 - 0:13:02 - Epoch 14: Clean - Acc: 0.6957
+INFO - 06/13/26 00:17:32 - 0:13:02 - IB warmup epoch 14/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:17:32 - 0:13:02 - Epoch 15 training started...
+INFO - 06/13/26 00:17:58 - 0:13:29 - Epoch 15: Total Loss: 0.0307, loss_both:0.0042, loss_rgb:0.0079, loss_depth:0.0186, loss_ib:0.0000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/13/26 00:18:23 - 0:13:53 - Epoch 15: Clean - Acc: 0.6988
+INFO - 06/13/26 00:18:23 - 0:13:53 - IB warmup epoch 15/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:18:23 - 0:13:53 - Epoch 16 training started...
+INFO - 06/13/26 00:18:53 - 0:14:23 - Epoch 16: Total Loss: 0.0244, loss_both:0.0033, loss_rgb:0.0074, loss_depth:0.0137, loss_ib:0.0000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:19:21 - 0:14:51 - Epoch 16: Clean - Acc: 0.6988
+INFO - 06/13/26 00:19:21 - 0:14:51 - IB warmup epoch 16/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:19:21 - 0:14:51 - Epoch 17 training started...
+INFO - 06/13/26 00:19:51 - 0:15:21 - Epoch 17: Total Loss: 0.0298, loss_both:0.0044, loss_rgb:0.0090, loss_depth:0.0164, loss_ib:0.0000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:20:16 - 0:15:46 - Epoch 17: Clean - Acc: 0.7141
+INFO - 06/13/26 00:20:16 - 0:15:46 - IB warmup epoch 17/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:20:16 - 0:15:46 - Epoch 18 training started...
+INFO - 06/13/26 00:20:43 - 0:16:13 - Epoch 18: Total Loss: 0.0148, loss_both:0.0020, loss_rgb:0.0042, loss_depth:0.0086, loss_ib:0.0000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:21:07 - 0:16:37 - Epoch 18: Clean - Acc: 0.7110
+INFO - 06/13/26 00:21:07 - 0:16:37 - IB warmup epoch 18/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:21:07 - 0:16:37 - Epoch 19 training started...
+INFO - 06/13/26 00:21:34 - 0:17:04 - Epoch 19: Total Loss: 0.0203, loss_both:0.0024, loss_rgb:0.0040, loss_depth:0.0140, loss_ib:0.0000, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/13/26 00:21:59 - 0:17:29 - Epoch 19: Clean - Acc: 0.7003
+INFO - 06/13/26 00:21:59 - 0:17:29 - IB warmup epoch 19/20: KL loss and early stopping are disabled.
+INFO - 06/13/26 00:21:59 - 0:17:29 - Epoch 20 training started...
+INFO - 06/13/26 00:22:26 - 0:17:56 - Epoch 20: Total Loss: 0.0309, loss_both:0.0021, loss_rgb:0.0040, loss_depth:0.0154, loss_ib:0.0095, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/13/26 00:22:50 - 0:18:20 - Epoch 20: Clean - Acc: 0.7095
+INFO - 06/13/26 00:22:51 - 0:18:21 -  *** NEW BEST CLEAN ACC *** Epoch 20 | Clean Acc: 0.7095
+INFO - 06/13/26 00:22:51 - 0:18:21 - Epoch 21 training started...
+INFO - 06/13/26 00:23:17 - 0:18:47 - Epoch 21: Total Loss: 0.0303, loss_both:0.0025, loss_rgb:0.0041, loss_depth:0.0142, loss_ib:0.0094, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9975
+INFO - 06/13/26 00:23:42 - 0:19:12 - Epoch 21: Clean - Acc: 0.6911
+INFO - 06/13/26 00:23:42 - 0:19:12 - No clean accuracy improvement for 1/10 epochs.
+INFO - 06/13/26 00:23:42 - 0:19:12 - Epoch 22 training started...
+INFO - 06/13/26 00:24:09 - 0:19:39 - Epoch 22: Total Loss: 0.0280, loss_both:0.0021, loss_rgb:0.0036, loss_depth:0.0128, loss_ib:0.0095, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/13/26 00:24:33 - 0:20:04 - Epoch 22: Clean - Acc: 0.6896
+INFO - 06/13/26 00:24:33 - 0:20:04 - No clean accuracy improvement for 2/10 epochs.
+INFO - 06/13/26 00:24:33 - 0:20:04 - Epoch 23 training started...
+INFO - 06/13/26 00:25:00 - 0:20:30 - Epoch 23: Total Loss: 0.0237, loss_both:0.0017, loss_rgb:0.0041, loss_depth:0.0084, loss_ib:0.0095, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:25:25 - 0:20:55 - Epoch 23: Clean - Acc: 0.6988
+INFO - 06/13/26 00:25:25 - 0:20:55 - No clean accuracy improvement for 3/10 epochs.
+INFO - 06/13/26 00:25:25 - 0:20:55 - Epoch 24 training started...
+INFO - 06/13/26 00:25:52 - 0:21:22 - Epoch 24: Total Loss: 0.0211, loss_both:0.0014, loss_rgb:0.0030, loss_depth:0.0072, loss_ib:0.0095, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:26:16 - 0:21:46 - Epoch 24: Clean - Acc: 0.6927
+INFO - 06/13/26 00:26:16 - 0:21:46 - No clean accuracy improvement for 4/10 epochs.
+INFO - 06/13/26 00:26:16 - 0:21:46 - Epoch 25 training started...
+INFO - 06/13/26 00:26:43 - 0:22:13 - Epoch 25: Total Loss: 0.0208, loss_both:0.0015, loss_rgb:0.0033, loss_depth:0.0065, loss_ib:0.0095, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/13/26 00:27:08 - 0:22:38 - Epoch 25: Clean - Acc: 0.7049
+INFO - 06/13/26 00:27:08 - 0:22:38 - No clean accuracy improvement for 5/10 epochs.
+INFO - 06/13/26 00:27:08 - 0:22:38 - Epoch 26 training started...
+INFO - 06/13/26 00:27:34 - 0:23:04 - Epoch 26: Total Loss: 0.0215, loss_both:0.0016, loss_rgb:0.0034, loss_depth:0.0070, loss_ib:0.0095, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:27:59 - 0:23:29 - Epoch 26: Clean - Acc: 0.6942
+INFO - 06/13/26 00:27:59 - 0:23:29 - No clean accuracy improvement for 6/10 epochs.
+INFO - 06/13/26 00:27:59 - 0:23:29 - Epoch 27 training started...
+INFO - 06/13/26 00:28:25 - 0:23:56 - Epoch 27: Total Loss: 0.0215, loss_both:0.0015, loss_rgb:0.0036, loss_depth:0.0068, loss_ib:0.0095, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:28:50 - 0:24:20 - Epoch 27: Clean - Acc: 0.6988
+INFO - 06/13/26 00:28:50 - 0:24:20 - No clean accuracy improvement for 7/10 epochs.
+INFO - 06/13/26 00:28:50 - 0:24:20 - Epoch 28 training started...
+INFO - 06/13/26 00:29:17 - 0:24:47 - Epoch 28: Total Loss: 0.0190, loss_both:0.0012, loss_rgb:0.0033, loss_depth:0.0050, loss_ib:0.0095, acc_both:1.0000, acc_rgb:0.9987, acc_depth:1.0000
+INFO - 06/13/26 00:29:41 - 0:25:11 - Epoch 28: Clean - Acc: 0.6881
+INFO - 06/13/26 00:29:41 - 0:25:11 - No clean accuracy improvement for 8/10 epochs.
+INFO - 06/13/26 00:29:41 - 0:25:11 - Epoch 29 training started...
+INFO - 06/13/26 00:30:08 - 0:25:38 - Epoch 29: Total Loss: 0.0246, loss_both:0.0015, loss_rgb:0.0063, loss_depth:0.0074, loss_ib:0.0094, acc_both:1.0000, acc_rgb:1.0000, acc_depth:0.9987
+INFO - 06/13/26 00:30:32 - 0:26:02 - Epoch 29: Clean - Acc: 0.7018
+INFO - 06/13/26 00:30:32 - 0:26:02 - No clean accuracy improvement for 9/10 epochs.
+INFO - 06/13/26 00:30:32 - 0:26:02 - Epoch 30 training started...
+INFO - 06/13/26 00:30:59 - 0:26:29 - Epoch 30: Total Loss: 0.0176, loss_both:0.0010, loss_rgb:0.0024, loss_depth:0.0046, loss_ib:0.0095, acc_both:1.0000, acc_rgb:1.0000, acc_depth:1.0000
+INFO - 06/13/26 00:31:23 - 0:26:54 - Epoch 30: Clean - Acc: 0.6896
+INFO - 06/13/26 00:31:23 - 0:26:54 - No clean accuracy improvement for 10/10 epochs.
+INFO - 06/13/26 00:31:23 - 0:26:54 - Stopping early at epoch 30: clean accuracy did not improve by at least 0.0 for 10 epochs.
+INFO - 06/13/26 00:31:23 - 0:26:54 - Loading best model for final robust evaluation on Test sets...
+INFO - 06/13/26 00:31:24 - 0:26:54 - Generating and Evaluating on dataset for: Clean Test ...
+INFO - 06/13/26 00:31:48 - 0:27:18 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 5.0) ...
+INFO - 06/13/26 00:32:13 - 0:27:43 - Generating and Evaluating on dataset for: Salt & Pepper (Lvl 10.0) ...
+INFO - 06/13/26 00:32:38 - 0:28:08 - Generating and Evaluating on dataset for: Gaussian (Lvl 5.0) ...
+INFO - 06/13/26 00:33:03 - 0:28:33 - Generating and Evaluating on dataset for: Gaussian (Lvl 10.0) ...
+INFO - 06/13/26 00:33:28 - 0:28:58 - 
+                                     ============================================================
+INFO - 06/13/26 00:33:28 - 0:28:58 -       FINAL ROBUSTNESS EVALUATION RESULTS ON TEST SET       
+INFO - 06/13/26 00:33:28 - 0:28:58 - ============================================================
+INFO - 06/13/26 00:33:28 - 0:28:58 - | Test Scenario                       | Score (Acc)        |
+INFO - 06/13/26 00:33:28 - 0:28:58 - |-------------------------------------|--------------------|
+INFO - 06/13/26 00:33:28 - 0:28:58 - | Clean Test                          |             0.7095 |
+INFO - 06/13/26 00:33:28 - 0:28:58 - | Salt & Pepper (Lvl 5.0)             |             0.5459 |
+INFO - 06/13/26 00:33:28 - 0:28:58 - | Salt & Pepper (Lvl 10.0)            |             0.4297 |
+INFO - 06/13/26 00:33:28 - 0:28:58 - | Gaussian (Lvl 5.0)                  |             0.6254 |
+INFO - 06/13/26 00:33:28 - 0:28:58 - | Gaussian (Lvl 10.0)                 |             0.5428 |
+INFO - 06/13/26 00:33:28 - 0:28:58 - ============================================================
+                                     
+INFO - 06/13/26 00:33:28 - 0:28:58 - Saved final results to e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\dml_nyu_seed0_lr0.00015\final_results.json
+INFO - 06/13/26 00:33:28 - 0:28:58 - Best Clean Model: epoch=20, clean_acc=0.7095
+INFO - 06/13/26 00:33:28 - 0:28:58 - Appended experiment record to e:\Paper_Experiment\DML\DML_v1\RGB_v5\savepath\nyud\all_experiments.json

@@ -1,13 +1,13 @@
 {
     "best_clean_model": {
-        "epoch": 4,
-        "clean_acc": 0.5362877328195247
+        "epoch": 33,
+        "clean_acc": 0.7360308285163777
     },
     "robustness": {
-        "Clean Test": 0.5362877328195247,
-        "Salt & Pepper (Lvl 5.0)": 0.5401412973667309,
-        "Salt & Pepper (Lvl 10.0)": 0.5414258188824663,
-        "Gaussian (Lvl 5.0)": 0.5362877328195247,
-        "Gaussian (Lvl 10.0)": 0.5362877328195247
+        "Clean Test": 0.7360308285163777,
+        "Salt & Pepper (Lvl 5.0)": 0.6461143224149004,
+        "Salt & Pepper (Lvl 10.0)": 0.5112395632626846,
+        "Gaussian (Lvl 5.0)": 0.7296082209377007,
+        "Gaussian (Lvl 10.0)": 0.72703917790623
     }
 }

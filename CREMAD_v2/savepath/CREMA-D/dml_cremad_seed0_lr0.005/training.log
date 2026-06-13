@@ -86,3 +86,725 @@
 
 2026-06-10 19:02:17,880 Saved final results to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.005\final_results.json
 2026-06-10 19:02:17,881 Appended experiment record to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\all_experiments.json
+2026-06-13 10:35:15,839 ---------------------Cfg is set as follow--------------------
+2026-06-13 10:35:15,840 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/datasets_shared/CREMA-D'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 16, 'num_workers': 0, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 0, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.005, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}, 'early_stop_patience': 5, 'early_stop_min_delta': 0.0}, 'test': {'batch_size': 16, 'num_workers': 0}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.005', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v5', 'seed': 0, 'fps': 3, 'ib_beta': 0.001, 'ib_eps_scale': 0.0, 'ib_warmup_epochs': 30, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\\dml_cremad_seed0_lr0.005', 'log_name': 'training.log'}
+2026-06-13 10:35:15,840 -------------------------------------------------------------
+2026-06-13 10:35:16,149 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-06-13 10:35:16,490 Epoch 0 is pending...
+2026-06-13 10:38:34,486 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:38:34,486 Epoch 0: Average Training Loss: 5.2265, loss_fused:1.6267, loss_audio:1.6541, loss_video:1.9456, loss_ib:0.0000, acc_fused:0.3401, acc_audio:0.3541, acc_video:0.1699
+2026-06-13 10:39:09,996 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:39:09,997 Epoch 0: f1:0.0486, acc:0.1708, mAP:0.2897, f1_a:0.0486, acc_a:0.1708, mAP_a:0.2881, f1_v:0.0959, acc_v:0.1837, mAP_v:0.1734
+2026-06-13 10:39:09,997 NEW BEST ACC | Epoch 0 | Acc: 0.1708
+2026-06-13 10:39:09,997 IB warmup epoch 0/30: KL loss and early stopping are disabled.
+2026-06-13 10:39:09,997 Epoch 1 is pending...
+2026-06-13 10:42:21,177 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:42:21,178 Epoch 1: Average Training Loss: 4.6668, loss_fused:1.4343, loss_audio:1.4429, loss_video:1.7896, loss_ib:0.0000, acc_fused:0.4188, acc_audio:0.4212, acc_video:0.1924
+2026-06-13 10:42:55,274 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:42:55,274 Epoch 1: f1:0.3613, acc:0.4027, mAP:0.5203, f1_a:0.4386, acc_a:0.4573, mAP_a:0.5202, f1_v:0.0941, acc_v:0.1908, mAP_v:0.2024
+2026-06-13 10:42:55,274 NEW BEST ACC | Epoch 1 | Acc: 0.4027
+2026-06-13 10:42:55,275 IB warmup epoch 1/30: KL loss and early stopping are disabled.
+2026-06-13 10:42:55,275 Epoch 2 is pending...
+2026-06-13 10:46:05,625 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:46:05,625 Epoch 2: Average Training Loss: 4.3262, loss_fused:1.2746, loss_audio:1.3422, loss_video:1.7094, loss_ib:0.0000, acc_fused:0.5190, acc_audio:0.4882, acc_video:0.2411
+2026-06-13 10:46:39,604 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:46:39,605 Epoch 2: f1:0.4419, acc:0.4676, mAP:0.5616, f1_a:0.4085, acc_a:0.4367, mAP_a:0.5082, f1_v:0.1928, acc_v:0.2466, mAP_v:0.2698
+2026-06-13 10:46:39,605 NEW BEST ACC | Epoch 2 | Acc: 0.4676
+2026-06-13 10:46:39,605 IB warmup epoch 2/30: KL loss and early stopping are disabled.
+2026-06-13 10:46:39,606 Epoch 3 is pending...
+2026-06-13 10:49:57,275 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:49:57,275 Epoch 3: Average Training Loss: 4.0530, loss_fused:1.1502, loss_audio:1.2687, loss_video:1.6341, loss_ib:0.0000, acc_fused:0.5686, acc_audio:0.5197, acc_video:0.2730
+2026-06-13 10:50:31,464 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:50:31,464 Epoch 3: f1:0.3333, acc:0.3475, mAP:0.4779, f1_a:0.5564, acc_a:0.5549, mAP_a:0.5863, f1_v:0.0872, acc_v:0.1760, mAP_v:0.2070
+2026-06-13 10:50:31,465 IB warmup epoch 3/30: KL loss and early stopping are disabled.
+2026-06-13 10:50:31,465 Epoch 4 is pending...
+2026-06-13 10:53:39,776 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:53:39,776 Epoch 4: Average Training Loss: 3.8452, loss_fused:1.0555, loss_audio:1.2242, loss_video:1.5655, loss_ib:0.0000, acc_fused:0.6120, acc_audio:0.5422, acc_video:0.3258
+2026-06-13 10:54:13,661 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:54:13,661 Epoch 4: f1:0.4709, acc:0.5080, mAP:0.6541, f1_a:0.3556, acc_a:0.3963, mAP_a:0.5370, f1_v:0.2845, acc_v:0.3224, mAP_v:0.3457
+2026-06-13 10:54:13,662 NEW BEST ACC | Epoch 4 | Acc: 0.5080
+2026-06-13 10:54:13,662 IB warmup epoch 4/30: KL loss and early stopping are disabled.
+2026-06-13 10:54:13,662 Epoch 5 is pending...
+2026-06-13 10:57:21,314 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:57:21,314 Epoch 5: Average Training Loss: 3.6366, loss_fused:0.9690, loss_audio:1.1522, loss_video:1.5154, loss_ib:0.0000, acc_fused:0.6492, acc_audio:0.5659, acc_video:0.3507
+2026-06-13 10:57:55,082 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 10:57:55,082 Epoch 5: f1:0.5865, acc:0.5883, mAP:0.6634, f1_a:0.5129, acc_a:0.5119, mAP_a:0.5973, f1_v:0.2727, acc_v:0.3070, mAP_v:0.3239
+2026-06-13 10:57:55,082 NEW BEST ACC | Epoch 5 | Acc: 0.5883
+2026-06-13 10:57:55,083 IB warmup epoch 5/30: KL loss and early stopping are disabled.
+2026-06-13 10:57:55,083 Epoch 6 is pending...
+2026-06-13 11:01:02,274 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:01:02,274 Epoch 6: Average Training Loss: 3.4387, loss_fused:0.8825, loss_audio:1.0924, loss_video:1.4637, loss_ib:0.0000, acc_fused:0.6797, acc_audio:0.5877, acc_video:0.3759
+2026-06-13 11:01:36,240 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:01:36,240 Epoch 6: f1:0.4592, acc:0.4689, mAP:0.6596, f1_a:0.4125, acc_a:0.4444, mAP_a:0.5864, f1_v:0.2622, acc_v:0.3333, mAP_v:0.3483
+2026-06-13 11:01:36,241 IB warmup epoch 6/30: KL loss and early stopping are disabled.
+2026-06-13 11:01:36,241 Epoch 7 is pending...
+2026-06-13 11:04:51,592 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:04:51,592 Epoch 7: Average Training Loss: 3.3168, loss_fused:0.8356, loss_audio:1.0539, loss_video:1.4273, loss_ib:0.0000, acc_fused:0.7008, acc_audio:0.6088, acc_video:0.3999
+2026-06-13 11:05:26,731 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:05:26,732 Epoch 7: f1:0.6141, acc:0.6243, mAP:0.7057, f1_a:0.4945, acc_a:0.5106, mAP_a:0.5944, f1_v:0.3042, acc_v:0.3661, mAP_v:0.3864
+2026-06-13 11:05:26,732 NEW BEST ACC | Epoch 7 | Acc: 0.6243
+2026-06-13 11:05:26,733 IB warmup epoch 7/30: KL loss and early stopping are disabled.
+2026-06-13 11:05:26,733 Epoch 8 is pending...
+2026-06-13 11:08:34,229 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:08:34,229 Epoch 8: Average Training Loss: 3.1338, loss_fused:0.7582, loss_audio:0.9972, loss_video:1.3784, loss_ib:0.0000, acc_fused:0.7356, acc_audio:0.6287, acc_video:0.4209
+2026-06-13 11:09:08,474 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:09:08,474 Epoch 8: f1:0.3726, acc:0.4329, mAP:0.6215, f1_a:0.3193, acc_a:0.3924, mAP_a:0.5099, f1_v:0.3077, acc_v:0.3487, mAP_v:0.3757
+2026-06-13 11:09:08,475 IB warmup epoch 8/30: KL loss and early stopping are disabled.
+2026-06-13 11:09:08,475 Epoch 9 is pending...
+2026-06-13 11:12:15,303 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:12:15,304 Epoch 9: Average Training Loss: 3.0223, loss_fused:0.7173, loss_audio:0.9525, loss_video:1.3526, loss_ib:0.0000, acc_fused:0.7477, acc_audio:0.6436, acc_video:0.4299
+2026-06-13 11:12:49,325 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:12:49,325 Epoch 9: f1:0.6155, acc:0.6211, mAP:0.7280, f1_a:0.5123, acc_a:0.5228, mAP_a:0.6196, f1_v:0.3045, acc_v:0.3500, mAP_v:0.3858
+2026-06-13 11:12:49,326 IB warmup epoch 9/30: KL loss and early stopping are disabled.
+2026-06-13 11:12:49,326 Epoch 10 is pending...
+2026-06-13 11:15:56,145 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:15:56,145 Epoch 10: Average Training Loss: 2.8692, loss_fused:0.6615, loss_audio:0.8829, loss_video:1.3248, loss_ib:0.0000, acc_fused:0.7666, acc_audio:0.6768, acc_video:0.4367
+2026-06-13 11:16:30,424 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:16:30,425 Epoch 10: f1:0.5781, acc:0.5992, mAP:0.7177, f1_a:0.4451, acc_a:0.4766, mAP_a:0.5771, f1_v:0.3172, acc_v:0.3610, mAP_v:0.3928
+2026-06-13 11:16:30,425 IB warmup epoch 10/30: KL loss and early stopping are disabled.
+2026-06-13 11:16:30,425 Epoch 11 is pending...
+2026-06-13 11:19:44,408 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:19:44,408 Epoch 11: Average Training Loss: 2.7237, loss_fused:0.6029, loss_audio:0.8178, loss_video:1.3030, loss_ib:0.0000, acc_fused:0.7904, acc_audio:0.7003, acc_video:0.4587
+2026-06-13 11:20:20,133 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:20:20,133 Epoch 11: f1:0.5334, acc:0.5344, mAP:0.6860, f1_a:0.4774, acc_a:0.4817, mAP_a:0.5668, f1_v:0.3089, acc_v:0.3738, mAP_v:0.4165
+2026-06-13 11:20:20,133 IB warmup epoch 11/30: KL loss and early stopping are disabled.
+2026-06-13 11:20:20,134 Epoch 12 is pending...
+2026-06-13 11:23:25,994 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:23:25,994 Epoch 12: Average Training Loss: 2.5838, loss_fused:0.5542, loss_audio:0.7538, loss_video:1.2758, loss_ib:0.0000, acc_fused:0.8059, acc_audio:0.7284, acc_video:0.4866
+2026-06-13 11:23:59,824 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:23:59,824 Epoch 12: f1:0.5746, acc:0.5954, mAP:0.7146, f1_a:0.5054, acc_a:0.5215, mAP_a:0.5920, f1_v:0.3926, acc_v:0.4226, mAP_v:0.4687
+2026-06-13 11:23:59,825 IB warmup epoch 12/30: KL loss and early stopping are disabled.
+2026-06-13 11:23:59,825 Epoch 13 is pending...
+2026-06-13 11:27:06,191 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:27:06,191 Epoch 13: Average Training Loss: 2.4173, loss_fused:0.4946, loss_audio:0.6713, loss_video:1.2514, loss_ib:0.0000, acc_fused:0.8334, acc_audio:0.7598, acc_video:0.4972
+2026-06-13 11:27:40,232 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:27:40,232 Epoch 13: f1:0.6347, acc:0.6557, mAP:0.7654, f1_a:0.4392, acc_a:0.4605, mAP_a:0.5886, f1_v:0.4041, acc_v:0.4290, mAP_v:0.4714
+2026-06-13 11:27:40,232 NEW BEST ACC | Epoch 13 | Acc: 0.6557
+2026-06-13 11:27:40,233 IB warmup epoch 13/30: KL loss and early stopping are disabled.
+2026-06-13 11:27:40,233 Epoch 14 is pending...
+2026-06-13 11:30:46,289 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:30:46,289 Epoch 14: Average Training Loss: 2.3012, loss_fused:0.4478, loss_audio:0.6246, loss_video:1.2289, loss_ib:0.0000, acc_fused:0.8455, acc_audio:0.7710, acc_video:0.4994
+2026-06-13 11:31:20,059 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:31:20,059 Epoch 14: f1:0.5882, acc:0.6012, mAP:0.7207, f1_a:0.4819, acc_a:0.4997, mAP_a:0.5970, f1_v:0.3722, acc_v:0.4066, mAP_v:0.4574
+2026-06-13 11:31:20,060 IB warmup epoch 14/30: KL loss and early stopping are disabled.
+2026-06-13 11:31:20,060 Epoch 15 is pending...
+2026-06-13 11:34:32,637 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:34:32,637 Epoch 15: Average Training Loss: 2.0823, loss_fused:0.3713, loss_audio:0.5310, loss_video:1.1801, loss_ib:0.0000, acc_fused:0.8760, acc_audio:0.8100, acc_video:0.5279
+2026-06-13 11:35:09,973 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:35:09,973 Epoch 15: f1:0.6493, acc:0.6577, mAP:0.7498, f1_a:0.5838, acc_a:0.5864, mAP_a:0.6353, f1_v:0.3814, acc_v:0.4104, mAP_v:0.4505
+2026-06-13 11:35:09,973 NEW BEST ACC | Epoch 15 | Acc: 0.6577
+2026-06-13 11:35:09,974 IB warmup epoch 15/30: KL loss and early stopping are disabled.
+2026-06-13 11:35:09,974 Epoch 16 is pending...
+2026-06-13 11:38:15,961 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:38:15,961 Epoch 16: Average Training Loss: 1.9513, loss_fused:0.3239, loss_audio:0.4577, loss_video:1.1698, loss_ib:0.0000, acc_fused:0.8877, acc_audio:0.8412, acc_video:0.5297
+2026-06-13 11:38:50,034 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:38:50,034 Epoch 16: f1:0.6661, acc:0.6712, mAP:0.7565, f1_a:0.5543, acc_a:0.5678, mAP_a:0.6260, f1_v:0.4241, acc_v:0.4669, mAP_v:0.5094
+2026-06-13 11:38:50,034 NEW BEST ACC | Epoch 16 | Acc: 0.6712
+2026-06-13 11:38:50,035 IB warmup epoch 16/30: KL loss and early stopping are disabled.
+2026-06-13 11:38:50,035 Epoch 17 is pending...
+2026-06-13 11:41:56,183 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:41:56,183 Epoch 17: Average Training Loss: 1.8653, loss_fused:0.2932, loss_audio:0.4146, loss_video:1.1575, loss_ib:0.0000, acc_fused:0.8944, acc_audio:0.8518, acc_video:0.5396
+2026-06-13 11:42:30,191 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:42:30,192 Epoch 17: f1:0.5289, acc:0.5491, mAP:0.7182, f1_a:0.4651, acc_a:0.4862, mAP_a:0.6018, f1_v:0.3396, acc_v:0.3841, mAP_v:0.4687
+2026-06-13 11:42:30,192 IB warmup epoch 17/30: KL loss and early stopping are disabled.
+2026-06-13 11:42:30,192 Epoch 18 is pending...
+2026-06-13 11:45:36,178 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:45:36,178 Epoch 18: Average Training Loss: 1.7461, loss_fused:0.2544, loss_audio:0.3712, loss_video:1.1206, loss_ib:0.0000, acc_fused:0.9123, acc_audio:0.8746, acc_video:0.5515
+2026-06-13 11:46:10,083 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:46:10,083 Epoch 18: f1:0.5207, acc:0.5517, mAP:0.6819, f1_a:0.3614, acc_a:0.4162, mAP_a:0.5154, f1_v:0.3979, acc_v:0.4387, mAP_v:0.4971
+2026-06-13 11:46:10,084 IB warmup epoch 18/30: KL loss and early stopping are disabled.
+2026-06-13 11:46:10,084 Epoch 19 is pending...
+2026-06-13 11:49:21,241 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:49:21,242 Epoch 19: Average Training Loss: 1.6295, loss_fused:0.2084, loss_audio:0.3069, loss_video:1.1141, loss_ib:0.0000, acc_fused:0.9325, acc_audio:0.8918, acc_video:0.5548
+2026-06-13 11:50:00,038 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:50:00,038 Epoch 19: f1:0.5896, acc:0.5857, mAP:0.7191, f1_a:0.4641, acc_a:0.4900, mAP_a:0.5870, f1_v:0.3583, acc_v:0.4001, mAP_v:0.4883
+2026-06-13 11:50:00,039 IB warmup epoch 19/30: KL loss and early stopping are disabled.
+2026-06-13 11:50:00,039 Epoch 20 is pending...
+2026-06-13 11:53:06,015 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:53:06,015 Epoch 20: Average Training Loss: 1.4880, loss_fused:0.1742, loss_audio:0.2615, loss_video:1.0523, loss_ib:0.0000, acc_fused:0.9438, acc_audio:0.9112, acc_video:0.5790
+2026-06-13 11:53:39,948 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:53:39,948 Epoch 20: f1:0.6293, acc:0.6333, mAP:0.7275, f1_a:0.5243, acc_a:0.5356, mAP_a:0.5986, f1_v:0.4207, acc_v:0.4753, mAP_v:0.5019
+2026-06-13 11:53:39,949 IB warmup epoch 20/30: KL loss and early stopping are disabled.
+2026-06-13 11:53:39,949 Epoch 21 is pending...
+2026-06-13 11:56:45,929 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:56:45,929 Epoch 21: Average Training Loss: 1.4644, loss_fused:0.1645, loss_audio:0.2450, loss_video:1.0550, loss_ib:0.0000, acc_fused:0.9492, acc_audio:0.9170, acc_video:0.5817
+2026-06-13 11:57:20,003 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 11:57:20,003 Epoch 21: f1:0.6115, acc:0.6166, mAP:0.7265, f1_a:0.5343, acc_a:0.5434, mAP_a:0.6083, f1_v:0.4488, acc_v:0.4663, mAP_v:0.5326
+2026-06-13 11:57:20,004 IB warmup epoch 21/30: KL loss and early stopping are disabled.
+2026-06-13 11:57:20,004 Epoch 22 is pending...
+2026-06-13 12:00:26,061 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:00:26,061 Epoch 22: Average Training Loss: 1.3575, loss_fused:0.1301, loss_audio:0.1940, loss_video:1.0333, loss_ib:0.0000, acc_fused:0.9576, acc_audio:0.9344, acc_video:0.6016
+2026-06-13 12:00:59,904 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:00:59,904 Epoch 22: f1:0.6121, acc:0.6179, mAP:0.7248, f1_a:0.4813, acc_a:0.5055, mAP_a:0.5929, f1_v:0.4313, acc_v:0.4689, mAP_v:0.5103
+2026-06-13 12:00:59,905 IB warmup epoch 22/30: KL loss and early stopping are disabled.
+2026-06-13 12:00:59,905 Epoch 23 is pending...
+2026-06-13 12:04:10,031 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:04:10,031 Epoch 23: Average Training Loss: 1.3868, loss_fused:0.1373, loss_audio:0.2130, loss_video:1.0366, loss_ib:0.0000, acc_fused:0.9542, acc_audio:0.9300, acc_video:0.5955
+2026-06-13 12:04:49,197 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:04:49,197 Epoch 23: f1:0.6061, acc:0.6166, mAP:0.7303, f1_a:0.5560, acc_a:0.5742, mAP_a:0.6335, f1_v:0.3243, acc_v:0.3815, mAP_v:0.4651
+2026-06-13 12:04:49,198 IB warmup epoch 23/30: KL loss and early stopping are disabled.
+2026-06-13 12:04:49,198 Epoch 24 is pending...
+2026-06-13 12:07:55,620 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:07:55,620 Epoch 24: Average Training Loss: 1.2103, loss_fused:0.0880, loss_audio:0.1344, loss_video:0.9878, loss_ib:0.0000, acc_fused:0.9758, acc_audio:0.9542, acc_video:0.6180
+2026-06-13 12:08:29,700 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:08:29,700 Epoch 24: f1:0.6326, acc:0.6384, mAP:0.7319, f1_a:0.5668, acc_a:0.5748, mAP_a:0.6112, f1_v:0.4493, acc_v:0.4611, mAP_v:0.5288
+2026-06-13 12:08:29,701 IB warmup epoch 24/30: KL loss and early stopping are disabled.
+2026-06-13 12:08:29,701 Epoch 25 is pending...
+2026-06-13 12:11:35,433 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:11:35,433 Epoch 25: Average Training Loss: 1.1905, loss_fused:0.0772, loss_audio:0.1147, loss_video:0.9986, loss_ib:0.0000, acc_fused:0.9782, acc_audio:0.9644, acc_video:0.6098
+2026-06-13 12:12:09,294 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:12:09,295 Epoch 25: f1:0.6190, acc:0.6198, mAP:0.7162, f1_a:0.5329, acc_a:0.5382, mAP_a:0.6039, f1_v:0.4560, acc_v:0.4631, mAP_v:0.5411
+2026-06-13 12:12:09,295 IB warmup epoch 25/30: KL loss and early stopping are disabled.
+2026-06-13 12:12:09,296 Epoch 26 is pending...
+2026-06-13 12:15:14,830 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:15:14,830 Epoch 26: Average Training Loss: 1.2047, loss_fused:0.0810, loss_audio:0.1445, loss_video:0.9792, loss_ib:0.0000, acc_fused:0.9765, acc_audio:0.9554, acc_video:0.6124
+2026-06-13 12:15:48,598 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:15:48,598 Epoch 26: f1:0.5475, acc:0.5601, mAP:0.6956, f1_a:0.4781, acc_a:0.4997, mAP_a:0.5902, f1_v:0.3767, acc_v:0.4265, mAP_v:0.5253
+2026-06-13 12:15:48,599 IB warmup epoch 26/30: KL loss and early stopping are disabled.
+2026-06-13 12:15:48,599 Epoch 27 is pending...
+2026-06-13 12:18:56,911 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:18:56,911 Epoch 27: Average Training Loss: 1.0836, loss_fused:0.0557, loss_audio:0.0802, loss_video:0.9477, loss_ib:0.0000, acc_fused:0.9836, acc_audio:0.9751, acc_video:0.6306
+2026-06-13 12:19:36,177 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:19:36,177 Epoch 27: f1:0.6404, acc:0.6448, mAP:0.7298, f1_a:0.5672, acc_a:0.5768, mAP_a:0.6206, f1_v:0.3285, acc_v:0.3699, mAP_v:0.4975
+2026-06-13 12:19:36,178 IB warmup epoch 27/30: KL loss and early stopping are disabled.
+2026-06-13 12:19:36,178 Epoch 28 is pending...
+2026-06-13 12:22:44,158 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:22:44,158 Epoch 28: Average Training Loss: 1.1653, loss_fused:0.0774, loss_audio:0.1246, loss_video:0.9633, loss_ib:0.0000, acc_fused:0.9756, acc_audio:0.9594, acc_video:0.6308
+2026-06-13 12:23:18,144 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:23:18,144 Epoch 28: f1:0.6413, acc:0.6435, mAP:0.7322, f1_a:0.5491, acc_a:0.5568, mAP_a:0.6134, f1_v:0.3706, acc_v:0.4355, mAP_v:0.5182
+2026-06-13 12:23:18,145 IB warmup epoch 28/30: KL loss and early stopping are disabled.
+2026-06-13 12:23:18,145 Epoch 29 is pending...
+2026-06-13 12:26:23,610 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:26:23,610 Epoch 29: Average Training Loss: 1.0709, loss_fused:0.0506, loss_audio:0.0851, loss_video:0.9351, loss_ib:0.0000, acc_fused:0.9860, acc_audio:0.9719, acc_video:0.6316
+2026-06-13 12:26:57,427 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:26:57,427 Epoch 29: f1:0.6648, acc:0.6545, mAP:0.7351, f1_a:0.5694, acc_a:0.5633, mAP_a:0.6102, f1_v:0.4622, acc_v:0.4804, mAP_v:0.5629
+2026-06-13 12:26:57,428 IB warmup epoch 29/30: KL loss and early stopping are disabled.
+2026-06-13 12:26:57,428 Epoch 30 is pending...
+2026-06-13 12:30:03,449 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:30:03,449 Epoch 30: Average Training Loss: 1.1627, loss_fused:0.0550, loss_audio:0.0722, loss_video:0.9312, loss_ib:0.1043, acc_fused:0.9850, acc_audio:0.9756, acc_video:0.6442
+2026-06-13 12:30:37,282 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:30:37,283 Epoch 30: f1:0.6469, acc:0.6513, mAP:0.7490, f1_a:0.5601, acc_a:0.5639, mAP_a:0.6385, f1_v:0.4096, acc_v:0.4676, mAP_v:0.5476
+2026-06-13 12:30:37,377 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.005\model_best_clean.pt
+2026-06-13 12:30:37,377 Epoch 31 is pending...
+2026-06-13 12:33:44,268 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:33:44,268 Epoch 31: Average Training Loss: 1.0463, loss_fused:0.0325, loss_audio:0.0300, loss_video:0.9108, loss_ib:0.0729, acc_fused:0.9940, acc_audio:0.9899, acc_video:0.6441
+2026-06-13 12:34:23,774 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:34:23,774 Epoch 31: f1:0.6465, acc:0.6500, mAP:0.7567, f1_a:0.5691, acc_a:0.5710, mAP_a:0.6392, f1_v:0.3732, acc_v:0.3873, mAP_v:0.4965
+2026-06-13 12:34:23,775 No clean accuracy improvement for 1/5 epochs.
+2026-06-13 12:34:23,775 Epoch 32 is pending...
+2026-06-13 12:37:32,901 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:37:32,901 Epoch 32: Average Training Loss: 1.0000, loss_fused:0.0253, loss_audio:0.0181, loss_video:0.8965, loss_ib:0.0600, acc_fused:0.9964, acc_audio:0.9959, acc_video:0.6504
+2026-06-13 12:38:06,742 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:38:06,742 Epoch 32: f1:0.6698, acc:0.6718, mAP:0.7586, f1_a:0.5997, acc_a:0.6024, mAP_a:0.6477, f1_v:0.4412, acc_v:0.4457, mAP_v:0.5325
+2026-06-13 12:38:06,742 NEW BEST ACC | Epoch 32 | Acc: 0.6718
+2026-06-13 12:38:06,844 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.005\model_best_clean.pt
+2026-06-13 12:38:06,844 Epoch 33 is pending...
+2026-06-13 12:41:12,128 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:41:12,128 Epoch 33: Average Training Loss: 0.9697, loss_fused:0.0177, loss_audio:0.0093, loss_video:0.8910, loss_ib:0.0516, acc_fused:0.9986, acc_audio:0.9985, acc_video:0.6580
+2026-06-13 12:41:46,089 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:41:46,089 Epoch 33: f1:0.7111, acc:0.7110, mAP:0.7830, f1_a:0.6091, acc_a:0.6069, mAP_a:0.6597, f1_v:0.5003, acc_v:0.5145, mAP_v:0.5741
+2026-06-13 12:41:46,089 NEW BEST ACC | Epoch 33 | Acc: 0.7110
+2026-06-13 12:41:46,183 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.005\model_best_clean.pt
+2026-06-13 12:41:46,183 Epoch 34 is pending...
+2026-06-13 12:44:52,209 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:44:52,209 Epoch 34: Average Training Loss: 0.9650, loss_fused:0.0172, loss_audio:0.0096, loss_video:0.8920, loss_ib:0.0463, acc_fused:0.9986, acc_audio:0.9986, acc_video:0.6551
+2026-06-13 12:45:26,259 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:45:26,259 Epoch 34: f1:0.6993, acc:0.6994, mAP:0.7620, f1_a:0.6050, acc_a:0.6044, mAP_a:0.6567, f1_v:0.5003, acc_v:0.5183, mAP_v:0.5532
+2026-06-13 12:45:26,260 No clean accuracy improvement for 1/5 epochs.
+2026-06-13 12:45:26,260 Epoch 35 is pending...
+2026-06-13 12:48:32,529 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:48:32,529 Epoch 35: Average Training Loss: 0.9401, loss_fused:0.0163, loss_audio:0.0100, loss_video:0.8711, loss_ib:0.0427, acc_fused:0.9988, acc_audio:0.9990, acc_video:0.6642
+2026-06-13 12:49:11,899 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:49:11,899 Epoch 35: f1:0.6939, acc:0.6898, mAP:0.7907, f1_a:0.6097, acc_a:0.6101, mAP_a:0.6643, f1_v:0.4345, acc_v:0.4605, mAP_v:0.5324
+2026-06-13 12:49:11,900 No clean accuracy improvement for 2/5 epochs.
+2026-06-13 12:49:11,900 Epoch 36 is pending...
+2026-06-13 12:52:22,395 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:52:22,395 Epoch 36: Average Training Loss: 0.9300, loss_fused:0.0132, loss_audio:0.0065, loss_video:0.8705, loss_ib:0.0399, acc_fused:0.9991, acc_audio:0.9991, acc_video:0.6626
+2026-06-13 12:52:56,414 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:52:56,414 Epoch 36: f1:0.7119, acc:0.7097, mAP:0.7863, f1_a:0.6106, acc_a:0.6108, mAP_a:0.6608, f1_v:0.4297, acc_v:0.4586, mAP_v:0.5480
+2026-06-13 12:52:56,415 No clean accuracy improvement for 3/5 epochs.
+2026-06-13 12:52:56,415 Epoch 37 is pending...
+2026-06-13 12:56:02,856 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:56:02,856 Epoch 37: Average Training Loss: 0.9274, loss_fused:0.0130, loss_audio:0.0053, loss_video:0.8708, loss_ib:0.0382, acc_fused:0.9990, acc_audio:0.9990, acc_video:0.6650
+2026-06-13 12:56:36,926 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:56:36,926 Epoch 37: f1:0.6935, acc:0.6962, mAP:0.7774, f1_a:0.6054, acc_a:0.6069, mAP_a:0.6593, f1_v:0.4614, acc_v:0.4907, mAP_v:0.5723
+2026-06-13 12:56:36,927 No clean accuracy improvement for 4/5 epochs.
+2026-06-13 12:56:36,927 Epoch 38 is pending...
+2026-06-13 12:59:42,902 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 12:59:42,902 Epoch 38: Average Training Loss: 0.8939, loss_fused:0.0129, loss_audio:0.0059, loss_video:0.8384, loss_ib:0.0367, acc_fused:0.9986, acc_audio:0.9990, acc_video:0.6877
+2026-06-13 13:00:17,005 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 13:00:17,005 Epoch 38: f1:0.6979, acc:0.6962, mAP:0.7828, f1_a:0.6045, acc_a:0.6063, mAP_a:0.6570, f1_v:0.4063, acc_v:0.4387, mAP_v:0.5363
+2026-06-13 13:00:17,005 No clean accuracy improvement for 5/5 epochs.
+2026-06-13 13:00:17,006 Stopping early at epoch 38: clean accuracy did not improve by at least 0.0 for 5 epochs.
+2026-06-13 13:00:17,006 ============================================================
+2026-06-13 13:00:17,006 Training complete. Best epoch: 33, Best acc: 0.7110
+2026-06-13 13:00:17,006 Best metrics: Epoch 33: f1:0.7111, acc:0.7110, mAP:0.7830, f1_a:0.6091, acc_a:0.6069, mAP_a:0.6597, f1_v:0.5003, acc_v:0.5145, mAP_v:0.5741
+2026-06-13 13:00:17,006 ============================================================
+2026-06-13 13:00:17,006 Loading best model for robustness evaluation...
+2026-06-13 13:00:17,272 Loaded best model from E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.005\model_best_clean.pt
+2026-06-13 13:00:17,273 Evaluating scenario: Clean Test ...
+2026-06-13 13:00:51,497   Clean Test: Acc = 0.7360
+2026-06-13 13:00:51,497 Evaluating scenario: Salt & Pepper (Lvl 5.0) ...
+2026-06-13 13:01:31,849   Salt & Pepper (Lvl 5.0): Acc = 0.6461
+2026-06-13 13:01:31,850 Evaluating scenario: Salt & Pepper (Lvl 10.0) ...
+2026-06-13 13:02:17,415   Salt & Pepper (Lvl 10.0): Acc = 0.5112
+2026-06-13 13:02:17,415 Evaluating scenario: Gaussian (Lvl 5.0) ...
+2026-06-13 13:02:59,127   Gaussian (Lvl 5.0): Acc = 0.7296
+2026-06-13 13:02:59,127 Evaluating scenario: Gaussian (Lvl 10.0) ...
+2026-06-13 13:03:42,814   Gaussian (Lvl 10.0): Acc = 0.7270
+2026-06-13 13:03:42,814 
+============================================================
+2026-06-13 13:03:42,814             FINAL ROBUSTNESS EVALUATION RESULTS             
+2026-06-13 13:03:42,815 ============================================================
+2026-06-13 13:03:42,815 | Test Scenario                       | Accuracy           |
+2026-06-13 13:03:42,815 |-------------------------------------|--------------------|
+2026-06-13 13:03:42,815 | Clean Test                          |             0.7360 |
+2026-06-13 13:03:42,815 | Salt & Pepper (Lvl 5.0)             |             0.6461 |
+2026-06-13 13:03:42,815 | Salt & Pepper (Lvl 10.0)            |             0.5112 |
+2026-06-13 13:03:42,815 | Gaussian (Lvl 5.0)                  |             0.7296 |
+2026-06-13 13:03:42,816 | Gaussian (Lvl 10.0)                 |             0.7270 |
+2026-06-13 13:03:42,816 ============================================================
+
+2026-06-13 13:03:42,816 Saved final results to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.005\final_results.json
+2026-06-13 13:03:42,818 Appended experiment record to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\all_experiments.json
+2026-06-13 14:07:45,832 ---------------------Cfg is set as follow--------------------
+2026-06-13 14:07:45,832 {'dataset': {'dataset_name': 'CREMA-D', 'data_root': 'E:/Paper_Experiment/DML/DML_v1/datasets_shared/CREMA-D'}, 'visual': {'name': 'resnet18', 'freeze': False, 'pretrain': False, 'hidden_dim': 512}, 'text': {'name': 'resnet18'}, 'loss': {'type': 'CrossEntropy'}, 'head': {'type': 'MLP'}, 'train': {'epoch_dict': 100, 'batch_size': 16, 'num_workers': 0, 'val_size': 16, 'val_batch_size': 16, 'val_num_workers': 0, 'shuffle': True, 'optimizer': {'type': 'SGD', 'lr': 0.005, 'momentum': 0.9, 'wc': 0.0001}, 'lr_scheduler': {'type': 'normal', 'patience': 70}, 'early_stop_patience': 10, 'early_stop_min_delta': 0.0}, 'test': {'batch_size': 16, 'num_workers': 0}, 'setting': {'type': 'CREMA Classification', 'num_class': 6}, 'experiment': {'name': 'dml_cremad_seed0_lr0.005', 'note': ''}, 'save_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D', 'output_dir': 'e:\\Paper_Experiment\\DML\\DML_v1\\CREMAD_v5', 'seed': 0, 'fps': 3, 'ib_beta': 0.001, 'ib_eps_scale': 0.0, 'ib_warmup_epochs': 70, 'use_gpu': True, 'gpu_id': 0, 'debug': False, 'run_dir': 'E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\\dml_cremad_seed0_lr0.005', 'log_name': 'training.log'}
+2026-06-13 14:07:45,832 -------------------------------------------------------------
+2026-06-13 14:07:46,089 Train samples: 5869, Val samples: 16, Test samples: 1557
+2026-06-13 14:07:46,439 Epoch 0 is pending...
+2026-06-13 14:11:03,589 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:11:03,590 Epoch 0: Average Training Loss: 5.2265, loss_fused:1.6267, loss_audio:1.6541, loss_video:1.9456, loss_ib:0.0000, acc_fused:0.3401, acc_audio:0.3541, acc_video:0.1699
+2026-06-13 14:11:38,485 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:11:38,485 Epoch 0: f1:0.0486, acc:0.1708, mAP:0.2897, f1_a:0.0486, acc_a:0.1708, mAP_a:0.2881, f1_v:0.0959, acc_v:0.1837, mAP_v:0.1734
+2026-06-13 14:11:38,486 NEW BEST ACC | Epoch 0 | Acc: 0.1708
+2026-06-13 14:11:38,486 IB warmup epoch 0/70: KL loss and early stopping are disabled.
+2026-06-13 14:11:38,486 Epoch 1 is pending...
+2026-06-13 14:14:52,371 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:14:52,371 Epoch 1: Average Training Loss: 4.6668, loss_fused:1.4343, loss_audio:1.4429, loss_video:1.7896, loss_ib:0.0000, acc_fused:0.4188, acc_audio:0.4212, acc_video:0.1924
+2026-06-13 14:15:26,860 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:15:26,860 Epoch 1: f1:0.3613, acc:0.4027, mAP:0.5203, f1_a:0.4386, acc_a:0.4573, mAP_a:0.5202, f1_v:0.0941, acc_v:0.1908, mAP_v:0.2024
+2026-06-13 14:15:26,860 NEW BEST ACC | Epoch 1 | Acc: 0.4027
+2026-06-13 14:15:26,861 IB warmup epoch 1/70: KL loss and early stopping are disabled.
+2026-06-13 14:15:26,861 Epoch 2 is pending...
+2026-06-13 14:18:40,068 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:18:40,069 Epoch 2: Average Training Loss: 4.3262, loss_fused:1.2746, loss_audio:1.3422, loss_video:1.7094, loss_ib:0.0000, acc_fused:0.5190, acc_audio:0.4882, acc_video:0.2411
+2026-06-13 14:19:20,520 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:19:20,520 Epoch 2: f1:0.4419, acc:0.4676, mAP:0.5616, f1_a:0.4085, acc_a:0.4367, mAP_a:0.5082, f1_v:0.1928, acc_v:0.2466, mAP_v:0.2698
+2026-06-13 14:19:20,520 NEW BEST ACC | Epoch 2 | Acc: 0.4676
+2026-06-13 14:19:20,521 IB warmup epoch 2/70: KL loss and early stopping are disabled.
+2026-06-13 14:19:20,521 Epoch 3 is pending...
+2026-06-13 14:22:44,612 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:22:44,612 Epoch 3: Average Training Loss: 4.0530, loss_fused:1.1502, loss_audio:1.2687, loss_video:1.6341, loss_ib:0.0000, acc_fused:0.5686, acc_audio:0.5197, acc_video:0.2730
+2026-06-13 14:23:18,997 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:23:18,997 Epoch 3: f1:0.3333, acc:0.3475, mAP:0.4779, f1_a:0.5564, acc_a:0.5549, mAP_a:0.5863, f1_v:0.0872, acc_v:0.1760, mAP_v:0.2070
+2026-06-13 14:23:18,998 IB warmup epoch 3/70: KL loss and early stopping are disabled.
+2026-06-13 14:23:18,998 Epoch 4 is pending...
+2026-06-13 14:26:29,070 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:26:29,070 Epoch 4: Average Training Loss: 3.8452, loss_fused:1.0555, loss_audio:1.2242, loss_video:1.5655, loss_ib:0.0000, acc_fused:0.6120, acc_audio:0.5422, acc_video:0.3258
+2026-06-13 14:27:03,462 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:27:03,463 Epoch 4: f1:0.4709, acc:0.5080, mAP:0.6541, f1_a:0.3556, acc_a:0.3963, mAP_a:0.5370, f1_v:0.2845, acc_v:0.3224, mAP_v:0.3457
+2026-06-13 14:27:03,463 NEW BEST ACC | Epoch 4 | Acc: 0.5080
+2026-06-13 14:27:03,463 IB warmup epoch 4/70: KL loss and early stopping are disabled.
+2026-06-13 14:27:03,464 Epoch 5 is pending...
+2026-06-13 14:30:12,948 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:30:12,948 Epoch 5: Average Training Loss: 3.6366, loss_fused:0.9690, loss_audio:1.1522, loss_video:1.5154, loss_ib:0.0000, acc_fused:0.6492, acc_audio:0.5659, acc_video:0.3507
+2026-06-13 14:30:47,183 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:30:47,183 Epoch 5: f1:0.5865, acc:0.5883, mAP:0.6634, f1_a:0.5129, acc_a:0.5119, mAP_a:0.5973, f1_v:0.2727, acc_v:0.3070, mAP_v:0.3239
+2026-06-13 14:30:47,183 NEW BEST ACC | Epoch 5 | Acc: 0.5883
+2026-06-13 14:30:47,184 IB warmup epoch 5/70: KL loss and early stopping are disabled.
+2026-06-13 14:30:47,184 Epoch 6 is pending...
+2026-06-13 14:33:59,231 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:33:59,231 Epoch 6: Average Training Loss: 3.4387, loss_fused:0.8825, loss_audio:1.0924, loss_video:1.4637, loss_ib:0.0000, acc_fused:0.6797, acc_audio:0.5877, acc_video:0.3759
+2026-06-13 14:34:39,024 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:34:39,024 Epoch 6: f1:0.4592, acc:0.4689, mAP:0.6596, f1_a:0.4125, acc_a:0.4444, mAP_a:0.5864, f1_v:0.2622, acc_v:0.3333, mAP_v:0.3483
+2026-06-13 14:34:39,025 IB warmup epoch 6/70: KL loss and early stopping are disabled.
+2026-06-13 14:34:39,025 Epoch 7 is pending...
+2026-06-13 14:37:51,518 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:37:51,518 Epoch 7: Average Training Loss: 3.3168, loss_fused:0.8356, loss_audio:1.0539, loss_video:1.4273, loss_ib:0.0000, acc_fused:0.7008, acc_audio:0.6088, acc_video:0.3999
+2026-06-13 14:38:26,777 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:38:26,777 Epoch 7: f1:0.6141, acc:0.6243, mAP:0.7057, f1_a:0.4945, acc_a:0.5106, mAP_a:0.5944, f1_v:0.3042, acc_v:0.3661, mAP_v:0.3864
+2026-06-13 14:38:26,778 NEW BEST ACC | Epoch 7 | Acc: 0.6243
+2026-06-13 14:38:26,778 IB warmup epoch 7/70: KL loss and early stopping are disabled.
+2026-06-13 14:38:26,778 Epoch 8 is pending...
+2026-06-13 14:41:39,110 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:41:39,110 Epoch 8: Average Training Loss: 3.1338, loss_fused:0.7582, loss_audio:0.9972, loss_video:1.3784, loss_ib:0.0000, acc_fused:0.7356, acc_audio:0.6287, acc_video:0.4209
+2026-06-13 14:42:14,229 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:42:14,229 Epoch 8: f1:0.3726, acc:0.4329, mAP:0.6215, f1_a:0.3193, acc_a:0.3924, mAP_a:0.5099, f1_v:0.3077, acc_v:0.3487, mAP_v:0.3757
+2026-06-13 14:42:14,230 IB warmup epoch 8/70: KL loss and early stopping are disabled.
+2026-06-13 14:42:14,230 Epoch 9 is pending...
+2026-06-13 14:45:25,744 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:45:25,744 Epoch 9: Average Training Loss: 3.0223, loss_fused:0.7173, loss_audio:0.9525, loss_video:1.3526, loss_ib:0.0000, acc_fused:0.7477, acc_audio:0.6436, acc_video:0.4299
+2026-06-13 14:46:00,807 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:46:00,807 Epoch 9: f1:0.6155, acc:0.6211, mAP:0.7280, f1_a:0.5123, acc_a:0.5228, mAP_a:0.6196, f1_v:0.3045, acc_v:0.3500, mAP_v:0.3858
+2026-06-13 14:46:00,808 IB warmup epoch 9/70: KL loss and early stopping are disabled.
+2026-06-13 14:46:00,808 Epoch 10 is pending...
+2026-06-13 14:49:18,361 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:49:18,361 Epoch 10: Average Training Loss: 2.8692, loss_fused:0.6615, loss_audio:0.8829, loss_video:1.3248, loss_ib:0.0000, acc_fused:0.7666, acc_audio:0.6768, acc_video:0.4367
+2026-06-13 14:49:59,678 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:49:59,678 Epoch 10: f1:0.5781, acc:0.5992, mAP:0.7177, f1_a:0.4451, acc_a:0.4766, mAP_a:0.5771, f1_v:0.3172, acc_v:0.3610, mAP_v:0.3928
+2026-06-13 14:49:59,679 IB warmup epoch 10/70: KL loss and early stopping are disabled.
+2026-06-13 14:49:59,679 Epoch 11 is pending...
+2026-06-13 14:53:10,328 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:53:10,328 Epoch 11: Average Training Loss: 2.7237, loss_fused:0.6029, loss_audio:0.8178, loss_video:1.3030, loss_ib:0.0000, acc_fused:0.7904, acc_audio:0.7003, acc_video:0.4587
+2026-06-13 14:53:45,720 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:53:45,720 Epoch 11: f1:0.5334, acc:0.5344, mAP:0.6860, f1_a:0.4774, acc_a:0.4817, mAP_a:0.5668, f1_v:0.3089, acc_v:0.3738, mAP_v:0.4165
+2026-06-13 14:53:45,721 IB warmup epoch 11/70: KL loss and early stopping are disabled.
+2026-06-13 14:53:45,721 Epoch 12 is pending...
+2026-06-13 14:56:56,301 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:56:56,302 Epoch 12: Average Training Loss: 2.5838, loss_fused:0.5542, loss_audio:0.7538, loss_video:1.2758, loss_ib:0.0000, acc_fused:0.8059, acc_audio:0.7284, acc_video:0.4866
+2026-06-13 14:57:31,637 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 14:57:31,637 Epoch 12: f1:0.5746, acc:0.5954, mAP:0.7146, f1_a:0.5054, acc_a:0.5215, mAP_a:0.5920, f1_v:0.3926, acc_v:0.4226, mAP_v:0.4687
+2026-06-13 14:57:31,638 IB warmup epoch 12/70: KL loss and early stopping are disabled.
+2026-06-13 14:57:31,638 Epoch 13 is pending...
+2026-06-13 15:00:43,311 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:00:43,311 Epoch 13: Average Training Loss: 2.4173, loss_fused:0.4946, loss_audio:0.6713, loss_video:1.2514, loss_ib:0.0000, acc_fused:0.8334, acc_audio:0.7598, acc_video:0.4972
+2026-06-13 15:01:18,336 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:01:18,337 Epoch 13: f1:0.6347, acc:0.6557, mAP:0.7654, f1_a:0.4392, acc_a:0.4605, mAP_a:0.5886, f1_v:0.4041, acc_v:0.4290, mAP_v:0.4714
+2026-06-13 15:01:18,337 NEW BEST ACC | Epoch 13 | Acc: 0.6557
+2026-06-13 15:01:18,337 IB warmup epoch 13/70: KL loss and early stopping are disabled.
+2026-06-13 15:01:18,338 Epoch 14 is pending...
+2026-06-13 15:04:36,116 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:04:36,116 Epoch 14: Average Training Loss: 2.3012, loss_fused:0.4478, loss_audio:0.6246, loss_video:1.2289, loss_ib:0.0000, acc_fused:0.8455, acc_audio:0.7710, acc_video:0.4994
+2026-06-13 15:05:14,235 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:05:14,236 Epoch 14: f1:0.5882, acc:0.6012, mAP:0.7207, f1_a:0.4819, acc_a:0.4997, mAP_a:0.5970, f1_v:0.3722, acc_v:0.4066, mAP_v:0.4574
+2026-06-13 15:05:14,236 IB warmup epoch 14/70: KL loss and early stopping are disabled.
+2026-06-13 15:05:14,237 Epoch 15 is pending...
+2026-06-13 15:08:22,410 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:08:22,410 Epoch 15: Average Training Loss: 2.0823, loss_fused:0.3713, loss_audio:0.5310, loss_video:1.1801, loss_ib:0.0000, acc_fused:0.8760, acc_audio:0.8100, acc_video:0.5279
+2026-06-13 15:08:56,756 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:08:56,756 Epoch 15: f1:0.6493, acc:0.6577, mAP:0.7498, f1_a:0.5838, acc_a:0.5864, mAP_a:0.6353, f1_v:0.3814, acc_v:0.4104, mAP_v:0.4505
+2026-06-13 15:08:56,757 NEW BEST ACC | Epoch 15 | Acc: 0.6577
+2026-06-13 15:08:56,757 IB warmup epoch 15/70: KL loss and early stopping are disabled.
+2026-06-13 15:08:56,757 Epoch 16 is pending...
+2026-06-13 15:12:05,392 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:12:05,392 Epoch 16: Average Training Loss: 1.9513, loss_fused:0.3239, loss_audio:0.4577, loss_video:1.1698, loss_ib:0.0000, acc_fused:0.8877, acc_audio:0.8412, acc_video:0.5297
+2026-06-13 15:12:40,259 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:12:40,259 Epoch 16: f1:0.6661, acc:0.6712, mAP:0.7565, f1_a:0.5543, acc_a:0.5678, mAP_a:0.6260, f1_v:0.4241, acc_v:0.4669, mAP_v:0.5094
+2026-06-13 15:12:40,259 NEW BEST ACC | Epoch 16 | Acc: 0.6712
+2026-06-13 15:12:40,260 IB warmup epoch 16/70: KL loss and early stopping are disabled.
+2026-06-13 15:12:40,260 Epoch 17 is pending...
+2026-06-13 15:15:50,198 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:15:50,198 Epoch 17: Average Training Loss: 1.8653, loss_fused:0.2932, loss_audio:0.4146, loss_video:1.1575, loss_ib:0.0000, acc_fused:0.8944, acc_audio:0.8518, acc_video:0.5396
+2026-06-13 15:16:25,127 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:16:25,127 Epoch 17: f1:0.5289, acc:0.5491, mAP:0.7182, f1_a:0.4651, acc_a:0.4862, mAP_a:0.6018, f1_v:0.3396, acc_v:0.3841, mAP_v:0.4687
+2026-06-13 15:16:25,128 IB warmup epoch 17/70: KL loss and early stopping are disabled.
+2026-06-13 15:16:25,128 Epoch 18 is pending...
+2026-06-13 15:19:40,485 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:19:40,485 Epoch 18: Average Training Loss: 1.7461, loss_fused:0.2544, loss_audio:0.3712, loss_video:1.1206, loss_ib:0.0000, acc_fused:0.9123, acc_audio:0.8746, acc_video:0.5515
+2026-06-13 15:20:17,148 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:20:17,149 Epoch 18: f1:0.5207, acc:0.5517, mAP:0.6819, f1_a:0.3614, acc_a:0.4162, mAP_a:0.5154, f1_v:0.3979, acc_v:0.4387, mAP_v:0.4971
+2026-06-13 15:20:17,150 IB warmup epoch 18/70: KL loss and early stopping are disabled.
+2026-06-13 15:20:17,150 Epoch 19 is pending...
+2026-06-13 15:23:24,043 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:23:24,043 Epoch 19: Average Training Loss: 1.6295, loss_fused:0.2084, loss_audio:0.3069, loss_video:1.1141, loss_ib:0.0000, acc_fused:0.9325, acc_audio:0.8918, acc_video:0.5548
+2026-06-13 15:23:58,199 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:23:58,199 Epoch 19: f1:0.5896, acc:0.5857, mAP:0.7191, f1_a:0.4641, acc_a:0.4900, mAP_a:0.5870, f1_v:0.3583, acc_v:0.4001, mAP_v:0.4883
+2026-06-13 15:23:58,200 IB warmup epoch 19/70: KL loss and early stopping are disabled.
+2026-06-13 15:23:58,200 Epoch 20 is pending...
+2026-06-13 15:27:04,966 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:27:04,966 Epoch 20: Average Training Loss: 1.4880, loss_fused:0.1742, loss_audio:0.2615, loss_video:1.0523, loss_ib:0.0000, acc_fused:0.9438, acc_audio:0.9112, acc_video:0.5790
+2026-06-13 15:27:39,017 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:27:39,017 Epoch 20: f1:0.6293, acc:0.6333, mAP:0.7275, f1_a:0.5243, acc_a:0.5356, mAP_a:0.5986, f1_v:0.4207, acc_v:0.4753, mAP_v:0.5019
+2026-06-13 15:27:39,018 IB warmup epoch 20/70: KL loss and early stopping are disabled.
+2026-06-13 15:27:39,018 Epoch 21 is pending...
+2026-06-13 15:30:45,812 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:30:45,812 Epoch 21: Average Training Loss: 1.4644, loss_fused:0.1645, loss_audio:0.2450, loss_video:1.0550, loss_ib:0.0000, acc_fused:0.9492, acc_audio:0.9170, acc_video:0.5817
+2026-06-13 15:31:19,862 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:31:19,862 Epoch 21: f1:0.6115, acc:0.6166, mAP:0.7265, f1_a:0.5343, acc_a:0.5434, mAP_a:0.6083, f1_v:0.4488, acc_v:0.4663, mAP_v:0.5326
+2026-06-13 15:31:19,863 IB warmup epoch 21/70: KL loss and early stopping are disabled.
+2026-06-13 15:31:19,863 Epoch 22 is pending...
+2026-06-13 15:34:32,737 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:34:32,737 Epoch 22: Average Training Loss: 1.3575, loss_fused:0.1301, loss_audio:0.1940, loss_video:1.0333, loss_ib:0.0000, acc_fused:0.9576, acc_audio:0.9344, acc_video:0.6016
+2026-06-13 15:35:10,256 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:35:10,257 Epoch 22: f1:0.6121, acc:0.6179, mAP:0.7248, f1_a:0.4813, acc_a:0.5055, mAP_a:0.5929, f1_v:0.4313, acc_v:0.4689, mAP_v:0.5103
+2026-06-13 15:35:10,257 IB warmup epoch 22/70: KL loss and early stopping are disabled.
+2026-06-13 15:35:10,258 Epoch 23 is pending...
+2026-06-13 15:38:16,949 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:38:16,949 Epoch 23: Average Training Loss: 1.3868, loss_fused:0.1373, loss_audio:0.2130, loss_video:1.0366, loss_ib:0.0000, acc_fused:0.9542, acc_audio:0.9300, acc_video:0.5955
+2026-06-13 15:38:51,175 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:38:51,175 Epoch 23: f1:0.6061, acc:0.6166, mAP:0.7303, f1_a:0.5560, acc_a:0.5742, mAP_a:0.6335, f1_v:0.3243, acc_v:0.3815, mAP_v:0.4651
+2026-06-13 15:38:51,176 IB warmup epoch 23/70: KL loss and early stopping are disabled.
+2026-06-13 15:38:51,176 Epoch 24 is pending...
+2026-06-13 15:41:57,789 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:41:57,789 Epoch 24: Average Training Loss: 1.2103, loss_fused:0.0880, loss_audio:0.1344, loss_video:0.9878, loss_ib:0.0000, acc_fused:0.9758, acc_audio:0.9542, acc_video:0.6180
+2026-06-13 15:42:31,766 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:42:31,767 Epoch 24: f1:0.6326, acc:0.6384, mAP:0.7319, f1_a:0.5668, acc_a:0.5748, mAP_a:0.6112, f1_v:0.4493, acc_v:0.4611, mAP_v:0.5288
+2026-06-13 15:42:31,767 IB warmup epoch 24/70: KL loss and early stopping are disabled.
+2026-06-13 15:42:31,767 Epoch 25 is pending...
+2026-06-13 15:45:38,408 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:45:38,408 Epoch 25: Average Training Loss: 1.1905, loss_fused:0.0772, loss_audio:0.1147, loss_video:0.9986, loss_ib:0.0000, acc_fused:0.9782, acc_audio:0.9644, acc_video:0.6098
+2026-06-13 15:46:12,491 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:46:12,491 Epoch 25: f1:0.6190, acc:0.6198, mAP:0.7162, f1_a:0.5329, acc_a:0.5382, mAP_a:0.6039, f1_v:0.4560, acc_v:0.4631, mAP_v:0.5411
+2026-06-13 15:46:12,492 IB warmup epoch 25/70: KL loss and early stopping are disabled.
+2026-06-13 15:46:12,492 Epoch 26 is pending...
+2026-06-13 15:49:25,342 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:49:25,343 Epoch 26: Average Training Loss: 1.2047, loss_fused:0.0810, loss_audio:0.1445, loss_video:0.9792, loss_ib:0.0000, acc_fused:0.9765, acc_audio:0.9554, acc_video:0.6124
+2026-06-13 15:50:04,054 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:50:04,054 Epoch 26: f1:0.5475, acc:0.5601, mAP:0.6956, f1_a:0.4781, acc_a:0.4997, mAP_a:0.5902, f1_v:0.3767, acc_v:0.4265, mAP_v:0.5253
+2026-06-13 15:50:04,055 IB warmup epoch 26/70: KL loss and early stopping are disabled.
+2026-06-13 15:50:04,055 Epoch 27 is pending...
+2026-06-13 15:53:11,101 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:53:11,102 Epoch 27: Average Training Loss: 1.0836, loss_fused:0.0557, loss_audio:0.0802, loss_video:0.9477, loss_ib:0.0000, acc_fused:0.9836, acc_audio:0.9751, acc_video:0.6306
+2026-06-13 15:53:45,142 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:53:45,143 Epoch 27: f1:0.6404, acc:0.6448, mAP:0.7298, f1_a:0.5672, acc_a:0.5768, mAP_a:0.6206, f1_v:0.3285, acc_v:0.3699, mAP_v:0.4975
+2026-06-13 15:53:45,143 IB warmup epoch 27/70: KL loss and early stopping are disabled.
+2026-06-13 15:53:45,143 Epoch 28 is pending...
+2026-06-13 15:56:52,018 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:56:52,018 Epoch 28: Average Training Loss: 1.1653, loss_fused:0.0774, loss_audio:0.1246, loss_video:0.9633, loss_ib:0.0000, acc_fused:0.9756, acc_audio:0.9594, acc_video:0.6308
+2026-06-13 15:57:26,143 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 15:57:26,143 Epoch 28: f1:0.6413, acc:0.6435, mAP:0.7322, f1_a:0.5491, acc_a:0.5568, mAP_a:0.6134, f1_v:0.3706, acc_v:0.4355, mAP_v:0.5182
+2026-06-13 15:57:26,143 IB warmup epoch 28/70: KL loss and early stopping are disabled.
+2026-06-13 15:57:26,144 Epoch 29 is pending...
+2026-06-13 16:00:33,553 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:00:33,553 Epoch 29: Average Training Loss: 1.0709, loss_fused:0.0506, loss_audio:0.0851, loss_video:0.9351, loss_ib:0.0000, acc_fused:0.9860, acc_audio:0.9719, acc_video:0.6316
+2026-06-13 16:01:07,671 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:01:07,671 Epoch 29: f1:0.6648, acc:0.6545, mAP:0.7351, f1_a:0.5694, acc_a:0.5633, mAP_a:0.6102, f1_v:0.4622, acc_v:0.4804, mAP_v:0.5629
+2026-06-13 16:01:07,672 IB warmup epoch 29/70: KL loss and early stopping are disabled.
+2026-06-13 16:01:07,672 Epoch 30 is pending...
+2026-06-13 16:04:20,446 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:04:20,446 Epoch 30: Average Training Loss: 1.1177, loss_fused:0.0657, loss_audio:0.1130, loss_video:0.9390, loss_ib:0.0000, acc_fused:0.9799, acc_audio:0.9640, acc_video:0.6417
+2026-06-13 16:05:00,371 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:05:00,372 Epoch 30: f1:0.5780, acc:0.5915, mAP:0.7014, f1_a:0.4905, acc_a:0.5048, mAP_a:0.5915, f1_v:0.4245, acc_v:0.4778, mAP_v:0.5494
+2026-06-13 16:05:00,373 IB warmup epoch 30/70: KL loss and early stopping are disabled.
+2026-06-13 16:05:00,373 Epoch 31 is pending...
+2026-06-13 16:08:07,703 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:08:07,703 Epoch 31: Average Training Loss: 1.1081, loss_fused:0.0666, loss_audio:0.1208, loss_video:0.9207, loss_ib:0.0000, acc_fused:0.9797, acc_audio:0.9615, acc_video:0.6430
+2026-06-13 16:08:41,829 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:08:41,829 Epoch 31: f1:0.5952, acc:0.5960, mAP:0.7223, f1_a:0.4983, acc_a:0.5003, mAP_a:0.5993, f1_v:0.3990, acc_v:0.4117, mAP_v:0.5072
+2026-06-13 16:08:41,830 IB warmup epoch 31/70: KL loss and early stopping are disabled.
+2026-06-13 16:08:41,830 Epoch 32 is pending...
+2026-06-13 16:11:49,011 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:11:49,011 Epoch 32: Average Training Loss: 1.0436, loss_fused:0.0515, loss_audio:0.0832, loss_video:0.9089, loss_ib:0.0000, acc_fused:0.9859, acc_audio:0.9756, acc_video:0.6447
+2026-06-13 16:12:23,196 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:12:23,196 Epoch 32: f1:0.5662, acc:0.5877, mAP:0.7075, f1_a:0.4829, acc_a:0.5138, mAP_a:0.6001, f1_v:0.4340, acc_v:0.4457, mAP_v:0.5294
+2026-06-13 16:12:23,196 IB warmup epoch 32/70: KL loss and early stopping are disabled.
+2026-06-13 16:12:23,197 Epoch 33 is pending...
+2026-06-13 16:15:29,880 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:15:29,880 Epoch 33: Average Training Loss: 1.0061, loss_fused:0.0405, loss_audio:0.0645, loss_video:0.9012, loss_ib:0.0000, acc_fused:0.9888, acc_audio:0.9773, acc_video:0.6539
+2026-06-13 16:16:04,193 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:16:04,193 Epoch 33: f1:0.6579, acc:0.6615, mAP:0.7353, f1_a:0.5750, acc_a:0.5761, mAP_a:0.6251, f1_v:0.5031, acc_v:0.5177, mAP_v:0.5679
+2026-06-13 16:16:04,194 IB warmup epoch 33/70: KL loss and early stopping are disabled.
+2026-06-13 16:16:04,194 Epoch 34 is pending...
+2026-06-13 16:19:18,824 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:19:18,825 Epoch 34: Average Training Loss: 0.9720, loss_fused:0.0291, loss_audio:0.0450, loss_video:0.8979, loss_ib:0.0000, acc_fused:0.9944, acc_audio:0.9891, acc_video:0.6555
+2026-06-13 16:19:58,710 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:19:58,710 Epoch 34: f1:0.6666, acc:0.6673, mAP:0.7338, f1_a:0.6049, acc_a:0.6082, mAP_a:0.6440, f1_v:0.4980, acc_v:0.5080, mAP_v:0.5470
+2026-06-13 16:19:58,711 IB warmup epoch 34/70: KL loss and early stopping are disabled.
+2026-06-13 16:19:58,711 Epoch 35 is pending...
+2026-06-13 16:23:06,427 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:23:06,427 Epoch 35: Average Training Loss: 0.9402, loss_fused:0.0245, loss_audio:0.0395, loss_video:0.8762, loss_ib:0.0000, acc_fused:0.9954, acc_audio:0.9903, acc_video:0.6647
+2026-06-13 16:23:40,516 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:23:40,516 Epoch 35: f1:0.6716, acc:0.6712, mAP:0.7501, f1_a:0.5752, acc_a:0.5800, mAP_a:0.6334, f1_v:0.4542, acc_v:0.4804, mAP_v:0.5531
+2026-06-13 16:23:40,517 IB warmup epoch 35/70: KL loss and early stopping are disabled.
+2026-06-13 16:23:40,517 Epoch 36 is pending...
+2026-06-13 16:26:48,070 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:26:48,070 Epoch 36: Average Training Loss: 0.9463, loss_fused:0.0263, loss_audio:0.0430, loss_video:0.8771, loss_ib:0.0000, acc_fused:0.9932, acc_audio:0.9872, acc_video:0.6633
+2026-06-13 16:27:22,234 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:27:22,234 Epoch 36: f1:0.6467, acc:0.6480, mAP:0.7419, f1_a:0.5602, acc_a:0.5671, mAP_a:0.6249, f1_v:0.4404, acc_v:0.4669, mAP_v:0.5515
+2026-06-13 16:27:22,234 IB warmup epoch 36/70: KL loss and early stopping are disabled.
+2026-06-13 16:27:22,235 Epoch 37 is pending...
+2026-06-13 16:30:29,455 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:30:29,455 Epoch 37: Average Training Loss: 0.9158, loss_fused:0.0188, loss_audio:0.0254, loss_video:0.8716, loss_ib:0.0000, acc_fused:0.9963, acc_audio:0.9934, acc_video:0.6652
+2026-06-13 16:31:03,390 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:31:03,391 Epoch 37: f1:0.6140, acc:0.6268, mAP:0.7271, f1_a:0.5399, acc_a:0.5504, mAP_a:0.6142, f1_v:0.4471, acc_v:0.4746, mAP_v:0.5620
+2026-06-13 16:31:03,391 IB warmup epoch 37/70: KL loss and early stopping are disabled.
+2026-06-13 16:31:03,391 Epoch 38 is pending...
+2026-06-13 16:34:14,659 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:34:14,659 Epoch 38: Average Training Loss: 0.9039, loss_fused:0.0266, loss_audio:0.0361, loss_video:0.8412, loss_ib:0.0000, acc_fused:0.9927, acc_audio:0.9886, acc_video:0.6875
+2026-06-13 16:34:54,118 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:34:54,119 Epoch 38: f1:0.6641, acc:0.6615, mAP:0.7487, f1_a:0.5877, acc_a:0.5857, mAP_a:0.6406, f1_v:0.4098, acc_v:0.4438, mAP_v:0.5390
+2026-06-13 16:34:54,119 IB warmup epoch 38/70: KL loss and early stopping are disabled.
+2026-06-13 16:34:54,119 Epoch 39 is pending...
+2026-06-13 16:38:01,320 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:38:01,320 Epoch 39: Average Training Loss: 0.9430, loss_fused:0.0347, loss_audio:0.0640, loss_video:0.8443, loss_ib:0.0000, acc_fused:0.9899, acc_audio:0.9797, acc_video:0.6763
+2026-06-13 16:38:35,455 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:38:35,455 Epoch 39: f1:0.6588, acc:0.6583, mAP:0.7423, f1_a:0.5667, acc_a:0.5639, mAP_a:0.6343, f1_v:0.4872, acc_v:0.5061, mAP_v:0.5849
+2026-06-13 16:38:35,455 IB warmup epoch 39/70: KL loss and early stopping are disabled.
+2026-06-13 16:38:35,456 Epoch 40 is pending...
+2026-06-13 16:41:43,119 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:41:43,119 Epoch 40: Average Training Loss: 0.9747, loss_fused:0.0427, loss_audio:0.0854, loss_video:0.8466, loss_ib:0.0000, acc_fused:0.9867, acc_audio:0.9753, acc_video:0.6708
+2026-06-13 16:42:17,729 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:42:17,729 Epoch 40: f1:0.5942, acc:0.6044, mAP:0.7428, f1_a:0.5381, acc_a:0.5401, mAP_a:0.6133, f1_v:0.4351, acc_v:0.4753, mAP_v:0.5771
+2026-06-13 16:42:17,730 IB warmup epoch 40/70: KL loss and early stopping are disabled.
+2026-06-13 16:42:17,730 Epoch 41 is pending...
+2026-06-13 16:45:24,822 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:45:24,822 Epoch 41: Average Training Loss: 0.9572, loss_fused:0.0406, loss_audio:0.0681, loss_video:0.8486, loss_ib:0.0000, acc_fused:0.9879, acc_audio:0.9804, acc_video:0.6771
+2026-06-13 16:45:59,188 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:45:59,188 Epoch 41: f1:0.6841, acc:0.6866, mAP:0.7570, f1_a:0.5821, acc_a:0.5857, mAP_a:0.6350, f1_v:0.5407, acc_v:0.5427, mAP_v:0.5955
+2026-06-13 16:45:59,188 NEW BEST ACC | Epoch 41 | Acc: 0.6866
+2026-06-13 16:45:59,189 IB warmup epoch 41/70: KL loss and early stopping are disabled.
+2026-06-13 16:45:59,189 Epoch 42 is pending...
+2026-06-13 16:49:12,222 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:49:12,222 Epoch 42: Average Training Loss: 0.9052, loss_fused:0.0279, loss_audio:0.0431, loss_video:0.8343, loss_ib:0.0000, acc_fused:0.9920, acc_audio:0.9847, acc_video:0.6804
+2026-06-13 16:49:52,197 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:49:52,197 Epoch 42: f1:0.6311, acc:0.6294, mAP:0.7286, f1_a:0.5606, acc_a:0.5620, mAP_a:0.6100, f1_v:0.4420, acc_v:0.4618, mAP_v:0.5624
+2026-06-13 16:49:52,198 IB warmup epoch 42/70: KL loss and early stopping are disabled.
+2026-06-13 16:49:52,198 Epoch 43 is pending...
+2026-06-13 16:53:01,871 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:53:01,871 Epoch 43: Average Training Loss: 0.8599, loss_fused:0.0146, loss_audio:0.0222, loss_video:0.8231, loss_ib:0.0000, acc_fused:0.9973, acc_audio:0.9935, acc_video:0.6833
+2026-06-13 16:53:35,981 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:53:35,981 Epoch 43: f1:0.6696, acc:0.6647, mAP:0.7372, f1_a:0.6052, acc_a:0.6012, mAP_a:0.6393, f1_v:0.3823, acc_v:0.4066, mAP_v:0.4938
+2026-06-13 16:53:35,982 IB warmup epoch 43/70: KL loss and early stopping are disabled.
+2026-06-13 16:53:35,982 Epoch 44 is pending...
+2026-06-13 16:56:43,048 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:56:43,048 Epoch 44: Average Training Loss: 0.8577, loss_fused:0.0169, loss_audio:0.0344, loss_video:0.8064, loss_ib:0.0000, acc_fused:0.9952, acc_audio:0.9886, acc_video:0.6940
+2026-06-13 16:57:17,216 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 16:57:17,216 Epoch 44: f1:0.6596, acc:0.6596, mAP:0.7312, f1_a:0.5596, acc_a:0.5639, mAP_a:0.6161, f1_v:0.4753, acc_v:0.4894, mAP_v:0.5459
+2026-06-13 16:57:17,217 IB warmup epoch 44/70: KL loss and early stopping are disabled.
+2026-06-13 16:57:17,217 Epoch 45 is pending...
+2026-06-13 17:00:23,594 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:00:23,594 Epoch 45: Average Training Loss: 0.8511, loss_fused:0.0129, loss_audio:0.0206, loss_video:0.8176, loss_ib:0.0000, acc_fused:0.9978, acc_audio:0.9934, acc_video:0.6839
+2026-06-13 17:00:57,470 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:00:57,470 Epoch 45: f1:0.6684, acc:0.6680, mAP:0.7420, f1_a:0.5859, acc_a:0.5857, mAP_a:0.6260, f1_v:0.4465, acc_v:0.4682, mAP_v:0.5739
+2026-06-13 17:00:57,471 IB warmup epoch 45/70: KL loss and early stopping are disabled.
+2026-06-13 17:00:57,471 Epoch 46 is pending...
+2026-06-13 17:04:09,052 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:04:09,053 Epoch 46: Average Training Loss: 0.8178, loss_fused:0.0139, loss_audio:0.0224, loss_video:0.7816, loss_ib:0.0000, acc_fused:0.9973, acc_audio:0.9920, acc_video:0.7051
+2026-06-13 17:04:48,765 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:04:48,765 Epoch 46: f1:0.6563, acc:0.6596, mAP:0.7426, f1_a:0.5788, acc_a:0.5857, mAP_a:0.6280, f1_v:0.4672, acc_v:0.4868, mAP_v:0.5394
+2026-06-13 17:04:48,766 IB warmup epoch 46/70: KL loss and early stopping are disabled.
+2026-06-13 17:04:48,766 Epoch 47 is pending...
+2026-06-13 17:07:57,223 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:07:57,223 Epoch 47: Average Training Loss: 0.8349, loss_fused:0.0151, loss_audio:0.0265, loss_video:0.7933, loss_ib:0.0000, acc_fused:0.9966, acc_audio:0.9910, acc_video:0.6943
+2026-06-13 17:08:31,290 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:08:31,290 Epoch 47: f1:0.5951, acc:0.5941, mAP:0.7193, f1_a:0.5180, acc_a:0.5222, mAP_a:0.6146, f1_v:0.4176, acc_v:0.4194, mAP_v:0.5169
+2026-06-13 17:08:31,291 IB warmup epoch 47/70: KL loss and early stopping are disabled.
+2026-06-13 17:08:31,291 Epoch 48 is pending...
+2026-06-13 17:11:38,624 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:11:38,624 Epoch 48: Average Training Loss: 0.8224, loss_fused:0.0138, loss_audio:0.0173, loss_video:0.7913, loss_ib:0.0000, acc_fused:0.9969, acc_audio:0.9954, acc_video:0.6984
+2026-06-13 17:12:12,747 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:12:12,747 Epoch 48: f1:0.6361, acc:0.6384, mAP:0.7358, f1_a:0.5836, acc_a:0.5890, mAP_a:0.6272, f1_v:0.3495, acc_v:0.3751, mAP_v:0.5027
+2026-06-13 17:12:12,747 IB warmup epoch 48/70: KL loss and early stopping are disabled.
+2026-06-13 17:12:12,748 Epoch 49 is pending...
+2026-06-13 17:15:19,824 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:15:19,824 Epoch 49: Average Training Loss: 0.7993, loss_fused:0.0075, loss_audio:0.0091, loss_video:0.7826, loss_ib:0.0000, acc_fused:0.9986, acc_audio:0.9976, acc_video:0.7027
+2026-06-13 17:15:54,041 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:15:54,041 Epoch 49: f1:0.6604, acc:0.6609, mAP:0.7497, f1_a:0.5784, acc_a:0.5838, mAP_a:0.6294, f1_v:0.4343, acc_v:0.4489, mAP_v:0.5454
+2026-06-13 17:15:54,042 IB warmup epoch 49/70: KL loss and early stopping are disabled.
+2026-06-13 17:15:54,042 Epoch 50 is pending...
+2026-06-13 17:19:04,354 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:19:04,354 Epoch 50: Average Training Loss: 0.8155, loss_fused:0.0107, loss_audio:0.0171, loss_video:0.7877, loss_ib:0.0000, acc_fused:0.9973, acc_audio:0.9956, acc_video:0.7069
+2026-06-13 17:19:43,465 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:19:43,467 Epoch 50: f1:0.6028, acc:0.6069, mAP:0.6994, f1_a:0.5230, acc_a:0.5382, mAP_a:0.5813, f1_v:0.4761, acc_v:0.4888, mAP_v:0.5655
+2026-06-13 17:19:43,468 IB warmup epoch 50/70: KL loss and early stopping are disabled.
+2026-06-13 17:19:43,468 Epoch 51 is pending...
+2026-06-13 17:22:51,429 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:22:51,430 Epoch 51: Average Training Loss: 0.8395, loss_fused:0.0261, loss_audio:0.0519, loss_video:0.7616, loss_ib:0.0000, acc_fused:0.9925, acc_audio:0.9850, acc_video:0.7063
+2026-06-13 17:23:25,364 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:23:25,364 Epoch 51: f1:0.6002, acc:0.6044, mAP:0.7133, f1_a:0.5346, acc_a:0.5446, mAP_a:0.5942, f1_v:0.4431, acc_v:0.4560, mAP_v:0.5459
+2026-06-13 17:23:25,365 IB warmup epoch 51/70: KL loss and early stopping are disabled.
+2026-06-13 17:23:25,365 Epoch 52 is pending...
+2026-06-13 17:26:32,026 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:26:32,027 Epoch 52: Average Training Loss: 0.7910, loss_fused:0.0114, loss_audio:0.0178, loss_video:0.7617, loss_ib:0.0000, acc_fused:0.9976, acc_audio:0.9942, acc_video:0.7149
+2026-06-13 17:27:06,237 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:27:06,238 Epoch 52: f1:0.6479, acc:0.6532, mAP:0.7279, f1_a:0.5753, acc_a:0.5806, mAP_a:0.6138, f1_v:0.5131, acc_v:0.5164, mAP_v:0.5877
+2026-06-13 17:27:06,238 IB warmup epoch 52/70: KL loss and early stopping are disabled.
+2026-06-13 17:27:06,238 Epoch 53 is pending...
+2026-06-13 17:30:12,888 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:30:12,889 Epoch 53: Average Training Loss: 0.8012, loss_fused:0.0162, loss_audio:0.0243, loss_video:0.7607, loss_ib:0.0000, acc_fused:0.9957, acc_audio:0.9915, acc_video:0.7126
+2026-06-13 17:30:47,066 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:30:47,067 Epoch 53: f1:0.6775, acc:0.6821, mAP:0.7579, f1_a:0.5457, acc_a:0.5639, mAP_a:0.6215, f1_v:0.4281, acc_v:0.4695, mAP_v:0.5682
+2026-06-13 17:30:47,067 IB warmup epoch 53/70: KL loss and early stopping are disabled.
+2026-06-13 17:30:47,068 Epoch 54 is pending...
+2026-06-13 17:33:56,834 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:33:56,834 Epoch 54: Average Training Loss: 0.7950, loss_fused:0.0142, loss_audio:0.0228, loss_video:0.7580, loss_ib:0.0000, acc_fused:0.9963, acc_audio:0.9923, acc_video:0.7080
+2026-06-13 17:34:36,843 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:34:36,843 Epoch 54: f1:0.6446, acc:0.6487, mAP:0.7270, f1_a:0.5416, acc_a:0.5491, mAP_a:0.6027, f1_v:0.5260, acc_v:0.5414, mAP_v:0.6028
+2026-06-13 17:34:36,844 IB warmup epoch 54/70: KL loss and early stopping are disabled.
+2026-06-13 17:34:36,844 Epoch 55 is pending...
+2026-06-13 17:37:45,894 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:37:45,894 Epoch 55: Average Training Loss: 0.7877, loss_fused:0.0141, loss_audio:0.0237, loss_video:0.7499, loss_ib:0.0000, acc_fused:0.9963, acc_audio:0.9922, acc_video:0.7206
+2026-06-13 17:38:20,080 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:38:20,080 Epoch 55: f1:0.6803, acc:0.6814, mAP:0.7520, f1_a:0.5950, acc_a:0.5986, mAP_a:0.6321, f1_v:0.4815, acc_v:0.4875, mAP_v:0.5632
+2026-06-13 17:38:20,080 IB warmup epoch 55/70: KL loss and early stopping are disabled.
+2026-06-13 17:38:20,081 Epoch 56 is pending...
+2026-06-13 17:41:26,935 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:41:26,935 Epoch 56: Average Training Loss: 0.8039, loss_fused:0.0160, loss_audio:0.0250, loss_video:0.7629, loss_ib:0.0000, acc_fused:0.9961, acc_audio:0.9927, acc_video:0.7107
+2026-06-13 17:42:01,001 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:42:01,002 Epoch 56: f1:0.6525, acc:0.6532, mAP:0.7343, f1_a:0.5750, acc_a:0.5793, mAP_a:0.6231, f1_v:0.5044, acc_v:0.5311, mAP_v:0.5781
+2026-06-13 17:42:01,002 IB warmup epoch 56/70: KL loss and early stopping are disabled.
+2026-06-13 17:42:01,002 Epoch 57 is pending...
+2026-06-13 17:45:08,128 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:45:08,128 Epoch 57: Average Training Loss: 0.7764, loss_fused:0.0135, loss_audio:0.0227, loss_video:0.7402, loss_ib:0.0000, acc_fused:0.9959, acc_audio:0.9918, acc_video:0.7131
+2026-06-13 17:45:42,215 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:45:42,216 Epoch 57: f1:0.6541, acc:0.6596, mAP:0.7389, f1_a:0.5663, acc_a:0.5780, mAP_a:0.6212, f1_v:0.3989, acc_v:0.4393, mAP_v:0.5201
+2026-06-13 17:45:42,216 IB warmup epoch 57/70: KL loss and early stopping are disabled.
+2026-06-13 17:45:42,216 Epoch 58 is pending...
+2026-06-13 17:48:51,488 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:48:51,489 Epoch 58: Average Training Loss: 0.7704, loss_fused:0.0096, loss_audio:0.0194, loss_video:0.7415, loss_ib:0.0000, acc_fused:0.9973, acc_audio:0.9940, acc_video:0.7221
+2026-06-13 17:49:30,808 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:49:30,808 Epoch 58: f1:0.6686, acc:0.6680, mAP:0.7384, f1_a:0.5849, acc_a:0.5870, mAP_a:0.6210, f1_v:0.4674, acc_v:0.4836, mAP_v:0.5652
+2026-06-13 17:49:30,809 IB warmup epoch 58/70: KL loss and early stopping are disabled.
+2026-06-13 17:49:30,809 Epoch 59 is pending...
+2026-06-13 17:52:54,879 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:52:54,879 Epoch 59: Average Training Loss: 0.7640, loss_fused:0.0119, loss_audio:0.0198, loss_video:0.7323, loss_ib:0.0000, acc_fused:0.9968, acc_audio:0.9952, acc_video:0.7228
+2026-06-13 17:53:38,121 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:53:38,121 Epoch 59: f1:0.6591, acc:0.6647, mAP:0.7346, f1_a:0.5699, acc_a:0.5755, mAP_a:0.6185, f1_v:0.4773, acc_v:0.4990, mAP_v:0.5737
+2026-06-13 17:53:38,122 IB warmup epoch 59/70: KL loss and early stopping are disabled.
+2026-06-13 17:53:38,122 Epoch 60 is pending...
+2026-06-13 17:57:52,225 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:57:52,225 Epoch 60: Average Training Loss: 0.7450, loss_fused:0.0076, loss_audio:0.0122, loss_video:0.7252, loss_ib:0.0000, acc_fused:0.9983, acc_audio:0.9959, acc_video:0.7253
+2026-06-13 17:58:37,393 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 17:58:37,393 Epoch 60: f1:0.6631, acc:0.6673, mAP:0.7523, f1_a:0.5947, acc_a:0.5973, mAP_a:0.6353, f1_v:0.4886, acc_v:0.5080, mAP_v:0.5797
+2026-06-13 17:58:37,394 IB warmup epoch 60/70: KL loss and early stopping are disabled.
+2026-06-13 17:58:37,394 Epoch 61 is pending...
+2026-06-13 18:03:11,641 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:03:11,642 Epoch 61: Average Training Loss: 0.7314, loss_fused:0.0079, loss_audio:0.0130, loss_video:0.7105, loss_ib:0.0000, acc_fused:0.9978, acc_audio:0.9956, acc_video:0.7313
+2026-06-13 18:04:03,169 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:04:03,169 Epoch 61: f1:0.5955, acc:0.6185, mAP:0.7308, f1_a:0.5142, acc_a:0.5408, mAP_a:0.6023, f1_v:0.4309, acc_v:0.4592, mAP_v:0.5514
+2026-06-13 18:04:03,170 IB warmup epoch 61/70: KL loss and early stopping are disabled.
+2026-06-13 18:04:03,170 Epoch 62 is pending...
+2026-06-13 18:08:39,994 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:08:39,994 Epoch 62: Average Training Loss: 0.7875, loss_fused:0.0135, loss_audio:0.0308, loss_video:0.7432, loss_ib:0.0000, acc_fused:0.9966, acc_audio:0.9911, acc_video:0.7248
+2026-06-13 18:09:24,971 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:09:24,971 Epoch 62: f1:0.6689, acc:0.6673, mAP:0.7508, f1_a:0.6030, acc_a:0.6037, mAP_a:0.6288, f1_v:0.3864, acc_v:0.4412, mAP_v:0.5617
+2026-06-13 18:09:24,972 IB warmup epoch 62/70: KL loss and early stopping are disabled.
+2026-06-13 18:09:24,972 Epoch 63 is pending...
+2026-06-13 18:13:52,070 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:13:52,070 Epoch 63: Average Training Loss: 0.7293, loss_fused:0.0092, loss_audio:0.0198, loss_video:0.7003, loss_ib:0.0000, acc_fused:0.9981, acc_audio:0.9940, acc_video:0.7350
+2026-06-13 18:14:41,453 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:14:41,453 Epoch 63: f1:0.6575, acc:0.6654, mAP:0.7463, f1_a:0.5351, acc_a:0.5478, mAP_a:0.5969, f1_v:0.4957, acc_v:0.5112, mAP_v:0.5826
+2026-06-13 18:14:41,454 IB warmup epoch 63/70: KL loss and early stopping are disabled.
+2026-06-13 18:14:41,454 Epoch 64 is pending...
+2026-06-13 18:20:02,784 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:20:02,784 Epoch 64: Average Training Loss: 0.7831, loss_fused:0.0232, loss_audio:0.0501, loss_video:0.7099, loss_ib:0.0000, acc_fused:0.9930, acc_audio:0.9864, acc_video:0.7328
+2026-06-13 18:21:06,095 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:21:06,097 Epoch 64: f1:0.6043, acc:0.6114, mAP:0.7306, f1_a:0.5054, acc_a:0.5106, mAP_a:0.6004, f1_v:0.4505, acc_v:0.4778, mAP_v:0.5784
+2026-06-13 18:21:06,098 IB warmup epoch 64/70: KL loss and early stopping are disabled.
+2026-06-13 18:21:06,098 Epoch 65 is pending...
+2026-06-13 18:26:23,559 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:26:23,560 Epoch 65: Average Training Loss: 0.7492, loss_fused:0.0114, loss_audio:0.0211, loss_video:0.7167, loss_ib:0.0000, acc_fused:0.9976, acc_audio:0.9927, acc_video:0.7332
+2026-06-13 18:27:15,165 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:27:15,165 Epoch 65: f1:0.6592, acc:0.6609, mAP:0.7340, f1_a:0.6038, acc_a:0.6057, mAP_a:0.6235, f1_v:0.4552, acc_v:0.4644, mAP_v:0.5375
+2026-06-13 18:27:15,166 IB warmup epoch 65/70: KL loss and early stopping are disabled.
+2026-06-13 18:27:15,166 Epoch 66 is pending...
+2026-06-13 18:32:14,816 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:32:14,816 Epoch 66: Average Training Loss: 0.7331, loss_fused:0.0122, loss_audio:0.0224, loss_video:0.6985, loss_ib:0.0000, acc_fused:0.9969, acc_audio:0.9920, acc_video:0.7345
+2026-06-13 18:33:00,183 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:33:00,184 Epoch 66: f1:0.6553, acc:0.6628, mAP:0.7417, f1_a:0.5875, acc_a:0.5947, mAP_a:0.6245, f1_v:0.4585, acc_v:0.4978, mAP_v:0.5586
+2026-06-13 18:33:00,185 IB warmup epoch 66/70: KL loss and early stopping are disabled.
+2026-06-13 18:33:00,185 Epoch 67 is pending...
+2026-06-13 18:37:12,372 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:37:12,373 Epoch 67: Average Training Loss: 0.7237, loss_fused:0.0092, loss_audio:0.0169, loss_video:0.6976, loss_ib:0.0000, acc_fused:0.9973, acc_audio:0.9945, acc_video:0.7425
+2026-06-13 18:37:53,533 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:37:53,534 Epoch 67: f1:0.5737, acc:0.5973, mAP:0.7179, f1_a:0.5392, acc_a:0.5485, mAP_a:0.5996, f1_v:0.4522, acc_v:0.4984, mAP_v:0.5761
+2026-06-13 18:37:53,535 IB warmup epoch 67/70: KL loss and early stopping are disabled.
+2026-06-13 18:37:53,536 Epoch 68 is pending...
+2026-06-13 18:41:54,601 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:41:54,601 Epoch 68: Average Training Loss: 0.7145, loss_fused:0.0135, loss_audio:0.0207, loss_video:0.6803, loss_ib:0.0000, acc_fused:0.9973, acc_audio:0.9925, acc_video:0.7425
+2026-06-13 18:42:36,867 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:42:36,868 Epoch 68: f1:0.6576, acc:0.6628, mAP:0.7579, f1_a:0.5502, acc_a:0.5594, mAP_a:0.6084, f1_v:0.4755, acc_v:0.4978, mAP_v:0.5769
+2026-06-13 18:42:36,869 IB warmup epoch 68/70: KL loss and early stopping are disabled.
+2026-06-13 18:42:36,869 Epoch 69 is pending...
+2026-06-13 18:46:34,429 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:46:34,429 Epoch 69: Average Training Loss: 0.7367, loss_fused:0.0092, loss_audio:0.0155, loss_video:0.7120, loss_ib:0.0000, acc_fused:0.9980, acc_audio:0.9951, acc_video:0.7318
+2026-06-13 18:47:16,920 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:47:16,920 Epoch 69: f1:0.6517, acc:0.6609, mAP:0.7440, f1_a:0.5573, acc_a:0.5652, mAP_a:0.6125, f1_v:0.4459, acc_v:0.4624, mAP_v:0.5777
+2026-06-13 18:47:16,921 IB warmup epoch 69/70: KL loss and early stopping are disabled.
+2026-06-13 18:47:16,921 Epoch 70 is pending...
+2026-06-13 18:51:37,114 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:51:37,115 Epoch 70: Average Training Loss: 0.7283, loss_fused:0.0045, loss_audio:0.0056, loss_video:0.5774, loss_ib:0.1408, acc_fused:0.9986, acc_audio:0.9976, acc_video:0.7824
+2026-06-13 18:52:20,464 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-06-13 18:52:20,465 Epoch 70: f1:0.6800, acc:0.6808, mAP:0.7555, f1_a:0.5828, acc_a:0.5838, mAP_a:0.6230, f1_v:0.4919, acc_v:0.5003, mAP_v:0.5906
+2026-06-13 18:52:20,644 Model saved to E:/Paper_Experiment/DML/DML_v1/CREMAD_v2/savepath/CREMA-D\dml_cremad_seed0_lr0.005\model_best_clean.pt
+2026-06-13 18:52:20,645 Epoch 71 is pending...
